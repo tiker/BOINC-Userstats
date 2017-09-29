@@ -4,7 +4,7 @@ Highcharts.setOptions({
 		contextButtonTitle: 'Chart Options',
 		loading: 'Data is loading...',
 		months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-		weekdays: ['Sundy', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sutterday'],
+		weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
 		shortMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
 		exportButtonTitle: "Export",
 		printButtonTitle: "Print",
