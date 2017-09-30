@@ -8,7 +8,7 @@ include "/path/to/db_connect.php";
 # Anfang des Abrufs der persoenlichen Daten
 #----------------------------------------------------------
 
-$query=mysql_query("SELECT * from boinc_grundwerte WHERE project_status ='1'") or die (mysql_error);  //nur bei aktiven Projekten Werte lesen
+$query=mysqli_query($db_conn,"SELECT * from boinc_grundwerte WHERE project_status ='1'") or die (mysqli_error());  //nur bei aktiven Projekten Werte lesen
 
 $total_credits_day = "0";
 $pending_credits = "0";
@@ -26,9 +26,9 @@ $ctx = stream_context_create(array(
 $updatestarttime = time();
   	$sqlupdatestarttime  = "UPDATE boinc_user 
 			SET lastupdate_start='" .$updatestarttime. "'";
-	mysql_query($sqlupdatestarttime);
+	mysqli_query($db_conn,$sqlupdatestarttime);
 
-while($row=mysql_fetch_assoc($query))
+while($row=mysqli_fetch_assoc($query))
 	{
 		$xml_string_pendings = FALSE;
         $xml_string_pendings = @file_get_contents ($row['url'] . "pending.php?format=xml&authenticator=" . $row['authenticator'], 0, $ctx);
@@ -60,18 +60,18 @@ while($row=mysql_fetch_assoc($query))
 			(project_shortname, time_stamp, credits) 
 			VALUES 
 			('" .$row['project_shortname']. "', '" .$timestamp. "','" .$diff1h. "')";  
-	mysql_query($sql);
+	mysqli_query($db_conn,$sql);
 	}
 
   	$sql  = "UPDATE boinc_grundwerte 
 			SET total_credits='" .$total_credits. "' 
 			WHERE project_shortname='" .$row['project_shortname']. "'";
-	mysql_query($sql);
+	mysqli_query($db_conn,$sql);
 
  	$sql_pendings  = "UPDATE boinc_grundwerte 
 			SET pending_credits='" .$pending_credits. "' 
 			WHERE project_shortname='" .$row['project_shortname']. "'";
-	mysql_query($sql_pendings);  
+	mysqli_query($db_conn,$sql_pendings); 
 
 
   ###############################################
@@ -82,7 +82,7 @@ while($row=mysql_fetch_assoc($query))
 		$sql= "INSERT INTO boinc_werte_day (project_shortname, time_stamp, total_credits, pending_credits) 
 			VALUES
 			('" .$row['project_shortname']. "', '" .$time_stamp. "', ".$total_credits.", ".$pending_credits.")";
-	   mysql_query($sql);  //Werte fuer Tages-Output der einzelnen Projekte DB eintragen
+	   mysqli_query($db_conn,$sql);  //Werte fuer Tages-Output der einzelnen Projekte DB eintragen
 	}
 }
 
@@ -94,7 +94,7 @@ if ($gesamtcredits_h > 0) {
 			(project_shortname, time_stamp, credits) 
 			VALUES 
 			('gesamt', '" .$time_stamp. "','" .$gesamtcredits_h. "')";  
-	mysql_query($sql);
+	mysqli_query($db_conn,$sql);
 }
 
 #############################################
@@ -103,19 +103,19 @@ if ($gesamtcredits_h > 0) {
 	if ($timestamp == date('Y-m-d'). ' 00:00:00') {
 # Gesamt Credits
 		$gesamt_gestern_query = "SELECT sum(total_credits) AS total_credits FROM boinc_grundwerte";
-		$gesamt = mysql_query($gesamt_gestern_query);
-		$gesamt_vortag = mysql_fetch_assoc($gesamt);
+		$gesamt = mysqli_query($db_conn,$gesamt_gestern_query);
+		$gesamt_vortag = mysqli_fetch_assoc($gesamt);
 		$total_credits_gestern = $gesamt_vortag['total_credits'];
 # Pendings
 		$pending_gestern_query = "SELECT sum(pending_credits) AS pending_credits FROM boinc_grundwerte";
-		$pendings = mysql_query($pending_gestern_query);
-		$pendings_vortag = mysql_fetch_assoc($pendings);
+		$pendings = mysqli_query($db_conn,$pending_gestern_query);
+		$pendings_vortag = mysqli_fetch_assoc($pendings);
 		$total_pendings_gestern = $pendings_vortag['pending_credits'];
 #	print_r($gesamt_vortag);
 	$time = ceil($unixtime/3600) * 3600;
 	$sql_gesamt= "INSERT INTO boinc_werte_day (project_shortname, time_stamp, total_credits, pending_credits) 
 		VALUES ('gesamt', '" .$time. "', '" .$total_credits_gestern. "', '" .$total_pendings_gestern. "')";
-	mysql_query($sql_gesamt);  // Werte in die DB eintragen
+	mysqli_query($db_conn,$sql_gesamt);  // Werte in die DB eintragen
 }
 
 ############################################
@@ -123,7 +123,7 @@ if ($gesamtcredits_h > 0) {
 $updatetime = time();
   	$sqlupdatetime  = "UPDATE boinc_user 
 			SET lastupdate='" .$updatetime. "'";
-	mysql_query($sqlupdatetime);
+	mysqli_query($db_conn,$sqlupdatetime);
 
 #----------------------------------------------------------
 # Ende des Abrufs der persoenlichen Daten
