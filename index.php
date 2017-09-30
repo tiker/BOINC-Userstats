@@ -13,9 +13,6 @@ function mysqli_result($res, $row, $field = 0)
 }
 
 date_default_timezone_set('UTC');
-//-----------------------------------------------------------------------------------
-// ab hier bitte keine Aenderungen vornehmen, wenn man nicht weiß, was man tut!!! :D
-//-----------------------------------------------------------------------------------
 
 // Sprachdefinierung
 if (isset($_GET["lang"])) $lang = $_GET["lang"];
@@ -32,7 +29,7 @@ while ($row = mysqli_fetch_assoc($result_user)) {
     $datum_start = $row["lastupdate_start"];
     $datum = $row["lastupdate"];
 }
-#	$datum_start=$datum_start + 3600;
+
 $lastupdate_start = date("d.m.Y H:i:s", $datum_start);
 $lastupdate = date("H:i:s", $datum);
 # Ende Datenzusammenstellung User
@@ -126,7 +123,6 @@ while ($row = mysqli_fetch_assoc($result_grundwerte)) {
 
         #Aktueller Tagesoutput
         $tagesanfang = mktime(0, 0, 1, date("m"), date("d"), date("Y"));
-#	$tagesanfang = mktime($timezoneoffset, 0, 0, date("m"), date ("d"), date("Y"));
         $query = 'SELECT sum(credits) AS sum_today FROM boinc_werte WHERE project_shortname="' . $shortname . '" AND time_stamp>"' . $tagesanfang . '"';
         $result = mysqli_query($db_conn,$query);
         $table_row["sum_today"] = mysqli_result($result, 0, 0);
@@ -135,8 +131,7 @@ while ($row = mysqli_fetch_assoc($result_grundwerte)) {
         #Tagesoutput gestern
         $gestern_anfang = mktime(0, 0, 1, date("m"), date("d") - 1, date("Y"));
         $gestern_ende = mktime(0, 0, 0, date("m"), date("d"), date("Y"));
-#	$gestern_anfang = mktime($timezoneoffset, 0, 1, date("m"), date ("d")-1, date("Y"));
-#	$gestern_ende = mktime($timezoneoffset, 0, 0, date("m"), date ("d"), date("Y"));
+
         $query = 'SELECT sum(credits) AS sum_yesterday FROM boinc_werte
 		WHERE	 project_shortname="' . $shortname . '" AND 
 			 time_stamp BETWEEN "' . $gestern_anfang . '" AND "' . $gestern_ende . '"';

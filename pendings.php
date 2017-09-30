@@ -20,7 +20,6 @@ while ($row = mysqli_fetch_assoc($result_user)) {
 	$datum_start = $row["lastupdate_start"];
 	$datum = $row["lastupdate"];
 	}
-#	$datum_start=$datum_start + 3600;
 	$lastupdate_start = date("d.m.Y H:i:s",$datum_start);
 	$lastupdate = date("H:i:s",$datum);
 # Ende Datenzusammenstellung User
@@ -84,11 +83,7 @@ else include "./lang/en.txt.php";
                         <tbody>
 
                         <?php
-                        #------------------------------------------------------
-                        # Abrufen der persönlichen Stats-Daten
-                        #------------------------------------------------------
                         $query = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte WHERE project_status ='1'") or die (mysqli_error);  //nur bei aktiven Projekten Werte lesen
-                        #echo "Fehler: " .mysqli_error();
                         $ctx = stream_context_create(array(
                                 'http' => array(
                                     'timeout' => 1
@@ -98,7 +93,6 @@ else include "./lang/en.txt.php";
                         $xml_string_pendings = "false";
                         $pendings_gesamt = null;
                         while ($row = mysqli_fetch_assoc($query)) {
-#------------ Abrufen der WebRPC-Daten ------------------------
                             $xml_string_pendings = @file_get_contents($row['url'] . "pending.php?format=xml&authenticator=" . $row['authenticator'], 0, $ctx);
                             if ($xml_string_pendings == FALSE) {
                                 $projectname = $row['project'];
@@ -111,7 +105,6 @@ else include "./lang/en.txt.php";
                             $pendings_gesamt = $pendings_gesamt + $pending_credits;
                             $sql_pendings = "UPDATE boinc_grundwerte SET pending_credits='" . $pending_credits . "' WHERE project_shortname='" . $row['project_shortname'] . "'";   //aktuelle Pendings des Projektes in Grundwerttabelle eintragen
                             mysqli_query($db_conn, $sql_pendings);  //Werte in DB eintragen
-#	   echo $projectname .": ". $pending_credits ."<br>";
 
                             echo "  <tr><td class='text-right'>" . $projectname . "</td>";
                             echo "  <td class='text-left'>" . number_format($pending_credits, 0, $dec_point, $thousands_sep) . "</td></tr>";

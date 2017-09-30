@@ -49,7 +49,6 @@ while($row=mysqli_fetch_assoc($query))
 			$diff1h = 0;
 		}
 		else {	// bei positivem Abfrageergebnis
-			#			$total_credits = substr($xml->total_credit, 0, strpos($xml->total_credit,".")); 
 			$total_credits = intval($xml->total_credit);  //aktuelle Credits der Variable zuordnen
 			$timestamp = ceil($unixtime/3600) * 3600;        // Zeitstempel definieren und auf Punkt 0 der aktuellen Stunde setzen
 			$diff1h = $total_credits - $row['total_credits'];
@@ -101,17 +100,16 @@ if ($gesamtcredits_h > 0) {
 # Um Mitternacht Gesamttagesoutput und aktuelle Pendings in DB schreiben
 	$timestamp = date('Y-m-d H').':00:00';        // Zeitstempel definieren und auf Punkt 0 der aktuellen Stunde setzen
 	if ($timestamp == date('Y-m-d'). ' 00:00:00') {
-# Gesamt Credits
+	# Gesamt Credits
 		$gesamt_gestern_query = "SELECT sum(total_credits) AS total_credits FROM boinc_grundwerte";
 		$gesamt = mysqli_query($db_conn,$gesamt_gestern_query);
 		$gesamt_vortag = mysqli_fetch_assoc($gesamt);
 		$total_credits_gestern = $gesamt_vortag['total_credits'];
-# Pendings
+	# Pendings
 		$pending_gestern_query = "SELECT sum(pending_credits) AS pending_credits FROM boinc_grundwerte";
 		$pendings = mysqli_query($db_conn,$pending_gestern_query);
 		$pendings_vortag = mysqli_fetch_assoc($pendings);
 		$total_pendings_gestern = $pendings_vortag['pending_credits'];
-#	print_r($gesamt_vortag);
 	$time = ceil($unixtime/3600) * 3600;
 	$sql_gesamt= "INSERT INTO boinc_werte_day (project_shortname, time_stamp, total_credits, pending_credits) 
 		VALUES ('gesamt', '" .$time. "', '" .$total_credits_gestern. "', '" .$total_pendings_gestern. "')";
