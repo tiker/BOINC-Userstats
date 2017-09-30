@@ -238,6 +238,8 @@ $output_gesamt_pendings_html = substr($output_gesamt_pendings_html, 0, -2);
 </head>
 <body>
 
+<?php if ($navbar == '1') echo $tr_hp_nav ?>
+
 <div class="wrapper">
     <!--div class="landing-header"-->
     <div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
