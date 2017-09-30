@@ -2,300 +2,278 @@
 	Created by BoincTasks: http://www.efmer.eu/boinc/boinc_tasks/index.html
 -->
 
-<!doctype html>
-<html lang="de">
-	<head>
-	    <meta charset="utf-8" />
-	    <link rel="icon" type="image/png" href="favicon.ico">
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	
-	    <title>BOINC-Userstats - XSmeagolX</title>
-	
-	    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-	    <meta name="viewport" content="width=device-width" />
-	
-	    <!-- Bootstrap CSS -->
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	    <link href="../../assets/css/ct-paper.css" rel="stylesheet"/>
-	    <link href="../../assets/css/demo.css" rel="stylesheet" /> 
-	    <link href="../../assets/css/examples.css" rel="stylesheet" /> 
-		<link href="../../rotating_card/css/rotating-card.css" rel="stylesheet" />
-	        
-	    <!--     Fonts and icons     -->
-	    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-	    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-	
-	    <!-- JS JQuery und Bootstrap --> 
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
-	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-	    <!--  Plugins -->
-	    <script src="../../assets/js/ct-paper-checkbox.js"></script>
-	    <script src="../../assets/js/ct-paper-radio.js"></script>
-	    <script src="../../assets/js/bootstrap-select.js"></script>
-	    <script src="../../assets/js/bootstrap-datepicker.js"></script>
-	    <script src="../../assets/js/ct-paper.js"></script>
-
-		<link rel="shortcut icon" href="favicon.ico">
-		
-	    <script src="https://code.highcharts.com/stock/highstock.js"></script>	
-	    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-
-	    <link rel="shortcut icon" href="favicon.ico">		
-		
-</head>
-	<body>
-
-            <nav class="navbar navbar-default" role="navigation-demo" id="demo-navbar">
-                <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a href="../../index.html">
-                        <div class="logo-container">
-                                <div class="logo">
-                                        <img src="../../images/brand.jpg" alt="My Logo">
-                                </div>
-                                <div class="brand">
-                                        Timo Schneider
-                                </div>
-                        </div>
-                        </a>
-                    </div>
-
-        	<!-- Collect the nav links, forms, and other content for toggling -->
-                	<div class="collapse navbar-collapse" id="navigation-example-2">
-                        	<ul class="nav navbar-nav navbar-right">
-                       			<li>
-                        	                <a href="http://gedichte.timo-schneider.de" class="btn btn-neutral">Gedichte</a>
-                        	        </li>
-                        	        <li>
-                        	                <a href="https://timo-schneider.de/boinc/" class="btn btn-neutral">XSmeagolX</a>
-                        	        </li>
-                        	        <li>
-                        	                <a href="https://timo-schneider.de/sgstats/" class="btn btn-neutral">SG-Stats</a>
-                        	        </li>
-                        	</ul>
-                	</div><!-- /.navbar-collapse -->
-        	</div><!-- /.container-->
-	</nav>	
-
-	    <div class="wrapper">
-	        <!--div class="landing-header"-->
-	        <div class="header img-reponsive" style="background-image: url('../../assets/paper_img/Syria_landscape.jpg');">
-	            <div class="container">
-	                <div class="motto">
-		    	    <h1 class="title"><font color="white">laufende WU's</font></h1>
-	                    <h3><font color="white">von XSmeagolX aus dem Team SETI.Germany</font></h3>
-	                </div>
-	            </div>    
-	        </div>
-	     </div>
-
-             <div class="alert-info">
-                <div class="container">
-                        <h5><b>letzte Aktualisierung:</b></font><font size='3'> 29.08.2017 </font></h5>
-                </div>
-             </div>	
-
-                <div class="alert-warning">
-                        <div class="container"><a href='../index.php'><i class='fa fa-home fa-fw'></i>Home</a> <i class="fa fa-arrow-right fa-fw"></i><i class='fa fa-bar-chart fa-fw'></i>laufende WU's
-                        </div>
-                </div>
-
-			 
-<div class="section text-center section-default" id="projekte">
-	<div class="container-fluid">
-		<div class="main">
-			<div class="section section-standard">
-				<div class="container-fluid">
-					<h2 class="title-uppercase text-center">derzeit deaktiviert</h2>
-
-
-
-<!--style>@media (max-width: 978px) { .table-condensed td, .table-condensed th { padding: 0 1px !important; } }</style-->
-
-<style>
-        @media (max-width: 767px) {
-                .table-condensed td, 
-                .table-condensed th { 
-                        padding: 3px 5px !important; 
-                }
-		}
-        @media (max-width: 560px) {
-                .table-condensed td, 
-                .table-condensed th { 
-                        padding: 1px 1px !important; 
-                }
-                .container-fluid { 
-                        padding-left: 0 !important; 
-                        padding-right: 0 !important; 
-                } 
-        }
-</style>
-
-	
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<LINK REL="SHORTCUT ICON"   HREF="http://efmer.eu/boinc/boinc_tasks/favicon.ico" type="image/x-icon" >
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<meta http-equiv="refresh" content="601">
+	<title>BOINC Tasks von XSmeagolX</title>
+	<link rel="stylesheet" href="./style.css" type="text/css" media="print, projection, screen" />
+		<script type="text/javascript" src="./jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="./jquery.tablesorter.js"></script>
+		<script type="text/javascript" src="./sortable.js"></script>		
+		<script>
+			$(function(){
+			$("#myTable").tablesorter();
+			});
+		</script>		
+</head>		
 <!-- 
 __InsertHeaderTemplateBegin__
-<tr class="alert-info">
-<th>__Project__</th><th>__Application__</th><th>__Percentage__</th><th>Restzeit</th><th>__Deadline__</th><th>__Computer__</th>
+<tr height="20px" align="left">
+<th class="sortable" BGCOLOR="#5883A6">__Project__</th><th BGCOLOR="#5883A6">__Application__</th><th BGCOLOR="#5883A6">__Name__</th><th BGCOLOR="#5883A6" width="100px">__Percentage__</th><th BGCOLOR="#5883A6">Restzeit</th><th BGCOLOR="#5883A6">__State__</th><th BGCOLOR="#5883A6">__Deadline__</th><th BGCOLOR="#5883A6">__Computer__</th>
 </tr>
 __InsertHeaderTemplateEnd__ -->
 
 
 <!-- 
 __InsertRowTemplateBegin__
-<tr class="alert-primary">
-<td BGCOLOR="#__ProjectColor__" style="vertical-align: middle;">__Project__</td><td BGCOLOR="#__ApplicationColor__">__Application__</td><td BGCOLOR="#__PercentageColor__"><div class="progress" style="margin-bottom: 0px;"><div class="progress-bar progress-bar-info" role="progress-bar" aria-value-now="__Percentage__" aria-valuemin="0" aria-valuemax="100" style="width: __Percentage__%">__Percentage__%<span class="sr-only">__Percentage__% Complete</span></div></div></td><td BGCOLOR="#__TimeleftColor__">__Timeleft__</td><td BGCOLOR="#__DeadlineColor__">__Deadline__</td><td BGCOLOR="#__ComputerColor__">__Computer__</td>
+<tr height="20px">
+<td BGCOLOR="#__ProjectColor__">__Project__</td><td BGCOLOR="#__ApplicationColor__">__Application__</td><td BGCOLOR="#__NameColor__">__Name__</td><td width="100px" BGCOLOR="#__PercentageColor__"><div style="background-color:#193660;height=20px;width:__Percentage__px"><font color="white">__Percentage__</font></div></td><td BGCOLOR="#__TimeleftColor__">__Timeleft__</td><td BGCOLOR="#__StateColor__">__State__</td><td BGCOLOR="#__DeadlineColor__">__Deadline__</td><td BGCOLOR="#__ComputerColor__">__Computer__</td>
 </tr>
 __InsertRowTemplateEnd__ -->
 
-<table class="table table-striped table-hover table-condensed text-left" style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-				<font size='2'><font size='2'><b>Aktualisierungsintervall:</b></font><font size='3'> alle 10 Minuten</font>
+	<body BGCOLOR="#D0FFF0">
+	<br>
+		<font size = "2em">
+			<table id="myTable" border="0" cellpadding="2" cellspacing="0" align="left" width="950px" class="tablesorter">
+				<caption><strong><font size='2'>laufende WU's von </font><font size='3'>XSmeagolX</font><font size='2'> aus dem Team </font><font size='3'>SETI.Germany</font>
+					</strong><br><font size='2'><b>letzte Aktualisierung:</b></font><font size='3'> 16.09.2016 10:14:12 :: </font><font size='2'><b>Aktualisierungsintervall:</b></font><font size='3'> alle 10 Minuten</font>
+				</caption>
 				<thead>
 					
-<tr class="alert-info">
-<th>Projekt</th><th>Anwendung</th><th>Fortschritt</th><th>Restzeit</th><th>Deadline</th><th>Computer</th>
+<tr height="20px" align="left">
+<th class="sortable" BGCOLOR="#5883A6">Projekt</th><th BGCOLOR="#5883A6">Anwendung</th><th BGCOLOR="#5883A6">Name</th><th BGCOLOR="#5883A6" width="100px">Fortschritt</th><th BGCOLOR="#5883A6">Restzeit</th><th BGCOLOR="#5883A6">Status</th><th BGCOLOR="#5883A6">Deadline</th><th BGCOLOR="#5883A6">Computer</th>
 </tr>
 
 				</thead>
 				<tbody>
 					
+<tr height="20px">
+<td BGCOLOR="#35B34B">GoofyxGrid@Home</td><td BGCOLOR="#35B34B">15.00 monkeys_v1</td><td BGCOLOR="#35B34B">monkeys_v1_000002F.6-L7_047581_100000_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:23px"><font color="white">23</font></div></td><td BGCOLOR="#35B34B">-</td><td BGCOLOR="#35B34B">Aktiv - Niedrige Priorität</td><td BGCOLOR="#35B34B">21.09.2016 09:40:54</td><td BGCOLOR="#35B34B">TSMacPro</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#FF4AA5">PrimeGrid</td><td BGCOLOR="#FF4AA5">1.41 pps_sr2sieve (openclatiPPSsieve)</td><td BGCOLOR="#FF4AA5">2 [Aufgaben] </td><td width="100px" BGCOLOR="#FF4AA5"><div style="background-color:#193660;height=20px;width:84px"><font color="white">84</font></div></td><td BGCOLOR="#FF4AA5">00:06:40</td><td BGCOLOR="#FF4AA5">Wartend</td><td BGCOLOR="#FF4AA5">22.09.2016 09:53:56</td><td BGCOLOR="#FF4AA5">TSMacPro</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">Updating...</td><td BGCOLOR="#35B34B">8.00 Updating, please wait</td><td BGCOLOR="#35B34B">monkeys_v2_000001U.3-CHRISTMAS_010946_100000_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:100px"><font color="white">100</font></div></td><td BGCOLOR="#35B34B">-</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">21.09.2016 09:55:58</td><td BGCOLOR="#35B34B">TSMacPro</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070425_x5jmt_ZIKV_NS3helicase_B_s2_0073_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:96px"><font color="white">96</font></div></td><td BGCOLOR="#35B34B">00:02:55</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 05:20:57</td><td BGCOLOR="#35B34B">TSMacPro</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070426_x5jmt_ZIKV_NS3helicase_B_s2_0432_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:93px"><font color="white">93</font></div></td><td BGCOLOR="#35B34B">00:05:35</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 05:20:57</td><td BGCOLOR="#35B34B">TSMacPro</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070425_x5jmt_ZIKV_NS3helicase_B_s2_0249_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:84px"><font color="white">84</font></div></td><td BGCOLOR="#35B34B">00:12:10</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 05:20:57</td><td BGCOLOR="#35B34B">TSMacPro</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070426_x5jmt_ZIKV_NS3helicase_B_s2_0400_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:85px"><font color="white">85</font></div></td><td BGCOLOR="#35B34B">00:11:16</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 05:20:57</td><td BGCOLOR="#35B34B">TSMacPro</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070452_x5jmt_ZIKV_NS3helicase_B_s2_0266_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:70px"><font color="white">70</font></div></td><td BGCOLOR="#35B34B">00:23:09</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 06:26:13</td><td BGCOLOR="#35B34B">TSMacPro</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070452_x5jmt_ZIKV_NS3helicase_B_s2_0242_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:34px"><font color="white">34</font></div></td><td BGCOLOR="#35B34B">00:51:02</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 06:26:13</td><td BGCOLOR="#35B34B">TSMacPro</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070452_x5jmt_ZIKV_NS3helicase_B_s2_0273_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:35px"><font color="white">35</font></div></td><td BGCOLOR="#35B34B">00:50:07</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 06:26:13</td><td BGCOLOR="#35B34B">TSMacPro</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070452_x5jmt_ZIKV_NS3helicase_B_s2_0283_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:29px"><font color="white">29</font></div></td><td BGCOLOR="#35B34B">00:55:23</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 06:26:13</td><td BGCOLOR="#35B34B">TSMacPro</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070452_x5jmt_ZIKV_NS3helicase_B_s2_0271_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:41px"><font color="white">41</font></div></td><td BGCOLOR="#35B34B">00:45:55</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 06:26:13</td><td BGCOLOR="#35B34B">TSMacPro</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070452_x5jmt_ZIKV_NS3helicase_B_s2_0278_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:27px"><font color="white">27</font></div></td><td BGCOLOR="#35B34B">00:56:44</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 06:26:13</td><td BGCOLOR="#35B34B">TSMacPro</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070452_x5jmt_ZIKV_NS3helicase_B_s2_0277_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:3px"><font color="white">3</font></div></td><td BGCOLOR="#35B34B">01:15:17</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 06:26:13</td><td BGCOLOR="#35B34B">TSMacPro</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070452_x5jmt_ZIKV_NS3helicase_B_s2_0282_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:3px"><font color="white">3</font></div></td><td BGCOLOR="#35B34B">01:15:25</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 06:26:13</td><td BGCOLOR="#35B34B">TSMacPro</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#FFFF80">World Community Grid</td><td BGCOLOR="#FFFF80">7.08 zika</td><td BGCOLOR="#FFFF80">17 [Aufgaben] </td><td width="100px" BGCOLOR="#FFFF80"><div style="background-color:#193660;height=20px;width:0px"><font color="white">0</font></div></td><td BGCOLOR="#FFFF80">21:47:14</td><td BGCOLOR="#FFFF80">Zur Ausführung bereit</td><td BGCOLOR="#FFFF80">19.09.2016 20:51:47</td><td BGCOLOR="#FFFF80">TSMacPro</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">WUProp@Home</td><td BGCOLOR="#35B34B">4.18 data_collect_v4 (nci)</td><td BGCOLOR="#35B34B">data_collect_v4_1469884957_1413267_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:9px"><font color="white">9</font></div></td><td BGCOLOR="#35B34B">05:22:36</td><td BGCOLOR="#35B34B">Aktiv - Niedrige Priorität</td><td BGCOLOR="#35B34B">23.09.2016 09:40:15</td><td BGCOLOR="#35B34B">TSMacPro</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#1B891B">Collatz Conjecture</td><td BGCOLOR="#1B891B">1.21 collatz_sieve (opencl_nvidia_gpu)</td><td BGCOLOR="#1B891B">collatz_sieve_2848712861125900763136_6597069766656_0</td><td width="100px" BGCOLOR="#1B891B"><div style="background-color:#193660;height=20px;width:86px"><font color="white">86</font></div></td><td BGCOLOR="#1B891B">00:01:58</td><td BGCOLOR="#1B891B">Aktiv</td><td BGCOLOR="#1B891B">30.09.2016 05:13:24</td><td BGCOLOR="#1B891B">TSWin001</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#1B891B">Collatz Conjecture</td><td BGCOLOR="#1B891B">1.21 collatz_sieve (opencl_nvidia_gpu)</td><td BGCOLOR="#1B891B">collatz_sieve_2848728027789294305280_6597069766656_0</td><td width="100px" BGCOLOR="#1B891B"><div style="background-color:#193660;height=20px;width:85px"><font color="white">85</font></div></td><td BGCOLOR="#1B891B">00:02:09</td><td BGCOLOR="#1B891B">Aktiv</td><td BGCOLOR="#1B891B">30.09.2016 05:26:35</td><td BGCOLOR="#1B891B">TSWin001</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#EAEA14">Collatz Conjecture</td><td BGCOLOR="#EAEA14">1.21 collatz_sieve (opencl_nvidia_gpu)</td><td BGCOLOR="#EAEA14">37 [Aufgaben] </td><td width="100px" BGCOLOR="#EAEA14"><div style="background-color:#193660;height=20px;width:0px"><font color="white">0</font></div></td><td BGCOLOR="#EAEA14">08:52:48</td><td BGCOLOR="#EAEA14">Zur Ausführung bereit</td><td BGCOLOR="#EAEA14">30.09.2016 05:27:41</td><td BGCOLOR="#EAEA14">TSWin001</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#D3D3D3">Collatz Conjecture</td><td BGCOLOR="#D3D3D3">1.21 collatz_sieve (opencl_nvidia_gpu)</td><td BGCOLOR="#D3D3D3">2 [Aufgaben] </td><td width="100px" BGCOLOR="#D3D3D3"><div style="background-color:#193660;height=20px;width:100px"><font color="white">100</font></div></td><td BGCOLOR="#D3D3D3">-</td><td BGCOLOR="#D3D3D3">Hochladen</td><td BGCOLOR="#D3D3D3">30.09.2016 04:58:50</td><td BGCOLOR="#D3D3D3">TSWin001</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">GoofyxGrid@Home</td><td BGCOLOR="#35B34B">9.00 monkeys_v1</td><td BGCOLOR="#35B34B">monkeys_v1_000002F.6-L6_045719_100000_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:49px"><font color="white">49</font></div></td><td BGCOLOR="#35B34B">-</td><td BGCOLOR="#35B34B">Aktiv - Niedrige Priorität</td><td BGCOLOR="#35B34B">21.09.2016 09:16:15</td><td BGCOLOR="#35B34B">TSWin001</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">GoofyxGrid@Home</td><td BGCOLOR="#35B34B">6.00 monkeys_v2</td><td BGCOLOR="#35B34B">monkeys_v2_000001U.3-CHRISTMAS_002712_100000_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:44px"><font color="white">44</font></div></td><td BGCOLOR="#35B34B">-</td><td BGCOLOR="#35B34B">Aktiv - Niedrige Priorität</td><td BGCOLOR="#35B34B">21.09.2016 09:22:05</td><td BGCOLOR="#35B34B">TSWin001</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070396_x5jmt_ZIKV_NS3helicase_B_s2_0451_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:86px"><font color="white">86</font></div></td><td BGCOLOR="#35B34B">00:16:19</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 03:59:23</td><td BGCOLOR="#35B34B">TSWin001</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070406_x5jmt_ZIKV_NS3helicase_B_s2_0094_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:90px"><font color="white">90</font></div></td><td BGCOLOR="#35B34B">00:12:02</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 04:26:00</td><td BGCOLOR="#35B34B">TSWin001</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070406_x5jmt_ZIKV_NS3helicase_B_s2_0097_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:90px"><font color="white">90</font></div></td><td BGCOLOR="#35B34B">00:11:17</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 04:26:00</td><td BGCOLOR="#35B34B">TSWin001</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070407_x5jmt_ZIKV_NS3helicase_B_s2_0345_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:80px"><font color="white">80</font></div></td><td BGCOLOR="#35B34B">00:23:30</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 04:28:08</td><td BGCOLOR="#35B34B">TSWin001</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070407_x5jmt_ZIKV_NS3helicase_B_s2_0299_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:64px"><font color="white">64</font></div></td><td BGCOLOR="#35B34B">00:41:53</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 04:28:08</td><td BGCOLOR="#35B34B">TSWin001</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070408_x5jmt_ZIKV_NS3helicase_B_s2_0221_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:54px"><font color="white">54</font></div></td><td BGCOLOR="#35B34B">00:52:37</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 04:31:03</td><td BGCOLOR="#35B34B">TSWin001</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070414_x5jmt_ZIKV_NS3helicase_B_s2_0048_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:29px"><font color="white">29</font></div></td><td BGCOLOR="#35B34B">01:21:35</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 04:46:25</td><td BGCOLOR="#35B34B">TSWin001</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070414_x5jmt_ZIKV_NS3helicase_B_s2_0124_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:31px"><font color="white">31</font></div></td><td BGCOLOR="#35B34B">01:19:35</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 04:46:25</td><td BGCOLOR="#35B34B">TSWin001</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070417_x5jmt_ZIKV_NS3helicase_B_s2_0079_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:18px"><font color="white">18</font></div></td><td BGCOLOR="#35B34B">01:33:39</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 04:55:03</td><td BGCOLOR="#35B34B">TSWin001</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070419_x5jmt_ZIKV_NS3helicase_B_s2_0372_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:20px"><font color="white">20</font></div></td><td BGCOLOR="#35B34B">01:32:01</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 04:58:37</td><td BGCOLOR="#35B34B">TSWin001</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070420_x5jmt_ZIKV_NS3helicase_B_s2_0114_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:1px"><font color="white">1</font></div></td><td BGCOLOR="#35B34B">01:53:34</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 05:01:17</td><td BGCOLOR="#35B34B">TSWin001</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#FFFF80">World Community Grid</td><td BGCOLOR="#FFFF80">7.08 zika</td><td BGCOLOR="#FFFF80">13 [Aufgaben] </td><td width="100px" BGCOLOR="#FFFF80"><div style="background-color:#193660;height=20px;width:0px"><font color="white">0</font></div></td><td BGCOLOR="#FFFF80">01d,00:20:49</td><td BGCOLOR="#FFFF80">Zur Ausführung bereit</td><td BGCOLOR="#FFFF80">19.09.2016 20:39:17</td><td BGCOLOR="#FFFF80">TSWin001</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">WUProp@Home</td><td BGCOLOR="#35B34B">4.20 data_collect_v4 (nci)</td><td BGCOLOR="#35B34B">data_collect_v4_1469884957_1412521_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:21px"><font color="white">21</font></div></td><td BGCOLOR="#35B34B">04:40:59</td><td BGCOLOR="#35B34B">Aktiv - Niedrige Priorität</td><td BGCOLOR="#35B34B">23.09.2016 08:57:36</td><td BGCOLOR="#35B34B">TSWin001</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#1B891B">Collatz Conjecture</td><td BGCOLOR="#1B891B">1.21 collatz_sieve (opencl_nvidia_gpu)</td><td BGCOLOR="#1B891B">collatz_sieve_2848742468775013515264_6597069766656_0</td><td width="100px" BGCOLOR="#1B891B"><div style="background-color:#193660;height=20px;width:23px"><font color="white">23</font></div></td><td BGCOLOR="#1B891B">00:11:17</td><td BGCOLOR="#1B891B">Aktiv</td><td BGCOLOR="#1B891B">30.09.2016 05:34:08</td><td BGCOLOR="#1B891B">TSWin002</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#1B891B">Collatz Conjecture</td><td BGCOLOR="#1B891B">1.21 collatz_sieve (opencl_nvidia_gpu)</td><td BGCOLOR="#1B891B">collatz_sieve_2846209154402199011328_6597069766656_1</td><td width="100px" BGCOLOR="#1B891B"><div style="background-color:#193660;height=20px;width:18px"><font color="white">18</font></div></td><td BGCOLOR="#1B891B">00:12:00</td><td BGCOLOR="#1B891B">Aktiv</td><td BGCOLOR="#1B891B">30.09.2016 05:35:17</td><td BGCOLOR="#1B891B">TSWin002</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#EAEA14">Collatz Conjecture</td><td BGCOLOR="#EAEA14">1.21 collatz_sieve (opencl_nvidia_gpu)</td><td BGCOLOR="#EAEA14">37 [Aufgaben] </td><td width="100px" BGCOLOR="#EAEA14"><div style="background-color:#193660;height=20px;width:0px"><font color="white">0</font></div></td><td BGCOLOR="#EAEA14">08:58:58</td><td BGCOLOR="#EAEA14">Zur Ausführung bereit</td><td BGCOLOR="#EAEA14">30.09.2016 05:48:39</td><td BGCOLOR="#EAEA14">TSWin002</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">GoofyxGrid@Home</td><td BGCOLOR="#35B34B">6.00 monkeys_v2</td><td BGCOLOR="#35B34B">monkeys_v2_000001U.2-CHRISTMAS_096935_100000_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:62px"><font color="white">62</font></div></td><td BGCOLOR="#35B34B">-</td><td BGCOLOR="#35B34B">Aktiv - Niedrige Priorität</td><td BGCOLOR="#35B34B">21.09.2016 08:58:45</td><td BGCOLOR="#35B34B">TSWin002</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">GoofyxGrid@Home</td><td BGCOLOR="#35B34B">9.00 monkeys_v1</td><td BGCOLOR="#35B34B">monkeys_v1_000002F.6-L7_048494_100000_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:5px"><font color="white">5</font></div></td><td BGCOLOR="#35B34B">-</td><td BGCOLOR="#35B34B">Aktiv - Niedrige Priorität</td><td BGCOLOR="#35B34B">21.09.2016 09:53:44</td><td BGCOLOR="#35B34B">TSWin002</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#EAEA14">Updating...</td><td BGCOLOR="#EAEA14">0.00 Updating, please wait (opencl_nvidia_gpu)</td><td BGCOLOR="#EAEA14">collatz_sieve_2849028722229258485760_6597069766656_0</td><td width="100px" BGCOLOR="#EAEA14"><div style="background-color:#193660;height=20px;width:0px"><font color="white">0</font></div></td><td BGCOLOR="#EAEA14">00:14:34</td><td BGCOLOR="#EAEA14">Zur Ausführung bereit</td><td BGCOLOR="#EAEA14">30.09.2016 10:12:12</td><td BGCOLOR="#EAEA14">TSWin002</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070400_x5jmt_ZIKV_NS3helicase_B_s2_0060_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:84px"><font color="white">84</font></div></td><td BGCOLOR="#35B34B">00:20:54</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 04:07:22</td><td BGCOLOR="#35B34B">TSWin002</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070407_x5jmt_ZIKV_NS3helicase_B_s2_0439_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:73px"><font color="white">73</font></div></td><td BGCOLOR="#35B34B">00:34:35</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 04:29:35</td><td BGCOLOR="#35B34B">TSWin002</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070410_x5jmt_ZIKV_NS3helicase_B_s2_0071_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:62px"><font color="white">62</font></div></td><td BGCOLOR="#35B34B">00:49:06</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 04:34:29</td><td BGCOLOR="#35B34B">TSWin002</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070414_x5jmt_ZIKV_NS3helicase_B_s2_0068_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:69px"><font color="white">69</font></div></td><td BGCOLOR="#35B34B">00:40:07</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 04:46:50</td><td BGCOLOR="#35B34B">TSWin002</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070417_x5jmt_ZIKV_NS3helicase_B_s2_0147_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:55px"><font color="white">55</font></div></td><td BGCOLOR="#35B34B">00:58:37</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 04:54:49</td><td BGCOLOR="#35B34B">TSWin002</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070420_x5jmt_ZIKV_NS3helicase_B_s2_0052_1</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:30px"><font color="white">30</font></div></td><td BGCOLOR="#35B34B">01:30:08</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 05:03:03</td><td BGCOLOR="#35B34B">TSWin002</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070425_x5jmt_ZIKV_NS3helicase_B_s2_0474_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:41px"><font color="white">41</font></div></td><td BGCOLOR="#35B34B">01:16:48</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 05:17:27</td><td BGCOLOR="#35B34B">TSWin002</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070366_x5jmt_ZIKV_NS3helicase_B_s2_0362_2</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:11px"><font color="white">11</font></div></td><td BGCOLOR="#35B34B">01:55:04</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 05:41:15</td><td BGCOLOR="#35B34B">TSWin002</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070366_x5jmt_ZIKV_NS3helicase_B_s2_0354_2</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:10px"><font color="white">10</font></div></td><td BGCOLOR="#35B34B">01:56:50</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 05:41:15</td><td BGCOLOR="#35B34B">TSWin002</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070440_x5jmt_ZIKV_NS3helicase_B_s2_0000_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:11px"><font color="white">11</font></div></td><td BGCOLOR="#35B34B">01:54:55</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 05:53:32</td><td BGCOLOR="#35B34B">TSWin002</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">World Community Grid</td><td BGCOLOR="#35B34B">7.08 zika</td><td BGCOLOR="#35B34B">ZIKA_000070440_x5jmt_ZIKV_NS3helicase_B_s2_0225_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:9px"><font color="white">9</font></div></td><td BGCOLOR="#35B34B">01:57:18</td><td BGCOLOR="#35B34B">Aktiv</td><td BGCOLOR="#35B34B">26.09.2016 05:53:32</td><td BGCOLOR="#35B34B">TSWin002</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#FFFF80">World Community Grid</td><td BGCOLOR="#FFFF80">7.08 zika</td><td BGCOLOR="#FFFF80">19 [Aufgaben] </td><td width="100px" BGCOLOR="#FFFF80"><div style="background-color:#193660;height=20px;width:0px"><font color="white">0</font></div></td><td BGCOLOR="#FFFF80">01d,16:49:24</td><td BGCOLOR="#FFFF80">Zur Ausführung bereit</td><td BGCOLOR="#FFFF80">19.09.2016 19:06:59</td><td BGCOLOR="#FFFF80">TSWin002</td>
+</tr>
+
+<tr height="20px">
+<td BGCOLOR="#35B34B">WUProp@Home</td><td BGCOLOR="#35B34B">4.20 data_collect_v4 (nci)</td><td BGCOLOR="#35B34B">data_collect_v4_1469884957_1408848_0</td><td width="100px" BGCOLOR="#35B34B"><div style="background-color:#193660;height=20px;width:77px"><font color="white">77</font></div></td><td BGCOLOR="#35B34B">01:23:45</td><td BGCOLOR="#35B34B">Aktiv - Niedrige Priorität</td><td BGCOLOR="#35B34B">23.09.2016 05:37:35</td><td BGCOLOR="#35B34B">TSWin002</td>
+</tr>
+
 				</tbody>
 			</table>
-</div>
-</div>
-</div>
-</div>
-</div>	
-		<!--footer ausgeben-->
-		<footer class="footer-demo section-dark">
-			<div class="container">
-				<nav>
-					<ul>
-						<li>
-							<button class="btn btn-simple btn-sm" data-toggle="modal" data-target="#modalImpressum">Impressum</button> 
-						</li>
-						<li>
-							<button class="btn btn-simple btn-sm" data-toggle="modal" data-target="#modalDisclaimer">Disclaimer</button> 
-						</li>
-						<li>
-							<button class="btn btn-simple btn-sm" data-toggle="modal" data-target="#modalDatenschutz">Datenschutz</button> 
-						</li>
-							<div class="copyright pull-right"><i class="fa fa-copyright fa-lg"></i> 2017, by Timo Schneider<br>Template by <a href="https://www.creative-tim.com/product/paper-kit">Creative Tim</a></div>
-					</ul>
-				</nav>
-			</div>
-		</footer>
-		    <!-- Modal -->
-		    <div class="modal fade" id="modalImpressum" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-		        <div class="modal-dialog">
-		            <div class="modal-content ">
-		                <div class="modal-header section-light-blue">
-		                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		                	<span aria-hidden="true">&times;</span>
-		            	    </button>
-		                    <h4 class="modal-title" id="modelTitleId">Impressum</h4>
-		                </div>
-		                <div class="modal-body section-light-blue">
-					Angaben gemäß § 5 TMG:<br>
-					<br>
-					Kontakt:<br>
-					Timo Schneider<br>
-					<strong>E-Mail:</strong> mail@timo-schneider.de
-		                </div>
-		                <div class="modal-footer section-light-blue">
-		                    <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">OK</button>
-		                </div>
-		            </div>
-		        </div>
-		    </div>  
-		
-		    <div class="modal fade" id="modalDisclaimer" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-		        <div class="modal-dialog">
-		            <div class="modal-content">
-		                <div class="modal-header section-light-blue">
-		                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		                	<span aria-hidden="true">&times;</span>
-		            	    </button>
-		                    <h4 class="modal-title" id="modelTitleId">Haftungsausschluss (Disclaimer)</h4>
-		                </div>
-		                <div class="modal-body section-light-blue">
-					<strong>Haftung für Inhalte</strong>
-					<br>
-					Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
-					<br>
-					<br>
-					<strong>Haftung für Links</strong>
-					<br>
-					Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
-					<br>
-					<br>
-					<strong>Urheberrecht</strong>
-					<br>
-					Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
-			        </div>
-		                <div class="modal-footer section-light-blue">
-		                    <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">OK</button>
-		                </div>
-		            </div>
-		        </div>
-		    </div> 
-		
-		    <div class="modal fade" id="modalDatenschutz" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-		        <div class="modal-dialog">
-		            <div class="modal-content">
-		                <div class="modal-header section-light-blue">
-		                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		                        <span aria-hidden="true">&times;</span>
-		            	    </button>
-		                    <h4 class="modal-title" id="modelTitleId">Datenschutz</h4>
-		                </div>
-		                <div class="modal-body section-light-blue">
-					<strong>Auskunft, Löschung, Sperrung</strong>
-					<br>
-					Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden.
-					<br>
-					<br>
-					<strong>Cookies</strong>
-					<br>
-					Die Internetseiten verwenden teilweise so genannte Cookies. Cookies richten auf Ihrem Rechner keinen Schaden an und enthalten keine Viren. Cookies dienen dazu, unser Angebot nutzerfreundlicher, effektiver und sicherer zu machen. Cookies sind kleine Textdateien, die auf Ihrem Rechner abgelegt werden und die Ihr Browser speichert.
-					<br>
-					Die meisten der von uns verwendeten Cookies sind so genannte „Session-Cookies“. Sie werden nach Ende Ihres Besuchs automatisch gelöscht. Andere Cookies bleiben auf Ihrem Endgerät gespeichert, bis Sie diese löschen. Diese Cookies ermöglichen es uns, Ihren Browser beim nächsten Besuch wiederzuerkennen.
-					<br>
-					Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und Cookies nur im Einzelfall erlauben, die Annahme von Cookies für bestimmte Fälle oder generell ausschließen sowie das automatische Löschen der Cookies beim Schließen des Browser aktivieren. Bei der Deaktivierung von Cookies kann die Funktionalität dieser Website eingeschränkt sein.
-					<br>
-					<br>
-					<strong>Server-Log-Files</strong>
-					<br>
-					Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log Files, die Ihr Browser automatisch an uns übermittelt. Dies sind:
-					<br>
-					Browsertyp/ Browserversion
-					verwendetes Betriebssystem
-					Referrer URL
-					Hostname des zugreifenden Rechners
-					Uhrzeit der Serveranfrage
-					<br>
-					<br>
-					Diese Daten sind nicht bestimmten Personen zuordenbar. Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Wir behalten uns vor, diese Daten nachträglich zu prüfen, wenn uns konkrete Anhaltspunkte für eine rechtswidrige Nutzung bekannt werden.
-					<br>
-					<br>
-					<strong>Kontaktformular</strong>
-					<br>
-					Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.   
-				</div>
-				<div class="modal-footer section-light-blue">
-					<button type="button" class="btn btn-default btn-simple" data-dismiss="modal">OK</button>
-				</div>
-		            </div>
-		        </div>
-		    </div> 
+		</font>
 	</body>
 </html>
 
