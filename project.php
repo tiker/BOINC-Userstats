@@ -5,6 +5,13 @@ date_default_timezone_set('UTC');
 // ab hier bitte keine Aenderungen vornehmen, wenn man nicht weiß, was man tut!!! :D
 //-----------------------------------------------------------------------------------
 
+function mysqli_result($res, $row, $field = 0)
+{
+    $res->data_seek($row);
+    $datarow = $res->fetch_array();
+    return $datarow[$field];
+}
+
 // Sprachdefinierung
 if(isset($_GET["lang"])) $lang=$_GET["lang"];
 else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2));
@@ -22,8 +29,8 @@ if ( $goon !== "1" ) { die("No valid Project-ID"); }
 	
 ############################################################
 # Beginn fuer Datenzusammenstellung User
-$result_user=mysql_query("SELECT * from boinc_user");  //alle Userdaten einlesen
-	while($row=mysql_fetch_assoc($result_user)){
+$result_user=mysqli_query($db_conn,"SELECT * from boinc_user");  //alle Userdaten einlesen
+	while($row=mysqli_fetch_assoc($result_user)){
 		$project_username = $row["boinc_name"];
 		$project_wcgname = $row["wcg_name"];
 		$wcg_verification = $row["wcg_verificationkey"];
@@ -40,24 +47,26 @@ $result_user=mysql_query("SELECT * from boinc_user");  //alle Userdaten einlesen
 
 ############################################################
 # Beginn fuer Datenzusammenstellung Projekt
-$query =mysql_query("SELECT * FROM boinc_grundwerte WHERE project_shortname = '$projectid'") or die(mysql_error());
-$row = mysql_fetch_assoc($query);
+$query =mysqli_query($db_conn,"SELECT * FROM boinc_grundwerte WHERE project_shortname = '$projectid'") or die(mysqli_error());
+$row = mysqli_fetch_assoc($query);
 $projectname = $row['project'];
 $projectuserid = $row['project_userid'];
 $start_time = $row['start_time'];
 $status = $row['project_status'];
 $minimum = $row['begin_credits'];
-
-$result_project_output=mysql_query ("SELECT time_stamp, credits from boinc_werte where project_shortname='" .$projectid. "'");
-	while($row=mysql_fetch_assoc($result_project_output)){
+$output_project_html = null;
+$output_project_gesamt_pendings_html = null;
+$output_project_gesamt_html = null;
+$result_project_output=mysqli_query($db_conn,"SELECT time_stamp, credits from boinc_werte where project_shortname='" .$projectid. "'");
+	while($row=mysqli_fetch_assoc($result_project_output)){
 	$timestamp = ($row["time_stamp"]) * 1000;
 	$output_project_html.= "[(" .$timestamp. "), " .$row["credits"]. "], ";
 
 	}
 $output_project_html=substr($output_project_html,0,-2);
 
-$result_project_output_gesamt=mysql_query ("SELECT time_stamp, total_credits, pending_credits from boinc_werte_day where project_shortname='" .$projectid. "'");
-	while($row=mysql_fetch_assoc($result_project_output_gesamt)){
+$result_project_output_gesamt=mysqli_query($db_conn,"SELECT time_stamp, total_credits, pending_credits from boinc_werte_day where project_shortname='" .$projectid. "'");
+	while($row=mysqli_fetch_assoc($result_project_output_gesamt)){
 	$timestamp1 = ($row["time_stamp"]) * 1000;
 	$output_project_gesamt_html.= "[(" .$timestamp1. "), " .$row["total_credits"]. "], ";	
 	$output_project_gesamt_pendings_html.= "[(" .$timestamp1. "), " .$row["pending_credits"]. "], ";
@@ -76,8 +85,10 @@ $zwoelfh= mktime(date("H")-11, 0, 0, date("m"), date ("d"), date("Y"));
 
 #####################################
 # Daten fuer Tabelle holen
-$result_grundwerte=mysql_query("SELECT * from boinc_grundwerte where project_shortname = '$projectid'");  //alle Projektgrunddaten einlesen
-while($row=mysql_fetch_assoc($result_grundwerte)){
+$result_grundwerte=mysqli_query($db_conn,"SELECT * from boinc_grundwerte where project_shortname = '$projectid'");  //alle Projektgrunddaten einlesen
+$table[] = null;
+$table_row[] = null;
+while($row=mysqli_fetch_assoc($result_grundwerte)){
 
 	############################################################
 	# Daten fuer Tabelle zuammenstellen
@@ -92,36 +103,36 @@ while($row=mysql_fetch_assoc($result_grundwerte)){
 	
 	#Daten fuer letzte Stunde holen
 	$query='select sum(credits) as sum1h from boinc_werte where project_shortname="' .$shortname. '" and time_stamp>"' .$einsh. '"';
-	$result=mysql_query($query);
-	$table_row["sum1h"]=mysql_result($result,0,0);
+	$result=mysqli_query($db_conn,$query);
+	$table_row["sum1h"]=mysqli_result($result,0,0);
 	$sum1h_total+=$table_row["sum1h"];
 
 	#Daten der letzten 2 Stunden holen
 	$query='select sum(credits) as sum2h from boinc_werte where project_shortname="' .$shortname. '" and time_stamp>"' .$zweih. '"';
-	$result=mysql_query($query);
-	$table_row["sum2h"]=mysql_result($result,0,0);
+	$result=mysqli_query($db_conn,$query);
+	$table_row["sum2h"]=mysqli_result($result,0,0);
 	$sum2h_total+=$table_row["sum2h"];
 
 
 	#Daten der letzten 6 Stunden holen
 	$query='select sum(credits) as sum6h from boinc_werte where project_shortname="' .$shortname. '" and time_stamp>"' .$sechsh. '"';
-	$result=mysql_query($query);
-	$table_row["sum6h"]=mysql_result($result,0,0);
+	$result=mysqli_query($db_conn,$query);
+	$table_row["sum6h"]=mysqli_result($result,0,0);
 	$sum6h_total+=$table_row["sum6h"];
 
 
 	#Daten der letzten 12 Stunden holen
 	$query='select sum(credits) as sum12h from boinc_werte where project_shortname="' .$shortname. '" and time_stamp>"' .$zwoelfh. '"';
-	$result=mysql_query($query);
-	$table_row["sum12h"]=mysql_result($result,0,0);
+	$result=mysqli_query($db_conn,$query);
+	$table_row["sum12h"]=mysqli_result($result,0,0);
 	$sum12h_total+=$table_row["sum12h"];
 
 	#Aktueller Tagesoutput
 #	$tagesanfang = mktime($timezoneoffset, 0, 0, date("m"), date ("d"), date("Y"));
 	$tagesanfang = mktime(0, 0, 0, date("m"), date ("d"), date("Y"));
 	$query='select sum(credits) as sum_today from boinc_werte where project_shortname="' .$shortname. '" and time_stamp>"' .$tagesanfang. '"';
-	$result=mysql_query($query);
-	$table_row["sum_today"]=mysql_result($result,0,0);
+	$result=mysqli_query($db_conn,$query);
+	$table_row["sum_today"]=mysqli_result($result,0,0);
 	$sum_today_total+=$table_row["sum_today"];
 
 
@@ -133,8 +144,8 @@ while($row=mysql_fetch_assoc($result_grundwerte)){
 	$query='select sum(credits) as sum_yesterday from boinc_werte
 		where	 project_shortname="' .$shortname. '" and 
 			 time_stamp between "' .$gestern_anfang. '" and "' .$gestern_ende. '"';
-	$result=mysql_query($query);
-	$table_row["sum_yesterday"]=mysql_result($result,0,0);
+	$result=mysqli_query($db_conn,$query);
+	$table_row["sum_yesterday"]=mysqli_result($result,0,0);
 	$sum_yesterday_total+=$table_row["sum_yesterday"];
 	
 	$table_row["project_link"]= "project.php?projectid=" .$shortname. "";
@@ -146,7 +157,6 @@ while($row=mysql_fetch_assoc($result_grundwerte)){
 ##########################################
 if (file_exists("./lang/" .$lang. ".txt.php")) include "./lang/" .$lang. ".txt.php";
 else include "./lang/en.txt.php";
-
 ?>
 
 <!-- ########################################-->
