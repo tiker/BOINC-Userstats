@@ -1,5 +1,5 @@
 <?php
-include "./lang/settings.php";
+include "./settings/settings.php";
 date_default_timezone_set('UTC');
 //-----------------------------------------------------------------------------------
 // ab hier bitte keine Aenderungen vornehmen, wenn man nicht weiß, was man tut!!! :D
