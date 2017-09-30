@@ -138,11 +138,6 @@ $tr_hp_header ='<!doctype html>
 	<script src="https://code.highcharts.com/stock/highstock.js"></script>	
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 
-	<?php
-	if (file_exists("./lang/highstock_" .$lang. ".js")) include "./lang/highstock_" .$lang. ".js";
-	else include "./lang/highstock_en.js";
-	?>  
-
 	<style type="text/css">
 	.tab-content > .tab-pane:not(.active),
 	.pill-content > .pill-pane:not(.active) {
