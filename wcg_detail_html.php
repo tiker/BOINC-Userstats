@@ -23,8 +23,10 @@ function zeit($sekunden)
 }
 ############################################################
 # Beginn für Grundwerte einlesen
-$result_user=mysql_query("SELECT * from boinc_user");  //alle Userdaten einlesen
-	while($row=mysql_fetch_assoc($result_user)){
+$result_user = mysqli_query($db_conn, "SELECT * FROM boinc_user");  //alle Userdaten einlesen
+$project_wcgname = null;
+$wcg_verification = null;
+while ($row = mysqli_fetch_assoc($result_user)) {
 		$project_username = $row["boinc_name"];
 		$project_wcgname = $row["wcg_name"];
 		$wcg_verification = $row["wcg_verificationkey"];
