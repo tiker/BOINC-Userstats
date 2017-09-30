@@ -79,5 +79,5 @@ $timezoneoffset = 0;
 $seperat = 0.9;
 
 //Versionsnummer
-$userstats_version = "V 4.1";
+$userstats_version = "V 4.2 alpha";
 ?>
