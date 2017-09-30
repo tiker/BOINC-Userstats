@@ -5,8 +5,6 @@ date_default_timezone_set('UTC');
 // ab hier bitte keine Aenderungen vornehmen, wenn man nicht weiß, was man tut!!! :D
 //-----------------------------------------------------------------------------------
 
-date_default_timezone_set('UTC');
-
 // Sprachdefinierung
 if (isset($_GET["lang"])) $lang = $_GET["lang"];
 else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
@@ -110,7 +108,6 @@ while ($row = mysqli_fetch_assoc($result_grundwerte)) {
 		$row2 = mysqli_fetch_assoc($result);
 		$table_row["sum6h"] = $row2["sum6h"];
         $sum6h_total += $table_row["sum6h"];
-
 
         #Daten der letzten 12 Stunden holen
         $query = 'SELECT sum(credits) AS sum12h FROM boinc_werte WHERE project_shortname="' . $shortname . '" AND time_stamp>"' . $zwoelfh . '"';

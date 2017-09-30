@@ -5,7 +5,6 @@ date_default_timezone_set('UTC');
 // ab hier bitte keine Aenderungen vornehmen, wenn man nicht weiß, was man tut!!! :D
 //-----------------------------------------------------------------------------------
 
-
 // Sprachdefinierung
 if(isset($_GET["lang"])) $lang=$_GET["lang"];
 else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2));
@@ -107,14 +106,12 @@ while($row=mysqli_fetch_assoc($result_grundwerte)){
 	$table_row["sum2h"] = $row2["sum2h"];
 	$sum2h_total += $table_row["sum2h"];
 
-
 	#Daten der letzten 6 Stunden holen
 	$query='select sum(credits) as sum6h from boinc_werte where project_shortname="' .$shortname. '" and time_stamp>"' .$sechsh. '"';
 	$result = mysqli_query($db_conn,$query);
 	$row2 = mysqli_fetch_assoc($result);
 	$table_row["sum6h"] = $row2["sum6h"];
 	$sum6h_total += $table_row["sum6h"];
-
 
 	#Daten der letzten 12 Stunden holen
 	$query='select sum(credits) as sum12h from boinc_werte where project_shortname="' .$shortname. '" and time_stamp>"' .$zwoelfh. '"';
@@ -124,7 +121,6 @@ while($row=mysqli_fetch_assoc($result_grundwerte)){
 	$sum12h_total += $table_row["sum12h"];
 
 	#Aktueller Tagesoutput
-#	$tagesanfang = mktime($timezoneoffset, 0, 0, date("m"), date ("d"), date("Y"));
 	$tagesanfang = mktime(0, 0, 0, date("m"), date ("d"), date("Y"));
 	$query='select sum(credits) as sum_today from boinc_werte where project_shortname="' .$shortname. '" and time_stamp>"' .$tagesanfang. '"';
 	$result = mysqli_query($db_conn,$query);
@@ -132,12 +128,9 @@ while($row=mysqli_fetch_assoc($result_grundwerte)){
 	$table_row["sum_today"] = $row2["sum_today"];
 	$sum_today_total += $table_row["sum_today"];
 
-
 	#Tagesoutput gestern
 	$gestern_anfang = mktime(0, 0, 1, date("m"), date ("d")-1, date("Y"));
 	$gestern_ende = mktime(0, 0, 0, date("m"), date ("d"), date("Y"));
-#	$gestern_anfang = mktime($timezoneoffset, 0, 1, date("m"), date ("d")-1, date("Y"));
-#	$gestern_ende = mktime($timezoneoffset, 0, 0, date("m"), date ("d"), date("Y"));
 	$query='select sum(credits) as sum_yesterday from boinc_werte
 		where	 project_shortname="' .$shortname. '" and 
 			 time_stamp between "' .$gestern_anfang. '" and "' .$gestern_ende. '"';
