@@ -18,9 +18,9 @@ else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2));
 
 $goon = "0";
 $projectid = addslashes($_GET["projectid"]);
-$query_check = mysql_query( "SELECT project_shortname FROM boinc_grundwerte" ) or die(mysql_error());
+$query_check = mysqli_query($db_conn,"SELECT project_shortname FROM boinc_grundwerte" ) or die(mysql_error());
 
-while ( $row = mysql_fetch_assoc($query_check) ) {
+while ( $row = mysqli_fetch_assoc($query_check) ) {
     $project_check = $row["project_shortname"];
     if ( $project_check === $projectid ) { $goon="1"; }
 };
@@ -86,8 +86,6 @@ $zwoelfh= mktime(date("H")-11, 0, 0, date("m"), date ("d"), date("Y"));
 #####################################
 # Daten fuer Tabelle holen
 $result_grundwerte=mysqli_query($db_conn,"SELECT * from boinc_grundwerte where project_shortname = '$projectid'");  //alle Projektgrunddaten einlesen
-$table[] = null;
-$table_row[] = null;
 while($row=mysqli_fetch_assoc($result_grundwerte)){
 
 	############################################################
