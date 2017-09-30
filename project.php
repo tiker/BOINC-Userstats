@@ -5,12 +5,6 @@ date_default_timezone_set('UTC');
 // ab hier bitte keine Aenderungen vornehmen, wenn man nicht weiß, was man tut!!! :D
 //-----------------------------------------------------------------------------------
 
-function mysqli_result($res, $row, $field = 0)
-{
-    $res->data_seek($row);
-    $datarow = $res->fetch_array();
-    return $datarow[$field];
-}
 
 // Sprachdefinierung
 if(isset($_GET["lang"])) $lang=$_GET["lang"];
@@ -101,37 +95,42 @@ while($row=mysqli_fetch_assoc($result_grundwerte)){
 	
 	#Daten fuer letzte Stunde holen
 	$query='select sum(credits) as sum1h from boinc_werte where project_shortname="' .$shortname. '" and time_stamp>"' .$einsh. '"';
-	$result=mysqli_query($db_conn,$query);
-	$table_row["sum1h"]=mysqli_result($result,0,0);
-	$sum1h_total+=$table_row["sum1h"];
+	$result = mysqli_query($db_conn,$query);
+	$row2 = mysqli_fetch_assoc($result);
+	$table_row["sum1h"] = $row2["sum1h"];
+	$sum1h_total += $table_row["sum1h"];
 
 	#Daten der letzten 2 Stunden holen
 	$query='select sum(credits) as sum2h from boinc_werte where project_shortname="' .$shortname. '" and time_stamp>"' .$zweih. '"';
-	$result=mysqli_query($db_conn,$query);
-	$table_row["sum2h"]=mysqli_result($result,0,0);
-	$sum2h_total+=$table_row["sum2h"];
+	$result = mysqli_query($db_conn,$query);
+	$row2 = mysqli_fetch_assoc($result);
+	$table_row["sum2h"] = $row2["sum2h"];
+	$sum2h_total += $table_row["sum2h"];
 
 
 	#Daten der letzten 6 Stunden holen
 	$query='select sum(credits) as sum6h from boinc_werte where project_shortname="' .$shortname. '" and time_stamp>"' .$sechsh. '"';
-	$result=mysqli_query($db_conn,$query);
-	$table_row["sum6h"]=mysqli_result($result,0,0);
-	$sum6h_total+=$table_row["sum6h"];
+	$result = mysqli_query($db_conn,$query);
+	$row2 = mysqli_fetch_assoc($result);
+	$table_row["sum6h"] = $row2["sum6h"];
+	$sum6h_total += $table_row["sum6h"];
 
 
 	#Daten der letzten 12 Stunden holen
 	$query='select sum(credits) as sum12h from boinc_werte where project_shortname="' .$shortname. '" and time_stamp>"' .$zwoelfh. '"';
-	$result=mysqli_query($db_conn,$query);
-	$table_row["sum12h"]=mysqli_result($result,0,0);
-	$sum12h_total+=$table_row["sum12h"];
+	$result = mysqli_query($db_conn,$query);
+	$row2 = mysqli_fetch_assoc($result);
+	$table_row["sum12h"] = $row2["sum12h"];
+	$sum12h_total += $table_row["sum12h"];
 
 	#Aktueller Tagesoutput
 #	$tagesanfang = mktime($timezoneoffset, 0, 0, date("m"), date ("d"), date("Y"));
 	$tagesanfang = mktime(0, 0, 0, date("m"), date ("d"), date("Y"));
 	$query='select sum(credits) as sum_today from boinc_werte where project_shortname="' .$shortname. '" and time_stamp>"' .$tagesanfang. '"';
-	$result=mysqli_query($db_conn,$query);
-	$table_row["sum_today"]=mysqli_result($result,0,0);
-	$sum_today_total+=$table_row["sum_today"];
+	$result = mysqli_query($db_conn,$query);
+	$row2 = mysqli_fetch_assoc($result);
+	$table_row["sum_today"] = $row2["sum_today"];
+	$sum_today_total += $table_row["sum_today"];
 
 
 	#Tagesoutput gestern
@@ -142,9 +141,10 @@ while($row=mysqli_fetch_assoc($result_grundwerte)){
 	$query='select sum(credits) as sum_yesterday from boinc_werte
 		where	 project_shortname="' .$shortname. '" and 
 			 time_stamp between "' .$gestern_anfang. '" and "' .$gestern_ende. '"';
-	$result=mysqli_query($db_conn,$query);
-	$table_row["sum_yesterday"]=mysqli_result($result,0,0);
-	$sum_yesterday_total+=$table_row["sum_yesterday"];
+	$result = mysqli_query($db_conn,$query);
+	$row2 = mysqli_fetch_assoc($result);
+	$table_row["sum_yesterday"] = $row2["sum_yesterday"];
+	$sum_yesterday_total += $table_row["sum_yesterday"];
 	
 	$table_row["project_link"]= "project.php?projectid=" .$shortname. "";
 

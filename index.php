@@ -5,13 +5,6 @@ date_default_timezone_set('UTC');
 // ab hier bitte keine Aenderungen vornehmen, wenn man nicht weiß, was man tut!!! :D
 //-----------------------------------------------------------------------------------
 
-function mysqli_result($res, $row, $field = 0)
-{
-    $res->data_seek($row);
-    $datarow = $res->fetch_array();
-    return $datarow[$field];
-}
-
 date_default_timezone_set('UTC');
 
 // Sprachdefinierung
@@ -49,12 +42,14 @@ $timestamp_day = date("Y-m-d H:i:s", mktime(date("H"), 0, 0, date("m"), date("d"
 # Berechnung der aktuellen Gesamt-Credits bei allen Projekten des Users
 $query = "SELECT SUM(total_credits) AS sum_total from boinc_grundwerte";
 $result = mysqli_query($db_conn, $query);
-$sum_total = mysqli_result($result, 0, 0);
+$row2 = mysqli_fetch_assoc($result);
+$sum_total = $row2["sum_total"];
 
 # Berechnung der aktuellen Gesamt-Pendings-Credits bei allen Projekten des Users
 $query = "SELECT SUM(pending_credits) AS sum_total from boinc_grundwerte";
 $result = mysqli_query($db_conn, $query);
-$sum_pendings = mysqli_result($result, 0, 0);
+$row2 = mysqli_fetch_assoc($result);
+$sum_pendings = $row2["sum_total"];
 
 ##########################################################################
 # Erhebung der Projekt-Daten
@@ -96,36 +91,40 @@ while ($row = mysqli_fetch_assoc($result_grundwerte)) {
         $table_row["user_stats_vorhanden"] = $row["project_status"];
 
         #Daten fuer letzte Stunde holen
-        $query = 'SELECT sum(credits) AS sum1h FROM boinc_werte WHERE project_shortname="' . $shortname . '" AND time_stamp>"' . $einsh . '"';
-        $result = mysqli_query($db_conn,$query);
-        $table_row["sum1h"] = mysqli_result($result, 0, 0);
-        $sum1h_total += $table_row["sum1h"];
+		$query = 'SELECT sum(credits) AS sum1h FROM boinc_werte WHERE project_shortname="' . $shortname . '" AND time_stamp>"' . $einsh . '"';
+		$result = mysqli_query($db_conn,$query);
+		$row2 = mysqli_fetch_assoc($result);
+		$table_row["sum1h"] = $row2["sum1h"];
+		$sum1h_total += $table_row["sum1h"];
 
         #Daten der letzten 2 Stunden holen
         $query = 'SELECT sum(credits) AS sum2h FROM boinc_werte WHERE project_shortname="' . $shortname . '" AND time_stamp>"' . $zweih . '"';
         $result = mysqli_query($db_conn,$query);
-        $table_row["sum2h"] = mysqli_result($result, 0, 0);
+		$row2 = mysqli_fetch_assoc($result);
+		$table_row["sum2h"] = $row2["sum2h"];
         $sum2h_total += $table_row["sum2h"];
-
 
         #Daten der letzten 6 Stunden holen
         $query = 'SELECT sum(credits) AS sum6h FROM boinc_werte WHERE project_shortname="' . $shortname . '" AND time_stamp>"' . $sechsh . '"';
         $result = mysqli_query($db_conn,$query);
-        $table_row["sum6h"] = mysqli_result($result, 0, 0);
+		$row2 = mysqli_fetch_assoc($result);
+		$table_row["sum6h"] = $row2["sum6h"];
         $sum6h_total += $table_row["sum6h"];
 
 
         #Daten der letzten 12 Stunden holen
         $query = 'SELECT sum(credits) AS sum12h FROM boinc_werte WHERE project_shortname="' . $shortname . '" AND time_stamp>"' . $zwoelfh . '"';
         $result = mysqli_query($db_conn,$query);
-        $table_row["sum12h"] = mysqli_result($result, 0, 0);
+		$row2 = mysqli_fetch_assoc($result);
+		$table_row["sum12h"] = $row2["sum12h"];
         $sum12h_total += $table_row["sum12h"];
 
         #Aktueller Tagesoutput
         $tagesanfang = mktime(0, 0, 1, date("m"), date("d"), date("Y"));
         $query = 'SELECT sum(credits) AS sum_today FROM boinc_werte WHERE project_shortname="' . $shortname . '" AND time_stamp>"' . $tagesanfang . '"';
         $result = mysqli_query($db_conn,$query);
-        $table_row["sum_today"] = mysqli_result($result, 0, 0);
+		$row2 = mysqli_fetch_assoc($result);
+		$table_row["sum_today"] = $row2["sum_today"];
         $sum_today_total += $table_row["sum_today"];
 
         #Tagesoutput gestern
@@ -136,7 +135,8 @@ while ($row = mysqli_fetch_assoc($result_grundwerte)) {
 		WHERE	 project_shortname="' . $shortname . '" AND 
 			 time_stamp BETWEEN "' . $gestern_anfang . '" AND "' . $gestern_ende . '"';
         $result = mysqli_query($db_conn,$query);
-        $table_row["sum_yesterday"] = mysqli_result($result, 0, 0);
+		$row2 = mysqli_fetch_assoc($result);
+		$table_row["sum_yesterday"] = $row2["sum_yesterday"];
         $sum_yesterday_total += $table_row["sum_yesterday"];
 
         $table_row["proz_anteil"] = sprintf("%01.2f", $row["total_credits"] * 100 / $sum_total);
