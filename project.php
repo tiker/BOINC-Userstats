@@ -378,6 +378,11 @@ else include "./lang/en.txt.php";
 							echo '<img src="' . $link_wcg_sig . '" class="img-responsive center-block"></img>';
 						} else echo $no_wcg_badge;
 					?>
+					<?php //WCG-SG-Badges
+							if ($sgwcgbadges == "1") {
+									echo '<img src="' . $link_sg_wcg_badges . '" class="img-responsive center-block"></img>';
+							} else echo $no_sg_wcg_badge;
+					?>
 					<br>
 				</div>
 			</div>
