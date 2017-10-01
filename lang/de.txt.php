@@ -102,7 +102,7 @@ $tr_hp_header ='<!doctype html>
 <html lang="de">
 <head>
 	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="favicon.ico">
+	<link rel="icon" type="image/png" href="favicon.gif">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<title>BOINC-Userstats</title>
