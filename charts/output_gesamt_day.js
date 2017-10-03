@@ -1,20 +1,19 @@
-	<script type="text/javascript">
-	Highcharts.setOptions({
-        global: {
-			useUTC: true
-//            timezoneOffset: 60
-        }
+<script type="text/javascript">
+Highcharts.setOptions({
+	global: {
+		useUTC: true
+	}
 });
 
 $(function () {
 	var chart = new Highcharts.stockChart({
 		chart: {
-                	renderTo: output_gesamt_day,
-				defaultSeriesType: 'column'
-			},    
-                navigator: {
+			renderTo: output_gesamt_day,
+			defaultSeriesType: 'column'
+		},    
+		navigator: {
 			enabled: false,
-                	height: 40,
+			height: 40,
 			series: {
 				type: 'column',
 				dataGrouping: {
@@ -30,8 +29,8 @@ $(function () {
 				shadow: false
 			}
 		},
-                rangeSelector: {
-                	inputEnabled: false,
+		rangeSelector: {
+			inputEnabled: false,
 			selected: 0
 		},
 		plotOptions: {
@@ -43,16 +42,16 @@ $(function () {
 				}
 			}
 		},					
-                xAxis: {
+		xAxis: {
 			type: 'datetime',
 			ordinal: false,
-                	maxZoom: 14 * 1 * 24 * 3600000
+			maxZoom: 14 * 1 * 24 * 3600000
 		},
 		yAxis: [{ // left y axis
 			opposite: false,
 			alternateGridColor: '#FDFFD5',
 			showFirstLabel: false
-		}, { // right y axis
+			}, { // right y axis
 			linkedTo: 0,
 			gridLineWidth: 0,
 			opposite: true,

@@ -1,30 +1,29 @@
-	<script type="text/javascript">
-	Highcharts.setOptions({
-        global: {
-			useUTC: true
-//            timezoneOffset: 60
-        }
+<script type="text/javascript">
+Highcharts.setOptions({
+	global: {
+		useUTC: true
+	}
 });
 
 $(function () {
-            var chart = new Highcharts.StockChart({
-               	chart: {
-               		renderTo: project_output,
+	var chart = new Highcharts.StockChart({
+		chart: {
+			renderTo: project_output,
 			defaultSeriesType: 'areaspline'
-        	},  
-	    	legend: {
-	    		enabled: true
-	    	},	
-                navigator: {
+		},  
+		legend: {
+			enabled: true
+		},	
+		navigator: {
 			enabled: false,
-                	height: 40,
+			height: 40,
 			series: {
 			}
-                },
-                rangeSelector: {
-                	inputEnabled: false,
+		},
+		rangeSelector: {
+			inputEnabled: false,
 			selected: 4
-                },
+		},
 		plotOptions: {
 			areaspline: {
 				dataGrouping: {
@@ -34,34 +33,22 @@ $(function () {
 				}
 			}
 		},
-                xAxis: {
+		xAxis: {
 			type: 'datetime',
 			ordinal: false,
-                	maxZoom: 1 * 24 * 3600000 // one day
-                },
+			maxZoom: 1 * 24 * 3600000 // one day
+		},
 		yAxis: [{ // credits insgesamt y axis
 			opposite: false,
 			floor: 0,
 			alternateGridColor: '#FDFFD5',
 			showFirstLabel: false
-		}, { // right y axis
+			}, { // right y axis
 			linkedTo: 0,
 			gridLineWidth: 0,
 			opposite: true,
 			showFirstLabel: false
-		}, { // Pendings y axis
-			floor: 0,
-			opposite: true,
-			labels: {
-				enabled: false
-			}
-		}, { // Rank y axis
-			floor: 0,
-			opposite: true,
-			labels: {
-				enabled: false
-			}
-		}, { // rank team y axis
+			}, { // Pendings y axis
 			floor: 0,
 			opposite: true,
 			labels: {
@@ -73,7 +60,7 @@ $(function () {
 			type: 'areaspline',
 			color: '#5883A6',
 			lineWidth: 1,
-		        data: [<?php echo $output_project_gesamt_html;?>],
+			data: [<?php echo $output_project_gesamt_html;?>],
 			dataGrouping: {
 				forced: true,
 				units: [
@@ -83,11 +70,11 @@ $(function () {
 			yAxis: 0,
 		},
 		{
-		        name: '<?php echo $tr_ch_pc;?>',
+			name: '<?php echo $tr_ch_pc;?>',
 			type: 'column',
 			color: 'darkred',
 			lineWidth: 1,
-		        data: [<?php echo $output_project_gesamt_pendings_html;?>],
+			data: [<?php echo $output_project_gesamt_pendings_html;?>],
 			dataGrouping: {
 				forced: true,
 				units: [
@@ -95,38 +82,7 @@ $(function () {
 				]
 			},
 			yAxis: 2
-		 }
-// Ranking von netsoft - seit 11.09.2015 inaktiv
-/*
-					{
-		        name: '<?php echo $tr_ch_rp;?>',
-					type: 'spline',
-					color: 'green',
-					lineWidth: 1,
-		        data: [<?php echo $output_project_gesamt_rank_html;?>],
-					dataGrouping: {
-							forced: true,
-							units: [
-								['day', [1]]
-								]
-							},
-				yAxis: 3
-		      		},
-					{
-		        name: '<?php echo $tr_ch_rt;?>',
-					type: 'spline',
-					color: 'darkblue',
-					lineWidth: 1,
-		        data: [<?php echo $output_project_gesamt_rank_team_html;?>],
-					dataGrouping: {
-							forced: true,
-							units: [
-								['day', [1]]
-								]
-							},
-				yAxis: 4
-		      		}
-*/					
+		}				
 		]
 	});
 });
