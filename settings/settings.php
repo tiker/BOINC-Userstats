@@ -14,7 +14,9 @@ $hp_username = "Dein Name";
 $hp_email = "deine@email.adresse";
 
 //Navbar
-$navbar = "0"; //Hier 1 für Navbar oder 0 für keine Header-Navigation
+$navbar = false ; 
+// hier besser true/false und dann eigentlich besser $showNavbar
+//Hier 1 für Navbar oder 0 für keine Header-Navigation
 // für die Navbar sind drei Links vorgesehen
 // Bitte das Logo images/brand.jpg durch ein eigenes ersetzen
 // Please replace images/brand.jpg with your own logo
@@ -30,42 +32,51 @@ $hp_nav_link03 ="http://link.zu.Link-Name#3";
 $header_backround_url = "./grafiken/header_background.jpg";   //Hier den Link zu deiner Headergrafik einfuegen
 
 //Userlogo
-$userlogo = "0"; // 1 - wenn angezeigt werden soll, ansonsten auf 0 setzen
-
+$userlogo = false; // 1 - wenn angezeigt werden soll, ansonsten auf 0 setzen
+// hier besser true/false und dann eigentlich besser $showUserLogo
+// wo verwendet?
 
 // User BOINC-Badges
 // Die Badge-Grafik kann man auch per cronjob 1x täglich in sein Webverzeichnis kopieren und dann hier relativ verlinken.
-$userbadges = "0"; // 1 - wenn angezeigt werden soll, ansonsten auf 0 setzen
+$userbadges = false; // 1 - wenn angezeigt werden soll, ansonsten auf 0 setzen
+// hier besser true/false und dann eigentlich besser $showUserBadges
 $link_user_badges = "http://signature.statseb.fr/sig-12.png";   //Hier den Link zu Deinem User-Badge von http://signature.statseb.fr einfuegen
 
 // WCG-Badge-Signatur
 // Die WCG-Signatur kann man auch per cronjob 1x täglich in sein Webverzeichnis kopieren und dann hier relativ verlinken.
-$wcglogo = "0"; // 1 - wenn angezeigt werden soll, ansonsten auf 0 setzen
+$wcglogo = false; // 1 - wenn angezeigt werden soll, ansonsten auf 0 setzen
+// hier besser true/false und dann eigentlich besser $showWcgLogo
 $link_wcg_sig = "http://wcgsig.com/653215.gif";  //Hier den Link zu deinem WCG-Logo von http://wcgsig.com einfuegen
 
 // SG-WCG-Badges
 // Die Badge-Grafik kann man auch per cronjob 1x täglich in sein Webverzeichnis kopieren und dann hier relativ verlinken.
-$sgwcgbadges = "0"; // 1 - wenn angezeigt werden soll, ansonsten auf 0 setzen
+$sgwcgbadges = false; // 1 - wenn angezeigt werden soll, ansonsten auf 0 setzen
+// hier besser true/false und dann eigentlich besser $showSgWcgBadges
+// wo verwendet?
 $link_sg_wcg_badges = "https://www.seti-germany.de/wcg/badge_XSmeagolX_0.png";  //Hier kannst du die WCG-Badges des Badge-Generators von SETI.Germany integrieren. Hinter badge_ folgt dein WCG-Name, danach _ gefolgt von der Anzahl an Reihen. 0 steht für alle Badges in einer Reihe (halte ich am sinnvollsten)
 
 
 //Hier dein Teamname und die URL zu der Homepage deines Teams eintragen
-$has_team_hp = 1;
+$has_team_hp = true;
+// hier besser true/false und dann eigentlich besser $hasTeamHp
 $link_name_teamname = "SETI.Germany";
 $team_hp = "https://www.seti-germany.de";
 
 //Hier die URL zu deinen Statistiken bei boincstats.com
-$has_boincstats = 0;
+$has_boincstats = false;
+// hier besser true/false und dann eigentlich besser $hasBoinstats
 $link_name_boincstats = "BOINCStats";
 $boincstats_link = "https://boincstats.com/de/stats/-5/user/detail/865/projectList"; //Link zu boincstats.com von XSmeagolX
 
 //Hier die URL zu den laufenden WUs, falls Du diese mit Boinctasks veröffentlichst
-$has_boinctasks = 0;
+$has_boinctasks = false;
+// hier besser true/false und dann eigentlich besser $hasBoinstats
 $link_name_boinctasks = "laufende WUs";
 $boinctasks_link = "./tasks/tasks.html"; // Link zu den laufenden WUs von XSmeagolX
 
 //Hier die URL zum WCG, wird im Seitenkopf angezeigt
-$has_wcg = 1;
+$has_wcg = true;
+// hier besser true/false und dann eigentlich besser $hasWcg
 $link_name_wcg = "World Community Grid";
 $wcg_link = "https://join.worldcommunitygrid.org/?recruiterId=653215&teamId=4VVG5BDPP1";
 

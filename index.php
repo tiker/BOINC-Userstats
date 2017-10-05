@@ -78,7 +78,9 @@ $pie_other = 0;
 $pie_html = null;
 while ($row = mysqli_fetch_assoc($result_grundwerte)) {
 
-    if ($row["project_status"] <= "1") {
+    if ($row["project_status"] <= 1) {
+        #warum <=1? sonst überall 1, wann 0?
+
         ############################################################
         # Daten fuer Tabelle zuammenstellen
         $shortname = $row["project_shortname"];
@@ -230,7 +232,7 @@ $output_gesamt_pendings_html = substr($output_gesamt_pendings_html, 0, -2);
 </head>
 <body>
 
-<?php if ($navbar == '1') echo $tr_hp_nav ?>
+<?php if ( $navbar ) echo $tr_hp_nav ?>
 
 <div class="wrapper">
     <!--div class="landing-header"-->
@@ -243,25 +245,25 @@ $output_gesamt_pendings_html = substr($output_gesamt_pendings_html, 0, -2);
                 </h3>
 
                 <?php //sind laufende WUs im Internet ersichtlich
-                if ($has_boinctasks == "1") {
+                if ( $has_boinctasks ) {
                     echo '<a href="' . $boinctasks_link . '" class="btn btn-neutral btn-simple"><i class="fa fa-tasks"></i> laufende WUs</a>';
                 };
                 ?>
 
                 <?php //Link zu Boinctasks
-                if ($has_boincstats == "1") {
+                if ( $has_boincstats ) {
                     echo '<a href="' . $boincstats_link . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-bar-chart"></i> BoincStats</a>';
                 };
                 ?>
                 <br/>
                 <?php //Link zu Team
-                if ($has_team_hp == "1") {
+                if ( $has_team_hp ) {
                     echo '<a href="' . $team_hp . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-link"></i> SETI.Germany</a>';
                 };
                 ?>
 
                 <?php //Link zu WCG
-                if ($has_wcg == "1") {
+                if ( $has_wcg ) {
                     echo '<a href="' . $wcg_link . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-globe"></i> World Community Grid</a>';
                 };
                 ?>
@@ -538,13 +540,13 @@ $output_gesamt_pendings_html = substr($output_gesamt_pendings_html, 0, -2);
                 <div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
                     <br>
                     <?php //Userbadge
-                    if ($userbadges == "1") {
+                    if ( $userbadges ) {
                         echo '<img src="' . $link_user_badges . '" class="img-responsive center-block"></img>';
                     } else echo $no_badge;
                     ?>
                     <br>
                     <?php //WCG-Badge
-                    if ($wcglogo == "1") {
+                    if ( $wcglogo ) {
                         echo '<img src="' . $link_wcg_sig . '" class="img-responsive center-block"></img>';
                     } else echo $no_wcg_badge;
                     ?>

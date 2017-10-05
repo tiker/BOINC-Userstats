@@ -36,7 +36,7 @@ else include "./lang/en.txt.php";
 
 	<body>
 	
-<?php if ($navbar == '1') echo $tr_hp_nav ?>
+<?php if ( $navbar ) echo $tr_hp_nav ?>
 
 	    <div class="wrapper">
 	        <!--div class="landing-header"-->
@@ -83,7 +83,7 @@ else include "./lang/en.txt.php";
                         <tbody>
 
                         <?php
-                        $query = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte WHERE project_status ='1'") or die (mysqli_error);  //nur bei aktiven Projekten Werte lesen
+                        $query = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte WHERE project_status = 1;") or die (mysqli_error);  //nur bei aktiven Projekten Werte lesen
                         $ctx = stream_context_create(array(
                                 'http' => array(
                                     'timeout' => 1

@@ -9,16 +9,16 @@ date_default_timezone_set('UTC');
 if(isset($_GET["lang"])) $lang=$_GET["lang"];
 else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2));
 
-$goon = "0";
+$goon = false;
 $projectid = addslashes($_GET["projectid"]);
 $query_check = mysqli_query($db_conn,"SELECT project_shortname FROM boinc_grundwerte" ) or die(mysql_error());
 
 while ( $row = mysqli_fetch_assoc($query_check) ) {
     $project_check = $row["project_shortname"];
-    if ( $project_check === $projectid ) { $goon="1"; }
+    if ( $project_check === $projectid ) { $goon = true; }
 };
     
-if ( $goon !== "1" ) { die("No valid Project-ID"); } 
+if ( !$goon ) { die("No valid Project-ID"); } 
 	
 ############################################################
 # Beginn fuer Datenzusammenstellung User
@@ -168,7 +168,7 @@ else include "./lang/en.txt.php";
 
 <body>
 
-<?php if ($navbar == '1') echo $tr_hp_nav ?>
+<?php if ( $navbar ) echo $tr_hp_nav ?>
 
 <div class="wrapper">
 	<div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
@@ -368,13 +368,13 @@ else include "./lang/en.txt.php";
 				<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
 					<br>
 					<?php //Userbadge
-						if ($userbadges == "1") {
+						if ( $userbadges ) {
 							echo '<img src="' . $link_user_badges . '" class="img-responsive center-block"></img>';
 						} else echo $no_badge;
 					?>	
 					<br>
 					<?php //WCG-Badge
-						if ($wcglogo == "1") {
+						if ( $wcglogo ) {
 							echo '<img src="' . $link_wcg_sig . '" class="img-responsive center-block"></img>';
 						} else echo $no_wcg_badge;
 					?>

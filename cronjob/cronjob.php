@@ -8,9 +8,9 @@ include "/path/to/db_connect.php";
 # Anfang des Abrufs der persoenlichen Daten
 #----------------------------------------------------------
 
-$query=mysqli_query($db_conn,"SELECT * from boinc_grundwerte WHERE project_status ='1'") or die (mysqli_error());  //nur bei aktiven Projekten Werte lesen
+$query=mysqli_query($db_conn,"SELECT * FROM boinc_grundwerte WHERE project_status = 1;") or die (mysqli_error());  //nur bei aktiven Projekten Werte lesen
 
-$total_credits_day = "0";
+$total_credits_day = "0";  # total_credits_day nur hier, weiter unten total_credits
 $pending_credits = "0";
 $gesamtcredits_h = "0";
 $gesamt_pendings_h = "0";
