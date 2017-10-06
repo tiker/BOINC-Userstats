@@ -1,4 +1,7 @@
-Version 4.2:
+Version 4.2 (alpha):
 ============
 
-- Umsetzung auf mysqli
+- Umsetzung auf mysqli um die Nutung von php7 zu unterstützen, da die Unterstützung von php5 bald beendet wird
+- Die Datei für die Einstellungen hat nun ein eigenes Verzeichnis und ist somit leichter zu finden
+- Code für Ranking wurde entfernt (bis eine anderweitige Lösung dafür zur Verfügung steht)
+- optische Anpassungen im Code

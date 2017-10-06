@@ -21,5 +21,4 @@
         // oder in eigenem log
         // error_log(mysqli_connect_errno()." : ".mysqli_connect_error(), 3, "/var/tmp/error_in_stats.log");
     }
-
 ?>

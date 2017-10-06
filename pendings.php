@@ -1,40 +1,40 @@
 <?php
-include "./settings/settings.php";
-date_default_timezone_set('UTC');
-//-----------------------------------------------------------------------------------
-// ab hier bitte keine Aenderungen vornehmen, wenn man nicht weiß, was man tut!!! :D
-//-----------------------------------------------------------------------------------
-
-// Sprachdefinierung
-if (isset($_GET["lang"])) $lang = $_GET["lang"];
-else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2));
-
-############################################################
-# Beginn fuer Datenzusammenstellung User
-$result_user = mysqli_query($db_conn, "SELECT * FROM boinc_user");  //alle Userdaten einlesen
-while ($row = mysqli_fetch_assoc($result_user)) {
-	$project_username = $row["boinc_name"];
-	$project_wcgname = $row["wcg_name"];
-	$project_teamname = $row["team_name"];
-	$cpid = $row["cpid"];
-	$datum_start = $row["lastupdate_start"];
-	$datum = $row["lastupdate"];
+	include "./settings/settings.php";
+	date_default_timezone_set('UTC');
+	//-----------------------------------------------------------------------------------
+	// ab hier bitte keine Aenderungen vornehmen, wenn man nicht weiß, was man tut!!! :D
+	//-----------------------------------------------------------------------------------
+	
+	// Sprachdefinierung
+	if (isset($_GET["lang"])) $lang = $_GET["lang"];
+	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2));
+	
+	############################################################
+	# Beginn fuer Datenzusammenstellung User
+	$result_user = mysqli_query($db_conn, "SELECT * FROM boinc_user");  //alle Userdaten einlesen
+	while ($row = mysqli_fetch_assoc($result_user)) {
+		$project_username = $row["boinc_name"];
+		$project_wcgname = $row["wcg_name"];
+		$project_teamname = $row["team_name"];
+		$cpid = $row["cpid"];
+		$datum_start = $row["lastupdate_start"];
+		$datum = $row["lastupdate"];
 	}
 	$lastupdate_start = date("d.m.Y H:i:s",$datum_start);
 	$lastupdate = date("H:i:s",$datum);
-# Ende Datenzusammenstellung User
-
-$pending_credits = "0";
-if (file_exists("./lang/" .$lang. ".txt.php")) include "./lang/" .$lang. ".txt.php";
-else include "./lang/en.txt.php";
-
+	# Ende Datenzusammenstellung User
+	
+	$pending_credits = "0";
+	if (file_exists("./lang/" .$lang. ".txt.php")) include "./lang/" .$lang. ".txt.php";
+	else include "./lang/en.txt.php";
+	
 ?>
 <?php echo $tr_hp_header ?>
 
 
-	</head>
+</head>
 
-	<body>
+<body>
 	
 <?php if ( $navbar ) echo $tr_hp_nav ?>
 
@@ -87,40 +87,40 @@ else include "./lang/en.txt.php";
                         $ctx = stream_context_create(array(
                                 'http' => array(
                                     'timeout' => 1
-                                )
-                            )
-                        );
-                        $xml_string_pendings = "false";
-                        $pendings_gesamt = null;
-                        while ($row = mysqli_fetch_assoc($query)) {
-                            $xml_string_pendings = @file_get_contents($row['url'] . "pending.php?format=xml&authenticator=" . $row['authenticator'], 0, $ctx);
-                            if ($xml_string_pendings == FALSE) {
-                                $projectname = $row['project'];
-                                $pending_credits = $row['pending_credits'];
-                            } else {
-                                $projectname = $row['project'];
-                                $xml_pendings = @simplexml_load_string($xml_string_pendings);
-                                $pending_credits = intval($xml_pendings->total_claimed_credit);
-                            }
-                            $pendings_gesamt = $pendings_gesamt + $pending_credits;
-                            $sql_pendings = "UPDATE boinc_grundwerte SET pending_credits='" . $pending_credits . "' WHERE project_shortname='" . $row['project_shortname'] . "'";   //aktuelle Pendings des Projektes in Grundwerttabelle eintragen
-                            mysqli_query($db_conn, $sql_pendings);  //Werte in DB eintragen
-
-                            echo "  <tr><td class='text-right'>" . $projectname . "</td>";
-                            echo "  <td class='text-left'>" . number_format($pending_credits, 0, $dec_point, $thousands_sep) . "</td></tr>";
-                        }
-                        echo "  <tr><td class='text-right'>GESAMT Pendings</td>";
-                        echo "  <td class='text-left'>" . number_format($pendings_gesamt, 0, $dec_point, $thousands_sep) . "</td></tr>";
-                        ?>
-                        </tbody>
-                    </table>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<?php echo "$tr_hp_footer" ?>
+									)
+									)
+									);
+									$xml_string_pendings = "false";
+									$pendings_gesamt = null;
+									while ($row = mysqli_fetch_assoc($query)) {
+										$xml_string_pendings = @file_get_contents($row['url'] . "pending.php?format=xml&authenticator=" . $row['authenticator'], 0, $ctx);
+										if ($xml_string_pendings == FALSE) {
+											$projectname = $row['project'];
+											$pending_credits = $row['pending_credits'];
+											} else {
+											$projectname = $row['project'];
+											$xml_pendings = @simplexml_load_string($xml_string_pendings);
+											$pending_credits = intval($xml_pendings->total_claimed_credit);
+										}
+										$pendings_gesamt = $pendings_gesamt + $pending_credits;
+										$sql_pendings = "UPDATE boinc_grundwerte SET pending_credits='" . $pending_credits . "' WHERE project_shortname='" . $row['project_shortname'] . "'";   //aktuelle Pendings des Projektes in Grundwerttabelle eintragen
+										mysqli_query($db_conn, $sql_pendings);  //Werte in DB eintragen
+										
+										echo "  <tr><td class='text-right'>" . $projectname . "</td>";
+										echo "  <td class='text-left'>" . number_format($pending_credits, 0, $dec_point, $thousands_sep) . "</td></tr>";
+									}
+									echo "  <tr><td class='text-right'>GESAMT Pendings</td>";
+									echo "  <td class='text-left'>" . number_format($pendings_gesamt, 0, $dec_point, $thousands_sep) . "</td></tr>";
+								?>
+							</tbody>
+						</table>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<?php echo "$tr_hp_footer" ?>
 </body>
 </html>
