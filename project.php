@@ -1,24 +1,25 @@
 <?php
-	include "./settings/settings.php";
-	date_default_timezone_set('UTC');
-	//-----------------------------------------------------------------------------------
-	// ab hier bitte keine Aenderungen vornehmen, wenn man nicht weiß, was man tut!!! :D
-	//-----------------------------------------------------------------------------------
-	
-	// Sprachdefinierung
-	if(isset($_GET["lang"])) $lang=$_GET["lang"];
-	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2));
-	
-	$goon = "0";
-	$projectid = addslashes($_GET["projectid"]);
-	$query_check = mysqli_query($db_conn,"SELECT project_shortname FROM boinc_grundwerte" ) or die(mysql_error());
-	
-	while ( $row = mysqli_fetch_assoc($query_check) ) {
-		$project_check = $row["project_shortname"];
-		if ( $project_check === $projectid ) { $goon="1"; }
-	};
+include "./settings/settings.php";
+date_default_timezone_set('UTC');
+//-----------------------------------------------------------------------------------
+// ab hier bitte keine Aenderungen vornehmen, wenn man nicht weiß, was man tut!!! :D
+//-----------------------------------------------------------------------------------
+
+// Sprachdefinierung
+if(isset($_GET["lang"])) $lang=$_GET["lang"];
+else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2));
+
+$goon = false;
+$projectid = addslashes($_GET["projectid"]);
+$query_check = mysqli_query($db_conn,"SELECT project_shortname FROM boinc_grundwerte" ) or die(mysql_error());
+
+while ( $row = mysqli_fetch_assoc($query_check) ) {
+    $project_check = $row["project_shortname"];
+    if ( $project_check === $projectid ) { $goon = true; }
+};
     
-	if ( $goon !== "1" ) { die("No valid Project-ID"); } 
+if ( !$goon ) { die("No valid Project-ID"); } 
+
 	
 	############################################################
 	# Beginn fuer Datenzusammenstellung User
@@ -167,18 +168,17 @@
 </head>
 
 <body>
-	
-	<?php if ($navbar == '1') echo $tr_hp_nav ?>
-	
-	<div class="wrapper">
-		<div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
-			<div class="container">
-				<div class="motto">
-					<h1 class="title"><font color="white"><?php echo $table_row['project_name']; ?></font></h1>
-					<h3><font color="white"><?php echo "$project_of" . " " . "$project_username" . " " . "$tr_th_ot" . " " . "$project_teamname" ?></font></h3>
-				</div>
-			</div>    
-		</div>
+
+<?php if ( $navbar ) echo $tr_hp_nav ?>
+
+<div class="wrapper">
+	<div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
+		<div class="container">
+			<div class="motto">
+				<h1 class="title"><font color="white"><?php echo $table_row['project_name']; ?></font></h1>
+				<h3><font color="white"><?php echo "$project_of" . " " . "$project_username" . " " . "$tr_th_ot" . " " . "$project_teamname" ?></font></h3>
+			</div>
+		</div>    
 	</div>
 	
 	
@@ -351,7 +351,7 @@
 					</div>
 				</div>
 			</div>
-			
+		
 			<div id="jahr" class="tab-pane fade">
 				<div class="section text-center section-default">
 					<div class="container-fluid">
@@ -361,7 +361,7 @@
 					</div>
 				</div>
 			</div>
-			
+	
 			<div id="badges" class="tab-pane fade">    
 				<div class="section text-center section-default">
 					<div class="container-fluid">

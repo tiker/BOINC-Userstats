@@ -1,29 +1,30 @@
 <?php 
-	date_default_timezone_set('UTC');
-	if( !ini_get('safe_mode') ){ 
-		set_time_limit(120); 
-	} 
-	include "/path/to/db_connect.php";
-	#----------------------------------------------------------
-	# Anfang des Abrufs der persoenlichen Daten
-	#----------------------------------------------------------
-	
-	$query=mysqli_query($db_conn,"SELECT * from boinc_grundwerte WHERE project_status ='1'") or die (mysqli_error());  //nur bei aktiven Projekten Werte lesen
-	
-	$total_credits_day = "0";
-	$pending_credits = "0";
-	$gesamtcredits_h = "0";
-	$gesamt_pendings_h = "0";
-	$unixtime = time();
-	
-	$ctx = stream_context_create(array(
-	'http' => array(
-	'timeout' => 10
-	)
-	)
-	);
-	
-	$updatestarttime = time();
+date_default_timezone_set('UTC');
+        if( !ini_get('safe_mode') ){ 
+            set_time_limit(120); 
+        } 
+include "/path/to/db_connect.php";
+#----------------------------------------------------------
+# Anfang des Abrufs der persoenlichen Daten
+#----------------------------------------------------------
+
+$query=mysqli_query($db_conn,"SELECT * FROM boinc_grundwerte WHERE project_status = 1;") or die (mysqli_error());  //nur bei aktiven Projekten Werte lesen
+
+$total_credits_day = "0";  # total_credits_day nur hier, weiter unten total_credits
+$pending_credits = "0";
+$gesamtcredits_h = "0";
+$gesamt_pendings_h = "0";
+$unixtime = time();
+
+$ctx = stream_context_create(array(
+  'http' => array(
+      'timeout' => 10
+      )
+  )
+);
+
+$updatestarttime = time();
+
   	$sqlupdatestarttime  = "UPDATE boinc_user 
 	SET lastupdate_start='" .$updatestarttime. "'";
 	mysqli_query($db_conn,$sqlupdatestarttime);
