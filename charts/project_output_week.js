@@ -8,7 +8,7 @@ Highcharts.setOptions({
 $(function () {
 	var chart = new Highcharts.StockChart({
 		chart: {
-			renderTo: project_output_week,
+			renderTo: 'project_output_week',
 			defaultSeriesType: 'column'
 		},    
 		navigator: {

@@ -8,7 +8,7 @@ var chart;
 $(document).ready(function() {
 	chart = new Highcharts.stockChart({
 		chart: {
-			renderTo: output,
+			renderTo: 'output',
 			defaultSeriesType: 'areaspline'
 		},
 		legend: {

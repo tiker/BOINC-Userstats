@@ -7,7 +7,7 @@ Highcharts.setOptions({
 $(function () {
 	var chart = new Highcharts.StockChart({
 		chart: {
-			renderTo: output_gesamt_month,
+			renderTo: 'output_gesamt_month',
 			defaultSeriesType: 'column'
 		},    
 		navigator: {

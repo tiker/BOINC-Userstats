@@ -7,7 +7,7 @@
 	$(function () {
 		var chart = new Highcharts.StockChart({
 			chart: {
-				renderTo: project_output_year,
+				renderTo: 'project_output_year',
 				defaultSeriesType: 'column'
 			},    
 			navigator: {

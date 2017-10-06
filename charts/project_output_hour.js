@@ -8,7 +8,7 @@ Highcharts.setOptions({
 $(function () {
 	var chart = new Highcharts.StockChart({
 		chart: {
-			renderTo: project_output_hour,
+			renderTo: 'project_output_hour',
 			defaultSeriesType: 'column'
 		},    
 		navigator: {

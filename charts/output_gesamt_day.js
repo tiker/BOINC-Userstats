@@ -8,7 +8,7 @@ Highcharts.setOptions({
 $(function () {
 	var chart = new Highcharts.stockChart({
 		chart: {
-			renderTo: output_gesamt_day,
+			renderTo: 'output_gesamt_day',
 			defaultSeriesType: 'column'
 		},    
 		navigator: {
