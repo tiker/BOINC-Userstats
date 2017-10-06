@@ -4,7 +4,7 @@
     $dbuser="db_user";
     $dbpass="db_passwd";
     $db_conn=mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
-
+	
     // Pruefe Connection
     // $db_conn_status = "";
     if (!$db_conn) {
@@ -20,5 +20,5 @@
         // error_log(mysqli_connect_errno()." : ".mysqli_connect_error());
         // oder in eigenem log
         // error_log(mysqli_connect_errno()." : ".mysqli_connect_error(), 3, "/var/tmp/error_in_stats.log");
-    }
+	}
 ?>

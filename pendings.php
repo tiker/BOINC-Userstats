@@ -29,63 +29,63 @@
 	else include "./lang/en.txt.php";
 	
 ?>
-<?php echo $tr_hp_header ?>
 
+<?php echo $tr_hp_header ?>
 
 </head>
 
 <body>
 	
-<?php if ( $navbar ) echo $tr_hp_nav ?>
-
-	    <div class="wrapper">
-	        <!--div class="landing-header"-->
-	        <div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
-	            <div class="container">
-	                <div class="motto">
+	<?php if ( $navbar ) echo $tr_hp_nav ?>
+	
+	<div class="wrapper">
+		<!--div class="landing-header"-->
+		<div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
+			<div class="container">
+				<div class="motto">
 		    	    <h1 class="title"><font color="white"><?php echo "$tr_th_bp" ?></font></h1>
-	                    <h3><font color="white"><?php echo "$project_username" . " " . $tr_th_ot . " " . $project_teamname ?></font></h3>
-	                    <br />
-	                    <a href="../index.html#uebermich" class="btn btn-neutral"><i class="fa fa-male fa-lg"></i> über mich...</a>
-	                    <a href="../index.html#projekte" class="btn btn-neutral"><i class="fa fa-wrench fa-lg"></i> meine Web-Projekte</a>
-                            <br /><br />
-                             <h3><font color="white">Weitere Links</font></h3>
-                                <a href="https://seti-germany.de" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-link"></i> SETI.Germany</a>
-                                <a href="https://boincstats.com/de/stats/-5/user/detail/865/projectList" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-bar-chart"></i> BoincStats</a>
-                                <a href="https://join.worldcommunitygrid.org?recruiterId=653215&teamId=4VVG5BDPP1" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-globe"></i> World Community Grid</a>
-	                </div>
-	            </div>    
-	        </div>
-	     </div>
-
-
-<div class="section text-center section-default">
-    <div class="container">
-        <div class="main">
-            <div class="section section-standard">
-                <div class="container">
-                    <h2 class="title-uppercase text-center">Pending Credits</h2>
-                    <div class="alert alert-success">
-                        <div class="container">
-                            <?php echo $tr_hp_pendings_02; ?>
-
-                        </div>
-                    </div>
-                    <table class="table table-striped table-hover text-right table-condensed"
-                           style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-
-                        <thead>
-                        <tr>
-                            <th class="text-right"><?php echo $tr_tb_pr ?></th>
-                            <th class="text-left"><?php echo $tr_tb_pe ?></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        <?php
-                        $query = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte WHERE project_status = 1;") or die (mysqli_error);  //nur bei aktiven Projekten Werte lesen
-                        $ctx = stream_context_create(array(
-                                'http' => array(
+					<h3><font color="white"><?php echo "$project_username" . " " . $tr_th_ot . " " . $project_teamname ?></font></h3>
+					<br />
+					<a href="../index.html#uebermich" class="btn btn-neutral"><i class="fa fa-male fa-lg"></i> über mich...</a>
+					<a href="../index.html#projekte" class="btn btn-neutral"><i class="fa fa-wrench fa-lg"></i> meine Web-Projekte</a>
+					<br /><br />
+					<h3><font color="white">Weitere Links</font></h3>
+					<a href="https://seti-germany.de" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-link"></i> SETI.Germany</a>
+					<a href="https://boincstats.com/de/stats/-5/user/detail/865/projectList" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-bar-chart"></i> BoincStats</a>
+					<a href="https://join.worldcommunitygrid.org?recruiterId=653215&teamId=4VVG5BDPP1" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-globe"></i> World Community Grid</a>
+				</div>
+			</div>    
+		</div>
+	</div>
+	
+	
+	<div class="section text-center section-default">
+		<div class="container">
+			<div class="main">
+				<div class="section section-standard">
+					<div class="container">
+						<h2 class="title-uppercase text-center">Pending Credits</h2>
+						<div class="alert alert-success">
+							<div class="container">
+								<?php echo $tr_hp_pendings_02; ?>
+								
+							</div>
+						</div>
+						<table class="table table-striped table-hover text-right table-condensed"
+						style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+							
+							<thead>
+								<tr>
+									<th class="text-right"><?php echo $tr_tb_pr ?></th>
+									<th class="text-left"><?php echo $tr_tb_pe ?></th>
+								</tr>
+							</thead>
+							<tbody>
+								
+								<?php
+									$query = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte WHERE project_status = 1;") or die (mysqli_error);  //nur bei aktiven Projekten Werte lesen
+									$ctx = stream_context_create(array(
+									'http' => array(
                                     'timeout' => 1
 									)
 									)
@@ -121,6 +121,6 @@
 		</div>
 	</div>
 	
-	<?php echo "$tr_hp_footer" ?>
+<?php echo "$tr_hp_footer" ?>
 </body>
 </html>
