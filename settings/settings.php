@@ -33,17 +33,17 @@
 	
 	// User BOINC-Badges
 	// Die Badge-Grafik kann man auch per cronjob 1x täglich in sein Webverzeichnis kopieren und dann hier relativ verlinken.
-	$showUserBadges = true; // 1 - wenn angezeigt werden soll, ansonsten auf 0 setzen
+	$showUserBadges = false; // 1 - wenn angezeigt werden soll, ansonsten auf 0 setzen
 	$linkUserBadges = "http://signature.statseb.fr/sig-12.png";   //Hier den Link zu Deinem User-Badge von http://signature.statseb.fr einfuegen
 	
 	// WCG-Badge-Signatur
 	// Die WCG-Signatur kann man auch per cronjob 1x täglich in sein Webverzeichnis kopieren und dann hier relativ verlinken.
-	$showWcgLogo = true; // 1 - wenn angezeigt werden soll, ansonsten auf 0 setzen
+	$showWcgLogo = false; // 1 - wenn angezeigt werden soll, ansonsten auf 0 setzen
 	$linkWcgSig = "http://wcgsig.com/653215.gif";  //Hier den Link zu deinem WCG-Logo von http://wcgsig.com einfuegen
 	
 	// SG-WCG-Badges
 	// Die Badge-Grafik kann man auch per cronjob 1x täglich in sein Webverzeichnis kopieren und dann hier relativ verlinken.
-	$showSgWcgBadges = true; // 1 - wenn angezeigt werden soll, ansonsten auf 0 setzen
+	$showSgWcgBadges = false; // 1 - wenn angezeigt werden soll, ansonsten auf 0 setzen
 	$linkSgWcgBadges = "https://www.seti-germany.de/wcg/badge_XSmeagolX_0.png";  //Hier kannst du die WCG-Badges des Badge-Generators von SETI.Germany integrieren. Hinter badge_ folgt dein WCG-Name, danach _ gefolgt von der Anzahl an Reihen. 0 steht für alle Badges in einer Reihe (halte ich am sinnvollsten)
 	
 	
@@ -54,13 +54,12 @@
 	$teamHpURL = "https://www.seti-germany.de";
 	
 	//Hier die URL zu deinen Statistiken bei boincstats.com
-	$hasBoincstats = true;
+	$hasBoincstats = false;
 	$linkNameBoincstats = "BOINCStats";
 	$linkBoincstats = "https://boincstats.com/de/stats/-5/user/detail/865/projectList"; //Link zu boincstats.com von XSmeagolX
 	
 	//Hier die URL zu den laufenden WUs, falls Du diese mit Boinctasks veröffentlichst
-	$hasBoinctasks = true;
-	// hier besser true/false und dann eigentlich besser $hasBoinstats
+	$hasBoinctasks = false;
 	$linkNameBoinctasks = "laufende WUs";
 	$linkBoinctasks = "./tasks/tasks.html"; // Link zu den laufenden WUs von XSmeagolX
 	
@@ -79,5 +78,5 @@
 	$separat = 0.9;
 
 	//Versionsnummer
-	$userstats_version = "V 4.2 alpha_02";
+	$userstats_version = "V 4.2 alpha_03";
 ?>
