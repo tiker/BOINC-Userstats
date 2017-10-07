@@ -158,7 +158,7 @@
 	<span class="icon-bar"></span>
 	<span class="icon-bar"></span>
 	</button>
-	<a href="../index.html">
+	<a href="./index.php">
 	<div class="logo-container">
 	<div class="logo">
 	<img src="' .$brand_logo. '" alt="My Logo">
