@@ -202,7 +202,7 @@
 		<tbody>
 			<?php
 				foreach($table as $table_row){
-					if ($table_row["project_points"] > 0) {
+					if ( isset($table_row["project_points"]) && $table_row["project_points"] > 0) {
 						echo "<tr>";
 						echo "<td>" .$table_row["project_longname"]. "";
 						echo "</td>";
