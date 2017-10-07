@@ -1,8 +1,8 @@
 <?php 
 date_default_timezone_set('UTC');
-        if( !ini_get('safe_mode') ){ 
-            set_time_limit(120); 
-        } 
+		if( !ini_get('safe_mode') ){ 
+			set_time_limit(120); 
+		} 
 include "/path/to/db_connect.php";
 #----------------------------------------------------------
 # Anfang des Abrufs der persoenlichen Daten
@@ -18,8 +18,8 @@ $unixtime = time();
 
 $ctx = stream_context_create(array(
   'http' => array(
-      'timeout' => 10
-      )
+	  'timeout' => 10
+	  )
   )
 );
 
@@ -32,7 +32,7 @@ $updatestarttime = time();
 	while($row=mysqli_fetch_assoc($query))
 	{
 		$xml_string_pendings = FALSE;
-        $xml_string_pendings = @file_get_contents ($row['url'] . "pending.php?format=xml&authenticator=" . $row['authenticator'], 0, $ctx);
+		$xml_string_pendings = @file_get_contents ($row['url'] . "pending.php?format=xml&authenticator=" . $row['authenticator'], 0, $ctx);
 		if ($xml_string_pendings == FALSE) {
 			$pending_credits = $row['pending_credits'];
 		} 

@@ -23,15 +23,15 @@ $(document).ready(function() {
 				return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
 			}
 		},
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
+		plotOptions: {
+			pie: {
+				allowPointSelect: true,
+				cursor: 'pointer',
 				innerSize: 100,
-                depth: 45,
-                dataLabels: {
-                    enabled: true,
-                    format: '{point.name}'
+				depth: 45,
+				dataLabels: {
+					enabled: true,
+					format: '{point.name}'
 				}
 			}
 		},

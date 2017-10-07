@@ -43,7 +43,7 @@
 		<div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
 			<div class="container">
 				<div class="motto">
-		    	    <h1 class="title"><font color="white"><?php echo "$tr_th_bp" ?></font></h1>
+					<h1 class="title"><font color="white"><?php echo "$tr_th_bp" ?></font></h1>
 					<h3><font color="white"><?php echo "$project_username" . " " . $tr_th_ot . " " . $project_teamname ?></font></h3>
 					<br />
 					<a href="../index.html#uebermich" class="btn btn-neutral"><i class="fa fa-male fa-lg"></i> über mich...</a>
@@ -86,7 +86,7 @@
 									$query = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte WHERE project_status = 1;") or die (mysqli_error);  //nur bei aktiven Projekten Werte lesen
 									$ctx = stream_context_create(array(
 									'http' => array(
-                                    'timeout' => 1
+									'timeout' => 1
 									)
 									)
 									);

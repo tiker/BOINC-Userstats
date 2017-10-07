@@ -104,7 +104,7 @@ function ts_resortTable(lnk, clid) {
 	sortfn = ts_sort_caseinsensitive;
 	if (itm.match(/^\d\d[\/\.-][a-zA-z][a-zA-Z][a-zA-Z][\/\.-]\d\d\d\d$/)) sortfn = ts_sort_date;
 	if (itm.match(/^\d\d[\/\.-]\d\d[\/\.-]\d\d\d{2}?$/)) sortfn = ts_sort_date;
-	if (itm.match(/^-?[£$€Û¢´]\d/)) sortfn = ts_sort_numeric;
+	if (itm.match(/^-?[ï¿½$ï¿½Û¢ï¿½]\d/)) sortfn = ts_sort_numeric;
 	if (itm.match(/^-?(\d+[,\.]?)+(E[-+][\d]+)?%?$/)) sortfn = ts_sort_numeric;
 	SORT_COLUMN_INDEX = column;
 	var firstRow = new Array();
@@ -136,15 +136,15 @@ function ts_resortTable(lnk, clid) {
 		ARROW = '&nbsp;&nbsp;<img src="'+ image_path + image_up + '" alt="&uarr;"/>';
 		span.setAttribute('sortdir','down');
 	} 
-    // We appendChild rows that already exist to the tbody, so it moves them rather than creating new ones
-    // don't do sortbottom rows
-    for (i=0; i<newRows.length; i++) { 
+	// We appendChild rows that already exist to the tbody, so it moves them rather than creating new ones
+	// don't do sortbottom rows
+	for (i=0; i<newRows.length; i++) { 
 		if (!newRows[i].className || (newRows[i].className && (newRows[i].className.indexOf('sortbottom') == -1))) {
 			t.tBodies[0].appendChild(newRows[i]);
 		}
 	}
-    // do sortbottom rows only
-    for (i=0; i<newRows.length; i++) {
+	// do sortbottom rows only
+	for (i=0; i<newRows.length; i++) {
 		if (newRows[i].className && (newRows[i].className.indexOf('sortbottom') != -1)) 
 		t.tBodies[0].appendChild(newRows[i]);
 	}

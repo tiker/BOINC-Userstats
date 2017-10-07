@@ -306,12 +306,12 @@
 					
 					<style>
 						@media (max-width: 767px) {
-                        .table-condensed td,
-                        .table-condensed th {
+						.table-condensed td,
+						.table-condensed th {
 						padding: 3px 5px !important;
-                        }
+						}
 						
-                        @media (max-width: 560px) {
+						@media (max-width: 560px) {
 						.table-condensed td,
 						.table-condensed th {
 						padding: 1px 1px !important;
@@ -321,7 +321,7 @@
 						padding-left: 0 !important;
 						padding-right: 0 !important;
 						}
-                        }
+						}
 					</style>
 					
 					<table class="table table-striped table-hover text-right table-condensed"
@@ -395,16 +395,16 @@
 							<td class="alert-warning"><b><?php #echo $tr_tb_det ?></b></td>
 							<td class="alert-warning"><b><?php echo $tr_tb_cr ?></b></td>
 						<td class="alert-warning hidden-xs hidden-sm"></b></td>
-                        <td class="alert-warning hidden-xs"><b><?php echo $tr_tb_01 ?></b></td>
-                        <td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_02 ?></b></td>
-                        <td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_06 ?></b></td>
-                        <td class="alert-warning hidden-xs"><b><?php echo $tr_tb_12 ?></b></td>
-                        <td class="alert-success"><b><?php echo $tr_tb_to ?></b></td>
-                        <td class="alert-info"><b><?php echo $tr_tb_ye ?></b></td>
-                        <td class="alert-danger hidden-xs"><b><?php echo $tr_tb_pe ?></b></td>
+						<td class="alert-warning hidden-xs"><b><?php echo $tr_tb_01 ?></b></td>
+						<td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_02 ?></b></td>
+						<td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_06 ?></b></td>
+						<td class="alert-warning hidden-xs"><b><?php echo $tr_tb_12 ?></b></td>
+						<td class="alert-success"><b><?php echo $tr_tb_to ?></b></td>
+						<td class="alert-info"><b><?php echo $tr_tb_ye ?></b></td>
+						<td class="alert-danger hidden-xs"><b><?php echo $tr_tb_pe ?></b></td>
 					</tr>
 					
-                    <?php
+					<?php
 						foreach ($table_retired as $table_row_retired) {
 							echo "<tr class='text-muted'>";
 							echo "  <td><a href='" . $table_row_retired["project_home_link"] . "'>" . $table_row_retired["project_name"];
@@ -426,126 +426,126 @@
 							echo "</tr>";
 						}
 					?>
-                    <tr class="alert-info">
-                        <td><b><?php echo $tr_th_total ?></b></td>
-                        <td><b><?php #echo $tr_th_detail ?></b></td>
-                        <td><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
-                        <td class="hidden-xs hidden-sm"><b>100%</b></td>
-                        <td class="hidden-xs">
+					<tr class="alert-info">
+						<td><b><?php echo $tr_th_total ?></b></td>
+						<td><b><?php #echo $tr_th_detail ?></b></td>
+						<td><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
+						<td class="hidden-xs hidden-sm"><b>100%</b></td>
+						<td class="hidden-xs">
 						<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-                        <td class="hidden-xs hidden-sm">
+						<td class="hidden-xs hidden-sm">
 						<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-                        <td class="hidden-xs hidden-sm">
+						<td class="hidden-xs hidden-sm">
 						<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-                        <td class="hidden-xs">
+						<td class="hidden-xs">
 						<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-                        <td class="alert-success">
+						<td class="alert-success">
 						<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
-                        <td class="alert-info">
+						<td class="alert-info">
 						<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
-                        <td class="alert-danger hidden-xs">
+						<td class="alert-danger hidden-xs">
 						<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
 					</tr>
-                    <tr class="default">
-                        <td></td>
-                        <td><?php #echo $tr_tb_det ?></td>
-                        <td><?php #echo $tr_tb_cr ?></td>
-                        <td class="hidden-xs hidden-sm"></td>
-                        <td class="hidden-xs"><?php echo $tr_tb_01 ?></td>
-                        <td class="hidden-xs hidden-sm"><?php echo $tr_tb_02 ?></td>
-                        <td class="hidden-xs hidden-sm"><?php echo $tr_tb_06 ?></td>
-                        <td class="hidden-xs"><?php echo $tr_tb_12 ?></td>
-                        <td class="alert-success"><b><?php echo $tr_tb_to ?></b></td>
-                        <td class="alert-info"><b><?php echo $tr_tb_ye ?></b></td>
-                        <td class="alert-danger hidden-xs"><b><?php echo $tr_tb_pe ?></b></td>
+					<tr class="default">
+						<td></td>
+						<td><?php #echo $tr_tb_det ?></td>
+						<td><?php #echo $tr_tb_cr ?></td>
+						<td class="hidden-xs hidden-sm"></td>
+						<td class="hidden-xs"><?php echo $tr_tb_01 ?></td>
+						<td class="hidden-xs hidden-sm"><?php echo $tr_tb_02 ?></td>
+						<td class="hidden-xs hidden-sm"><?php echo $tr_tb_06 ?></td>
+						<td class="hidden-xs"><?php echo $tr_tb_12 ?></td>
+						<td class="alert-success"><b><?php echo $tr_tb_to ?></b></td>
+						<td class="alert-info"><b><?php echo $tr_tb_ye ?></b></td>
+						<td class="alert-danger hidden-xs"><b><?php echo $tr_tb_pe ?></b></td>
 					</tr>
 				</table>
 			</div>
 		</div>
 	</div>
 	
-    <div id="pie" class="tab-pane fade">
-        <div class="section text-center section-default">
-            <div class="container-fluid">
-                <div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-                    <div id="projektverteilung"></div>
+	<div id="pie" class="tab-pane fade">
+		<div class="section text-center section-default">
+			<div class="container-fluid">
+				<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+					<div id="projektverteilung"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 	
-    <div id="gesamt" class="tab-pane fade">
-        <div class="section text-center section-default">
-            <div class="container-fluid">
-                <div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-                    <div id="output"></div>
+	<div id="gesamt" class="tab-pane fade">
+		<div class="section text-center section-default">
+			<div class="container-fluid">
+				<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+					<div id="output"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 	
-    <div id="stunde" class="tab-pane fade">
-        <div class="section text-center section-default">
-            <div class="container-fluid">
-                <div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-                    <div id="output_gesamt_hour"></div>
+	<div id="stunde" class="tab-pane fade">
+		<div class="section text-center section-default">
+			<div class="container-fluid">
+				<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+					<div id="output_gesamt_hour"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 	
-    <div id="tag" class="tab-pane fade">
-        <div class="section text-center section-default">
-            <div class="container-fluid">
-                <div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-                    <div id="output_gesamt_day"></div>
+	<div id="tag" class="tab-pane fade">
+		<div class="section text-center section-default">
+			<div class="container-fluid">
+				<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+					<div id="output_gesamt_day"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 	
-    <div id="woche" class="tab-pane fade">
-        <div class="section text-center section-default">
-            <div class="container-fluid">
-                <div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-                    <div id="output_gesamt_week"></div>
+	<div id="woche" class="tab-pane fade">
+		<div class="section text-center section-default">
+			<div class="container-fluid">
+				<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+					<div id="output_gesamt_week"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 	
-    <div id="monat" class="tab-pane fade">
-        <div class="section text-center section-default">
-            <div class="container-fluid">
-                <div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-                    <div id="output_gesamt_month"></div>
+	<div id="monat" class="tab-pane fade">
+		<div class="section text-center section-default">
+			<div class="container-fluid">
+				<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+					<div id="output_gesamt_month"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 	
-    <div id="jahr" class="tab-pane fade">
-        <div class="section text-center section-default">
-            <div class="container-fluid">
-                <div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-                    <div id="output_gesamt_year"></div>
+	<div id="jahr" class="tab-pane fade">
+		<div class="section text-center section-default">
+			<div class="container-fluid">
+				<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+					<div id="output_gesamt_year"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 	
-    <div id="badges" class="tab-pane fade">
-        <div class="section text-center section-default">
-            <div class="container-fluid">
-                <div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-                    <br>
-                    <?php //Userbadge
+	<div id="badges" class="tab-pane fade">
+		<div class="section text-center section-default">
+			<div class="container-fluid">
+				<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+					<br>
+					<?php //Userbadge
 						if ( $userbadges ) {
 							echo '<img src="' . $link_user_badges . '" class="img-responsive center-block"></img>';
 						} else echo $no_badge;
 					?>
-                    <br>
-                    <?php //WCG-Badge
+					<br>
+					<?php //WCG-Badge
 						if ( $wcglogo ) {
 							echo '<img src="' . $link_wcg_sig . '" class="img-responsive center-block"></img>';
 						} else echo $no_wcg_badge;
@@ -555,7 +555,7 @@
 							echo '<img src="' . $link_sg_wcg_badges . '" class="img-responsive center-block"></img>';
 						} else echo $no_sg_wcg_badge;
 					?>					
-                    <br>
+					<br>
 				</div>
 			</div>
 		</div>

@@ -115,28 +115,28 @@
 <style>
 	@media (min-width: 768px) {
 	.modal-dialog {
-    width: 750px;
-    margin: 30px auto;
+	width: 750px;
+	margin: 30px auto;
 	}
 	.modal-content {
-    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 	6}
 	.modal-sm {
-    width: 300px;
+	width: 300px;
 	}
 	}
 	@media (min-width: 960px) {
 	.modal-dialog {
-    width: 900px;
-    margin: 30px auto;
+	width: 900px;
+	margin: 30px auto;
 	}
 	.modal-content {
-    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 	6}
 	.modal-sm {
-    width: 300px;
+	width: 300px;
 	}
 	}
 	

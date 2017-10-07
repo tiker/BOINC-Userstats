@@ -2,17 +2,17 @@
 <script type="text/javascript">
 
 
-// Dokument ist fertig geladen - Wir können die Funktion nun sicher zuordnen
+// Dokument ist fertig geladen - Wir kï¿½nnen die Funktion nun sicher zuordnen
 $(document).ready(function(){ 
 	
-    // Die einfache Variante ("falsch sortiert")
-    $("#id_table_ranglist_fail").tablesorter(); 
+	// Die einfache Variante ("falsch sortiert")
+	$("#id_table_ranglist_fail").tablesorter(); 
 }); 
 
 
 // Komplexere Variante mit korrekter Sortierung
 
-// Zunächst Komma Filter für Floats definieren
+// Zunï¿½chst Komma Filter fï¿½r Floats definieren
 $.tablesorter.addParser({ 
 	id: 'g_float', 
 	is: function(s) { 
@@ -25,11 +25,11 @@ $.tablesorter.addParser({
 });
 
 
-// Dokument ist fertig geladen - Wir können die Funktion nun sicher zuordnen
+// Dokument ist fertig geladen - Wir kï¿½nnen die Funktion nun sicher zuordnen
 $(document).ready(function(){ 
 	
-    // Aufruf mit Plugin und korrekter Sortierung
-    $("#id_table_ranglist_correct").tablesorter( {
+	// Aufruf mit Plugin und korrekter Sortierung
+	$("#id_table_ranglist_correct").tablesorter( {
 		widgets: ['zebra'],
 		headers: {
 			3: { 
