@@ -36,28 +36,42 @@
 
 <body>
 	
-	<?php if ( $navbar ) echo $tr_hp_nav ?>
+	<?php if ( $showNavbar ) echo $tr_hp_nav ?>
 	
 	<div class="wrapper">
-		<!--div class="landing-header"-->
 		<div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
 			<div class="container">
 				<div class="motto">
 					<h1 class="title"><font color="white"><?php echo "$tr_th_bp" ?></font></h1>
 					<h3><font color="white"><?php echo "$project_username" . " " . $tr_th_ot . " " . $project_teamname ?></font></h3>
-					<br />
-					<a href="../index.html#uebermich" class="btn btn-neutral"><i class="fa fa-male fa-lg"></i> über mich...</a>
-					<a href="../index.html#projekte" class="btn btn-neutral"><i class="fa fa-wrench fa-lg"></i> meine Web-Projekte</a>
-					<br /><br />
-					<h3><font color="white">Weitere Links</font></h3>
-					<a href="https://seti-germany.de" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-link"></i> SETI.Germany</a>
-					<a href="https://boincstats.com/de/stats/-5/user/detail/865/projectList" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-bar-chart"></i> BoincStats</a>
-					<a href="https://join.worldcommunitygrid.org?recruiterId=653215&teamId=4VVG5BDPP1" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-globe"></i> World Community Grid</a>
+
+					<?php //sind laufende WUs im Internet ersichtlich
+						if ( $hasBoinctasks ) {
+							echo '<a href="' . $linkBoinctasks . '" class="btn btn-neutral btn-simple"><i class="fa fa-tasks"></i> ' . $linkNameBoinctasks . '</a>';
+						};
+					?>
+					
+					<?php //Link zu Boinctasks
+						if ( $hasBoincstats ) {
+							echo '<a href="' . $linkBoincstats . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-bar-chart"></i> ' . $linkNameBoincstats . '</a>';
+						};
+					?>
+					<br/>
+					<?php //Link zu Team
+						if ( $hasTeamHp ) {
+							echo '<a href="' . $teamHpURL . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-link"></i> ' . $teamHpName . '</a>';
+						};
+					?>
+					
+					<?php //Link zu WCG
+						if ( $hasWcg ) {
+							echo '<a href="' . $linkWcg . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-globe"></i> ' . $linkNameWcg . '</a>';
+						};
+					?>
 				</div>
 			</div>    
 		</div>
 	</div>
-	
 	
 	<div class="section text-center section-default">
 		<div class="container">

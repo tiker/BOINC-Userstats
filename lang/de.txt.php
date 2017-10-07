@@ -161,7 +161,7 @@
 	<a href="../index.html">
 	<div class="logo-container">
 	<div class="logo">
-	<img src="' .$link_user_logo. '" alt="My Logo">
+	<img src="' .$brand_logo. '" alt="My Logo">
 	</div>
 	<div class="brand">' . $hp_username . '</div>
 	</div>

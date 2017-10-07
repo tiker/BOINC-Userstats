@@ -39,7 +39,7 @@ $(document).ready(function() {
 			type: 'pie',
 			name: '<?php echo $tr_ch_pie_01; ?>',
 			data: [
-				<? echo $pie_html; ?>	
+				<?php echo $pie_html; ?>	
 			]
 		}]
 	})

@@ -9,6 +9,14 @@
 	if(isset($_GET["lang"])) $lang=$_GET["lang"];
 	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2));
 	
+	//Variablen initialisieren
+	$sum1h_total = 0;
+	$sum2h_total = 0;
+	$sum6h_total = 0;
+	$sum12h_total = 0;
+	$sum_today_total = 0;
+	$sum_yesterday_total = 0;
+
 	$goon = false;
 	$projectid = addslashes($_GET["projectid"]);
 	$query_check = mysqli_query($db_conn,"SELECT project_shortname FROM boinc_grundwerte" ) or die(mysql_error());
@@ -45,7 +53,7 @@
 	$row = mysqli_fetch_assoc($query);
 	$projectname = $row['project'];
 	$projectuserid = $row['project_userid'];
-	$start_time = $row['start_time'];
+	#$start_time = $row['start_time'];
 	$status = $row['project_status'];
 	$minimum = $row['begin_credits'];
 	$output_project_html = null;
@@ -169,7 +177,7 @@
 
 <body>
 	
-	<?php if ( $navbar ) echo $tr_hp_nav ?>
+	<?php if ( $showNavbar ) echo $tr_hp_nav ?>
 	
 	<div class="wrapper">
 		<div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
@@ -177,6 +185,30 @@
 				<div class="motto">
 					<h1 class="title"><font color="white"><?php echo $table_row['project_name']; ?></font></h1>
 					<h3><font color="white"><?php echo "$project_of" . " " . "$project_username" . " " . "$tr_th_ot" . " " . "$project_teamname" ?></font></h3>
+
+					<?php //sind laufende WUs im Internet ersichtlich
+						if ( $hasBoinctasks ) {
+							echo '<a href="' . $linkBoinctasks . '" class="btn btn-neutral btn-simple"><i class="fa fa-tasks"></i> ' . $linkNameBoinctasks . '</a>';
+						};
+					?>
+					
+					<?php //Link zu Boinctasks
+						if ( $hasBoincstats ) {
+							echo '<a href="' . $linkBoincstats . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-bar-chart"></i> ' . $linkNameBoincstats . '</a>';
+						};
+					?>
+					<br/>
+					<?php //Link zu Team
+						if ( $hasTeamHp ) {
+							echo '<a href="' . $teamHpURL . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-link"></i> ' . $teamHpName . '</a>';
+						};
+					?>
+					
+					<?php //Link zu WCG
+						if ( $hasWcg ) {
+							echo '<a href="' . $linkWcg . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-globe"></i> ' . $linkNameWcg . '</a>';
+						};
+					?>
 				</div>
 			</div>    
 		</div>
@@ -290,7 +322,7 @@
 							</div>
 							<div class="modal-body section-default">
 								<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-									<div id="file-content"><? include './wcg_detail_html.php'; ?></div>
+									<div id="file-content"><?php include './wcg_detail_html.php'; ?></div>
 								</div>
 							</div>
 							<div class="modal-footer section-default">
@@ -368,19 +400,19 @@
 							<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
 								<br>
 								<?php //Userbadge
-									if ($userbadges == "1") {
-										echo '<img src="' . $link_user_badges . '" class="img-responsive center-block"></img>';
+									if ($showUserBadges == "1") {
+										echo '<img src="' . $linkUserBadges . '" class="img-responsive center-block"></img>';
 									} else echo $no_badge;
 								?>	
 								<br>
 								<?php //WCG-Badge
-									if ($wcglogo == "1") {
-										echo '<img src="' . $link_wcg_sig . '" class="img-responsive center-block"></img>';
+									if ($showWcgLogo == "1") {
+										echo '<img src="' . $linkWcgSig . '" class="img-responsive center-block"></img>';
 									} else echo $no_wcg_badge;
 								?>
 								<?php //WCG-SG-Badges
-									if ($sgwcgbadges == "1") {
-										echo '<img src="' . $link_sg_wcg_badges . '" class="img-responsive center-block"></img>';
+									if ($showSgWcgBadges == "1") {
+										echo '<img src="' . $linkSgWcgBadges . '" class="img-responsive center-block"></img>';
 									} else echo $no_sg_wcg_badge;
 								?>
 								<br>
