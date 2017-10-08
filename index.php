@@ -222,6 +222,11 @@
 
 <?php echo $tr_hp_header; ?>
 
+<?php
+if (file_exists("./lang/highstock_" . $lang . ".js")) include "./lang/highstock_" . $lang . ".js";
+else include "./lang/highstock_en.js";
+?>
+
 <!-- Highcharts definieren  -->
 <?php include("./charts/pie.js"); ?>
 <?php include("./charts/output.js"); ?>

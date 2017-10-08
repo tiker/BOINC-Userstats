@@ -165,6 +165,11 @@
 <!-- HTML-Header -->
 <?php echo $tr_hp_header ?>
 
+<?php
+if (file_exists("./lang/highstock_" . $lang . ".js")) include "./lang/highstock_" . $lang . ".js";
+else include "./lang/highstock_en.js";
+?>
+
 <!-- Highcharts definieren  -->
 <?php include("./charts/project_output.js"); ?>
 <?php include("./charts/project_output_hour.js"); ?>
