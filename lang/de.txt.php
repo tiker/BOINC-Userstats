@@ -199,6 +199,9 @@
 	<li>
 	<button class="btn btn-simple btn-sm" data-toggle="modal" data-target="#modalDatenschutz">Datenschutz</button> 
 	</li>
+	<li>
+	<a href="https://github.com/XSmeagolX/Pers-nliche-BOINC-Userstats/blob/master/LICENSE" class="btn btn-simple btn-sm" target="_new">MIT License</a> 
+	</li>
 	<div class="copyright pull-right text-center"><a href="https://userstats.timo-schneider.de" target="_blank">BOINC Userstats</a> ' .$userstats_version. ', <i class="fa fa-copyright fa-lg"></i> 2017 by Timo Schneider (XSmeagolX)<br />Template by <a href="https://www.creative-tim.com/product/paper-kit">Creative Tim</a> - Diese Seite verwendet <a href="https://www.highcharts.com">Highcharts<i class="fa fa-copyright"></i></a></div>
 	</ul>
 	</nav>
