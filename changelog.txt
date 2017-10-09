@@ -1,0 +1,12 @@
+Version 4.2 (alpha):
+============
+
+- Unterstützung von php7/mysqli
+
+- Die Datei für die Einstellungen hat nun ein eigenes Verzeichnis und ist somit leichter zu finden (settings/settings.php)
+	!!ACHTUNG:!!
+	Es haben sich hier viele Änderungen ergeben, so dass die Einstellungen über diese Datei neu gesetzt werden müssen.
+
+- Fehlerbehebungen (z.B. Initialisierung von Variablen)
+
+- Verbesserungen und Optimierungen

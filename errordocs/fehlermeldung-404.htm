@@ -1,89 +1,84 @@
 <!doctype html>
 <html lang="de">
-<head>
-	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="favicon.ico">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-	<title>BOINC-Userstats</title>
-
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-	<meta name="viewport" content="width=device-width" />
-
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-	<!-- Layout CSS -->
-	<link href="./paper-kit/ct-paper.css" rel="stylesheet"/>
-	<link href="./paper-kit/demo.css" rel="stylesheet" /> 
-	<link href="./paper-kit/examples.css" rel="stylesheet" /> 
-	<link href="./paper-kit/rotating-card.css" rel="stylesheet" />
-
-	<!--     Fonts and icons     -->
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
-
-	<!-- JS JQuery und Bootstrap --> 
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-	<!--  Plugins -->
-	<script src="./paper-kit/ct-paper-checkbox.js"></script>
-	<script src="./paper-kit/ct-paper-radio.js"></script>
-	<script src="./paper-kit/bootstrap-select.js"></script>
-	<script src="./paper-kit/bootstrap-datepicker.js"></script>
-	<script src="./paper-kit/ct-paper.js"></script>
-
-	<script src="https://code.highcharts.com/stock/highstock.js"></script>	
-	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-
-	<?php
-	if (file_exists("./lang/highstock_" .$lang. ".js")) include "./lang/highstock_" .$lang. ".js";
-	else include "./lang/highstock_en.js";
-	?>  
-
-	<style type="text/css">
-	.tab-content > .tab-pane:not(.active),
-	.pill-content > .pill-pane:not(.active) {
-	display: block;
-	height: 0;
-	overflow-y: hidden;
-	}   
-	</style>
-</head>
-<body>
-	    <div class="wrapper">
-	        <!--div class="landing-header"-->
-	        <div class="header img-reponsive" style="background-image: url('../grafiken/header_background.jpg');">
-	            <div class="container">
-	                <div class="motto">
-		    	    <h1 class="title"><font color="white">4 0 4 ' d</font></h1>
-	                    <h3><font color="white"></font></h3>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="favicon.ico">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		
+		<title>BOINC-Userstats</title>
+		
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+		<meta name="viewport" content="width=device-width" />
+		
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		
+		<!-- Layout CSS -->
+		<link href="./paper-kit/ct-paper.css" rel="stylesheet"/>
+		<link href="./paper-kit/demo.css" rel="stylesheet" /> 
+		<link href="./paper-kit/examples.css" rel="stylesheet" /> 
+		<link href="./paper-kit/rotating-card.css" rel="stylesheet" />
+		
+		<!--     Fonts and icons     -->
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
+		
+		<!-- JS JQuery und Bootstrap --> 
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		
+		<!--  Plugins -->
+		<script src="./paper-kit/ct-paper-checkbox.js"></script>
+		<script src="./paper-kit/ct-paper-radio.js"></script>
+		<script src="./paper-kit/bootstrap-select.js"></script>
+		<script src="./paper-kit/bootstrap-datepicker.js"></script>
+		<script src="./paper-kit/ct-paper.js"></script>
+		
+		<script src="https://code.highcharts.com/stock/highstock.js"></script>	
+		<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		
+		<style type="text/css">
+			.tab-content > .tab-pane:not(.active),
+			.pill-content > .pill-pane:not(.active) {
+			display: block;
+			height: 0;
+			overflow-y: hidden;
+			}   
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<!--div class="landing-header"-->
+			<div class="header img-reponsive" style="background-image: url('../grafiken/header_background.jpg');">
+				<div class="container">
+					<div class="motto">
+						<h1 class="title"><font color="white">4 0 4 ' d</font></h1>
+						<h3><font color="white"></font></h3>
 					</div>
-	            </div>    
-	        </div>
-	     </div>
-
-		 <div class="alert-info">
-			<div class="container">
-					<h5><a href = "../index.php">Start</a></h5>
+				</div>    
 			</div>
-		 </div>
-
-				<table class="table table-striped table-hover text-right table-condensed" style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-					<thead class="alert alert-danger">
-						<th class="text-center alert-danger">4 0 4 ' ed</th>
-					</thead>
-					<tr class="alert alert-warning">
-						<td class="text-center alert-warning"><b>Hier ist was schief gelaufen</b></td>
-					</tr>
-					<tr class="alert alert-success">
-						<td class="text-center"><b><img src="https://www.timo-schneider.de/images/logo_error.png" width="300px"></a><br>
-						:: Hallo Besucher ::<br><br>Ich glaube, der Google-Index ist nicht mehr aktuell.<br><br>Die Seite, die Du gesucht hast, existiert nicht mehr!
-					</tr>
-
-
-</table>
-</body>
-</html>
+		</div>
+		
+		<div class="alert-info">
+			<div class="container">
+				<h5><a href = "../index.php">Start</a></h5>
+			</div>
+		</div>
+		
+		<table class="table table-striped table-hover text-right table-condensed" style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+			<thead class="alert alert-danger">
+				<th class="text-center alert-danger">4 0 4 ' ed</th>
+			</thead>
+			<tr class="alert alert-warning">
+				<td class="text-center alert-warning"><b>Hier ist was schief gelaufen</b></td>
+			</tr>
+			<tr class="alert alert-success">
+				<td class="text-center"><b><img src="https://www.timo-schneider.de/images/logo_error.png" width="300px"></a><br>
+					:: Hallo Besucher ::<br><br>Ich glaube, der Google-Index ist nicht mehr aktuell.<br><br>Die Seite, die Du gesucht hast, existiert nicht mehr!
+				</tr>
+				
+				
+			</table>
+		</body>
+	</html>	

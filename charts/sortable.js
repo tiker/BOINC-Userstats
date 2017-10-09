@@ -1,11 +1,11 @@
 /*
-Table sorting script  by Joost de Valk, check it out at http://www.joostdevalk.nl/code/sortable-table/.
-Based on a script from http://www.kryogenix.org/code/browser/sorttable/.
-Distributed under the MIT license: http://www.kryogenix.org/code/browser/licence.html .
-
-Copyright (c) 1997-2007 Stuart Langridge, Joost de Valk.
-
-Version 1.5.7
+	Table sorting script  by Joost de Valk, check it out at http://www.joostdevalk.nl/code/sortable-table/.
+	Based on a script from http://www.kryogenix.org/code/browser/sorttable/.
+	Distributed under the MIT license: http://www.kryogenix.org/code/browser/licence.html .
+	
+	Copyright (c) 1997-2007 Stuart Langridge, Joost de Valk.
+	
+	Version 1.5.7
 */
 
 /* You can change these values */
@@ -39,7 +39,7 @@ function ts_makeSortable(t) {
 		if (t.tHead && t.tHead.rows.length > 0) {
 			var firstRow = t.tHead.rows[t.tHead.rows.length-1];
 			thead = true;
-		} else {
+			} else {
 			var firstRow = t.rows[0];
 		}
 	}
@@ -69,11 +69,11 @@ function ts_getInnerText(el) {
 	for (var i = 0; i < l; i++) {
 		switch (cs[i].nodeType) {
 			case 1: //ELEMENT_NODE
-				str += ts_getInnerText(cs[i]);
-				break;
+			str += ts_getInnerText(cs[i]);
+			break;
 			case 3:	//TEXT_NODE
-				str += cs[i].nodeValue;
-				break;
+			str += cs[i].nodeValue;
+			break;
 		}
 	}
 	return str;
@@ -104,7 +104,7 @@ function ts_resortTable(lnk, clid) {
 	sortfn = ts_sort_caseinsensitive;
 	if (itm.match(/^\d\d[\/\.-][a-zA-z][a-zA-Z][a-zA-Z][\/\.-]\d\d\d\d$/)) sortfn = ts_sort_date;
 	if (itm.match(/^\d\d[\/\.-]\d\d[\/\.-]\d\d\d{2}?$/)) sortfn = ts_sort_date;
-	if (itm.match(/^-?[£$€Û¢´]\d/)) sortfn = ts_sort_numeric;
+	if (itm.match(/^-?[ï¿½$ï¿½Û¢ï¿½]\d/)) sortfn = ts_sort_numeric;
 	if (itm.match(/^-?(\d+[,\.]?)+(E[-+][\d]+)?%?$/)) sortfn = ts_sort_numeric;
 	SORT_COLUMN_INDEX = column;
 	var firstRow = new Array();
@@ -120,7 +120,7 @@ function ts_resortTable(lnk, clid) {
 			for (j=1;j<t.tBodies[k].rows.length;j++) { 
 				newRows[j-1] = t.tBodies[k].rows[j];
 			}
-		} else {
+			} else {
 			// Do NOT skip the first row
 			for (j=0;j<t.tBodies[k].rows.length;j++) { 
 				newRows[j] = t.tBodies[k].rows[j];
@@ -129,24 +129,24 @@ function ts_resortTable(lnk, clid) {
 	}
 	newRows.sort(sortfn);
 	if (span.getAttribute("sortdir") == 'down') {
-			ARROW = '&nbsp;&nbsp;<img src="'+ image_path + image_down + '" alt="&darr;"/>';
-			newRows.reverse();
-			span.setAttribute('sortdir','up');
-	} else {
-			ARROW = '&nbsp;&nbsp;<img src="'+ image_path + image_up + '" alt="&uarr;"/>';
-			span.setAttribute('sortdir','down');
+		ARROW = '&nbsp;&nbsp;<img src="'+ image_path + image_down + '" alt="&darr;"/>';
+		newRows.reverse();
+		span.setAttribute('sortdir','up');
+		} else {
+		ARROW = '&nbsp;&nbsp;<img src="'+ image_path + image_up + '" alt="&uarr;"/>';
+		span.setAttribute('sortdir','down');
 	} 
-    // We appendChild rows that already exist to the tbody, so it moves them rather than creating new ones
-    // don't do sortbottom rows
-    for (i=0; i<newRows.length; i++) { 
+	// We appendChild rows that already exist to the tbody, so it moves them rather than creating new ones
+	// don't do sortbottom rows
+	for (i=0; i<newRows.length; i++) { 
 		if (!newRows[i].className || (newRows[i].className && (newRows[i].className.indexOf('sortbottom') == -1))) {
 			t.tBodies[0].appendChild(newRows[i]);
 		}
 	}
-    // do sortbottom rows only
-    for (i=0; i<newRows.length; i++) {
+	// do sortbottom rows only
+	for (i=0; i<newRows.length; i++) {
 		if (newRows[i].className && (newRows[i].className.indexOf('sortbottom') != -1)) 
-			t.tBodies[0].appendChild(newRows[i]);
+		t.tBodies[0].appendChild(newRows[i]);
 	}
 	// Delete any other arrows there may be showing
 	var allspans = document.getElementsByTagName("span");
@@ -164,9 +164,9 @@ function ts_resortTable(lnk, clid) {
 function getParent(el, pTagName) {
 	if (el == null) {
 		return null;
-	} else if (el.nodeType == 1 && el.tagName.toLowerCase() == pTagName.toLowerCase()) {
+		} else if (el.nodeType == 1 && el.tagName.toLowerCase() == pTagName.toLowerCase()) {
 		return el;
-	} else {
+		} else {
 		return getParent(el.parentNode, pTagName);
 	}
 }
@@ -194,25 +194,25 @@ function sort_date(date) {
 		}
 		dt = date.substr(7,4)+mt+date.substr(0,2);
 		return dt;
-	} else if (date.length == 10) {
+		} else if (date.length == 10) {
 		if (europeandate == false) {
 			dt = date.substr(6,4)+date.substr(0,2)+date.substr(3,2);
 			return dt;
-		} else {
+			} else {
 			dt = date.substr(6,4)+date.substr(3,2)+date.substr(0,2);
 			return dt;
 		}
-	} else if (date.length == 8) {
+		} else if (date.length == 8) {
 		yr = date.substr(6,2);
 		if (parseInt(yr) < 50) { 
 			yr = '20'+yr; 
-		} else { 
+			} else { 
 			yr = '19'+yr; 
 		}
 		if (europeandate == true) {
 			dt = yr+date.substr(3,2)+date.substr(0,2);
 			return dt;
-		} else {
+			} else {
 			dt = yr+date.substr(0,2)+date.substr(3,2);
 			return dt;
 		}
@@ -276,10 +276,10 @@ function addEvent(elm, evType, fn, useCapture)
 	if (elm.addEventListener){
 		elm.addEventListener(evType, fn, useCapture);
 		return true;
-	} else if (elm.attachEvent){
+		} else if (elm.attachEvent){
 		var r = elm.attachEvent("on"+evType, fn);
 		return r;
-	} else {
+		} else {
 		alert("Handler could not be removed");
 	}
 }
