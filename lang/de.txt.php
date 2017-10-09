@@ -40,9 +40,9 @@
 	$tr_ch_gy_header = "BOINC Gesamt-Credits pro Jahr";
 	$tr_ch_yaxis_year = "Credits pro Jahr";
 	$tr_ch_rp = "Position im Projekt";
-	$tr_ch_rt ="Position im Team";
+	$tr_ch_rt = "Position im Team";
 	$tr_ch_rw = "Position BOINC weltweit";
-	$tr_ch_ra ="Position Durchschnitt weltweit";
+	$tr_ch_ra = "Position Durchschnitt weltweit";
 	$tr_td_home	= "Home";
 	$tr_ch_pg_header = "Projekt Credits - Gesamt";
 	$tr_ch_ps_header = "Projekt Credits - Stunden";
@@ -50,9 +50,9 @@
 	$tr_ch_pw_header = "Projekt Credits - Woche";
 	$tr_ch_pm_header = "Projekt Credits - Monat";
 	$tr_ch_py_header = "Projekt Credits - Jahr";
-	$tr_hp_pendings_01 ="Die Pending-Credits deiner als aktiv definierten Projekte werden aktualisiert....<br>Bitte warten....";
-	$tr_hp_pendings_02 ="Die Pending-Credits deiner als aktiv markierten Projekte wurden in der Datenbank aktualisiert.<br>Klicke <a href='index.php'>hier</a>, um zu deiner Statistik-Uebersicht zurückzukehren";
-	$tr_hp_pendings_03 ="Aktualisierung der Pending Credits";
+	$tr_hp_pendings_01 = "Die Pending-Credits deiner als aktiv definierten Projekte werden aktualisiert....<br>Bitte warten....";
+	$tr_hp_pendings_02 = "Die Pending-Credits deiner als aktiv markierten Projekte wurden in der Datenbank aktualisiert.<br>Klicke <a href='index.php'>hier</a>, um zu deiner Statistik-Uebersicht zurückzukehren";
+	$tr_hp_pendings_03 = "Aktualisierung der Pending Credits";
 	$tr2_hp_pp = "# Projekt";
 	$tr2_hp_pt = "# Team";
 	$tr2_hp_ptotal = "# Total";
@@ -62,11 +62,11 @@
 	$tr2_hp_tm = "Teammitglieder";
 	$tr2_hp_country = "Land";
 	$tr2_hp_comp = "Computer";
-	$tr2_hp_total ="gesamt";
-	$tr2_hp_active ="aktiv";
+	$tr2_hp_total = "gesamt";
+	$tr2_hp_active = "aktiv";
 	$tr2_hp_mi = "weitere Informationen";
 	$tr2_hp_privcomp = "keine Host Infos veröffentlicht";
-	$td_hp_retired_info ="---------Projekt beendet---------";
+	$td_hp_retired_info = "---------Projekt beendet---------";
 	
 	$wcg_detail_team_history = "Team (Historie)";
 	$wcg_detail_team = "Team Name";
@@ -85,9 +85,10 @@
 	$project_of = "von";
 	$project_project = "Projekt";
 	$project_wcg_detail_link = "WCG-Detail-Statistik";
-	$no_badge = "<font size='1'>Keine BOINC-Badges eingerichtet</font><br/><h5>Damit deine Boinc-Badges angezeigt werden, musst du diese Einrichten</h5>";
-	$no_wcg_badge = "<font size='1'>Keine WCG-Badge Signatur eingerichtet</font><br/><h5>Damit deine WCG-Badge-Signatur angezeigt wird, musst du diese Einrichten</h5>";
-	
+	$no_badge = "<h5>Keine BOINC-Badges eingerichtet</h5><h6><font size ='1'>Damit deine Boinc-Badges angezeigt werden, musst Du diese einrichten</font></h6>";
+	$no_wcg_badge = "<h5>Keine WCG-Badge Signatur eingerichtet<h5><h6><font size ='1'>Damit deine WCG-Badge-Signatur angezeigt wird, musst Du diese einrichten</font></h6>";
+	$no_sg_wcg_badge = "<h5>Keine SG-WCG-Badges eingerichtet</h5><h6><font size ='1'>Damit deine SG-WCG-Badges angezeigt werden, musst Du diese einrichten</h6></font>";
+
 	$tabs_project = "Projekt";
 	$tabs_pie = "Verteilung";
 	$tabs_total = "Gesamt";

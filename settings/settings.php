@@ -21,12 +21,12 @@
 	// Bitte das Logo images/brand.jpg durch ein eigenes ersetzen
 	// Please replace images/brand.jpg with your own logo
 	$brand_logo = "../images/brand.jpg";
-	$hp_nav_name01 ="Link-Name#1";
-	$hp_nav_link01 ="http://link.zu.Link-Name#1";
-	$hp_nav_name02 ="Link-Name#2";
-	$hp_nav_link02 ="http://link.zu.Link-Name#2";
-	$hp_nav_name03 ="Link-Name#3";
-	$hp_nav_link03 ="http://link.zu.Link-Name#3";
+	$hp_nav_name01 = "Link-Name#1";
+	$hp_nav_link01 = "http://link.zu.Link-Name#1";
+	$hp_nav_name02 = "Link-Name#2";
+	$hp_nav_link02 = "http://link.zu.Link-Name#2";
+	$hp_nav_name03 = "Link-Name#3";
+	$hp_nav_link03 = "http://link.zu.Link-Name#3";
 	
 	//Header Hintergrund
 	$header_backround_url = "./grafiken/header_background.jpg";   //Hier den Link zu deiner Headergrafik einfuegen

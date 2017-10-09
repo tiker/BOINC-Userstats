@@ -40,9 +40,9 @@
 	$tr_ch_gy_header = "BOINC Total Credits per year";
 	$tr_ch_yaxis_year = "Credits per year";
 	$tr_ch_rp = "Position User in Project";
-	$tr_ch_rt ="Position User in Team";
+	$tr_ch_rt = "Position User in Team";
 	$tr_ch_rw = "Position BOINC worldwide";
-	$tr_ch_ra ="Position average worldwide";
+	$tr_ch_ra = "Position average worldwide";
 	$tr_td_home = "Home";
 	$tr_ch_pg_header = "Project-Total-Credits";
 	$tr_ch_ps_header = "Project Credits per hour";
@@ -50,9 +50,9 @@
 	$tr_ch_pw_header = "Project Credits per week";
 	$tr_ch_pm_header = "Project Credits per month";
 	$tr_ch_py_header = "Project Credits per year";
-	$tr_hp_pendings_01 ="The Pending-Credits of all your projects marked active will be refreshed....<br>Please wait....";
-	$tr_hp_pendings_02 ="Your Pending-Credits were updated in the database.<br>Click <a href='index.php'>here</a>, to return to your personal stats";
-	$tr_hp_pendings_03 ="Refresh your Pending Credits";
+	$tr_hp_pendings_01 = "The Pending-Credits of all your projects marked active will be refreshed....<br>Please wait....";
+	$tr_hp_pendings_02 = "Your Pending-Credits were updated in the database.<br>Click <a href='index.php'>here</a>, to return to your personal stats";
+	$tr_hp_pendings_03 = "Refresh your Pending Credits";
 	$tr2_hp_pp = "# Project";
 	$tr2_hp_pt = "# Team";
 	$tr2_hp_ptotal = "# Total";
@@ -62,11 +62,11 @@
 	$tr2_hp_tm = "Teammembers";
 	$tr2_hp_country = "Country";
 	$tr2_hp_comp = "Computer";
-	$tr2_hp_total ="total";
-	$tr2_hp_active ="active";
+	$tr2_hp_total = "total";
+	$tr2_hp_active = "active";
 	$tr2_hp_mi = "more Information";
 	$tr2_hp_privcomp = "no public host information";
-	$td_hp_retired_info ="---------Project retired---------";
+	$td_hp_retired_info = "---------Project retired---------";
 	
 	$wcg_detail_team_history = "Team (History)";
 	$wcg_detail_team = "Team Name";
@@ -85,9 +85,10 @@
 	$project_of = "of";
 	$project_project = "Project";
 	$project_wcg_detail_link = "WCG-Detail-Statistics";
-	$no_badge = "<font size='1'>No badge configured</font><br/><h5>To show your Boinc-Badges, please configure your Badges</h5>";
-	$no_wcg_badge = "<font size='1'>No WCG-Badge Signature configured</font><br/><h5>To show your WCG-Badge-Signature, you need to configure them</h5>";
-	
+	$no_badge = "<h5>No badge configured</h5><h6><font size ='1'>To show your Boinc-Badges, please configure your Badges</font></h6>";
+	$no_wcg_badge = "<h5>No WCG-Badge Signature configured</h5><h6><font size ='1'>To show your WCG-Badge-Signature, you need to configure them</font></h6>";
+	$no_sg_wcg_badge = "<h5>No SG-WCG-Badge Signature configured</h5><h6><font size ='1'>To show your SG-WCG-Badge-Signature, you need to configure them</font></h6>";
+
 	$tabs_project = "Project";
 	$tabs_pie = "Pie";
 	$tabs_total = "Total";
