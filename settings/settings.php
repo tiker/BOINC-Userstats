@@ -3,7 +3,8 @@
 	// In dem folgenden Block bitte die Variablen mit Werten entsprechend der Anmerkung vornehmen
 	//-----------------------------------------------------------------------------------
 	
-	# Um das Anzeigen von Fehlermeldungen zu aktivieren, bitte die nächste Zeile "deaktivieren" (Hinzufügen eines '#' am Anfang der Zeile)
+	# Anzeigen von Fehlermeldungen)
+	#error-reporting (0);
 	error_reporting(E_ALL);
 	ini_set ('display_errors', 'On');
 	
@@ -15,12 +16,11 @@
 	$hp_email = "deine@email.adresse";
 	
 	//Navbar
-	$showNavbar = false ; 
-	//Hier 1 für Navbar oder 0 für keine Header-Navigation
+	$showNavbar = false ; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
+
 	// für die Navbar sind drei Links vorgesehen
 	// Bitte das Logo images/brand.jpg durch ein eigenes ersetzen
-	// Please replace images/brand.jpg with your own logo
-	$brand_logo = "../images/brand.jpg";
+	$brand_logo = "../images/brand.jpg"; //das kleine Logo oben links neben dem Namen in der Navbar
 	$hp_nav_name01 = "Link-Name#1";
 	$hp_nav_link01 = "http://link.zu.Link-Name#1";
 	$hp_nav_name02 = "Link-Name#2";
@@ -29,42 +29,44 @@
 	$hp_nav_link03 = "http://link.zu.Link-Name#3";
 	
 	//Header Hintergrund
-	$header_backround_url = "./grafiken/header_background.jpg";   //Hier den Link zu deiner Headergrafik einfuegen
+	$header_backround_url = "./grafiken/header_background.jpg";   //Hier den Link zu deiner Header-Hintergrundgrafik einfuegen
 	
 	// User BOINC-Badges
 	// Die Badge-Grafik kann man auch per cronjob 1x täglich in sein Webverzeichnis kopieren und dann hier relativ verlinken.
-	$showUserBadges = false; // 1 - wenn angezeigt werden soll, ansonsten auf 0 setzen
+	// Dafür ist die Einrichtung der Badges über die Registrierung auf der Homepage von http://signature.statseb.fr notwendig.
+	$showUserBadges = false; // true - wenn angezeigt werden soll, ansonsten auf false setzen. Standard ist false
 	$linkUserBadges = "http://signature.statseb.fr/sig-12.png";   //Hier den Link zu Deinem User-Badge von http://signature.statseb.fr einfuegen
 	
 	// WCG-Badge-Signatur
 	// Die WCG-Signatur kann man auch per cronjob 1x täglich in sein Webverzeichnis kopieren und dann hier relativ verlinken.
-	$showWcgLogo = false; // 1 - wenn angezeigt werden soll, ansonsten auf 0 setzen
+	// Dafür ist die Einrichtung der WCG-Signatur auf der Homepage von wcgsig.com notwendig (oben in der Mitte - Request a signature).
+	$showWcgLogo = false; // true - wenn angezeigt werden soll, ansonsten auf false setzen. Standard ist false
 	$linkWcgSig = "http://wcgsig.com/653215.gif";  //Hier den Link zu deinem WCG-Logo von http://wcgsig.com einfuegen
 	
 	// SG-WCG-Badges
 	// Die Badge-Grafik kann man auch per cronjob 1x täglich in sein Webverzeichnis kopieren und dann hier relativ verlinken.
-	$showSgWcgBadges = false; // 1 - wenn angezeigt werden soll, ansonsten auf 0 setzen
-	$linkSgWcgBadges = "https://www.seti-germany.de/wcg/badge_XSmeagolX_0.png";  //Hier kannst du die WCG-Badges des Badge-Generators von SETI.Germany integrieren. Hinter badge_ folgt dein WCG-Name, danach _ gefolgt von der Anzahl an Reihen. 0 steht für alle Badges in einer Reihe (halte ich am sinnvollsten)
-	
+	// Hier kannst du die WCG-Badges des Badge-Generators von SETI.Germany integrieren. 
+	// Hinter badge_ folgt dein WCG-Name, danach _ gefolgt von der Anzahl an Reihen. 0 steht für alle Badges in einer Reihe (halte ich am sinnvollsten)
+	$showSgWcgBadges = false; // true - wenn angezeigt werden soll, ansonsten auf false setzen. Standard ist false
+	$linkSgWcgBadges = "https://www.seti-germany.de/wcg/badge_XSmeagolX_0.png";  // WCG-Badges von XSmeagolX, alle in einer Reihe
 	
 	//Hier dein Teamname und die URL zu der Homepage deines Teams eintragen
-	$hasTeamHp = true;
-	// hier besser true/false und dann eigentlich besser $hasTeamHp
+	$hasTeamHp = true; 	// true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
 	$teamHpName = "SETI.Germany";
 	$teamHpURL = "https://www.seti-germany.de";
 	
 	//Hier die URL zu deinen Statistiken bei boincstats.com
-	$hasBoincstats = false;
+	$hasBoincstats = false; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
 	$linkNameBoincstats = "BOINCStats";
 	$linkBoincstats = "https://boincstats.com/de/stats/-5/user/detail/865/projectList"; //Link zu boincstats.com von XSmeagolX
 	
 	//Hier die URL zu den laufenden WUs, falls Du diese mit Boinctasks veröffentlichst
-	$hasBoinctasks = false;
+	$hasBoinctasks = false; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
 	$linkNameBoinctasks = "laufende WUs";
 	$linkBoinctasks = "./tasks/tasks.html"; // Link zu den laufenden WUs von XSmeagolX
 	
 	//Hier die URL zum WCG, wird im Seitenkopf angezeigt
-	$hasWcg = true;
+	$hasWcg = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist true
 	$linkNameWcg = "World Community Grid";
 	$linkWcg = "https://join.worldcommunitygrid.org/?recruiterId=653215&teamId=4VVG5BDPP1";
 	
