@@ -80,5 +80,5 @@
 	$separat = 0.9;
 
 	//Versionsnummer
-	$userstats_version = "V 4.2 alpha_03";
+	$userstats_version = "V 4.2.0";
 ?>
