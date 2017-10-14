@@ -4,10 +4,10 @@
 	//-----------------------------------------------------------------------------------
 	
 	# Anzeigen von Fehlermeldungen)
-	#error-reporting (0);
 	error_reporting(E_ALL);
-	ini_set ('display_errors', 'On');
-	
+	#ini_set ('display_errors', 'On'); // für Testumgebung - for test environment
+	ini_set ('display_errors', 'Off');
+
 	//Pfad zur Datenbank-Verbindung
 	include "./db/boinc_db.php";
 	
@@ -80,5 +80,5 @@
 	$separat = 0.9;
 
 	//Versionsnummer
-	$userstats_version = "V 4.2.0";
+	$userstats_version = "V 4.3.0 alpha_01";
 ?>

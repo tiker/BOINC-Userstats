@@ -1,4 +1,16 @@
-Version 4.2 (alpha):
+Version 4.3:
+============
+- neue Fehlerseite für DB-Errorhandling hinzugefügt
+- Errorhandling für Datenbankabfragen hinzugefügt
+- die blaue Tabellenzeile für Gesamt in der Projektübersicht (ganz unten) bleibt nun blau (auch bei Mouseover)
+
+
+
+
+
+
+
+Version 4.2:
 ============
 
 - Unterstützung von php7/mysqli

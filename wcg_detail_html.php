@@ -23,10 +23,22 @@
 	}
 	############################################################
 	# Beginn für Grundwerte einlesen
-	$result_user = mysqli_query($db_conn, "SELECT * FROM boinc_user");  //alle Userdaten einlesen
+	$query_getUserData = mysqli_query($db_conn, "SELECT * FROM boinc_user");  //alle Userdaten einlesen
+	if ( !$query_getUserData ) { 	
+		$connErrorTitle = "Datenbankfehler";
+		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+								Es bestehen wohl Probleme mit der Datenbankanbindung.";
+		include "./errordocs/db_initial_err.php";
+		exit();
+	} elseif  ( mysqli_num_rows($query_getUserData) === 0 ) { 
+		$connErrorTitle = "Datenbankfehler";
+		$connErrorDescription = "Es wurden keine Werte zurückgegeben.";
+		include "./errordocs/db_initial_err.php";
+		exit();
+	}
 	$project_wcgname = null;
 	$wcg_verification = null;
-	while ($row = mysqli_fetch_assoc($result_user)) {
+	while ($row = mysqli_fetch_assoc($query_getUserData)) {
 		$project_username = $row["boinc_name"];
 		$project_wcgname = $row["wcg_name"];
 		$wcg_verification = $row["wcg_verificationkey"];

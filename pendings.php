@@ -12,6 +12,18 @@
 	############################################################
 	# Beginn fuer Datenzusammenstellung User
 	$result_user = mysqli_query($db_conn, "SELECT * FROM boinc_user");  //alle Userdaten einlesen
+	if ( !$result_user ) { 	
+		$connErrorTitle = "Datenbankfehler";
+		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+			Es bestehen wohl Probleme mit der Datenbankanbindung.";
+		include "./errordocs/db_initial_err.php";
+		exit();
+	} elseif  ( mysqli_num_rows($result_user) === 0 ) { 
+		$connErrorTitle = "Datenbankfehler";
+		$connErrorDescription = "Es wurden keine Werte zurückgegeben.";
+		include "./errordocs/db_initial_err.php";
+		exit();
+	}
 	while ($row = mysqli_fetch_assoc($result_user)) {
 		$project_username = $row["boinc_name"];
 		$project_wcgname = $row["wcg_name"];
@@ -97,12 +109,24 @@
 							<tbody>
 								
 								<?php
-									$query = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte WHERE project_status = 1;") or die (mysqli_error);  //nur bei aktiven Projekten Werte lesen
+									$query = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte WHERE project_status = 1;");  //nur bei aktiven Projekten Werte lesen
+									if ( !$query ) { 	
+										$connErrorTitle = "Datenbankfehler";
+										$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+											Es bestehen wohl Probleme mit der Datenbankanbindung.";
+										include "./errordocs/db_initial_err.php";
+										exit();
+									} elseif  ( mysqli_num_rows($query) === 0 ) { 
+										$connErrorTitle = "Datenbankfehler";
+										$connErrorDescription = "Es wurden keine Werte zurückgegeben.";
+										include "./errordocs/db_initial_err.php";
+										exit();
+									}
 									$ctx = stream_context_create(array(
-									'http' => array(
-									'timeout' => 1
-									)
-									)
+											'http' => array(
+											'timeout' => 1
+											)
+										)
 									);
 									$xml_string_pendings = "false";
 									$pendings_gesamt = null;
@@ -135,6 +159,7 @@
 		</div>
 	</div>
 	
-<?php echo "$tr_hp_footer" ?>
-</body>
+	<?php echo "$tr_hp_footer" ?>
+	
+	</body>
 </html>

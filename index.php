@@ -22,8 +22,20 @@
 
 	############################################################
 	# Beginn fuer Datenzusammenstellung User
-	$result_user = mysqli_query($db_conn, "SELECT * from boinc_user");  //alle Userdaten einlesen
-	while ($row = mysqli_fetch_assoc($result_user)) {
+	$query_getUserData = mysqli_query($db_conn, "SELECT * from boinc_user");  //alle Userdaten einlesen
+	if ( !$query_getUserData ) { 	
+		$connErrorTitle = "Datenbankfehler";
+		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+								Es bestehen wohl Probleme mit der Datenbankanbindung.";
+		include "./errordocs/db_initial_err.php";
+		exit();
+	} elseif  ( mysqli_num_rows($query_getUserData) === 0 ) { 
+		$connErrorTitle = "Datenbankfehler";
+		$connErrorDescription = "Die Tabelle boinc_user enthält keine Daten.";
+		include "./errordocs/db_initial_err.php";
+		exit();
+	}
+	while ($row = mysqli_fetch_assoc($query_getUserData)) {
 		$project_username = $row["boinc_name"];
 		$project_wcgname = $row["wcg_name"];
 		$project_teamname = $row["team_name"];
@@ -49,15 +61,37 @@
 	$timestamp_day = date("Y-m-d H:i:s", mktime(date("H"), 0, 0, date("m"), date("d") - 31, date("Y")));  // letzte 31 Tage bei Tages-Output
 	
 	# Berechnung der aktuellen Gesamt-Credits bei allen Projekten des Users
-	$query = "SELECT SUM(total_credits) AS sum_total from boinc_grundwerte";
-	$result = mysqli_query($db_conn, $query);
-	$row2 = mysqli_fetch_assoc($result);
+	$query_getTotalCredits = mysqli_query($db_conn, "SELECT SUM(total_credits) AS sum_total from boinc_grundwerte");
+	if ( !$query_getTotalCredits ) { 	
+		$connErrorTitle = "Datenbankfehler";
+		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+								Es bestehen wohl Probleme mit der Datenbankanbindung.";
+		include "./errordocs/db_initial_err.php";
+		exit();
+	} elseif  ( mysqli_num_rows($query_getTotalCredits) === 0 ) { 
+		$connErrorTitle = "Datenbankfehler";
+		$connErrorDescription = "Die Tabelle boinc_grundwerte enthält keine Daten.";
+		include "./errordocs/db_initial_err.php";
+		exit();
+	}
+	$row2 = mysqli_fetch_assoc($query_getTotalCredits);
 	$sum_total = $row2["sum_total"];
 	
 	# Berechnung der aktuellen Gesamt-Pendings-Credits bei allen Projekten des Users
-	$query = "SELECT SUM(pending_credits) AS sum_total from boinc_grundwerte";
-	$result = mysqli_query($db_conn, $query);
-	$row2 = mysqli_fetch_assoc($result);
+	$query_getTotalPendingCredits = mysqli_query($db_conn, "SELECT SUM(pending_credits) AS sum_total from boinc_grundwerte");
+	if ( !$query_getTotalPendingCredits ) { 	
+		$connErrorTitle = "Datenbankfehler";
+		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+								Es bestehen wohl Probleme mit der Datenbankanbindung.";
+		include "./errordocs/db_initial_err.php";
+		exit();
+	} elseif  ( mysqli_num_rows($query_getTotalPendingCredits) === 0 ) { 
+		$connErrorTitle = "Datenbankfehler";
+		$connErrorDescription = "Die Tabelle boinc_grundwerte enthält keine Daten.";
+		include "./errordocs/db_initial_err.php";
+		exit();
+	}
+	$row2 = mysqli_fetch_assoc($query_getTotalPendingCredits);
 	$sum_pendings = $row2["sum_total"];
 	
 	##########################################################################
@@ -69,19 +103,22 @@
 	$sechsh = mktime(date("H") - 5, 0, 0, date("m"), date("d"), date("Y"));
 	$zwoelfh = mktime(date("H") - 11, 0, 0, date("m"), date("d"), date("Y"));
 	
-	############################################################
-	# Gesamtpositionierung erheben
-	$result_world_rank = mysqli_query($db_conn, "SELECT rank, rank_team FROM boinc_werte_day WHERE project_shortname='gesamt' ORDER BY time_stamp DESC LIMIT 1");  //alle Userdaten einlesen
-	while ($row = mysqli_fetch_assoc($result_world_rank)) {
-		$sum_rank_total = $row["rank"];
-		$sum_rank_total_avg = $row["rank_team"];
+	$query_getAllProjects = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte ORDER BY project ASC");  //alle Projektgrunddaten einlesen
+	if ( !$query_getAllProjects ) { 	
+		$connErrorTitle = "Datenbankfehler";
+		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+								Es bestehen wohl Probleme mit der Datenbankanbindung.";
+		include "./errordocs/db_initial_err.php";
+		exit();
+	} elseif  ( mysqli_num_rows($query_getAllProjects) === 0 ) { 
+		$connErrorTitle = "Datenbankfehler";
+		$connErrorDescription = "Die Tabelle boinc_grundwerte enthält keine Daten.";
+		include "./errordocs/db_initial_err.php";
+		exit();
 	}
-	
-	$result_grundwerte = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte ORDER BY project ASC");  //alle Projektgrunddaten einlesen
-	while ($row = mysqli_fetch_assoc($result_grundwerte)) {
+	while ($row = mysqli_fetch_assoc($query_getAllProjects)) {
 		
 		if ($row["project_status"] <= 1) {
-			#warum <=1? sonst überall 1, wann 0?
 			
 			############################################################
 			# Daten fuer Tabelle zuammenstellen
@@ -93,38 +130,93 @@
 			$table_row["user_stats_vorhanden"] = $row["project_status"];
 			
 			#Daten fuer letzte Stunde holen
-			$query = 'SELECT sum(credits) AS sum1h FROM boinc_werte WHERE project_shortname="' . $shortname . '" AND time_stamp>"' . $einsh . '"';
-			$result = mysqli_query($db_conn,$query);
-			$row2 = mysqli_fetch_assoc($result);
+			$query_getOutput1h = mysqli_query($db_conn,"SELECT sum(credits) AS sum1h FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $einsh . "'");
+			if ( !$query_getOutput1h ) { 	
+				$connErrorTitle = "Datenbankfehler";
+				$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+										Es bestehen wohl Probleme mit der Datenbankanbindung.";
+				include "./errordocs/db_initial_err.php";
+				exit();
+			} elseif  ( mysqli_num_rows($query_getOutput1h) === 0) { 
+				$connErrorTitle = "Datenbankfehler";
+				$connErrorDescription = "Die Abfrage lieferte keine gültigen Werte.";
+				include "./errordocs/db_initial_err.php";
+				exit();
+			}
+			$row2 = mysqli_fetch_assoc($query_getOutput1h);
 			$table_row["sum1h"] = $row2["sum1h"];
 			$sum1h_total += $table_row["sum1h"];
 			
 			#Daten der letzten 2 Stunden holen
-			$query = 'SELECT sum(credits) AS sum2h FROM boinc_werte WHERE project_shortname="' . $shortname . '" AND time_stamp>"' . $zweih . '"';
-			$result = mysqli_query($db_conn,$query);
-			$row2 = mysqli_fetch_assoc($result);
+			$query_getOutput2h = mysqli_query($db_conn,"SELECT sum(credits) AS sum2h FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $zweih . "'");
+			if ( !$query_getOutput2h ) { 	
+				$connErrorTitle = "Datenbankfehler";
+				$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+										Es bestehen wohl Probleme mit der Datenbankanbindung.";
+				include "./errordocs/db_initial_err.php";
+				exit();
+			} elseif  ( mysqli_num_rows($query_getOutput2h) === 0 ) { 
+				$connErrorTitle = "Datenbankfehler";
+				$connErrorDescription = "Die Abfrage lieferte keine gültigen Werte.";
+				include "./errordocs/db_initial_err.php";
+				exit();
+			}
+			$row2 = mysqli_fetch_assoc($query_getOutput2h);
 			$table_row["sum2h"] = $row2["sum2h"];
 			$sum2h_total += $table_row["sum2h"];
 			
 			#Daten der letzten 6 Stunden holen
-			$query = 'SELECT sum(credits) AS sum6h FROM boinc_werte WHERE project_shortname="' . $shortname . '" AND time_stamp>"' . $sechsh . '"';
-			$result = mysqli_query($db_conn,$query);
-			$row2 = mysqli_fetch_assoc($result);
+			$query_getOutput6h = mysqli_query($db_conn,"SELECT sum(credits) AS sum6h FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $sechsh . "'");
+			if ( !$query_getOutput6h ) { 	
+				$connErrorTitle = "Datenbankfehler";
+				$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+										Es bestehen wohl Probleme mit der Datenbankanbindung.";
+				include "./errordocs/db_initial_err.php";
+				exit();
+			} elseif  ( mysqli_num_rows($query_getOutput6h) === 0 ) { 
+				$connErrorTitle = "Datenbankfehler";
+				$connErrorDescription = "Die Abfrage lieferte keine gültigen Werte.";
+				include "./errordocs/db_initial_err.php";
+				exit();
+			}
+			$row2 = mysqli_fetch_assoc($query_getOutput6h);
 			$table_row["sum6h"] = $row2["sum6h"];
 			$sum6h_total += $table_row["sum6h"];
 			
 			#Daten der letzten 12 Stunden holen
-			$query = 'SELECT sum(credits) AS sum12h FROM boinc_werte WHERE project_shortname="' . $shortname . '" AND time_stamp>"' . $zwoelfh . '"';
-			$result = mysqli_query($db_conn,$query);
-			$row2 = mysqli_fetch_assoc($result);
+			$query_getOutput12h = mysqli_query($db_conn,"SELECT sum(credits) AS sum12h FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $zwoelfh . "'");
+			if ( !$query_getOutput12h ) { 	
+				$connErrorTitle = "Datenbankfehler";
+				$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+										Es bestehen wohl Probleme mit der Datenbankanbindung.";
+				include "./errordocs/db_initial_err.php";
+				exit();
+			} elseif  ( mysqli_num_rows($query_getOutput12h) === 0 ) { 
+				$connErrorTitle = "Datenbankfehler";
+				$connErrorDescription = "Die Abfrage lieferte keine gültigen Werte.";
+				include "./errordocs/db_initial_err.php";
+				exit();
+			}
+			$row2 = mysqli_fetch_assoc($query_getOutput12h);
 			$table_row["sum12h"] = $row2["sum12h"];
 			$sum12h_total += $table_row["sum12h"];
 			
 			#Aktueller Tagesoutput
 			$tagesanfang = mktime(0, 0, 1, date("m"), date("d"), date("Y"));
-			$query = 'SELECT sum(credits) AS sum_today FROM boinc_werte WHERE project_shortname="' . $shortname . '" AND time_stamp>"' . $tagesanfang . '"';
-			$result = mysqli_query($db_conn,$query);
-			$row2 = mysqli_fetch_assoc($result);
+			$query_getOutputToday = mysqli_query($db_conn,"SELECT sum(credits) AS sum_today FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $tagesanfang . "'");
+			if ( !$query_getOutputToday ) { 	
+				$connErrorTitle = "Datenbankfehler";
+				$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+										Es bestehen wohl Probleme mit der Datenbankanbindung.";
+				include "./errordocs/db_initial_err.php";
+				exit();
+			} elseif  ( mysqli_num_rows($query_getOutputToday) === 0 ) { 
+				$connErrorTitle = "Datenbankfehler";
+				$connErrorDescription = "Die Abfrage lieferte keine gültigen Werte.";
+				include "./errordocs/db_initial_err.php";
+				exit();
+			}
+			$row2 = mysqli_fetch_assoc($query_getOutputToday);
 			$table_row["sum_today"] = $row2["sum_today"];
 			$sum_today_total += $table_row["sum_today"];
 			
@@ -132,11 +224,20 @@
 			$gestern_anfang = mktime(0, 0, 1, date("m"), date("d") - 1, date("Y"));
 			$gestern_ende = mktime(0, 0, 0, date("m"), date("d"), date("Y"));
 			
-			$query = 'SELECT sum(credits) AS sum_yesterday FROM boinc_werte
-			WHERE	 project_shortname="' . $shortname . '" AND 
-			time_stamp BETWEEN "' . $gestern_anfang . '" AND "' . $gestern_ende . '"';
-			$result = mysqli_query($db_conn,$query);
-			$row2 = mysqli_fetch_assoc($result);
+			$query_getOutputYesterday = mysqli_query($db_conn,"SELECT sum(credits) AS sum_yesterday FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp BETWEEN '" . $gestern_anfang . "' AND '" . $gestern_ende . "'");
+			if ( !$query_getOutputYesterday ) { 	
+				$connErrorTitle = "Datenbankfehler";
+				$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+										Es bestehen wohl Probleme mit der Datenbankanbindung.";
+				include "./errordocs/db_initial_err.php";
+				exit();
+			} elseif  ( mysqli_num_rows($query_getOutputYesterday) === 0 ) { 
+				$connErrorTitle = "Datenbankfehler";
+				$connErrorDescription = "Die Abfrage lieferte keine gültigen Werte.";
+				include "./errordocs/db_initial_err.php";
+				exit();
+			}
+			$row2 = mysqli_fetch_assoc($query_getOutputYesterday);
 			$table_row["sum_yesterday"] = $row2["sum_yesterday"];
 			$sum_yesterday_total += $table_row["sum_yesterday"];
 			
@@ -190,9 +291,21 @@
 	
 	############################################################
 	# Beginn Datenzusammenstellung Stunden-Gesamt-Output
-	$result_output = mysqli_query($db_conn,"SELECT time_stamp, credits FROM boinc_werte WHERE project_shortname='gesamt'");
+	$query_getTotalOutputPerHour = mysqli_query($db_conn,"SELECT time_stamp, credits FROM boinc_werte WHERE project_shortname='gesamt'");
+	if ( !$query_getTotalOutputPerHour ) { 	
+		$connErrorTitle = "Datenbankfehler";
+		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+								Es bestehen wohl Probleme mit der Datenbankanbindung.";
+		include "./errordocs/db_initial_err.php";
+		exit();
+	} elseif  ( mysqli_num_rows($query_getTotalOutputPerHour) === 0 ) { 
+		$connErrorTitle = "Datenbankfehler";
+		$connErrorDescription = "Es wurden keine Werte zurückgegeben.";
+		include "./errordocs/db_initial_err.php";
+		exit();
+	}
 	$output_html = null;
-	while ($row = mysqli_fetch_assoc($result_output)) {
+	while ($row = mysqli_fetch_assoc($query_getTotalOutputPerHour)) {
 		$timestamp = ($row["time_stamp"]) * 1000;
 		$output_html .= "[" . $timestamp . ", " . $row["credits"] . "], ";
 	}
@@ -202,10 +315,22 @@
 	
 	############################################################
 	# Beginn Datenzusammenstellung Gesamt-Credits
-	$result_output_gesamt = mysqli_query($db_conn,"SELECT time_stamp, total_credits, pending_credits, rank, rank_team FROM boinc_werte_day WHERE project_shortname='gesamt'");
+	$query_getTotalOutputPerDay = mysqli_query($db_conn,"SELECT time_stamp, total_credits, pending_credits FROM boinc_werte_day WHERE project_shortname='gesamt'");
+	if ( !$query_getTotalOutputPerDay ) { 	
+		$connErrorTitle = "Datenbankfehler";
+		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+								Es bestehen wohl Probleme mit der Datenbankanbindung.";
+		include "./errordocs/db_initial_err.php";
+		exit();
+	} elseif  ( mysqli_num_rows($query_getTotalOutputPerDay) === 0 ) { 
+		$connErrorTitle = "Datenbankfehler";
+		$connErrorDescription = "Es wurden keine Werte zurückgegeben.";
+		include "./errordocs/db_initial_err.php";
+		exit();
+	}
 	$output_gesamt_html = null;
 	$output_gesamt_pendings_html = null;
-	while ($row2 = mysqli_fetch_assoc($result_output_gesamt)) {
+	while ($row2 = mysqli_fetch_assoc($query_getTotalOutputPerDay)) {
 		$timestamp2 = ($row2["time_stamp"]) * 1000;
 		$output_gesamt_html .= "[" . $timestamp2 . ", " . $row2["total_credits"] . "], ";
 		$output_gesamt_pendings_html .= "[" . $timestamp2 . ", " . $row2["pending_credits"] . "], ";
@@ -401,15 +526,15 @@ else include "./lang/highstock_en.js";
 							<td class="alert-warning"><b><?php echo $tr_th2_rp ?></b></td>
 							<td class="alert-warning"><b><?php #echo $tr_tb_det ?></b></td>
 							<td class="alert-warning"><b><?php echo $tr_tb_cr ?></b></td>
-						<td class="alert-warning hidden-xs hidden-sm"></b></td>
-						<td class="alert-warning hidden-xs"><b><?php echo $tr_tb_01 ?></b></td>
-						<td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_02 ?></b></td>
-						<td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_06 ?></b></td>
-						<td class="alert-warning hidden-xs"><b><?php echo $tr_tb_12 ?></b></td>
-						<td class="alert-success"><b><?php echo $tr_tb_to ?></b></td>
-						<td class="alert-info"><b><?php echo $tr_tb_ye ?></b></td>
-						<td class="alert-danger hidden-xs"><b><?php echo $tr_tb_pe ?></b></td>
-					</tr>
+							<td class="alert-warning hidden-xs hidden-sm"></b></td>
+							<td class="alert-warning hidden-xs"><b><?php echo $tr_tb_01 ?></b></td>
+							<td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_02 ?></b></td>
+							<td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_06 ?></b></td>
+							<td class="alert-warning hidden-xs"><b><?php echo $tr_tb_12 ?></b></td>
+							<td class="alert-success"><b><?php echo $tr_tb_to ?></b></td>
+							<td class="alert-info"><b><?php echo $tr_tb_ye ?></b></td>
+							<td class="alert-danger hidden-xs"><b><?php echo $tr_tb_pe ?></b></td>
+						</tr>
 					
 					<?php
 						foreach ($table_retired as $table_row_retired) {
@@ -434,17 +559,17 @@ else include "./lang/highstock_en.js";
 						}
 					?>
 					<tr class="alert-info">
-						<td><b><?php echo $tr_th_total ?></b></td>
-						<td><b><?php #echo $tr_th_detail ?></b></td>
-						<td><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="hidden-xs hidden-sm"><b>100%</b></td>
-						<td class="hidden-xs">
+						<td class="alert-info"><b><?php echo $tr_th_total ?></b></td>
+						<td class="alert-info"><b><?php #echo $tr_th_detail ?></b></td>
+						<td class="alert-info"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
+						<td class="alert-info hidden-xs hidden-sm"><b>100%</b></td>
+						<td class="alert-info hidden-xs">
 						<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="hidden-xs hidden-sm">
+						<td class="alert-info hidden-xs hidden-sm">
 						<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="hidden-xs hidden-sm">
+						<td class="alert-info hidden-xs hidden-sm">
 						<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="hidden-xs">
+						<td class="alert-info hidden-xs">
 						<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
 						<td class="alert-success">
 						<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
