@@ -131,15 +131,10 @@
 			
 			#Daten fuer letzte Stunde holen
 			$query_getOutput1h = mysqli_query($db_conn,"SELECT sum(credits) AS sum1h FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $einsh . "'");
-			if ( !$query_getOutput1h ) { 	
+			if ( !$query_getOutput1h || mysqli_num_rows($query_getOutput1h) === 0 ) { 	
 				$connErrorTitle = "Datenbankfehler";
 				$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
 										Es bestehen wohl Probleme mit der Datenbankanbindung.";
-				include "./errordocs/db_initial_err.php";
-				exit();
-			} elseif  ( mysqli_num_rows($query_getOutput1h) === 0) { 
-				$connErrorTitle = "Datenbankfehler";
-				$connErrorDescription = "Die Abfrage lieferte keine gültigen Werte.";
 				include "./errordocs/db_initial_err.php";
 				exit();
 			}
@@ -149,15 +144,10 @@
 			
 			#Daten der letzten 2 Stunden holen
 			$query_getOutput2h = mysqli_query($db_conn,"SELECT sum(credits) AS sum2h FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $zweih . "'");
-			if ( !$query_getOutput2h ) { 	
+			if ( !$query_getOutput2h || mysqli_num_rows($query_getOutput2h) === 0 ) { 	
 				$connErrorTitle = "Datenbankfehler";
 				$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
 										Es bestehen wohl Probleme mit der Datenbankanbindung.";
-				include "./errordocs/db_initial_err.php";
-				exit();
-			} elseif  ( mysqli_num_rows($query_getOutput2h) === 0 ) { 
-				$connErrorTitle = "Datenbankfehler";
-				$connErrorDescription = "Die Abfrage lieferte keine gültigen Werte.";
 				include "./errordocs/db_initial_err.php";
 				exit();
 			}
@@ -167,15 +157,10 @@
 			
 			#Daten der letzten 6 Stunden holen
 			$query_getOutput6h = mysqli_query($db_conn,"SELECT sum(credits) AS sum6h FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $sechsh . "'");
-			if ( !$query_getOutput6h ) { 	
+			if ( !$query_getOutput6h || mysqli_num_rows($query_getOutput6h) === 0 ) { 	
 				$connErrorTitle = "Datenbankfehler";
 				$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
 										Es bestehen wohl Probleme mit der Datenbankanbindung.";
-				include "./errordocs/db_initial_err.php";
-				exit();
-			} elseif  ( mysqli_num_rows($query_getOutput6h) === 0 ) { 
-				$connErrorTitle = "Datenbankfehler";
-				$connErrorDescription = "Die Abfrage lieferte keine gültigen Werte.";
 				include "./errordocs/db_initial_err.php";
 				exit();
 			}
@@ -185,15 +170,10 @@
 			
 			#Daten der letzten 12 Stunden holen
 			$query_getOutput12h = mysqli_query($db_conn,"SELECT sum(credits) AS sum12h FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $zwoelfh . "'");
-			if ( !$query_getOutput12h ) { 	
+			if ( !$query_getOutput12h || mysqli_num_rows($query_getOutput12h) === 0 ) { 	
 				$connErrorTitle = "Datenbankfehler";
 				$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
 										Es bestehen wohl Probleme mit der Datenbankanbindung.";
-				include "./errordocs/db_initial_err.php";
-				exit();
-			} elseif  ( mysqli_num_rows($query_getOutput12h) === 0 ) { 
-				$connErrorTitle = "Datenbankfehler";
-				$connErrorDescription = "Die Abfrage lieferte keine gültigen Werte.";
 				include "./errordocs/db_initial_err.php";
 				exit();
 			}
@@ -204,15 +184,10 @@
 			#Aktueller Tagesoutput
 			$tagesanfang = mktime(0, 0, 1, date("m"), date("d"), date("Y"));
 			$query_getOutputToday = mysqli_query($db_conn,"SELECT sum(credits) AS sum_today FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $tagesanfang . "'");
-			if ( !$query_getOutputToday ) { 	
+			if ( !$query_getOutputToday || mysqli_num_rows($query_getOutputToday) === 0 ) { 	
 				$connErrorTitle = "Datenbankfehler";
 				$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
 										Es bestehen wohl Probleme mit der Datenbankanbindung.";
-				include "./errordocs/db_initial_err.php";
-				exit();
-			} elseif  ( mysqli_num_rows($query_getOutputToday) === 0 ) { 
-				$connErrorTitle = "Datenbankfehler";
-				$connErrorDescription = "Die Abfrage lieferte keine gültigen Werte.";
 				include "./errordocs/db_initial_err.php";
 				exit();
 			}
@@ -225,15 +200,10 @@
 			$gestern_ende = mktime(0, 0, 0, date("m"), date("d"), date("Y"));
 			
 			$query_getOutputYesterday = mysqli_query($db_conn,"SELECT sum(credits) AS sum_yesterday FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp BETWEEN '" . $gestern_anfang . "' AND '" . $gestern_ende . "'");
-			if ( !$query_getOutputYesterday ) { 	
+			if ( !$query_getOutputYesterday || mysqli_num_rows($query_getOutputYesterday) === 0 ) { 	
 				$connErrorTitle = "Datenbankfehler";
 				$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
 										Es bestehen wohl Probleme mit der Datenbankanbindung.";
-				include "./errordocs/db_initial_err.php";
-				exit();
-			} elseif  ( mysqli_num_rows($query_getOutputYesterday) === 0 ) { 
-				$connErrorTitle = "Datenbankfehler";
-				$connErrorDescription = "Die Abfrage lieferte keine gültigen Werte.";
 				include "./errordocs/db_initial_err.php";
 				exit();
 			}
@@ -300,11 +270,11 @@
 		exit();
 	} elseif  ( mysqli_num_rows($query_getTotalOutputPerHour) === 0 ) { 
 		$connErrorTitle = "Datenbankfehler";
-		$connErrorDescription = "Es wurden keine Werte zurückgegeben.";
+		$connErrorDescription = "Es noch keine Daten für eine Gesamtberechnung erstellt.";
 		include "./errordocs/db_initial_err.php";
 		exit();
 	}
-	$output_html = null;
+	$output_html = "";
 	while ($row = mysqli_fetch_assoc($query_getTotalOutputPerHour)) {
 		$timestamp = ($row["time_stamp"]) * 1000;
 		$output_html .= "[" . $timestamp . ", " . $row["credits"] . "], ";
@@ -324,12 +294,12 @@
 		exit();
 	} elseif  ( mysqli_num_rows($query_getTotalOutputPerDay) === 0 ) { 
 		$connErrorTitle = "Datenbankfehler";
-		$connErrorDescription = "Es wurden keine Werte zurückgegeben.";
+		$connErrorDescription = "Es noch keine Daten für eine Gesamtberechnung erstellt.";
 		include "./errordocs/db_initial_err.php";
 		exit();
 	}
-	$output_gesamt_html = null;
-	$output_gesamt_pendings_html = null;
+	$output_gesamt_html = "";
+	$output_gesamt_pendings_html = "";
 	while ($row2 = mysqli_fetch_assoc($query_getTotalOutputPerDay)) {
 		$timestamp2 = ($row2["time_stamp"]) * 1000;
 		$output_gesamt_html .= "[" . $timestamp2 . ", " . $row2["total_credits"] . "], ";

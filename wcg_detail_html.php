@@ -36,8 +36,8 @@
 		include "./errordocs/db_initial_err.php";
 		exit();
 	}
-	$project_wcgname = null;
-	$wcg_verification = null;
+	$project_wcgname = "";
+	$wcg_verification = "";
 	while ($row = mysqli_fetch_assoc($query_getUserData)) {
 		$project_username = $row["boinc_name"];
 		$project_wcgname = $row["wcg_name"];

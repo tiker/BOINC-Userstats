@@ -12,15 +12,10 @@
 	############################################################
 	# Beginn fuer Datenzusammenstellung User
 	$result_user = mysqli_query($db_conn, "SELECT * FROM boinc_user");  //alle Userdaten einlesen
-	if ( !$result_user ) { 	
+	if ( !$result_user || mysqli_num_rows($result_user) === 0 ) { 	
 		$connErrorTitle = "Datenbankfehler";
 		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
 			Es bestehen wohl Probleme mit der Datenbankanbindung.";
-		include "./errordocs/db_initial_err.php";
-		exit();
-	} elseif  ( mysqli_num_rows($result_user) === 0 ) { 
-		$connErrorTitle = "Datenbankfehler";
-		$connErrorDescription = "Es wurden keine Werte zurückgegeben.";
 		include "./errordocs/db_initial_err.php";
 		exit();
 	}
@@ -118,7 +113,7 @@
 										exit();
 									} elseif  ( mysqli_num_rows($query) === 0 ) { 
 										$connErrorTitle = "Datenbankfehler";
-										$connErrorDescription = "Es wurden keine Werte zurückgegeben.";
+										$connErrorDescription = "Es existiern keine Projekte in deiner Datenbank, welche als aktiv (1) gesetzt sind.";
 										include "./errordocs/db_initial_err.php";
 										exit();
 									}
@@ -129,7 +124,7 @@
 										)
 									);
 									$xml_string_pendings = "false";
-									$pendings_gesamt = null;
+									$pendings_gesamt = 0;
 									while ($row = mysqli_fetch_assoc($query)) {
 										$xml_string_pendings = @file_get_contents($row['url'] . "pending.php?format=xml&authenticator=" . $row['authenticator'], 0, $ctx);
 										if ($xml_string_pendings == FALSE) {

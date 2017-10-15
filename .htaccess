@@ -1,3 +1,32 @@
-# Don't show directory listings for URLs which map to a directory.
-Options -Indexes
-# Hier noch Apache Error-Handling/Fehlerseiten einbringen
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteOptions inherit
+    
+    # Don't show directory listings for URLs which map to a directory.
+    Options -Indexes
+
+    # Hier noch Apache Error-Handling/Fehlerseiten einbringen
+    ErrorDocument 400 /errordocs/error.php?error=400
+    ErrorDocument 401 /errordocs/error.php?error=401
+    ErrorDocument 402 /errordocs/error.php?error=402
+    ErrorDocument 403 /errordocs/error.php?error=403
+    ErrorDocument 404 /errordocs/error.php?error=404
+    ErrorDocument 405 /errordocs/error.php?error=405
+    ErrorDocument 406 /errordocs/error.php?error=406
+    ErrorDocument 407 /errordocs/error.php?error=407
+    ErrorDocument 408 /errordocs/error.php?error=408
+    ErrorDocument 409 /errordocs/error.php?error=409
+    ErrorDocument 410 /errordocs/error.php?error=410
+    ErrorDocument 411 /errordocs/error.php?error=411
+    ErrorDocument 412 /errordocs/error.php?error=412
+    ErrorDocument 413 /errordocs/error.php?error=413
+    ErrorDocument 414 /errordocs/error.php?error=414
+    ErrorDocument 415 /errordocs/error.php?error=415
+
+    ErrorDocument 500 /errordocs/error.php?error=500
+    ErrorDocument 501 /errordocs/error.php?error=501
+    ErrorDocument 502 /errordocs/error.php?error=502
+    ErrorDocument 503 /errordocs/error.php?error=503
+    ErrorDocument 504 /errordocs/error.php?error=504
+    ErrorDocument 505 /errordocs/error.php?error=505
+</IfModule>

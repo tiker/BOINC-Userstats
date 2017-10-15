@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="https://userstats.timo-schneider.de/assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="https://userstats.timo-schneider.de/assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="./favicon.gif">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Persönliche BOINC Userstats - stündlich aktualisiert</title>
 	<meta name="description" content="Erstelle deine eigenen BOINC Statistiken mit php und mysql auf deinem Webspace.">
@@ -19,8 +19,6 @@
     <!-- CSS Files -->
     <link href="https://userstats.timo-schneider.de/assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://userstats.timo-schneider.de/assets/css/now-ui-kit.css?v=1.1.0" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="https://userstats.timo-schneider.de/assets/css/demo.css" rel="stylesheet" />
 </head>
 
 <body class="landing-page sidebar-collapse">
@@ -38,24 +36,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="https://userstats.timo-schneider.de/faq.html">FAQ</a>
                     </li>					
-                    <!--li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
-                            <i class="fa fa-twitter"></i>
-                            <p class="d-lg-none d-xl-none">Twitter</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
-                            <i class="fa fa-facebook-square"></i>
-                            <p class="d-lg-none d-xl-none">Facebook</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
-                            <i class="fa fa-instagram"></i>
-                            <p class="d-lg-none d-xl-none">Instagram</p>
-                        </a>
-                    </li-->
                 </ul>
             </div>
         </div>
@@ -83,17 +63,6 @@
 							</button>
 						</div>
 					</div-->						
-                    <!--div class="text-center">
-                        <a href="#pablo" class="btn btn-primary btn-icon btn-round">
-                            <i class="fa fa-facebook-square"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-primary btn-icon btn-round">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-primary btn-icon btn-round">
-                            <i class="fa fa-google-plus"></i>
-                        </a>
-                    </div-->
                 </div>
             </div>
         </div>
