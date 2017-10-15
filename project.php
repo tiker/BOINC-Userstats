@@ -382,8 +382,8 @@ else include "./lang/highstock_en.js";
 										echo "  <td>";
 										echo "	<a href='" .$table_row["project_home_link"] . "'>" .$table_row["project_name"];
 										echo "	</a>";
-										if ($table_row["project_name"] == "World Community Grid") {
-											if ($wcg_verification === NULL) {
+										if ($table_row["project_name"] == "World Community Grid" || $table_row["project_name"] == "WCG") {
+											if ($wcg_verification === NULL || $wcg_verification === "") {
 												echo ""; } else {
 												echo "  <a href class='primary' data-toggle='modal' data-target='#modalwcgdetail'><i class='fa fa-list'></i></a>";
 											}           
