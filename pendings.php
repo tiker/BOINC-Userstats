@@ -92,7 +92,7 @@
 								
 							</div>
 						</div>
-						<table class="table table-striped table-hover text-right table-condensed"
+						<table id="table_pendings" class="table table-striped table-hover text-right table-condensed"
 						style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
 							
 							<thead>
@@ -155,6 +155,27 @@
 	</div>
 	
 	<?php echo "$tr_hp_footer" ?>
+
+	<script>
+	$(document).ready(function() {
+		$('#table_pendings').DataTable( {
+			"language": {
+            "decimal": "<?php echo $dec_point; ?>",
+            "thousands": "<?php echo $thousands_sep; ?>",
+			"search":	"<?php echo $search; ?>"
+        },
+			"order": [],
+    		"columnDefs": [ {
+      		"targets"  : 'no-sort',
+      		"orderable": false,
+    		}],
+			"paging":   false,
+			"ordering": true,
+			"info":     false,
+			"search":	false
+		} );
+	} );
+</script>
 	
 	</body>
 </html>

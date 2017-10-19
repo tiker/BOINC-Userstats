@@ -426,14 +426,12 @@ else include "./lang/highstock_en.js";
 						}
 					</style>
 					
-					<table class="table table-striped table-hover text-right table-condensed"
+					<table id="table_projects" class="table table-striped table-hover text-right table-condensed"
 					style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-						
-						<!-- Fuer jedes Projekt eine Zeile in die Tabelle hinzufuegen -->
 						
 						<thead class="alert-warning">
 							<th class="text-right"><?php echo $tr_tb_pr ?></th>
-							<th class="text-right"></th>
+							<th class="text-right no-sort"></th>
 							<th class="text-right"><?php echo $tr_tb_cr ?></th>
 							<th class="hidden-xs hidden-sm text-right">%</th>
 							<th class="hidden-xs text-right"><?php echo $tr_tb_01 ?></th>
@@ -492,6 +490,7 @@ else include "./lang/highstock_en.js";
 								echo "</tr>";
 							}
 						?>
+						<thead>
 						<tr class="alert-warning">
 							<td class="alert-warning"><b><?php echo $tr_th2_rp ?></b></td>
 							<td class="alert-warning"><b><?php #echo $tr_tb_det ?></b></td>
@@ -505,6 +504,7 @@ else include "./lang/highstock_en.js";
 							<td class="alert-info"><b><?php echo $tr_tb_ye ?></b></td>
 							<td class="alert-danger hidden-xs"><b><?php echo $tr_tb_pe ?></b></td>
 						</tr>
+						</thead>
 					
 					<?php
 						foreach ($table_retired as $table_row_retired) {
@@ -528,6 +528,7 @@ else include "./lang/highstock_en.js";
 							echo "</tr>";
 						}
 					?>
+					<thead>
 					<tr class="alert-info">
 						<td class="alert-info"><b><?php echo $tr_th_total ?></b></td>
 						<td class="alert-info"><b><?php #echo $tr_th_detail ?></b></td>
@@ -561,6 +562,7 @@ else include "./lang/highstock_en.js";
 						<td class="alert-info"><b><?php echo $tr_tb_ye ?></b></td>
 						<td class="alert-danger hidden-xs"><b><?php echo $tr_tb_pe ?></b></td>
 					</tr>
+					</thead>
 				</table>
 			</div>
 		</div>
@@ -665,6 +667,27 @@ else include "./lang/highstock_en.js";
 </div>
 
 <?php echo "$tr_hp_footer" ?>
+
+<script>
+	$(document).ready(function() {
+		$('#table_projects').DataTable( {
+			"language": {
+            "decimal": "<?php echo $dec_point; ?>",
+            "thousands": "<?php echo $thousands_sep; ?>",
+			"search":	"<?php echo $search; ?>"
+        },
+			"order": [],
+    		"columnDefs": [ {
+      		"targets"  : 'no-sort',
+      		"orderable": false,
+    		}],
+			"paging":   false,
+			"ordering": true,
+			"info":     false,
+			"search":	false
+		} );
+	} );
+</script>
 
 </body>
 </html>

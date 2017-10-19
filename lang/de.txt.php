@@ -1,5 +1,6 @@
 <?php
 	// Deutsche Version //
+	$search= "Suche";
 	$tr_hp_title = "<title>Persönliche Userstatistiken von " .$project_username. " aus dem Team " .$project_teamname. "</title>";
 	$tr_th_bp = "BOINC-Projekte von";
 	$tr_th_ot = "aus dem Team";
@@ -113,7 +114,8 @@
 	
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css"
+
 	<!-- Layout CSS -->
 	<link href="./paper-kit/ct-paper.css" rel="stylesheet"/>
 	<link href="./paper-kit/demo.css" rel="stylesheet"/>
@@ -122,6 +124,7 @@
 	
 	<!--     Fonts and icons     -->
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="https://cdn.datatables.net/plug-ins/1.10.16/integration/font-awesome/dataTables.fontAwesome.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
 	
@@ -136,8 +139,10 @@
 	<script src="./paper-kit/bootstrap-datepicker.js"></script>
 	<script src="./paper-kit/ct-paper.js"></script>
 	
-	<script src="https://code.highcharts.com/stock/highstock.js"></script>	
+	<script src="https://code.highcharts.com/stock/highstock.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 	
 	<style type="text/css">
 	.tab-content > .tab-pane:not(.active),
