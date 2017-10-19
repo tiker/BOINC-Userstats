@@ -95,11 +95,9 @@
 						<table id="table_pendings" class="table table-striped table-hover text-right table-condensed"
 						style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
 							
-							<thead>
-								<tr>
-									<th class="text-right"><?php echo $tr_tb_pr ?></th>
-									<th class="text-left"><?php echo $tr_tb_pe ?></th>
-								</tr>
+							<thead class="alert-warning">
+									<th class="alert-warning text-right"><?php echo $tr_tb_pr ?></th>
+									<th class="alert-warning text-left"><?php echo $tr_tb_pe ?></th>
 							</thead>
 							<tbody>
 								
@@ -142,8 +140,8 @@
 										echo "  <tr><td class='text-right'>" . $projectname . "</td>";
 										echo "  <td class='text-left'>" . number_format($pending_credits, 0, $dec_point, $thousands_sep) . "</td></tr>";
 									}
-									echo "  <tr><td class='text-right'>GESAMT Pendings</td>";
-									echo "  <td class='text-left'>" . number_format($pendings_gesamt, 0, $dec_point, $thousands_sep) . "</td></tr>";
+									echo "<thead><tr class='alert-info'><tr><td class='alert-info text-right'>GESAMT Pendings</td>";
+									echo "  <td class='alert-info text-left'>" . number_format($pendings_gesamt, 0, $dec_point, $thousands_sep) . "</td></tr></thead>";
 								?>
 							</tbody>
 						</table>

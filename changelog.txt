@@ -5,7 +5,7 @@ Version 4.3:
 - Errorhandling für Datenbankabfragen hinzugefügt
 - die blaue Tabellenzeile für Gesamt in der Projektübersicht (ganz unten) bleibt nun blau (auch bei Mouseover)
 - kleine Design-Änderungen der WCG-Detail-Seite (Unterscheidung aktives Team zu vergangenen Teams ist nun deutlicher erkennbar)
-
+- Filter/Sortierung von Tabellen (nur aktive Projekte und Seite mit Pending Credits)
 
 
 
