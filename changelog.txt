@@ -1,8 +1,10 @@
 Version 4.3:
 ============
 - neue Fehlerseite für DB-Errorhandling hinzugefügt
+- neue Vorlage für das Apache Errorhandling hinzugefügt (error.php)
 - Errorhandling für Datenbankabfragen hinzugefügt
 - die blaue Tabellenzeile für Gesamt in der Projektübersicht (ganz unten) bleibt nun blau (auch bei Mouseover)
+- kleine Design-Änderungen der WCG-Detail-Seite (Unterscheidung aktives Team zu vergangenen Teams ist nun deutlicher erkennbar)
 
 
 
