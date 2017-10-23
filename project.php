@@ -334,25 +334,26 @@ else include "./lang/highstock_en.js";
 				</ul>
 			</div>
 		</div>
-		
+
 		<!--style>@media (max-width: 978px) { .table-condensed td, .table-condensed th { padding: 0 1px !important; } }</style-->
-		
+					
 		<style>
 			@media (max-width: 767px) {
-			.table-condensed td, 
-			.table-condensed th { 
-			padding: 3px 5px !important; 
-			}   
+				.table-condensed td,
+				.table-condensed th {
+					padding: 3px 5px !important;
+				}
+			}
 			@media (max-width: 560px) {
-			.table-condensed td, 
-			.table-condensed th { 
-			padding: 1px 1px !important; 
-			}   
-			.container-fluid { 
-			padding-left: 0 !important; 
-			padding-right: 0 !important; 
-			}   
-			}   
+				.table-condensed td,
+				.table-condensed th {
+					padding: 1px 1px !important;
+				}
+				.container-fluid {
+					padding-left: 0 !important;
+					padding-right: 0 !important;
+				}
+			}
 		</style>
 		
 		

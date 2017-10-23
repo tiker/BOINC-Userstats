@@ -79,7 +79,28 @@
 			</div>    
 		</div>
 	</div>
-	
+
+		<!--style>@media (max-width: 978px) { .table-condensed td, .table-condensed th { padding: 0 1px !important; } }</style-->
+					
+	<style>
+		@media (max-width: 767px) {
+			.table-condensed td,
+			.table-condensed th {
+				padding: 3px 5px !important;
+			}
+		}
+		@media (max-width: 560px) {
+			.table-condensed td,
+			.table-condensed th {
+				padding: 1px 1px !important;
+			}
+			.container-fluid {
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+			}
+		}
+	</style>
+
 	<div class="section text-center section-default">
 		<div class="container">
 			<div class="main">
@@ -155,25 +176,26 @@
 	<?php echo "$tr_hp_footer" ?>
 
 	<script>
-	$(document).ready(function() {
-		$('#table_pendings').DataTable( {
-			"language": {
-            "decimal": "<?php echo $dec_point; ?>",
-            "thousands": "<?php echo $thousands_sep; ?>",
-			"search":	"<?php echo $search; ?>"
-        },
-			"order": [],
-    		"columnDefs": [ {
-      		"targets"  : 'no-sort',
-      		"orderable": false,
-    		}],
-			"paging":   false,
-			"ordering": true,
-			"info":     false,
-			"search":	false
+		$(document).ready(function() {
+			$('#table_pendings').DataTable( {
+				"language": {
+				"decimal": "<?php echo $dec_point; ?>",
+				"thousands": "<?php echo $thousands_sep; ?>",
+				"search":	"<?php echo $search; ?>"
+			},
+				"order": [],
+				"columnDefs": [ {
+				"targets"  : 'no-sort',
+				"orderable": false,
+				}],
+				"paging":   false,
+				"ordering": true,
+				"info":     false,
+				"search":	false,
+				"width":	"100%"
+			} );
 		} );
-	} );
-</script>
+	</script>
 	
 	</body>
 </html>

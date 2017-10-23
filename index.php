@@ -404,27 +404,26 @@ else include "./lang/highstock_en.js";
 			<div class="section text-center section-default">
 				<div class="container-fluid">
 					
-					<!--style>@media (max-width: 978px) { .table-condensed td, .table-condensed th { padding: 0 1px !important; } }</style-->
-					
-					<style>
-						@media (max-width: 767px) {
+				<!--style>@media (max-width: 978px) { .table-condensed td, .table-condensed th { padding: 0 1px !important; } }</style-->
+				
+				<style>
+					@media (max-width: 767px) {
 						.table-condensed td,
 						.table-condensed th {
-						padding: 3px 5px !important;
+							padding: 3px 5px !important;
 						}
-						
-						@media (max-width: 560px) {
+					}
+					@media (max-width: 560px) {
 						.table-condensed td,
 						.table-condensed th {
-						padding: 1px 1px !important;
+							padding: 1px 1px !important;
 						}
-						
 						.container-fluid {
-						padding-left: 0 !important;
-						padding-right: 0 !important;
+							padding-left: 0 !important;
+							padding-right: 0 !important;
 						}
-						}
-					</style>
+					}
+				</style>
 					
 					<table id="table_projects" class="table table-striped table-hover text-right table-condensed"
 					style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
@@ -684,7 +683,8 @@ else include "./lang/highstock_en.js";
 			"paging":   false,
 			"ordering": true,
 			"info":     false,
-			"search":	false
+			"search":	false,
+			"width":	"100%"
 		} );
 	} );
 </script>

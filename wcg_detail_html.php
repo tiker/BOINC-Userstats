@@ -102,6 +102,7 @@
 		$table_row["project_longname"] = $longname;
 		$project_runtime = strval($project_values->RunTime);
 		$prt=zeit($project_runtime);
+		$table_row["project_runtime_unix"] = $project_runtime;
 		$table_row["project_runtime"] = $prt[0].':'.sprintf('%03d',$prt[1]).':'.sprintf('%02d',$prt[2]).':'.sprintf('%02d',$prt[3]).':'.sprintf('%02d',$prt[4]);		
 		$table_row["project_points"] = strval($project_values->Points);
 		$table_row["project_results"] = strval($project_values->Results);
@@ -153,6 +154,10 @@
 	}
 	
 </style>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css"
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
 <div class="container-fluid">
 <b><?php echo "$wcg_detail_team_history" ?></b>
 	<table class="table table-striped text-right table-condensed" style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
@@ -205,14 +210,14 @@
 	</table>
 	<br>
 	<b><?php echo "$wcg_detail_stats_per_project" ?></b>
-	<table class="table table-striped text-right table-condensed" style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+	<table id="table_wcg" class="table table-striped text-right table-condensed" style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
 		<thead>
 			<tr class='alert alert-warning'>
 				<th class='text-center'><b><?php echo "$wcg_detail_project" ?></b></th>
 				<th class='hidden-xs text-center'><b><?php echo "$wcg_detail_points" ?></b></th>
 				<th class='hidden-xs text-center'><b><?php echo "$wcg_detail_results" ?></b></th>
 				<th class='text-center'><b><?php echo "$wcg_detail_runtimedetail" ?></b></th>
-				<th class='text-center'><b><?php echo "$wcg_detail_badge" ?></b></th>
+				<th class='text-center no-sort'><b><?php echo "$wcg_detail_badge" ?></b></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -223,7 +228,7 @@
 						echo "<td>" .$table_row["project_longname"]. "</td>";
 						echo "  <td class='hidden-xs'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
 						echo "  <td class='hidden-xs'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
-						echo "  <td>" .$table_row["project_runtime"]. "</td>";
+						echo "  <td data-order='" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
 						echo "  <td align='center'><img title='" .$table_row["description"]. "' src='" .$table_row["badge"]. "' alt='" .$table_row["description"]. "'></td>";
 						echo "</tr>";
 					}
@@ -232,3 +237,24 @@
 		</tbody>
 	</table>
 </div>
+
+<script>
+	$(document).ready(function() {
+		$('#table_wcg').DataTable( {
+			"language": {
+            "decimal": "<?php echo $dec_point; ?>",
+            "thousands": "<?php echo $thousands_sep; ?>"
+        },
+			"order": [],
+    		"columnDefs": [ {
+      		"targets"  : 'no-sort',
+      		"orderable": false,
+    		}],
+			"paging":   false,
+			"ordering": true,
+			"info":     false,
+			"searching":	false,
+			"width":	"100%"
+		} );
+	} );
+</script>
