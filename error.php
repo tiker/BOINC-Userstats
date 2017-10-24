@@ -1,7 +1,7 @@
 <?php
 
 if (!isset($_GET['error'])) { $errorcode = ""; } else { $errorcode = $_GET['error'];}
-if (!isset($_SERVER['HTTP_REFERER'])) { $HTTP_REFERER = "q"; } else { $HTTP_REFERER = $_SERVER['HTTP_REFERER'];}
+if (!isset($_SERVER['HTTP_REFERER'])) { $HTTP_REFERER = ""; } else { $HTTP_REFERER = $_SERVER['HTTP_REFERER'];}
 if (!isset($_SERVER['REDIRECT_URL'])) { $REDIRECT_URL = ""; } else { $REDIRECT_URL = $_SERVER['REDIRECT_URL'];}
 if (!isset($_SERVER['REDIRECT_REQUEST_METHOD'])) { $REDIRECT_REQUEST_METHOD = ""; } else { $REDIRECT_REQUEST_METHOD = $_SERVER['REDIRECT_REQUEST_METHOD'];}
 if (!isset($_SERVER['REDIRECT_ERROR_NOTES'])) { $REDIRECT_ERROR_NOTES = ""; } else { $REDIRECT_ERROR_NOTES = $_SERVER['REDIRECT_ERROR_NOTES'];}
