@@ -369,6 +369,13 @@ else include "./lang/highstock_en.js";
 							echo '<a href="' . $linkWcg . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-globe"></i> ' . $linkNameWcg . '</a>';
 						};
 					?>
+
+					<?php //Pendings
+						if ( $hasPendings ) {
+							echo '<a href="' . $linkPendings . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-refresh"></i> ' . $linkNamePendings . '</a>';
+						};
+					?>
+
 				</div>
 			</div>
 		</div>
@@ -404,45 +411,46 @@ else include "./lang/highstock_en.js";
 			<div class="section text-center section-default">
 				<div class="container-fluid">
 					
-				<!--style>@media (max-width: 978px) { .table-condensed td, .table-condensed th { padding: 0 1px !important; } }</style-->
-				
-				<style>
-					@media (max-width: 767px) {
-						.table-condensed td,
-						.table-condensed th {
-							padding: 3px 5px !important;
-						}
-					}
-					@media (max-width: 560px) {
-						.table-condensed td,
-						.table-condensed th {
-							padding: 1px 1px !important;
-						}
-						.container-fluid {
-							padding-left: 0 !important;
-							padding-right: 0 !important;
-						}
-					}
-				</style>
-					
-					<table id="table_projects" class="table table-striped table-hover text-right table-condensed"
+					<table id="table_projects" class="table table-striped table-hover text-right table-condensed" width="100%"
 					style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
 						
 						<thead class="alert-warning">
-							<th class="text-right"><?php echo $tr_tb_pr ?></th>
-							<th class="text-right no-sort"></th>
-							<th class="text-right"><?php echo $tr_tb_cr ?></th>
-							<th class="hidden-xs hidden-sm text-right">%</th>
-							<th class="hidden-xs text-right"><?php echo $tr_tb_01 ?></th>
-							<th class="hidden-xs hidden-sm text-right"><?php echo $tr_tb_02 ?></th>
-							<th class="hidden-xs hidden-sm text-right"><?php echo $tr_tb_06 ?></th>
-							<th class="hidden-xs text-right"><?php echo $tr_tb_12 ?></th>
-							<th class="alert-success text-right"><?php echo $tr_tb_to ?></th>
-							<th class="alert-info text-right"><?php echo $tr_tb_ye ?></th>
-							<th class="alert-danger hidden-xs text-right"><?php echo $tr_tb_pe ?></th>
+							<tr class="alert-warning text-right">
+								<th class="text-right"><?php echo $tr_tb_pr ?></th>
+								<th class="text-right no-sort"></th>
+								<th class="text-right"><?php echo $tr_tb_cr ?></th>
+								<th class="hidden-xs hidden-sm text-right">%</th>
+								<th class="hidden-xs text-right"><?php echo $tr_tb_01 ?></th>
+								<th class="hidden-xs hidden-sm text-right"><?php echo $tr_tb_02 ?></th>
+								<th class="hidden-xs hidden-sm text-right"><?php echo $tr_tb_06 ?></th>
+								<th class="hidden-xs text-right"><?php echo $tr_tb_12 ?></th>
+								<th class="alert-success text-right"><?php echo $tr_tb_to ?></th>
+								<th class="alert-info hidden-xs text-right"><?php echo $tr_tb_ye ?></th>
+								<th class="alert-danger hidden-xs text-right"><?php echo $tr_tb_pe ?></th>
+							</tr>
 						</thead>
-						
-						
+						<thead>
+							<tr class="sorting_disabled alert-info text-right">
+								<th class="alert-info text-right"><b><?php echo $tr_th_boinc_total ?></b></th>
+								<th class="alert-info text-right"><b><?php #echo $tr_th_detail ?></b></th>
+								<th class="alert-info text-right"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
+								<th class="alert-info hidden-xs hidden-sm text-right"><b>100%</b></th>
+								<th class="alert-info hidden-xs text-right">
+								<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></th>
+								<th class="alert-info hidden-xs hidden-sm text-right">
+								<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></th>
+								<th class="alert-info hidden-xs hidden-sm text-right">
+								<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></th>
+								<th class="alert-info hidden-xs text-right">
+								<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></th>
+								<th class="alert-success text-right">
+								<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></th>
+								<th class="alert-info hidden-xs text-right">
+								<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></th>
+								<th class="alert-danger hidden-xs text-right">
+								<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></th>
+							</tr>
+						</thead>
 						<!-- Fuer jedes Projekt eine Zeile in die Tabelle hinzufuegen -->
 						
 						<?php
@@ -479,9 +487,9 @@ else include "./lang/highstock_en.js";
 								} else
 								echo "  <td class='success text-success'>-</td>";
 								if ($table_row["sum_yesterday"] != "") {
-									echo "  <td class='info text-info'><b>" . number_format($table_row["sum_yesterday"], 0, $dec_point, $thousands_sep) . "</b></td>";
+									echo "  <td class='info text-info hidden-xs'><b>" . number_format($table_row["sum_yesterday"], 0, $dec_point, $thousands_sep) . "</b></td>";
 								} else
-								echo "  <td class='info text-info'>-</td>";
+								echo "  <td class='info text-info hidden-xs'>-</td>";
 								if ($table_row["pending_credits"] >> "0") {
 									echo "  <td class='danger hidden-xs text-danger'><b>" . number_format($table_row["pending_credits"], 0, $dec_point, $thousands_sep) . "</b></td>";
 								} else
@@ -490,19 +498,19 @@ else include "./lang/highstock_en.js";
 							}
 						?>
 						<thead>
-						<tr class="alert-warning">
-							<td class="alert-warning"><b><?php echo $tr_th2_rp ?></b></td>
-							<td class="alert-warning"><b><?php #echo $tr_tb_det ?></b></td>
-							<td class="alert-warning"><b><?php echo $tr_tb_cr ?></b></td>
-							<td class="alert-warning hidden-xs hidden-sm"></b></td>
-							<td class="alert-warning hidden-xs"><b><?php echo $tr_tb_01 ?></b></td>
-							<td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_02 ?></b></td>
-							<td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_06 ?></b></td>
-							<td class="alert-warning hidden-xs"><b><?php echo $tr_tb_12 ?></b></td>
-							<td class="alert-success"><b><?php echo $tr_tb_to ?></b></td>
-							<td class="alert-info"><b><?php echo $tr_tb_ye ?></b></td>
-							<td class="alert-danger hidden-xs"><b><?php echo $tr_tb_pe ?></b></td>
-						</tr>
+							<tr class="alert-warning">
+								<td class="alert-warning"><b><?php echo $tr_th2_rp ?></b></td>
+								<td class="alert-warning"><b><?php #echo $tr_tb_det ?></b></td>
+								<td class="alert-warning"><b><?php echo $tr_tb_cr ?></b></td>
+								<td class="alert-warning hidden-xs hidden-sm"></b></td>
+								<td class="alert-warning hidden-xs"><b><?php echo $tr_tb_01 ?></b></td>
+								<td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_02 ?></b></td>
+								<td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_06 ?></b></td>
+								<td class="alert-warning hidden-xs"><b><?php echo $tr_tb_12 ?></b></td>
+								<td class="alert-success"><b><?php echo $tr_tb_to ?></b></td>
+								<td class="alert-info hidden-xs"><b><?php echo $tr_tb_ye ?></b></td>
+								<td class="alert-danger hidden-xs"><b><?php echo $tr_tb_pe ?></b></td>
+							</tr>
 						</thead>
 					
 					<?php
@@ -522,14 +530,14 @@ else include "./lang/highstock_en.js";
 							echo "<td class='hidden-xs hidden-sm'></td>";
 							echo "<td class='hidden-xs'></td>";
 							echo "<td class='success'></td>";
-							echo "<td class='info'></td>";
+							echo "<td class='info hidden-xs'></td>";
 							echo "<td class='danger hidden-xs'></td>";
 							echo "</tr>";
 						}
 					?>
 					<thead>
 					<tr class="alert-info">
-						<td class="alert-info"><b><?php echo $tr_th_total ?></b></td>
+						<td class="alert-info"><b><?php echo $tr_th_boinc_total ?></b></td>
 						<td class="alert-info"><b><?php #echo $tr_th_detail ?></b></td>
 						<td class="alert-info"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
 						<td class="alert-info hidden-xs hidden-sm"><b>100%</b></td>
@@ -543,12 +551,12 @@ else include "./lang/highstock_en.js";
 						<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
 						<td class="alert-success">
 						<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="alert-info">
+						<td class="alert-info hidden-xs">
 						<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
 						<td class="alert-danger hidden-xs">
 						<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
 					</tr>
-					<tr class="default">
+					<tr class="alert-warning">
 						<td></td>
 						<td><?php #echo $tr_tb_det ?></td>
 						<td><?php #echo $tr_tb_cr ?></td>
@@ -558,7 +566,7 @@ else include "./lang/highstock_en.js";
 						<td class="hidden-xs hidden-sm"><?php echo $tr_tb_06 ?></td>
 						<td class="hidden-xs"><?php echo $tr_tb_12 ?></td>
 						<td class="alert-success"><b><?php echo $tr_tb_to ?></b></td>
-						<td class="alert-info"><b><?php echo $tr_tb_ye ?></b></td>
+						<td class="alert-info hidden-xs"><b><?php echo $tr_tb_ye ?></b></td>
 						<td class="alert-danger hidden-xs"><b><?php echo $tr_tb_pe ?></b></td>
 					</tr>
 					</thead>
@@ -671,20 +679,23 @@ else include "./lang/highstock_en.js";
 	$(document).ready(function() {
 		$('#table_projects').DataTable( {
 			"language": {
-            "decimal": "<?php echo $dec_point; ?>",
-            "thousands": "<?php echo $thousands_sep; ?>",
-			"search":	"<?php echo $search; ?>"
-        },
-			"order": [],
+            	"decimal": "<?php echo $dec_point; ?>",
+            	"thousands": "<?php echo $thousands_sep; ?>",
+				"search":	"<?php echo $search; ?>"
+        	},
     		"columnDefs": [ {
-      		"targets"  : 'no-sort',
-      		"orderable": false,
+      			"targets"  : 'no-sort',
+      			"orderable": false,
     		}],
 			"paging":   false,
 			"ordering": true,
 			"info":     false,
 			"search":	false,
-			"width":	"100%"
+			"orderCellsTop": true,
+			"aoColumnDefs" : [ {
+            	"bSortable" : false,
+            	"aTargets" : [ "sorting_disabled" ]
+        	} ]
 		} );
 	} );
 </script>

@@ -160,15 +160,15 @@
 
 <div class="container-fluid">
 <b><?php echo "$wcg_detail_team_history" ?></b>
-	<table class="table table-striped text-right table-condensed" style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+	<table class="table table-striped text-right table-condensed" width="100%" style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
 		<thead>
 			<tr class='alert alert-warning'>
 				<th class='text-center'><b><?php echo "$wcg_detail_team" ?></b></th>
 				<th class='hidden-xs text-center'><b><?php echo "$wcg_detail_join" ?></b></th>
 				<th class='hidden-xs text-center'><b><?php echo "$wcg_detail_leave" ?></b></th>
 				<th class='text-center'><b><?php echo "$wcg_detail_runtime" ?></b></th>
-				<th class='text-center'><b><?php echo "$wcg_detail_points" ?></b></th>
-				<th class='text-center'><b><?php echo "$wcg_detail_results" ?></b></th>
+				<th class='hidden-xs text-center'><b><?php echo "$wcg_detail_points" ?></b></th>
+				<th class='hidden-xs text-center'><b><?php echo "$wcg_detail_results" ?></b></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -177,20 +177,20 @@
 					if ($table_row["team_retire_date"] > 0) { // Team Historie
 						echo "<tr class='text-muted'>";
 						echo "  <td align='right'>" .$table_row["team_name"]. "</td>";
-						echo "  <td class='hidden-xs' align='center'>" .$table_row["team_join_date"]. "</td>";
-						echo "  <td class='hidden-xs' align='center'>" .$table_row["team_retire_date"]. "</td>";
+						echo "  <td class='hidden-xs text-center'>" .$table_row["team_join_date"]. "</td>";
+						echo "  <td class='hidden-xs text-center'>" .$table_row["team_retire_date"]. "</td>";
 						echo "  <td align='right'>" .$table_row["team_runtime"]. "</td>";
-						echo "  <td align='right'>" .number_format($table_row["team_points"],0,$dec_point,$thousands_sep). "</td>";
-						echo "  <td align='right'>" .number_format($table_row["team_results"],0,$dec_point,$thousands_sep). "</td>";	
+						echo "  <td class='hidden-xs text-right'>" .number_format($table_row["team_points"],0,$dec_point,$thousands_sep). "</td>";
+						echo "  <td class='hidden-xs text-right'>" .number_format($table_row["team_results"],0,$dec_point,$thousands_sep). "</td>";	
 						echo "</tr>";
 					} else { //* aktuelles Team
 						echo "<tr class = 'text-success'>";
 						echo "  <td align='right'>" .$table_row["team_name"]. "</td>";
-						echo "  <td class='hidden-xs' align='center'>" .$table_row["team_join_date"]. "</td>";
-						echo "  <td class='hidden-xs' align='center'>&nbsp;</td>";
+						echo "  <td class='hidden-xs text-center'>" .$table_row["team_join_date"]. "</td>";
+						echo "  <td class='hidden-xs text-center'>&nbsp;</td>";
 						echo "  <td align='right'>" .$table_row["team_runtime"]. "</td>";
-						echo "  <td align='right'>" .number_format($table_row["team_points"],0,$dec_point,$thousands_sep). "</td>";
-						echo "  <td align='right'>" .number_format($table_row["team_results"],0,$dec_point,$thousands_sep). "</td>";	
+						echo "  <td class='hidden-xs text-right'>" .number_format($table_row["team_points"],0,$dec_point,$thousands_sep). "</td>";
+						echo "  <td class='hidden-xs text-right'>" .number_format($table_row["team_results"],0,$dec_point,$thousands_sep). "</td>";	
 						echo "</tr>";
 					}					
 				}
@@ -201,8 +201,8 @@
 				echo "  <td class='hidden-xs'><br></td>";
 				echo "  <td class='hidden-xs'><br></td>";
 				echo "  <td class='text-right'>" .$user_total_runtime. "<br><font size ='2'>(# " .number_format($user_total_runtime_rank,0,$dec_point,$thousands_sep). ")</font></td>";
-				echo "  <td class='text-right'>" .number_format($user_total_points,0,$dec_point,$thousands_sep). "<br><font size ='2'>(# " .number_format($user_total_points_rank,0,$dec_point,$thousands_sep). ")</font></td>";
-				echo "  <td class='text-right'>" .number_format($user_total_results,0,$dec_point,$thousands_sep). "<br><font size ='2'>(# " .number_format($user_total_results_rank,0,$dec_point,$thousands_sep). ")</font></td>";	
+				echo "  <td class='hidden-xs text-right'>" .number_format($user_total_points,0,$dec_point,$thousands_sep). "<br><font size ='2'>(# " .number_format($user_total_points_rank,0,$dec_point,$thousands_sep). ")</font></td>";
+				echo "  <td class='hidden-xs text-right'>" .number_format($user_total_results,0,$dec_point,$thousands_sep). "<br><font size ='2'>(# " .number_format($user_total_results_rank,0,$dec_point,$thousands_sep). ")</font></td>";	
 				echo "</tr>";
 				
 			?>
@@ -210,7 +210,7 @@
 	</table>
 	<br>
 	<b><?php echo "$wcg_detail_stats_per_project" ?></b>
-	<table id="table_wcg" class="table table-striped text-right table-condensed" style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+	<table id="table_wcg" class="table table-striped text-right table-condensed" style="width: 100%; background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
 		<thead>
 			<tr class='alert alert-warning'>
 				<th class='text-center'><b><?php echo "$wcg_detail_project" ?></b></th>
@@ -253,8 +253,7 @@
 			"paging":   false,
 			"ordering": true,
 			"info":     false,
-			"searching":	false,
-			"width":	"100%"
+			"searching":	false
 		} );
 	} );
 </script>

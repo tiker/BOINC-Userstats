@@ -5,6 +5,7 @@
 	$tr_th_bp = "BOINC-Projekte von";
 	$tr_th_ot = "aus dem Team";
 	$tr_th_lu = "letzte Aktualisierung";
+	$tr_th_boinc_total = "BOINC Gesamt";
 	$tr_th_total = "Gesamt";
 	$tr_tb_pr = "aktive Projekte";
 	$tr_tb_cr = "Credits";

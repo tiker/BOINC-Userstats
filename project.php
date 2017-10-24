@@ -303,6 +303,13 @@ else include "./lang/highstock_en.js";
 							echo '<a href="' . $linkWcg . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-globe"></i> ' . $linkNameWcg . '</a>';
 						};
 					?>
+
+					<?php //Pendings
+						if ( $hasPendings ) {
+							echo '<a href="' . $linkPendings . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-refresh"></i> ' . $linkNamePendings . '</a>';
+						};
+					?>
+					
 				</div>
 			</div>    
 		</div>
@@ -372,7 +379,7 @@ else include "./lang/highstock_en.js";
 									<th class="hidden-xs text-right"><?php echo "$tr_tb_12" ?></th>
 									<th class="alert-success text-right"><?php echo "$tr_tb_to" ?></th>
 									<th class="alert-info text-right"><?php echo "$tr_tb_ye" ?></th>
-									<th class="hidden-xs alert-danger text-right"><?php echo "$tr_tb_pe" ?><a class='text-alert' href='./pendings.php'><i class="fa fa-refresh"></i></a></th>
+									<th class="hidden-xs alert-danger text-right"><?php echo "$tr_tb_pe" ?></th>
 								</tr>
 							</thead>
 							<tbody>

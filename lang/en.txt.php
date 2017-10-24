@@ -6,6 +6,7 @@
 	$tr_th_ot = "of team";
 	$tr_th_lu = "last update";
 	$tr_th_total = "Total";
+	$tr_th_boinc_total = "BOINC combined";
 	$tr_tb_pr = "active Project";
 	$tr_tb_cr = "Credits";
 	$tr_ch_week = "Week from";

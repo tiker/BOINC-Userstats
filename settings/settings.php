@@ -69,7 +69,12 @@
 	$hasWcg = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist true
 	$linkNameWcg = "World Community Grid";
 	$linkWcg = "https://join.worldcommunitygrid.org/?recruiterId=653215&teamId=4VVG5BDPP1";
-	
+
+	//Option zum Anzeigen eines Links zum Aktualisieren der Pending Credits
+	$hasPendings = false; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
+	$linkNamePendings = "Pendings aktualisieren";
+	$linkPendings = "./pendings.php"; // Link zu den laufenden WUs von XSmeagolX	
+
 	//Hier die Zeitzoneneinstellung vornehmen (in Stunden)
 	$timezoneoffset = 0;
 	
@@ -80,5 +85,5 @@
 	$separat = 0.9;
 
 	//Versionsnummer
-	$userstats_version = "V 4.3.0 alpha_01";
+	$userstats_version = "V 4.3.0 alpha_03";
 ?>

@@ -75,6 +75,13 @@
 							echo '<a href="' . $linkWcg . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-globe"></i> ' . $linkNameWcg . '</a>';
 						};
 					?>
+
+					<?php //Pendings
+						if ( $hasPendings ) {
+							echo '<a href="' . $linkPendings . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-refresh"></i> ' . $linkNamePendings . '</a>';
+						};
+					?>
+					
 				</div>
 			</div>    
 		</div>
@@ -113,7 +120,7 @@
 								
 							</div>
 						</div>
-						<table id="table_pendings" class="table table-striped table-hover text-right table-condensed"
+						<table id="table_pendings" class="table table-striped table-hover text-right table-condensed" width="100%"
 						style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
 							
 							<thead class="alert-warning">
@@ -179,20 +186,19 @@
 		$(document).ready(function() {
 			$('#table_pendings').DataTable( {
 				"language": {
-				"decimal": "<?php echo $dec_point; ?>",
-				"thousands": "<?php echo $thousands_sep; ?>",
-				"search":	"<?php echo $search; ?>"
-			},
+					"decimal": "<?php echo $dec_point; ?>",
+					"thousands": "<?php echo $thousands_sep; ?>",
+					"search":	"<?php echo $search; ?>"
+				},
 				"order": [],
 				"columnDefs": [ {
-				"targets"  : 'no-sort',
-				"orderable": false,
+					"targets"  : 'no-sort',
+					"orderable": false,
 				}],
 				"paging":   false,
 				"ordering": true,
 				"info":     false,
-				"search":	false,
-				"width":	"100%"
+				"search":	false
 			} );
 		} );
 	</script>
