@@ -316,6 +316,16 @@
 ?>
 
 <?php echo $tr_hp_header; ?>
+	<style>
+		.force_min_height {
+			display: flex;
+			min-height: 100vh;
+			flex-direction: column;
+		}
+		.flex1 {
+			flex: 1;
+		}
+	</style>
 
 <?php
 if (file_exists("./lang/highstock_" . $lang . ".js")) include "./lang/highstock_" . $lang . ".js";
@@ -334,9 +344,8 @@ else include "./lang/highstock_en.js";
 </head>
 <body>
 	
+<div class="wrapper force_min_height">	
 	<?php if ( $showNavbar ) echo $tr_hp_nav ?>
-	
-	<div class="wrapper">
 		<!--div class="landing-header"-->
 		<div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
 			<div class="container">
@@ -379,7 +388,6 @@ else include "./lang/highstock_en.js";
 				</div>
 			</div>
 		</div>
-	</div>
 	
 	<div class="alert-info">
 		<div class="container">
@@ -406,14 +414,12 @@ else include "./lang/highstock_en.js";
 		</div>
 	</div>
 	
-	<div class="tab-content text-center">
+	<div class="tab-content text-center flex1">
 		<div id="projekte" class="tab-pane fade in active">
 			<div class="section text-center section-default">
-				<div class="container-fluid">
-					
+				<div class="container-fluid">				
 					<table id="table_projects" class="table table-striped table-hover text-right table-condensed" width="100%"
-					style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-						
+					style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">					
 						<thead class="alert-warning">
 							<tr class="alert-warning text-right">
 								<th class="text-right"><?php echo $tr_tb_pr ?></th>
@@ -672,27 +678,26 @@ else include "./lang/highstock_en.js";
 			</div>
 		</div>
 	</div>
-</div>
 
-<?php echo "$tr_hp_footer" ?>
+	<?php echo "$tr_hp_footer" ?>
 
-<script>
-	$(document).ready(function() {
-		$('#table_projects').DataTable( {
-			"language": {
-            	"decimal": "<?php echo $dec_point; ?>",
-            	"thousands": "<?php echo $thousands_sep; ?>",
-				"search":	"<?php echo $search; ?>"
-        	},
-    		"columnDefs": [ {
-      			"targets"  : 'no-sort',
-      			"orderable": false,
-    		}],
-			"paging":   false,
-			"info":     false
+	<script>
+		$(document).ready(function() {
+			$('#table_projects').DataTable( {
+				"language": {
+					"decimal": "<?php echo $dec_point; ?>",
+					"thousands": "<?php echo $thousands_sep; ?>",
+					"search":	"<?php echo $search; ?>"
+				},
+				"columnDefs": [ {
+					"targets"  : 'no-sort',
+					"orderable": false,
+				}],
+				"paging":   false,
+				"info":     false
+			} );
 		} );
-	} );
-</script>
-
+	</script>
+</div>
 </body>
 </html>

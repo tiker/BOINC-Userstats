@@ -5,7 +5,9 @@
     # Don't show directory listings for URLs which map to a directory.
     Options -Indexes
 
-    # Hier noch Apache Error-Handling/Fehlerseiten einbringen
+    #Damit die Errorseiten das gleiche Layout wie die Stats haben
+    #muss die Kommentierung hier entfernt werden UND
+    #die Datei error.php muss im web-root-Verzeichnis (z.B. /var/www/html/) abgespeichert werden
     #ErrorDocument 400 /error.php?error=400
     #ErrorDocument 401 /error.php?error=401
     #ErrorDocument 402 /error.php?error=402
