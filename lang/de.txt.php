@@ -84,6 +84,12 @@
 	$wcg_detail_runtimedetail = "Laufzeit (y:d:h:m:s)";
 	$wcg_detail_badge = "Badge";
 	$wcg_detail_status = "Status";
+	$wcg_detail_fehler = "FEHLER";
+	$wcg_detail_dbstatus = "Datenbankfehler!";
+	$wcg_detail_dbfehler_text01 = "Es wurden keine Werte zurückgegeben.</br>Es bestehen wohl Probleme mit der Datenbankanbindung.";
+	$wcg_detail_dbfehler_text02 = "Es wurden keine Werte zurückgegeben.";
+	$wcg_detail_fehler_text01 = "Der Status der einzelnen Projekte konnte nicht ermittelt werden!<br>Der Projektserver ist derzeit nicht erreichbar.";
+	$wcg_detail_fehler_text02 = "Der Status der einzelnen Projekte konnte nicht ermittelt werden!<br>Die erhaltenen Werte sind nicht gültig.";
 	
 	$project_of = "von";
 	$project_project = "Projekt";

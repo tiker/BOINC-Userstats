@@ -84,7 +84,13 @@
 	$wcg_detail_runtimedetail = "Runtime (y:d:h:m:s)";
 	$wcg_detail_badge = "Badge";
 	$wcg_detail_status = "Status";
-	
+	$wcg_detail_fehler = "ALERT";
+	$wcg_detail_dbstatus = "Database ERROR";
+	$wcg_detail_dbfehler_text01 = "No values returned from database.</br>There are some problems with your database connection.";
+	$wcg_detail_dbfehler_text02 = "No values returned from database.";
+	$wcg_detail_fehler_text01 = "Project status could not be initialized!<br>The servers may be down.";
+	$wcg_detail_fehler_text02 = "Project status could not be initialized!<br>The values were not valid.";
+
 	$project_of = "of";
 	$project_project = "Project";
 	$project_wcg_detail_link = "WCG-Detail-Statistics";

@@ -25,14 +25,13 @@
 	# Beginn für Grundwerte einlesen
 	$query_getUserData = mysqli_query($db_conn, "SELECT * FROM boinc_user");  //alle Userdaten einlesen
 	if ( !$query_getUserData ) { 	
-		$connErrorTitle = "Datenbankfehler";
-		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
-								Es bestehen wohl Probleme mit der Datenbankanbindung.";
+		$connErrorTitle = $wcg_detail_dbstatus;
+		$connErrorDescription = $wcg_detail_dbfehler_text01;
 		include "./errordocs/db_initial_err.php";
 		exit();
 	} elseif  ( mysqli_num_rows($query_getUserData) === 0 ) { 
-		$connErrorTitle = "Datenbankfehler";
-		$connErrorDescription = "Es wurden keine Werte zurückgegeben.";
+		$connErrorTitle = $wcg_detail_dbstatus;
+		$connErrorDescription = $wcg_detail_dbfehler_text02;
 		include "./errordocs/db_initial_err.php";
 		exit();
 	}
@@ -56,15 +55,11 @@
 	$xml = @simplexml_load_string($xml_string);
 	if ( $xml !== FALSE) {
 		if ( $xml->getName() == 'unavailable') {
-			echo "<div class='alert alert-danger text-center'>
-					<strong>FEHLER!</strong> Der Status der einzelnen Projekte konnte nicht ermittelt werden!<br>Der Projektserver ist derzeit nicht erreichbar.
-				</div>"; 
+			echo "<div class='alert alert-danger text-center'><strong>" . $wcg_detail_fehler . "</strong> " . $wcg_detail_fehler_text01 . "</div>"; 
 		}
 	}		    
 	 	else {
-			echo "<div class='alert alert-danger text-center'>
-					<strong>FEHLER!</strong> Der Status der einzelnen Projekte konnte nicht ermittelt werden!<br>Die erhaltenen Werte sind nicht gültig.
-				</div>"; 
+			echo "<div class='alert alert-danger text-center'><strong>" . $wcg_detail_fehler . "</strong> " . $wcg_detail_fehler_text02 . "</div>"; 
 		}
 
 	foreach ($xml->Project as $project_status)
