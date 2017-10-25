@@ -190,15 +190,12 @@
 					"thousands": "<?php echo $thousands_sep; ?>",
 					"search":	"<?php echo $search; ?>"
 				},
-				"order": [],
 				"columnDefs": [ {
 					"targets"  : 'no-sort',
 					"orderable": false,
 				}],
 				"paging":   false,
-				"ordering": true,
-				"info":     false,
-				"search":	false
+				"info":     false
 			} );
 		} );
 	</script>

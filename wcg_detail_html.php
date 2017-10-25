@@ -47,8 +47,37 @@
 		$datum_start = $row["lastupdate_start"];
 		$datum = $row["lastupdate"];
 	}
+	########################################################
+	# Abruf des Projekt-Status
+
+	$xml_string = FALSE;
+	$status = [];
+	$xml_string = @file_get_contents ("https://www.worldcommunitygrid.org/stat/viewProjects.do?xml=true");
+	$xml = @simplexml_load_string($xml_string);
+	if ( $xml !== FALSE) {
+		if ( $xml->getName() == 'unavailable') {
+			echo "<div class='alert alert-danger text-center'>
+					<strong>FEHLER!</strong> Der Status der einzelnen Projekte konnte nicht ermittelt werden!<br>Der Projektserver ist derzeit nicht erreichbar.
+				</div>"; 
+		}
+	}		    
+	 	else {
+			echo "<div class='alert alert-danger text-center'>
+					<strong>FEHLER!</strong> Der Status der einzelnen Projekte konnte nicht ermittelt werden!<br>Die erhaltenen Werte sind nicht gültig.
+				</div>"; 
+		}
+
+	foreach ($xml->Project as $project_status)
+	       {
+	         $status[strval($project_status->Name)] = strval($project_status->Status);
+	         }
+	
+	$xml_string = FALSE;
 	$xml_string = @file_get_contents ("http://www.worldcommunitygrid.org/verifyMember.do?name=" . $project_wcgname . "&code=" . $wcg_verification . "");
 	$xml = @simplexml_load_string($xml_string);
+	if($xml_string == FALSE)  echo "<div class='alert alert-danger'>
+										<strong>FEHLER!</strong> Die Liste der Projekte ist derzeit nicht verfügbar!
+									  </div>";
 	$last_result = strval($xml->MemberStats->MemberStat->LastResult);
 	
 	############################################################	
@@ -115,12 +144,12 @@
 			$table_row["badge"] = "";	
 			$table_row["description"] = "&nbsp;";	
 		}
+
+		$table_row["status"] = $status[$longname];	
 		
 		$table[]=$table_row;
 	}		
-	
-	
-	
+
 	if (file_exists("./lang/" .$lang. ".txt.php")) include "./lang/" .$lang. ".txt.php";
 	else include "./lang/en.txt.php";
 ?>
@@ -202,7 +231,7 @@
 				echo "  <td class='hidden-xs'><br></td>";
 				echo "  <td class='text-right'>" .$user_total_runtime. "<br><font size ='2'>(# " .number_format($user_total_runtime_rank,0,$dec_point,$thousands_sep). ")</font></td>";
 				echo "  <td class='hidden-xs text-right'>" .number_format($user_total_points,0,$dec_point,$thousands_sep). "<br><font size ='2'>(# " .number_format($user_total_points_rank,0,$dec_point,$thousands_sep). ")</font></td>";
-				echo "  <td class='hidden-xs text-right'>" .number_format($user_total_results,0,$dec_point,$thousands_sep). "<br><font size ='2'>(# " .number_format($user_total_results_rank,0,$dec_point,$thousands_sep). ")</font></td>";	
+				echo "  <td class='hidden-xs text-right'>" .number_format($user_total_results,0,$dec_point,$thousands_sep). "<br><font size ='2'>(# " .number_format($user_total_results_rank,0,$dec_point,$thousands_sep). ")</font></td>";
 				echo "</tr>";
 				
 			?>
@@ -218,19 +247,50 @@
 				<th class='hidden-xs text-center'><b><?php echo "$wcg_detail_results" ?></b></th>
 				<th class='text-center'><b><?php echo "$wcg_detail_runtimedetail" ?></b></th>
 				<th class='text-center no-sort'><b><?php echo "$wcg_detail_badge" ?></b></th>
+				<th class='text-center'><b><?php echo "$wcg_detail_status" ?></b></th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php
 				foreach($table as $table_row){
 					if ( isset($table_row["project_points"]) && $table_row["project_points"] > 0) {
-						echo "<tr class = 'text-primary'>";
-						echo "<td>" .$table_row["project_longname"]. "</td>";
-						echo "  <td class='hidden-xs'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
-						echo "  <td class='hidden-xs'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
-						echo "  <td data-order='" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
-						echo "  <td align='center'><img title='" .$table_row["description"]. "' src='" .$table_row["badge"]. "' alt='" .$table_row["description"]. "'></td>";
-						echo "</tr>";
+						if ($table_row["status"] === "Active") {
+								echo "<tr class = 'text-primary'>";
+								echo "<td>" .$table_row["project_longname"]. "</td>";
+								echo "  <td class='hidden-xs'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
+								echo "  <td class='hidden-xs'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
+								echo "  <td data-order='" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
+								echo "  <td align='center'><img title='" .$table_row["description"]. "' src='" .$table_row["badge"]. "' alt='" .$table_row["description"]. "'></td>";
+								echo "  <td data-order='1' align='center'>" .$table_row["status"]. "</td>";							
+								echo "</tr>";
+						} elseif ($table_row["status"] === "Intermittent") {
+								echo "<tr class = 'text-danger'>";
+								echo "<td>" .$table_row["project_longname"]. "</td>";
+								echo "  <td class='hidden-xs'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
+								echo "  <td class='hidden-xs'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
+								echo "  <td data-order='" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
+								echo "  <td align='center'><img title='" .$table_row["description"]. "' src='" .$table_row["badge"]. "' alt='" .$table_row["description"]. "'></td>";
+								echo "  <td data-order='2' align='center'>" .$table_row["status"]. "</td>";
+								echo "</tr>";
+						} elseif ($table_row["status"] === "Completed") {
+								echo "<tr class = 'text-muted'>";
+								echo "<td>" .$table_row["project_longname"]. "</td>";
+								echo "  <td class='hidden-xs'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
+								echo "  <td class='hidden-xs'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
+								echo "  <td data-order='" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
+								echo "  <td align='center'><img title='" .$table_row["description"]. "' src='" .$table_row["badge"]. "' alt='" .$table_row["description"]. "'></td>";
+								echo "  <td data-order='3' align='center'>" .$table_row["status"]. "</td>";
+								echo "</tr>";
+						} else {
+								echo "<tr class = 'text-primary'>";
+								echo "<td>" .$table_row["project_longname"]. "</td>";
+								echo "  <td class='hidden-xs'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
+								echo "  <td class='hidden-xs'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
+								echo "  <td data-order='" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
+								echo "  <td align='center'><img title='" .$table_row["description"]. "' src='" .$table_row["badge"]. "' alt='" .$table_row["description"]. "'></td>";
+								echo "  <td data-order='3' align='center'> - </td>";
+								echo "</tr>";
+						}		
 					}
 				}
 			?>
@@ -242,18 +302,16 @@
 	$(document).ready(function() {
 		$('#table_wcg').DataTable( {
 			"language": {
-            "decimal": "<?php echo $dec_point; ?>",
-            "thousands": "<?php echo $thousands_sep; ?>"
-        },
-			"order": [],
+            	"decimal": "<?php echo $dec_point; ?>",
+            	"thousands": "<?php echo $thousands_sep; ?>",
+				"search":	"<?php echo $search; ?>"
+        	},
     		"columnDefs": [ {
-      		"targets"  : 'no-sort',
-      		"orderable": false,
+      			"targets"  : 'no-sort',
+      			"orderable": false,
     		}],
 			"paging":   false,
-			"ordering": true,
-			"info":     false,
-			"searching":	false
+			"info":     false
 		} );
 	} );
 </script>

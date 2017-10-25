@@ -1,14 +1,17 @@
 Version 4.3:
 ============
 - neue Fehlerseite für DB-Errorhandling hinzugefügt
-- neue Vorlage für das Apache Errorhandling hinzugefügt (error.php)
-- Errorhandling für Datenbankabfragen hinzugefügt
+- neue Vorlage für das Apache Errorhandling hinzugefügt (/error.php)
+- Errorhandling für Datenbankabfragen hinzugefügt (errordocs/db_initial_err.php)
 - die blaue Tabellenzeile für Gesamt in der Projektübersicht (ganz unten) bleibt nun blau (auch bei Mouseover)
-- Diese Zeile (Gesamt) wird nun auch noch zusätzlich als erste Zeile angezeigt.
-- kleine Design-Änderungen der WCG-Detail-Seite (Unterscheidung aktives Team zu vergangenen Teams ist nun deutlicher erkennbar)
+- Design-Anpassungen
+  * Diese Zeile (Gesamt) wird nun auch noch zusätzlich als erste Zeile angezeigt.
+  * auf der WCG-Detail-Seite :
+    .Unterscheidung aktives Team zu vergangenen Teams ist nun deutlicher erkennbar
+    .Der Projektstatus einzelner Subprojekte wurde integriert und ist nun klar erkennbar
+  * zu kurze Seiten werden nun automatisch bildschirmfüllend angezeigt, so dass der Seiten-Footer auch immer ganz unten ist.
 - Filter/Sortierung von Tabellen (nur aktive Projekte, Tabelle auf Seite mit Pending Credits und WCG-Detail-Ansicht)
 - Option zum Anzeigen eines Links im Header zum manuellen Aktualisieren der Pending Credits
-
 
 
 

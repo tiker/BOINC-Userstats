@@ -661,6 +661,7 @@ else include "./lang/highstock_en.js";
 							echo '<img src="' . $linkWcgSig . '" class="img-responsive center-block"></img>';
 						} else echo $no_wcg_badge;
 					?>
+					<br>
 					<?php //WCG-SG-Badges
 						if ($showSgWcgBadges == "1") {
 							echo '<img src="' . $linkSgWcgBadges . '" class="img-responsive center-block"></img>';
@@ -688,14 +689,7 @@ else include "./lang/highstock_en.js";
       			"orderable": false,
     		}],
 			"paging":   false,
-			"ordering": true,
-			"info":     false,
-			"search":	false,
-			"orderCellsTop": true,
-			"aoColumnDefs" : [ {
-            	"bSortable" : false,
-            	"aTargets" : [ "sorting_disabled" ]
-        	} ]
+			"info":     false
 		} );
 	} );
 </script>

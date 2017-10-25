@@ -253,7 +253,16 @@
 
 <!-- HTML-Header -->
 <?php echo $tr_hp_header ?>
-
+	<style>
+        .force_min_height {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .flex1 {
+            flex: 1;
+        }
+    </style>
 <?php
 if (file_exists("./lang/highstock_" . $lang . ".js")) include "./lang/highstock_" . $lang . ".js";
 else include "./lang/highstock_en.js";
@@ -273,7 +282,7 @@ else include "./lang/highstock_en.js";
 	
 	<?php if ( $showNavbar ) echo $tr_hp_nav ?>
 	
-	<div class="wrapper">
+	<div class="wrapper force_min_height">
 		<div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
 			<div class="container">
 				<div class="motto">
@@ -364,7 +373,7 @@ else include "./lang/highstock_en.js";
 		</style>
 		
 		
-		<div class="tab-content text-center">
+		<div class="tab-content text-center flex1">
 			<div id="projekte" class="tab-pane fade in active">		
 				<div class="section text-center section-default">
 					<div class="container-fluid">
@@ -411,30 +420,7 @@ else include "./lang/highstock_en.js";
 						</div>
 					</div>
 				</div>
-				
-				<!-- WCG-Detail-Statistik modal hinzufuegen -->
-				<div class="modal fade" id="modalwcgdetail" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content ">
-							<div class="modal-header section-default">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-								<h4 class="modal-title" id="modelTitleId"><?php echo "$project_wcg_detail_link" ?></h4>
-							</div>
-							<div class="modal-body section-default">
-								<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-									<div id="file-content"><?php include './wcg_detail_html.php'; ?></div>
-								</div>
-							</div>
-							<div class="modal-footer section-default">
-								<button type="button" class="btn btn-default btn-simple" data-dismiss="modal">OK</button>
-							</div>
-						</div>
-					</div>
-				</div>  	
-				
-				
+		
 				<!-- Highchart-Container hinzufuegen -->
 				<div id="gesamt" class="tab-pane fade">
 					<div class="section text-center section-default">
@@ -504,18 +490,11 @@ else include "./lang/highstock_en.js";
 								<?php //Userbadge
 									if ($showUserBadges == "1") {
 										echo '<img src="' . $linkUserBadges . '" class="img-responsive center-block"></img>';
-									} else echo $no_badge;
-								?>	
-								<br>
-								<?php //WCG-Badge
-									if ($showWcgLogo == "1") {
+									} elseif ($showWcgLogo == "1") {
 										echo '<img src="' . $linkWcgSig . '" class="img-responsive center-block"></img>';
-									} else echo $no_wcg_badge;
-								?>
-								<?php //WCG-SG-Badges
-									if ($showSgWcgBadges == "1") {
+									} elseif ($showSgWcgBadges == "1") {
 										echo '<img src="' . $linkSgWcgBadges . '" class="img-responsive center-block"></img>';
-									} else echo $no_sg_wcg_badge;
+									} else echo $no_badge;
 								?>
 								<br>
 							</div>
@@ -525,6 +504,28 @@ else include "./lang/highstock_en.js";
 			</div>
 			
 			<?php echo "$tr_hp_footer" ?>
-			
+
+			<!-- WCG-Detail-Statistik modal hinzufuegen -->
+			<div class="modal fade" id="modalwcgdetail" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content ">
+						<div class="modal-header section-default">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="modal-title" id="modelTitleId"><?php echo "$project_wcg_detail_link" ?></h4>
+						</div>
+						<div class="modal-body section-default">
+							<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+								<div id="file-content"><?php include './wcg_detail_html.php'; ?></div>
+							</div>
+						</div>
+						<div class="modal-footer section-default">
+							<button type="button" class="btn btn-default btn-simple" data-dismiss="modal">OK</button>
+						</div>
+					</div>
+				</div>
+			</div>  
+
 		</body>
 	</html>

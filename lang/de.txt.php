@@ -83,13 +83,12 @@
 	$wcg_detail_project = "Projekt";
 	$wcg_detail_runtimedetail = "Laufzeit (y:d:h:m:s)";
 	$wcg_detail_badge = "Badge";
+	$wcg_detail_status = "Status";
 	
 	$project_of = "von";
 	$project_project = "Projekt";
 	$project_wcg_detail_link = "WCG-Detail-Statistik";
-	$no_badge = "<h5>Keine BOINC-Badges eingerichtet</h5><h6><font size ='1'>Damit deine Boinc-Badges angezeigt werden, musst Du diese einrichten</font></h6>";
-	$no_wcg_badge = "<h5>Keine WCG-Badge Signatur eingerichtet<h5><h6><font size ='1'>Damit deine WCG-Badge-Signatur angezeigt wird, musst Du diese einrichten</font></h6>";
-	$no_sg_wcg_badge = "<h5>Keine SG-WCG-Badges eingerichtet</h5><h6><font size ='1'>Damit deine SG-WCG-Badges angezeigt werden, musst Du diese einrichten</h6></font>";
+	$no_badge = "<h5>Keine BOINC-Badges eingerichtet</h5><h6><font size ='1'>Damit deine Boinc-Badges angezeigt werden, musst Du diese in den Einstellungen einrichten</font></h6>";
 
 	$tabs_project = "Projekt";
 	$tabs_pie = "Verteilung";

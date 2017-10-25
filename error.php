@@ -1,5 +1,44 @@
 <?php
 
+include "./settings/settings.php";
+
+// Sprachdefinierung
+if (isset($_GET["lang"])) $lang = $_GET["lang"];
+else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
+
+# Auswahl der Sprache, wenn nicht vorhanden, Nutzung von englischer Sprachdatei
+if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
+else include "./lang/en.txt.php";
+
+############################################################
+# Beginn fuer Datenzusammenstellung User
+$query_getUserData = mysqli_query($db_conn, "SELECT * from boinc_user");  //alle Userdaten einlesen
+if ( !$query_getUserData ) { 	
+	$connErrorTitle = "Datenbankfehler";
+	$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+							Es bestehen wohl Probleme mit der Datenbankanbindung.";
+	include "./errordocs/db_initial_err.php";
+	exit();
+} elseif  ( mysqli_num_rows($query_getUserData) === 0 ) { 
+	$connErrorTitle = "Datenbankfehler";
+	$connErrorDescription = "Die Tabelle boinc_user enthält keine Daten.";
+	include "./errordocs/db_initial_err.php";
+	exit();
+}
+while ($row = mysqli_fetch_assoc($query_getUserData)) {
+	$project_username = $row["boinc_name"];
+	$project_wcgname = $row["wcg_name"];
+	$project_teamname = $row["team_name"];
+	$cpid = $row["cpid"];
+	$datum_start = $row["lastupdate_start"];
+	$datum = $row["lastupdate"];
+}
+
+$lastupdate_start = date("d.m.Y H:i:s", $datum_start);
+$lastupdate = date("H:i:s", $datum);
+# Ende Datenzusammenstellung User
+############################################################
+
 if (!isset($_GET['error'])) { $errorcode = ""; } else { $errorcode = $_GET['error'];}
 if (!isset($_SERVER['HTTP_REFERER'])) { $HTTP_REFERER = ""; } else { $HTTP_REFERER = $_SERVER['HTTP_REFERER'];}
 if (!isset($_SERVER['REDIRECT_URL'])) { $REDIRECT_URL = ""; } else { $REDIRECT_URL = $_SERVER['REDIRECT_URL'];}
@@ -241,113 +280,79 @@ switch ($errorcode) {
 	}
 ?>
 
-<!DOCTYPE html>
-<html lang="de">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="apple-touch-icon" sizes="76x76" href="https://userstats.timo-schneider.de/assets/img/apple-icon.png">
-		<link rel="icon" type="image/png" href="./favicon.gif">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<title>Persönliche BOINC Userstats - stündlich aktualisiert</title>
-		<meta name="description" content="Erstelle deine eigenen BOINC Statistiken mit php und mysql auf deinem Webspace.">
-		<meta name="robots" content="index,follow">
-		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-		<!--     Fonts and icons     -->
-		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-		<!-- CSS Files -->
-		<link href="https://userstats.timo-schneider.de/assets/css/bootstrap.min.css" rel="stylesheet" />
-		<link href="https://userstats.timo-schneider.de/assets/css/now-ui-kit.css?v=1.1.0" rel="stylesheet" />
-	</head>
-	<body class="landing-page sidebar-collapse">
-	<!-- Navbar -->
-	<nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="100">
-		<div class="container">
-			<div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="https://userstats.timo-schneider.de/assets/img/blurred-image-1.jpg">
-				<ul class="navbar-nav">
-					<li class="nav-item">
-						<a class="nav-link" href="https://userstats.timo-schneider.de/voraussetzungen.html">Voraussetzungen</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="https://userstats.timo-schneider.de/install.html">Installation</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="https://userstats.timo-schneider.de/faq.html">FAQ</a>
-					</li>					
-				</ul>
+<?php echo $tr_hp_header; ?>
+
+	<style>
+        .force_min_height {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .flex1 {
+            flex: 1;
+        }
+    </style>
+
+</head>
+<body>
+	
+<?php if ( $showNavbar ) echo $tr_hp_nav ?>
+	
+	<div class="wrapper force_min_height">
+		<!--div class="landing-header"-->
+		<div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
+			<div class="container">
+				<div class="motto">
+					<h1 class="title" style="color: white;"><?php echo "$tr_th_bp" ?></h1>
+					<h3>
+						<font color="white"><?php echo "$project_username" . " " . $tr_th_ot . " " . $project_teamname ?></font>
+					</h3>
+					
+					<?php //sind laufende WUs im Internet ersichtlich
+						if ( $hasBoinctasks ) {
+							echo '<a href="' . $linkBoinctasks . '" class="btn btn-neutral btn-simple"><i class="fa fa-tasks"></i> ' . $linkNameBoinctasks . '</a>';
+						};
+					?>
+					
+					<?php //Link zu Boinctasks
+						if ( $hasBoincstats ) {
+							echo '<a href="' . $linkBoincstats . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-bar-chart"></i> ' . $linkNameBoincstats . '</a>';
+						};
+					?>
+					<br/>
+					<?php //Link zu Team
+						if ( $hasTeamHp ) {
+							echo '<a href="' . $teamHpURL . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-link"></i> ' . $teamHpName . '</a>';
+						};
+					?>
+					
+					<?php //Link zu WCG
+						if ( $hasWcg ) {
+							echo '<a href="' . $linkWcg . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-globe"></i> ' . $linkNameWcg . '</a>';
+						};
+					?>
+
+					<?php //Pendings
+						if ( $hasPendings ) {
+							echo '<a href="' . $linkPendings . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-refresh"></i> ' . $linkNamePendings . '</a>';
+						};
+					?>
+
+				</div>
 			</div>
 		</div>
-	</nav>
-	<!-- End Navbar -->
-<div class="wrapper">
-	<div class="page-header" filter-color="orange">
-		<div class="page-header-image" data-parallax="true" style="background-image: url('https://userstats.timo-schneider.de/assets/img/bg5.jpg');"></div>
-		<div class="container">
-			<div class="content-center brand">
-				<h1 class="title"><?php echo $error_description; ?></h1>
-				<h5 class="description text-center"><?php  echo $err_de; ?></h5>
-				<!--div class="alert alert-danger" role="alert">
-					<div class="container">
-						<div class="alert-icon">
-							<i class="now-ui-icons objects_support-17"></i>
-						</div>
-						<strong>ACHTUNG!</strong> Inhalte dieser Webseite sind teilweise noch in Bearbeitung!
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">
-								<i class="now-ui-icons ui-1_simple-remove"></i>
-							</span>
-						</button>
-					</div>
-				</div-->						
-			</div>
-		</div>
-	</div>
-</div>
 
-<footer class="footer footer-default">
-	<div class="container">
-		<nav>
-			<ul>
-				<li>
-					<a href="https://www.timo-schneider.de">
-					Timo Schneider
-					</a>
-				</li>
-				<li>
-					<a href="https://userstats.timo-schneider.de/uebermich.html">
-					Über mich
-					</a>
-				</li>
-				<li>
-					<a href="https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md">
-					MIT License
-					</a>
-				</li>
-			</ul>
-		</nav>
-		<div class="copyright">
-			&copy;
-			<script>
-				document.write(new Date().getFullYear())
-			</script>, Template by
-			<a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>. Code by
-			<a href="https://www.timo-schneider.de" target="_blank">Timo Schneider</a>
+		<div class="section text-center section-default flex1">
+					<h1 class="title text-center"><?php echo $error_description; ?></h1>
+					<h5 class="description text-center">
+					<?php  
+						if ($lang = "de") echo $err_de; else echo $err_en;
+					?>
+					</h5>					
 		</div>
-	</div>
-</footer>
 
+
+		<?php echo "$tr_hp_footer" ?>
+	</div>
 </body>
-<!--   Core JS Files   -->
-<script src="https://userstats.timo-schneider.de/assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
-<script src="https://userstats.timo-schneider.de/assets/js/core/popper.min.js" type="text/javascript"></script>
-<script src="https://userstats.timo-schneider.de/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-<script src="https://userstats.timo-schneider.de/assets/js/plugins/bootstrap-switch.js"></script>
-<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-<script src="https://userstats.timo-schneider.de/assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-<script src="https://userstats.timo-schneider.de/assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
-<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-<script src="https://userstats.timo-schneider.de/assets/js/now-ui-kit.js?v=1.1.0" type="text/javascript"></script>
-
 </html>
