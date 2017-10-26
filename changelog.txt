@@ -12,7 +12,7 @@ Version 4.3:
   * zu kurze Seiten werden nun automatisch bildschirmfüllend angezeigt, so dass der Seiten-Footer auch immer ganz unten ist.
 - Filter/Sortierung von Tabellen (nur aktive Projekte, Tabelle auf Seite mit Pending Credits und WCG-Detail-Ansicht)
 - Option zum Anzeigen eines Links im Header zum manuellen Aktualisieren der Pending Credits
-
+- Die Versionierung wurde aus den Einstellungen herausgetrennt und hat nun eine eigene Datei (_version.php)
 
 
 

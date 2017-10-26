@@ -326,7 +326,6 @@
 			flex: 1;
 		}
 	</style>
-
 <?php
 if (file_exists("./lang/highstock_" . $lang . ".js")) include "./lang/highstock_" . $lang . ".js";
 else include "./lang/highstock_en.js";
@@ -346,52 +345,53 @@ else include "./lang/highstock_en.js";
 	
 <div class="wrapper force_min_height">	
 	<?php if ( $showNavbar ) echo $tr_hp_nav ?>
-		<!--div class="landing-header"-->
-		<div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
-			<div class="container">
-				<div class="motto">
-					<h1 class="title" style="color: white;"><?php echo "$tr_th_bp" ?></h1>
-					<h3>
-						<font color="white"><?php echo "$project_username" . " " . $tr_th_ot . " " . $project_teamname ?></font>
-					</h3>
-					
-					<?php //sind laufende WUs im Internet ersichtlich
-						if ( $hasBoinctasks ) {
-							echo '<a href="' . $linkBoinctasks . '" class="btn btn-neutral btn-simple"><i class="fa fa-tasks"></i> ' . $linkNameBoinctasks . '</a>';
-						};
-					?>
-					
-					<?php //Link zu Boinctasks
-						if ( $hasBoincstats ) {
-							echo '<a href="' . $linkBoincstats . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-bar-chart"></i> ' . $linkNameBoincstats . '</a>';
-						};
-					?>
-					<br/>
-					<?php //Link zu Team
-						if ( $hasTeamHp ) {
-							echo '<a href="' . $teamHpURL . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-link"></i> ' . $teamHpName . '</a>';
-						};
-					?>
-					
-					<?php //Link zu WCG
-						if ( $hasWcg ) {
-							echo '<a href="' . $linkWcg . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-globe"></i> ' . $linkNameWcg . '</a>';
-						};
-					?>
+	<div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
+		<div class="container">
+			<div class="motto">
+				<h1 class="title"><font color="white"><?php echo "$tr_th_bp" ?></font></h1>
+				<h3><font color="white"><?php echo "$project_username" . " " . $tr_th_ot . " " . $project_teamname ?></font></h3>
+				
+				<?php //sind laufende WUs im Internet ersichtlich
+					if ( $hasBoinctasks ) {
+						echo '<a href="' . $linkBoinctasks . '" class="btn btn-neutral btn-simple"><i class="fa fa-tasks"></i> ' . $linkNameBoinctasks . '</a>';
+					};
+				?>
+				
+				<?php //Link zu Boinctasks
+					if ( $hasBoincstats ) {
+						echo '<a href="' . $linkBoincstats . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-bar-chart"></i> ' . $linkNameBoincstats . '</a>';
+					};
+				?>
+				<br/>
+				<?php //Link zu Team
+					if ( $hasTeamHp ) {
+						echo '<a href="' . $teamHpURL . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-link"></i> ' . $teamHpName . '</a>';
+					};
+				?>
+				
+				<?php //Link zu WCG
+					if ( $hasWcg ) {
+						echo '<a href="' . $linkWcg . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-globe"></i> ' . $linkNameWcg . '</a>';
+					};
+				?>
 
-					<?php //Pendings
-						if ( $hasPendings ) {
-							echo '<a href="' . $linkPendings . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-refresh"></i> ' . $linkNamePendings . '</a>';
-						};
-					?>
-
-				</div>
+				<?php //Pendings
+					if ( $hasPendings ) {
+						echo '<a href="' . $linkPendings . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-refresh"></i> ' . $linkNamePendings . '</a>';
+					};
+				?>
 			</div>
 		</div>
+	</div>
 	
 	<div class="alert-info">
 		<div class="container">
 			<h5><?php echo $tr_th_lu ?>: <?php echo $lastupdate_start ?> - <?php echo $lastupdate ?> (UTC)</h5>
+		</div>
+	</div>
+
+	<div class="alert-warning">		
+		<div class="container"><a href='index.php'><i class='fa fa-home fa-fw'></i>Home</a>
 		</div>
 	</div>
 	
@@ -401,25 +401,43 @@ else include "./lang/highstock_en.js";
 				<li class="active"><a data-toggle="tab" href="#projekte"><i
 				class="fa fa-table"></i> <?php echo "$tabs_project" ?></a></li>
 				<li><a data-toggle="tab" href="#pie"><i class="fa fa-pie-chart"></i> <?php echo "$tabs_pie" ?></a></li>
-				<li><a data-toggle="tab" href="#gesamt"><i class="fa fa-area-chart"></i> <?php echo "$tabs_total" ?></a>
-				</li>
+				<li><a data-toggle="tab" href="#gesamt"><i class="fa fa-area-chart"></i> <?php echo "$tabs_total" ?></a></li>
 				<li><a data-toggle="tab" href="#stunde"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_hour" ?></a></li>
 				<li><a data-toggle="tab" href="#tag"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_day" ?></a></li>
 				<li><a data-toggle="tab" href="#woche"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_week" ?></a></li>
 				<li><a data-toggle="tab" href="#monat"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_month" ?></a></li>
 				<li><a data-toggle="tab" href="#jahr"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_year" ?></a></li>
-				<li><a data-toggle="tab" href="#badges"><i class="fa fa-certificate"></i> <?php echo "$tabs_badge" ?></a>
-				</li>
+				<li><a data-toggle="tab" href="#badges"><i class="fa fa-certificate"></i> <?php echo "$tabs_badge" ?></a></li>
 			</ul>
 		</div>
 	</div>
-	
+
+	<!--style>@media (max-width: 978px) { .table-condensed td, .table-condensed th { padding: 0 1px !important; } }</style-->
+			
+	<style>
+		@media (max-width: 767px) {
+			.table-condensed td,
+			.table-condensed th {
+				padding: 3px 5px !important;
+			}
+		}
+		@media (max-width: 560px) {
+			.table-condensed td,
+			.table-condensed th {
+				padding: 1px 1px !important;
+			}
+			.container-fluid {
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+			}
+		}
+	</style>
+
 	<div class="tab-content text-center flex1">
 		<div id="projekte" class="tab-pane fade in active">
 			<div class="section text-center section-default">
 				<div class="container-fluid">				
-					<table id="table_projects" class="table table-striped table-hover text-right table-condensed" width="100%"
-					style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">					
+					<table id="table_projects" class="table table-striped table-hover text-right table-condensed" width="100%" style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">					
 						<thead class="alert-warning">
 							<tr class="alert-warning text-right">
 								<th class="text-right"><?php echo $tr_tb_pr ?></th>
@@ -457,228 +475,208 @@ else include "./lang/highstock_en.js";
 								<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></th>
 							</tr>
 						</thead>
-						<!-- Fuer jedes Projekt eine Zeile in die Tabelle hinzufuegen -->
-						
-						<?php
-							foreach ($table as $table_row) {
-								echo "<tr class='alert-primary'>";
-								echo "  <td>";
-								echo "	<a href='" . $table_row["project_home_link"] . "'>" . $table_row["project_name"];
-								echo "	</a></td>";
-								echo " <td>";
-								echo "  <a href='" . $table_row["project_link"] . "'>";
-								echo "    <i class='fa fa-bar-chart'></i>";
-								echo "  </a>";
-								echo "</td>";
-								echo "  <td>" . number_format($table_row["total_credits"], 0, $dec_point, $thousands_sep) . "</td>";
-								echo "  <td class='hidden-xs hidden-sm'>" . number_format($table_row["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>";
-								if ($table_row["sum1h"] != "") {
-									echo "  <td class='hidden-xs'>" . number_format($table_row['sum1h'], 0, $dec_point, $thousands_sep) . "</td>";
-								} else
-								echo "  <td class='hidden-xs'>-</td>";
-								if ($table_row["sum2h"] != "") {
-									echo "  <td class='hidden-xs hidden-sm'>" . number_format($table_row["sum2h"], 0, $dec_point, $thousands_sep) . "</td>";
-								} else
-								echo "  <td class='hidden-xs hidden-sm'>-</td>";
-								if ($table_row["sum6h"] != "") {
-									echo "  <td class='hidden-xs hidden-sm'>" . number_format($table_row["sum6h"], 0, $dec_point, $thousands_sep) . "</td>";
-								} else
-								echo "  <td class='hidden-xs hidden-sm'>-</td>";
-								if ($table_row["sum12h"] != "") {
-									echo "  <td class='hidden-xs'>" . number_format($table_row["sum12h"], 0, $dec_point, $thousands_sep) . "</td>";
-								} else
-								echo "  <td class='hidden-xs'>-</td>";
-								if ($table_row["sum_today"] != "") {
-									echo "  <td class='success text-success'><b>" . number_format($table_row["sum_today"], 0, $dec_point, $thousands_sep) . "</b></td>";
-								} else
-								echo "  <td class='success text-success'>-</td>";
-								if ($table_row["sum_yesterday"] != "") {
-									echo "  <td class='info text-info hidden-xs'><b>" . number_format($table_row["sum_yesterday"], 0, $dec_point, $thousands_sep) . "</b></td>";
-								} else
-								echo "  <td class='info text-info hidden-xs'>-</td>";
-								if ($table_row["pending_credits"] >> "0") {
-									echo "  <td class='danger hidden-xs text-danger'><b>" . number_format($table_row["pending_credits"], 0, $dec_point, $thousands_sep) . "</b></td>";
-								} else
-								echo "  <td class='danger hidden-xs text-danger'>-</td>";
-								echo "</tr>";
-							}
-						?>
-						<thead>
-							<tr class="alert-warning">
-								<td class="alert-warning"><b><?php echo $tr_th2_rp ?></b></td>
-								<td class="alert-warning"><b><?php #echo $tr_tb_det ?></b></td>
-								<td class="alert-warning"><b><?php echo $tr_tb_cr ?></b></td>
-								<td class="alert-warning hidden-xs hidden-sm"></b></td>
-								<td class="alert-warning hidden-xs"><b><?php echo $tr_tb_01 ?></b></td>
-								<td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_02 ?></b></td>
-								<td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_06 ?></b></td>
-								<td class="alert-warning hidden-xs"><b><?php echo $tr_tb_12 ?></b></td>
-								<td class="alert-success"><b><?php echo $tr_tb_to ?></b></td>
-								<td class="alert-info hidden-xs"><b><?php echo $tr_tb_ye ?></b></td>
-								<td class="alert-danger hidden-xs"><b><?php echo $tr_tb_pe ?></b></td>
-							</tr>
-						</thead>
-					
-					<?php
-						foreach ($table_retired as $table_row_retired) {
-							echo "<tr class='text-muted'>";
-							echo "  <td><a href='" . $table_row_retired["project_home_link"] . "'>" . $table_row_retired["project_name"];
-							echo "	</a></td>";
-							echo "<td>";
-							echo "<a href='" . $table_row_retired["project_link"] . "'>";
-							echo "<i class='fa fa-bar-chart'></i>";
-							echo "</a>";
-							echo "</td>";
-							echo "  <td><b>" . number_format($table_row_retired["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>";
-							echo "<td class='hidden-xs hidden-sm'>" . number_format($table_row_retired["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>";
-							echo "<td class='hidden-xs'></td>";
-							echo "<td class='hidden-xs hidden-sm'></td>";
-							echo "<td class='hidden-xs hidden-sm'></td>";
-							echo "<td class='hidden-xs'></td>";
-							echo "<td class='success'></td>";
-							echo "<td class='info hidden-xs'></td>";
-							echo "<td class='danger hidden-xs'></td>";
-							echo "</tr>";
-						}
-					?>
-					<thead>
-					<tr class="alert-info">
-						<td class="alert-info"><b><?php echo $tr_th_boinc_total ?></b></td>
-						<td class="alert-info"><b><?php #echo $tr_th_detail ?></b></td>
-						<td class="alert-info"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="alert-info hidden-xs hidden-sm"><b>100%</b></td>
-						<td class="alert-info hidden-xs">
-						<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="alert-info hidden-xs hidden-sm">
-						<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="alert-info hidden-xs hidden-sm">
-						<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="alert-info hidden-xs">
-						<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="alert-success">
-						<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="alert-info hidden-xs">
-						<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="alert-danger hidden-xs">
-						<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
-					</tr>
-					<tr class="alert-warning">
-						<td></td>
-						<td><?php #echo $tr_tb_det ?></td>
-						<td><?php #echo $tr_tb_cr ?></td>
-						<td class="hidden-xs hidden-sm"></td>
-						<td class="hidden-xs"><?php echo $tr_tb_01 ?></td>
-						<td class="hidden-xs hidden-sm"><?php echo $tr_tb_02 ?></td>
-						<td class="hidden-xs hidden-sm"><?php echo $tr_tb_06 ?></td>
-						<td class="hidden-xs"><?php echo $tr_tb_12 ?></td>
-						<td class="alert-success"><b><?php echo $tr_tb_to ?></b></td>
-						<td class="alert-info hidden-xs"><b><?php echo $tr_tb_ye ?></b></td>
-						<td class="alert-danger hidden-xs"><b><?php echo $tr_tb_pe ?></b></td>
-					</tr>
-					</thead>
-				</table>
-			</div>
-		</div>
-	</div>
-	
-	<div id="pie" class="tab-pane fade">
-		<div class="section text-center section-default">
-			<div class="container-fluid">
-				<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-					<div id="projektverteilung"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div id="gesamt" class="tab-pane fade">
-		<div class="section text-center section-default">
-			<div class="container-fluid">
-				<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-					<div id="output"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div id="stunde" class="tab-pane fade">
-		<div class="section text-center section-default">
-			<div class="container-fluid">
-				<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-					<div id="output_gesamt_hour"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div id="tag" class="tab-pane fade">
-		<div class="section text-center section-default">
-			<div class="container-fluid">
-				<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-					<div id="output_gesamt_day"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div id="woche" class="tab-pane fade">
-		<div class="section text-center section-default">
-			<div class="container-fluid">
-				<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-					<div id="output_gesamt_week"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div id="monat" class="tab-pane fade">
-		<div class="section text-center section-default">
-			<div class="container-fluid">
-				<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-					<div id="output_gesamt_month"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div id="jahr" class="tab-pane fade">
-		<div class="section text-center section-default">
-			<div class="container-fluid">
-				<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-					<div id="output_gesamt_year"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div id="badges" class="tab-pane fade">
-		<div class="section text-center section-default">
-			<div class="container-fluid">
-				<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-					<br>
-					<?php //Userbadge
-						if ( $showUserBadges ) {
-							echo '<img src="' . $linkUserBadges . '" class="img-responsive center-block"></img>';
-						} else echo $no_badge;
-					?>
-					<br>
-					<?php //WCG-Badge
-						if ( $showWcgLogo ) {
-							echo '<img src="' . $linkWcgSig . '" class="img-responsive center-block"></img>';
-						} else echo $no_wcg_badge;
-					?>
-					<br>
-					<?php //WCG-SG-Badges
-						if ($showSgWcgBadges == "1") {
-							echo '<img src="' . $linkSgWcgBadges . '" class="img-responsive center-block"></img>';
-						} else echo $no_sg_wcg_badge;
-					?>					
-					<br>
-				</div>
-			</div>
-		</div>
-	</div>
+						<tbody>
+							<!-- Fuer jedes Projekt eine Zeile in die Tabelle hinzufuegen -->						
+							<?php
+								foreach ($table as $table_row) {
+									echo "<tr class='alert-primary'>
+										<td><a href='" . $table_row["project_home_link"] . "'>" . $table_row["project_name"] ."</a></td>
+										<td><a href='" . $table_row["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
+										<td>" . number_format($table_row["total_credits"], 0, $dec_point, $thousands_sep) . "</td>
+										<td class='hidden-xs hidden-sm'>" . number_format($table_row["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>";
+										if ($table_row["sum1h"] != "") {
+											echo "<td class='hidden-xs'>" . number_format($table_row['sum1h'], 0, $dec_point, $thousands_sep) . "</td>";
+										} else
+											echo "<td class='hidden-xs'>-</td>";
+										if ($table_row["sum2h"] != "") {
+											echo "<td class='hidden-xs hidden-sm'>" . number_format($table_row["sum2h"], 0, $dec_point, $thousands_sep) . "</td>";
+										} else
+											echo "<td class='hidden-xs hidden-sm'>-</td>";
+										if ($table_row["sum6h"] != "") {
+											echo "<td class='hidden-xs hidden-sm'>" . number_format($table_row["sum6h"], 0, $dec_point, $thousands_sep) . "</td>";
+										} else
+											echo "  <td class='hidden-xs hidden-sm'>-</td>";
+										if ($table_row["sum12h"] != "") {
+											echo "  <td class='hidden-xs'>" . number_format($table_row["sum12h"], 0, $dec_point, $thousands_sep) . "</td>";
+										} else
+											echo "  <td class='hidden-xs'>-</td>";
+										if ($table_row["sum_today"] != "") {
+											echo "  <td class='success text-success'><b>" . number_format($table_row["sum_today"], 0, $dec_point, $thousands_sep) . "</b></td>";
+										} else
+											echo "  <td class='success text-success'>-</td>";
+										if ($table_row["sum_yesterday"] != "") {
+											echo "  <td class='info text-info hidden-xs'><b>" . number_format($table_row["sum_yesterday"], 0, $dec_point, $thousands_sep) . "</b></td>";
+										} else
+											echo "  <td class='info text-info hidden-xs'>-</td>";
+										if ($table_row["pending_credits"] >> "0") {
+											echo "  <td class='danger hidden-xs text-danger'><b>" . number_format($table_row["pending_credits"], 0, $dec_point, $thousands_sep) . "</b></td>";
+										} else
+											echo "  <td class='danger hidden-xs text-danger'>-</td>
+										</tr>";
+								}
+							?>
+							<thead>
+								<tr class="alert-warning">
+									<td class="alert-warning"><b><?php echo $tr_th2_rp ?></b></td>
+									<td class="alert-warning"><b><?php #echo $tr_tb_det ?></b></td>
+									<td class="alert-warning"><b><?php echo $tr_tb_cr ?></b></td>
+									<td class="alert-warning hidden-xs hidden-sm"></b></td>
+									<td class="alert-warning hidden-xs"><b><?php echo $tr_tb_01 ?></b></td>
+									<td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_02 ?></b></td>
+									<td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_06 ?></b></td>
+									<td class="alert-warning hidden-xs"><b><?php echo $tr_tb_12 ?></b></td>
+									<td class="alert-success"><b><?php echo $tr_tb_to ?></b></td>
+									<td class="alert-info hidden-xs"><b><?php echo $tr_tb_ye ?></b></td>
+									<td class="alert-danger hidden-xs"><b><?php echo $tr_tb_pe ?></b></td>
+								</tr>
+							</thead>
+							
+							<?php
+								foreach ($table_retired as $table_row_retired) {
+									echo "<tr class='text-muted'>
+											<td><a href='" . $table_row_retired["project_home_link"] . "'>" . $table_row_retired["project_name"] ."</a></td>
+											<td><a href='" . $table_row_retired["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
+											<td><b>" . number_format($table_row_retired["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
+											<td class='hidden-xs hidden-sm'>" . number_format($table_row_retired["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>
+											<td class='hidden-xs'></td>
+											<td class='hidden-xs hidden-sm'></td>
+											<td class='hidden-xs hidden-sm'></td>
+											<td class='hidden-xs'></td>
+											<td class='success'></td>
+											<td class='info hidden-xs'></td>
+											<td class='danger hidden-xs'></td>
+										</tr>";
+								}
+							?>
 
+							<thead>
+								<tr class="alert-info">
+									<td class="alert-info"><b><?php echo $tr_th_boinc_total ?></b></td>
+									<td class="alert-info"><b><?php #echo $tr_th_detail ?></b></td>
+									<td class="alert-info"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
+									<td class="alert-info hidden-xs hidden-sm"><b>100%</b></td>
+									<td class="alert-info hidden-xs"><b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+									<td class="alert-info hidden-xs hidden-sm"><b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+									<td class="alert-info hidden-xs hidden-sm"><b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+									<td class="alert-info hidden-xs"><b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+									<td class="alert-success"><b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
+									<td class="alert-info hidden-xs"><b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
+									<td class="alert-danger hidden-xs"><b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
+								</tr>
+								<tr class="alert-warning">
+									<td></td>
+									<td><?php #echo $tr_tb_det ?></td>
+									<td><?php #echo $tr_tb_cr ?></td>
+									<td class="hidden-xs hidden-sm"></td>
+									<td class="hidden-xs"><?php echo $tr_tb_01 ?></td>
+									<td class="hidden-xs hidden-sm"><?php echo $tr_tb_02 ?></td>
+									<td class="hidden-xs hidden-sm"><?php echo $tr_tb_06 ?></td>
+									<td class="hidden-xs"><?php echo $tr_tb_12 ?></td>
+									<td class="alert-success"><b><?php echo $tr_tb_to ?></b></td>
+									<td class="alert-info hidden-xs"><b><?php echo $tr_tb_ye ?></b></td>
+									<td class="alert-danger hidden-xs"><b><?php echo $tr_tb_pe ?></b></td>
+								</tr>
+							</thead>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	
+		<div id="pie" class="tab-pane fade">
+			<div class="section text-center section-default">
+				<div class="container-fluid">
+					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+						<div id="projektverteilung"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="gesamt" class="tab-pane fade">
+			<div class="section text-center section-default">
+				<div class="container-fluid">
+					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+						<div id="output"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="stunde" class="tab-pane fade">
+			<div class="section text-center section-default">
+				<div class="container-fluid">
+					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+						<div id="output_gesamt_hour"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="tag" class="tab-pane fade">
+			<div class="section text-center section-default">
+				<div class="container-fluid">
+					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+						<div id="output_gesamt_day"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="woche" class="tab-pane fade">
+			<div class="section text-center section-default">
+				<div class="container-fluid">
+					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+						<div id="output_gesamt_week"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="monat" class="tab-pane fade">
+			<div class="section text-center section-default">
+				<div class="container-fluid">
+					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+						<div id="output_gesamt_month"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="jahr" class="tab-pane fade">
+			<div class="section text-center section-default">
+				<div class="container-fluid">
+					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+						<div id="output_gesamt_year"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="badges" class="tab-pane fade">    
+			<div class="section text-center section-default">
+				<div class="container-fluid">
+					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+						<br>
+						<?php //Userbadge
+							if (!$showUserBadges AND !$showWcgLogo AND !$showSgWcgBadges) echo $no_badge ."<br>";
+							if ($showUserBadges) {
+								echo '<img src="' . $linkUserBadges . '" class="img-responsive center-block"></img><br>';
+							};
+							if ($showWcgLogo) {
+								echo '<img src="' . $linkWcgSig . '" class="img-responsive center-block"></img><br>';
+							};
+							if ($showSgWcgBadges) {
+								echo '<img src="' . $linkSgWcgBadges . '" class="img-responsive center-block"></img><br>';
+							};
+						?>
+						<br>
+					</div>
+				</div>
+			</div>		
+		</div>
+	</div>
+	
 	<?php echo "$tr_hp_footer" ?>
 
 	<script>
@@ -698,6 +696,7 @@ else include "./lang/highstock_en.js";
 			} );
 		} );
 	</script>
+
 </div>
 </body>
 </html>

@@ -94,7 +94,7 @@
 	$project_of = "von";
 	$project_project = "Projekt";
 	$project_wcg_detail_link = "WCG-Detail-Statistik";
-	$no_badge = "<h5>Keine BOINC-Badges eingerichtet</h5><h6><font size ='1'>Damit deine Boinc-Badges angezeigt werden, musst Du diese in den Einstellungen einrichten</font></h6>";
+	$no_badge = "<h5><br>Keine BOINC-Badges eingerichtet</h5><h6><font size ='1'>Damit deine Boinc-Badges angezeigt werden, musst Du diese in den Einstellungen einrichten<br></font></h5>";
 
 	$tabs_project = "Projekt";
 	$tabs_pie = "Verteilung";

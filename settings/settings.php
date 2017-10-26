@@ -8,6 +8,9 @@
 	#ini_set ('display_errors', 'On'); // für Testumgebung - for test environment
 	ini_set ('display_errors', 'Off');
 
+	//Version einbinden
+	include "version.php";
+
 	//Pfad zur Datenbank-Verbindung
 	include "./db/boinc_db.php";
 	
@@ -84,6 +87,4 @@
 	# 0 für alle Projekte
 	$separat = 0.9;
 
-	//Versionsnummer
-	$userstats_version = "V 4.3.0 beta03";
 ?>

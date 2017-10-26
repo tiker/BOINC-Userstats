@@ -319,13 +319,11 @@ else include "./lang/highstock_en.js";
 		</div>    
 	</div>
 
-
 	<div class="alert-info">
 		<div class="container">
 			<h5><?php echo $tr_th_lu ?>: <?php echo $lastupdate_start ?> - <?php echo $lastupdate ?> (UTC)</h5> <!--a href="index.php"><i class="pull-right fa fa-home align-right"></i></a-->
 		</div>
 	</div>
-
 
 	<div class="alert-warning">		
 		<div class="container"><a href='index.php'><i class='fa fa-home fa-fw'></i>Home</a> <i class="fa fa-arrow-right fa-fw"></i><i class='fa fa-bar-chart fa-fw'></i><?php echo "$project_project" ?>: <?php echo $table_row['project_name']; ?>
@@ -347,7 +345,7 @@ else include "./lang/highstock_en.js";
 		</div>
 	</div>
 
-<!--style>@media (max-width: 978px) { .table-condensed td, .table-condensed th { padding: 0 1px !important; } }</style-->
+	<!--style>@media (max-width: 978px) { .table-condensed td, .table-condensed th { padding: 0 1px !important; } }</style-->
 			
 	<style>
 		@media (max-width: 767px) {
@@ -373,8 +371,8 @@ else include "./lang/highstock_en.js";
 			<div class="section text-center section-default">
 				<div class="container-fluid">
 					<table class="table table-striped table-hover text-right" style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-						<thead> 
-							<tr>
+						<thead class="alert-warning"> 
+							<tr class="alert-warning text-right">
 								<th class="text-right"><?php echo "$project_project" ?></th>
 								<th class="text-right"><?php echo "$tr_tb_cr" ?></th>
 								<th class="hidden-xs text-right"><?php echo "$tr_tb_01" ?></th>
@@ -387,141 +385,141 @@ else include "./lang/highstock_en.js";
 							</tr>
 						</thead>
 						<tbody>
-							<!-- Fuer jedes Projekt eine Zeile in die Tabelle hinzufuegen -->
 							<?php
 								foreach($table as $table_row){
-									echo "<tr>";
-									echo "  <td>";
-									echo "	<a href='" .$table_row["project_home_link"] . "'>" .$table_row["project_name"];
-									echo "	</a>";
-									if ($table_row["project_name"] == "World Community Grid" || $table_row["project_name"] == "WCG") {
-										if ($wcg_verification === NULL || $wcg_verification === "") {
-											echo ""; } else {
-											echo "  <a href class='primary' data-toggle='modal' data-target='#modalwcgdetail'><i class='fa fa-list'></i></a>";
-										}           
-									} 
-									echo "  <td>" .number_format($table_row["total_credits"],0,$dec_point,$thousands_sep). "</td>";
-									echo "  <td class='hidden-xs'>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>";
-									echo "  <td class='hidden-xs hidden-sm'>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>";
-									echo "  <td class='hidden-xs hidden-sm'>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>";
-									echo "  <td class='hidden-xs'>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>";
-									echo "  <td class='success text-success'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>";
-									echo "  <td class='info text-info'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>";
-									echo "  <td class='hidden-xs danger text-danger'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>";
-									echo "</tr>";
+									echo "<tr>
+											<td>
+												<a href='" .$table_row["project_home_link"] . "'>" .$table_row["project_name"] . "</a>";
+												if ($table_row["project_name"] == "World Community Grid" || $table_row["project_name"] == "WCG") {
+													if ($wcg_verification === NULL || $wcg_verification === "") {
+														echo ""; } else {
+														echo "  <a href class='primary' data-toggle='modal' data-target='#modalwcgdetail'><i class='fa fa-list'></i></a>";
+													}           
+												} 
+									echo "	<td>" .number_format($table_row["total_credits"],0,$dec_point,$thousands_sep). "</td>
+											<td class='hidden-xs'>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>
+											<td class='hidden-xs hidden-sm'>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
+											<td class='hidden-xs hidden-sm'>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
+											<td class='hidden-xs'>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
+											<td class='success text-success'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
+											<td class='info text-info'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
+											<td class='hidden-xs danger text-danger'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
+										</tr>";
 								}
 							?>
-						</table>
-					</div>
+						</tbody>
+					</table>
 				</div>
 			</div>
+		</div>
 
-			<!-- Highchart-Container hinzufuegen -->
-			<div id="gesamt" class="tab-pane fade">
-				<div class="section text-center section-default">
-					<div class="container-fluid">
-						<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-							<div id="project_output"></div>
-						</div>
+		<div id="gesamt" class="tab-pane fade">
+			<div class="section text-center section-default">
+				<div class="container-fluid">
+					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+						<div id="project_output"></div>
 					</div>
 				</div>
-			</div>
-		
-			<div id="stunde" class="tab-pane fade">
-				<div class="section text-center section-default">
-					<div class="container-fluid">
-						<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-							<div id="project_output_hour"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		
-			<div id="tag" class="tab-pane fade">
-				<div class="section text-center section-default">
-					<div class="container-fluid">
-						<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-							<div id="project_output_day"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		
-			<div id="woche" class="tab-pane fade">
-				<div class="section text-center section-default">
-					<div class="container-fluid">
-						<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-							<div id="project_output_week"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div id="monat" class="tab-pane fade">
-				<div class="section text-center section-default">
-					<div class="container-fluid">
-						<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-							<div id="project_output_month"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		
-			<div id="jahr" class="tab-pane fade">
-				<div class="section text-center section-default">
-					<div class="container-fluid">
-						<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-							<div id="project_output_year"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div id="badges" class="tab-pane fade">    
-				<div class="section text-center section-default">
-					<div class="container-fluid">
-						<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-							<br>
-							<?php //Userbadge
-								if ($showUserBadges == "1") {
-									echo '<img src="' . $linkUserBadges . '" class="img-responsive center-block"></img>';
-								} elseif ($showWcgLogo == "1") {
-									echo '<img src="' . $linkWcgSig . '" class="img-responsive center-block"></img>';
-								} elseif ($showSgWcgBadges == "1") {
-									echo '<img src="' . $linkSgWcgBadges . '" class="img-responsive center-block"></img>';
-								} else echo $no_badge;
-							?>
-							<br>
-						</div>
-					</div>
-				</div>		
 			</div>
 		</div>
 	
-		<?php echo "$tr_hp_footer" ?>
-
-		<!-- WCG-Detail-Statistik modal hinzufuegen -->
-		<div class="modal fade" id="modalwcgdetail" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content ">
-					<div class="modal-header section-default">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-						<h4 class="modal-title" id="modelTitleId"><?php echo "$project_wcg_detail_link" ?></h4>
-					</div>
-					<div class="modal-body section-default">
-						<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-							<div id="file-content"><?php include './wcg_detail_html.php'; ?></div>
-						</div>
-					</div>
-					<div class="modal-footer section-default">
-						<button type="button" class="btn btn-default btn-simple" data-dismiss="modal">OK</button>
+		<div id="stunde" class="tab-pane fade">
+			<div class="section text-center section-default">
+				<div class="container-fluid">
+					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+						<div id="project_output_hour"></div>
 					</div>
 				</div>
 			</div>
-		</div>  
+		</div>
+		
+		<div id="tag" class="tab-pane fade">
+			<div class="section text-center section-default">
+				<div class="container-fluid">
+					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+						<div id="project_output_day"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div id="woche" class="tab-pane fade">
+			<div class="section text-center section-default">
+				<div class="container-fluid">
+					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+						<div id="project_output_week"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+		<div id="monat" class="tab-pane fade">
+			<div class="section text-center section-default">
+				<div class="container-fluid">
+					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+						<div id="project_output_month"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div id="jahr" class="tab-pane fade">
+			<div class="section text-center section-default">
+				<div class="container-fluid">
+					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+						<div id="project_output_year"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+		<div id="badges" class="tab-pane fade">    
+			<div class="section text-center section-default">
+				<div class="container-fluid">
+					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+						<br>
+						<?php //Userbadge
+							if (!$showUserBadges AND !$showWcgLogo AND !$showSgWcgBadges) echo $no_badge ."<br>";
+							if ($showUserBadges) {
+								echo '<img src="' . $linkUserBadges . '" class="img-responsive center-block"></img><br>';
+							};
+							if ($showWcgLogo) {
+								echo '<img src="' . $linkWcgSig . '" class="img-responsive center-block"></img><br>';
+							};
+							if ($showSgWcgBadges) {
+								echo '<img src="' . $linkSgWcgBadges . '" class="img-responsive center-block"></img><br>';
+							};
+						?>
+						<br>
+					</div>
+				</div>
+			</div>		
+		</div>
 	</div>
+
+	<?php echo "$tr_hp_footer" ?>
+
+	<!-- WCG-Detail-Statistik modal hinzufuegen -->
+	<div class="modal fade" id="modalwcgdetail" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content ">
+				<div class="modal-header section-default">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="modelTitleId"><?php echo "$project_wcg_detail_link" ?></h4>
+				</div>
+				<div class="modal-body section-default">
+					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+						<div id="file-content"><?php include './wcg_detail_html.php'; ?></div>
+					</div>
+				</div>
+				<div class="modal-footer section-default">
+					<button type="button" class="btn btn-default btn-simple" data-dismiss="modal">OK</button>
+				</div>
+			</div>
+		</div>
+	</div>  
 </div>
 </body>
 </html>
