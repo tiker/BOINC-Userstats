@@ -16,7 +16,7 @@
 	$hp_email = "deine@email.adresse";
 	
 	//Navbar
-	$showNavbar = false ; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
+	$showNavbar = false; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
 
 	// für die Navbar sind drei Links vorgesehen
 	// Bitte das Logo images/brand.jpg durch ein eigenes ersetzen
@@ -85,5 +85,5 @@
 	$separat = 0.9;
 
 	//Versionsnummer
-	$userstats_version = "V 4.3.0 beta02";
+	$userstats_version = "V 4.3.0 beta03";
 ?>
