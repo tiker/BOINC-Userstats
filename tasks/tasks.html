@@ -4,48 +4,93 @@
 
 <!doctype html>
 <html lang="de">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/png" href="favicon.ico">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		
-		<title>BOINC-Userstats</title>
-		
-		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-		<meta name="viewport" content="width=device-width" />
-		
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link href="../paper-kit/ct-paper.css" rel="stylesheet"/>
-		<link href="../paper-kit/examples.css" rel="stylesheet" /> 
-		<link href="../paper-kit/rotating-card.css" rel="stylesheet" />
-		
-		<!--     Fonts and icons     -->
-		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-		
-		<!-- JS JQuery und Bootstrap --> 
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		
-		<!--  Plugins -->
-		<script src="../paper-kit/ct-paper-checkbox.js"></script>
-		<script src="../paper-kit/ct-paper-radio.js"></script>
-		<script src="../paper-kit/bootstrap-select.js"></script>
-		<script src="../paper-kit/bootstrap-datepicker.js"></script>
-		<script src="../paper-kit/ct-paper.js"></script>
-		
-		<link rel="shortcut icon" href="favicon.ico">
-		
-		<script src="https://code.highcharts.com/stock/highstock.js"></script>	
-		<script src="https://code.highcharts.com/modules/exporting.js"></script>
-		
-		<link rel="shortcut icon" href="favicon.ico">		
-		
-	</head>
-	<body>
-		
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="../favicon.gif">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>BOINC-Userstats</title>
+
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css"
+
+	<!-- Layout CSS -->
+	<link href="../paper-kit/ct-paper.css" rel="stylesheet"/>
+	<link href="../paper-kit/demo.css" rel="stylesheet"/>
+	<link href="../paper-kit/examples.css" rel="stylesheet" /> 
+
+	<!--     Fonts and icons     -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="https://cdn.datatables.net/plug-ins/1.10.16/integration/font-awesome/dataTables.fontAwesome.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
+
+	<!-- JS JQuery und Bootstrap --> 
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<!--  Plugins -->
+	<script src="../paper-kit/ct-paper-checkbox.js"></script>
+	<script src="../paper-kit/ct-paper-radio.js"></script>
+	<script src="../paper-kit/bootstrap-select.js"></script>
+	<script src="../paper-kit/bootstrap-datepicker.js"></script>
+	<script src="../paper-kit/ct-paper.js"></script>
+
+	<script src="https://code.highcharts.com/stock/highstock.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
+	<style type="text/css">
+		.tab-content > .tab-pane:not(.active),
+		.pill-content > .pill-pane:not(.active) {
+			display: block;
+			height: 0;
+			overflow-y: hidden;
+		}   
+	</style>'
+	
+</head>
+<body>
+
+	<style>
+		.force_min_height {
+			display: flex;
+			min-height: 100vh;
+			flex-direction: column;
+		}
+		.flex1 {
+			flex: 1;
+		}
+	</style>
+
+	<!--style>@media (max-width: 978px) { .table-condensed td, .table-condensed th { padding: 0 1px !important; } }</style-->
+			
+	<style>
+			@media (max-width: 767px) {
+				.modal-backdrop { display: none; }
+				.table-condensed td,
+				.table-condensed th {
+					padding: 3px 5px !important;
+				}
+			}
+			@media (max-width: 560px) {
+				.table-condensed td,
+				.table-condensed th {
+					padding: 1px 1px !important;
+				}
+				.container-fluid {
+					padding-left: 0 !important;
+					padding-right: 0 !important;
+				}
+			}
+		</style>
+
+<div class = "force_min_height">
 	<div class="wrapper">
 		<!--div class="landing-header"-->
 		<div class="header img-reponsive" style="background-image: url('../grafiken/header_background.jpg');">
@@ -68,35 +113,13 @@
 		<div class="container"><a href='../index.php'><i class='fa fa-home fa-fw'></i>Home</a> <i class="fa fa-arrow-right fa-fw"></i><i class='fa fa-bar-chart fa-fw'></i>laufende WU's
 		</div>
 	</div>
-	
-	<div class="section text-center section-default" id="projekte">
+
+	<div class="section text-center section-default flex1" id="projekte">
 		<div class="container-fluid">
 			<div class="main">
 				<div class="section section-standard">
 					<div class="container-fluid">
-						<h2 class="title-uppercase text-center">laufende WU's</h2>						
-						
-						<!--style>@media (max-width: 978px) { .table-condensed td, .table-condensed th { padding: 0 1px !important; } }</style-->
-						
-						<style>
-							@media (max-width: 767px) {
-							.table-condensed td, 
-							.table-condensed th { 
-							padding: 3px 5px !important; 
-							}
-							}
-							@media (max-width: 560px) {
-							.table-condensed td, 
-							.table-condensed th { 
-							padding: 1px 1px !important; 
-							}
-							.container-fluid { 
-							padding-left: 0 !important; 
-							padding-right: 0 !important; 
-							} 
-							}
-						</style>
-						
+						<h2 class="title-uppercase text-center">laufende WU's</h2>
 						
 						<!-- 
 							__InsertHeaderTemplateBegin__
@@ -165,23 +188,20 @@
 				</div>
 			</div>
 		</div>
-	</div>	
+	</div>
+
 	<!--footer ausgeben-->
 	<footer class="footer-demo section-dark">
 		<div class="container">
 			<nav>
-				<ul>
-					<li>
-						<button class="btn btn-simple btn-sm" data-toggle="modal" data-target="#modalImpressum">Impressum</button> 
-					</li>
-					<li>
-						<button class="btn btn-simple btn-sm" data-toggle="modal" data-target="#modalDisclaimer">Disclaimer</button> 
-					</li>
-					<li>
-						<button class="btn btn-simple btn-sm" data-toggle="modal" data-target="#modalDatenschutz">Datenschutz</button> 
-					</li>
-					<div class="copyright pull-right"><i class="fa fa-copyright fa-lg"></i> 2017, by Timo Schneider<br>Template by <a href="https://www.creative-tim.com/product/paper-kit">Creative Tim</a></div>
-				</ul>
+				<div class="copyright pull-center text-center">
+					<a href="https://userstats.timo-schneider.de" target="_blank">BOINC Userstats</a> Version 3.4.0, <i class="fa fa-copyright fa-lg"></i> 2017 by Timo Schneider (XSmeagolX)<br />Template by <a href="https://www.creative-tim.com/product/paper-kit">Creative Tim</a> - Diese Seite verwendet <a href="https://www.highcharts.com">Highcharts<i class="fa fa-copyright"></i></a>
+					<br>
+					<a class="btn btn-simple btn-sm" data-toggle="modal" data-target="#modalImpressum">Impressum</a> 
+					<a class="btn btn-simple btn-sm" data-toggle="modal" data-target="#modalDisclaimer">Disclaimer</a> 
+					<a class="btn btn-simple btn-sm" data-toggle="modal" data-target="#modalDatenschutz">Datenschutz</a> 
+					<a href="https://github.com/XSmeagolX/Pers-nliche-BOINC-Userstats/blob/master/LICENSE" class="btn btn-simple btn-sm" target="_new">MIT License</a> 
+				</div>
 			</nav>
 		</div>
 	</footer>
@@ -198,9 +218,9 @@
 				<div class="modal-body section-light-blue">
 					Angaben gemäß § 5 TMG:<br>
 					<br>
-					Kontakt:<br>
-					Name<br>
-					<strong>E-Mail:</strong> xxxx@sssssssssss.bbb
+					<u>Kontakt:</u><br>
+					DEIN NAME<br>
+					<strong>E-Mail:</strong> DEINE EMAIL-ADRESSE
 				</div>
 				<div class="modal-footer section-light-blue">
 					<button type="button" class="btn btn-default btn-simple" data-dismiss="modal">OK</button>
@@ -208,7 +228,7 @@
 			</div>
 		</div>
 	</div>  
-	
+
 	<div class="modal fade" id="modalDisclaimer" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -239,7 +259,7 @@
 			</div>
 		</div>
 	</div> 
-	
+
 	<div class="modal fade" id="modalDatenschutz" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -288,6 +308,7 @@
 			</div>
 		</div>
 	</div> 
+</div>
 </body>
 </html>
 

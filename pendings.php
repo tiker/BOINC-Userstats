@@ -48,52 +48,12 @@
 	</style>
 </head>
 <body>
-<div class="wrapper force_min_height">	
-	<?php if ( $showNavbar ) echo $tr_hp_nav ?>
-	<div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
-		<div class="container">
-			<div class="motto">
-				<h1 class="title"><font color="white"><?php echo "$tr_th_bp" ?></font></h1>
-				<h3><font color="white"><?php echo "$project_username" . " " . $tr_th_ot . " " . $project_teamname ?></font></h3>
-
-				<?php //sind laufende WUs im Internet ersichtlich
-					if ( $hasBoinctasks ) {
-						echo '<a href="' . $linkBoinctasks . '" class="btn btn-neutral btn-simple"><i class="fa fa-tasks"></i> ' . $linkNameBoinctasks . '</a>';
-					};
-				?>
-				
-				<?php //Link zu Boinctasks
-					if ( $hasBoincstats ) {
-						echo '<a href="' . $linkBoincstats . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-bar-chart"></i> ' . $linkNameBoincstats . '</a>';
-					};
-				?>
-				<br/>
-				<?php //Link zu Team
-					if ( $hasTeamHp ) {
-						echo '<a href="' . $teamHpURL . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-link"></i> ' . $teamHpName . '</a>';
-					};
-				?>
-				
-				<?php //Link zu WCG
-					if ( $hasWcg ) {
-						echo '<a href="' . $linkWcg . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-globe"></i> ' . $linkNameWcg . '</a>';
-					};
-				?>
-
-				<?php //Pendings
-					if ( $hasPendings ) {
-						echo '<a href="' . $linkPendings . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-refresh"></i> ' . $linkNamePendings . '</a>';
-					};
-				?>
-				
-			</div>
-		</div>    
-	</div>
 
 	<!--style>@media (max-width: 978px) { .table-condensed td, .table-condensed th { padding: 0 1px !important; } }</style-->
 				
 	<style>
 		@media (max-width: 767px) {
+			.modal-backdrop { display: none; }
 			.table-condensed td,
 			.table-condensed th {
 				padding: 3px 5px !important;
@@ -110,6 +70,51 @@
 			}
 		}
 	</style>
+
+<div class="force_min_height">
+
+	<div class="wrapper">	
+		<?php if ( $showNavbar ) echo $tr_hp_nav ?>
+		<div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
+			<div class="container">
+				<div class="motto">
+					<h1 class="title"><font color="white"><?php echo "$tr_th_bp" ?></font></h1>
+					<h3><font color="white"><?php echo "$project_username" . " " . $tr_th_ot . " " . $project_teamname ?></font></h3>
+
+					<?php //sind laufende WUs im Internet ersichtlich
+						if ( $hasBoinctasks ) {
+							echo '<a href="' . $linkBoinctasks . '" class="btn btn-neutral btn-simple"><i class="fa fa-tasks"></i> ' . $linkNameBoinctasks . '</a>';
+						};
+					?>
+					
+					<?php //Link zu Boinctasks
+						if ( $hasBoincstats ) {
+							echo '<a href="' . $linkBoincstats . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-bar-chart"></i> ' . $linkNameBoincstats . '</a>';
+						};
+					?>
+					<br/>
+					<?php //Link zu Team
+						if ( $hasTeamHp ) {
+							echo '<a href="' . $teamHpURL . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-link"></i> ' . $teamHpName . '</a>';
+						};
+					?>
+					
+					<?php //Link zu WCG
+						if ( $hasWcg ) {
+							echo '<a href="' . $linkWcg . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-globe"></i> ' . $linkNameWcg . '</a>';
+						};
+					?>
+
+					<?php //Pendings
+						if ( $hasPendings ) {
+							echo '<a href="' . $linkPendings . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-refresh"></i> ' . $linkNamePendings . '</a>';
+						};
+					?>
+					
+				</div>
+			</div>    
+		</div>
+	</div>
 
 	<div class="section text-center section-default flex1">
 		<div class="container">
@@ -200,5 +205,6 @@
 	</script>
 		
 </div>	
+
 </body>
 </html>
