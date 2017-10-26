@@ -1,30 +1,43 @@
 Version 4.3:
 ============
-- neue Fehlerseite für DB-Errorhandling hinzugefügt
-- neue Vorlage für das Apache Errorhandling hinzugefügt (/error.php)
-- Errorhandling für Datenbankabfragen hinzugefügt (errordocs/db_initial_err.php)
-- die blaue Tabellenzeile für Gesamt in der Projektübersicht (ganz unten) bleibt nun blau (auch bei Mouseover)
-- Design-Anpassungen
-  * Diese Zeile (Gesamt) wird nun auch noch zusätzlich als erste Zeile angezeigt.
-  * auf der WCG-Detail-Seite :
-    .Unterscheidung aktives Team zu vergangenen Teams ist nun deutlicher erkennbar
-    .Der Projektstatus einzelner Subprojekte wurde integriert und ist nun klar erkennbar
-  * zu kurze Seiten werden nun automatisch bildschirmfüllend angezeigt, so dass der Seiten-Footer auch immer ganz unten ist.
-- Filter/Sortierung von Tabellen (nur aktive Projekte, Tabelle auf Seite mit Pending Credits und WCG-Detail-Ansicht)
-- Option zum Anzeigen eines Links im Header zum manuellen Aktualisieren der Pending Credits
-- Die Versionierung wurde aus den Einstellungen herausgetrennt und hat nun eine eigene Datei (_version.php)
+
+  ERWEITERUNGEN:
+  - Filter/Sortierung von Tabellen (nur aktive Projekte, Tabelle auf Seite mit Pending Credits und WCG-Detail-Ansicht)
+  - neue Fehlerseite für DB-Errorhandling hinzugefügt
+  - neue Vorlage für das Apache Errorhandling hinzugefügt (/error.php)
+  - Errorhandling für Datenbankabfragen hinzugefügt (errordocs/db_initial_err.php)
+
+  DESING-ANPASSUNGEN:
+  - Die Zeile für die Gesamt-Credits wird nun auch zusätzlich als erste Zeile in der Tabelle angezeigt.
+  - auf der WCG-Detail-Seite :
+    * Unterscheidung aktives Team zu vergangenen Teams ist nun deutlicher erkennbar
+    * Der Projektstatus einzelner Subprojekte wurde integriert und ist nun klar erkennbar
+  - zu kurze Seiten werden nun automatisch bildschirmfüllend angezeigt, so dass der Seiten-Footer auch immer ganz unten ist.
+
+  EINSTELLUNGEN:
+  - Option zum Anzeigen eines Links im Header zum manuellen Aktualisieren der Pending Credits wurde hinzugefügt
+  - Die Versionierung wurde aus den Einstellungen herausgetrennt und hat nun eine eigene Datei (version.php)
+    So müssen nicht bei jeder neuen Version auch noch die Einstellungen erneut gesetzt werden.
+    Aber diesmal ist leider nochmal so. :D
+
+  FEHLERBEHEBUNGEN:
+  - Es wird nun nur noch eine Meldung angezeigt, wenn keine Badges konfiguriert wurden
+  - die blaue Tabellenzeile für Gesamt in der Projektübersicht (ganz unten) bleibt nun blau (auch bei Mouseover)
+  - Der Tabellen-Header beim Anzeigen eines einzelnen Projektes (project.php) ist nun wie überall gelb hinterlegt
+
+  und wie immer noch ein paar weitere Code-Optimierungen und Anpassungen
 
 
 
 Version 4.2:
 ============
 
-- Unterstützung von php7/mysqli
+  - Unterstützung von php7/mysqli
 
-- Die Datei für die Einstellungen hat nun ein eigenes Verzeichnis und ist somit leichter zu finden (settings/settings.php)
-	!!ACHTUNG:!!
-	Es haben sich hier viele Änderungen ergeben, so dass die Einstellungen über diese Datei neu gesetzt werden müssen.
+  - Die Datei für die Einstellungen hat nun ein eigenes Verzeichnis und ist somit leichter zu finden (settings/settings.php)
+    !!ACHTUNG:!!
+    Es haben sich hier viele Änderungen ergeben, so dass die Einstellungen über diese Datei neu gesetzt werden müssen.
 
-- Fehlerbehebungen (z.B. Initialisierung von Variablen)
+  - Fehlerbehebungen (z.B. Initialisierung von Variablen)
 
-- Verbesserungen und Optimierungen
+  - Verbesserungen und Optimierungen
