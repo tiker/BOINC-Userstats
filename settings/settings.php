@@ -24,6 +24,7 @@
 	// für die Navbar sind drei Links vorgesehen
 	// Bitte das Logo images/brand.jpg durch ein eigenes ersetzen
 	$brand_logo = "../images/brand.jpg"; //das kleine Logo oben links neben dem Namen in der Navbar
+	$hp_nav_brand_link =  "./index.php"; //wohin der Link auf dem Brand-Logo führen soll
 	$hp_nav_name01 = "Link-Name#1";
 	$hp_nav_link01 = "http://link.zu.Link-Name#1";
 	$hp_nav_name02 = "Link-Name#2";
@@ -61,12 +62,12 @@
 	//Hier die URL zu deinen Statistiken bei boincstats.com
 	$hasBoincstats = false; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
 	$linkNameBoincstats = "BOINCStats";
-	$linkBoincstats = "https://boincstats.com/de/stats/-5/user/detail/865/projectList"; //Link zu boincstats.com von XSmeagolX
+	$linkBoincstats = "https://boincstats.com/de/stats/-5/user/detail/15232873522/projectList"; //Link zu boincstats.com von XSmeagolX
 	
 	//Hier die URL zu den laufenden WUs, falls Du diese mit Boinctasks veröffentlichst
 	$hasBoinctasks = false; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
 	$linkNameBoinctasks = "laufende WUs";
-	$linkBoinctasks = "./tasks/tasks.html"; // Link zu den laufenden WUs von XSmeagolX
+	$linkBoinctasks = "./tasks.php"; // Link zu den laufenden WUs von XSmeagolX
 	
 	//Hier die URL zum WCG, wird im Seitenkopf angezeigt
 	$hasWcg = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist true

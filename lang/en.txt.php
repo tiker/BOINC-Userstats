@@ -1,6 +1,6 @@
 <?php
 	// English version //
-	$search = "Search";
+	$search = "Filter/Search";
 	$tr_hp_title = "<title>Personal Userstats of " .$project_username. " from Team " .$project_teamname. "</title>";
 	$tr_th_bp = "BOINC-Projects of";
 	$tr_th_ot = "of team";
@@ -96,6 +96,8 @@
 	$project_wcg_detail_link = "WCG-Detail-Statistics";
 	$no_badge = "<h5><br>No badge configured</h5><h6><font size ='1'>To show your Boinc-Badges, please configure your Badges in the settings file.</font><br></h5>";
 
+	$bt_headline = "Running WU's";
+
 	$tabs_project = "Project";
 	$tabs_pie = "Pie";
 	$tabs_total = "Total";
@@ -168,7 +170,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="./index.php">
+				<a href="' .$hp_nav_brand_link. '">
 					<div class="logo-container">
 						<div class="logo">
 							<img src="' .$brand_logo. '" alt="My Logo">

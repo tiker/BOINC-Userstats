@@ -238,11 +238,11 @@
 		<thead>
 			<tr class='alert alert-warning'>
 				<th class='text-center'><b><?php echo "$wcg_detail_project" ?></b></th>
+				<th class='text-center'><b><?php echo "$wcg_detail_status" ?></b></th>
 				<th class='hidden-xs text-center'><b><?php echo "$wcg_detail_points" ?></b></th>
 				<th class='hidden-xs text-center'><b><?php echo "$wcg_detail_results" ?></b></th>
 				<th class='text-center'><b><?php echo "$wcg_detail_runtimedetail" ?></b></th>
 				<th class='text-center no-sort'><b><?php echo "$wcg_detail_badge" ?></b></th>
-				<th class='text-center'><b><?php echo "$wcg_detail_status" ?></b></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -250,40 +250,40 @@
 				foreach($table as $table_row){
 					if ( isset($table_row["project_points"]) && $table_row["project_points"] > 0) {
 						if ($table_row["status"] === "Active") {
-								echo "<tr class = 'text-primary'>";
+								echo "<tr class = 'text-success'>";
 								echo "<td>" .$table_row["project_longname"]. "</td>";
+								echo "  <td data-order='1' align='center'><i class='fa fa-square' aria-hidden='true'></i></td>";	
 								echo "  <td class='hidden-xs'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
 								echo "  <td class='hidden-xs'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
 								echo "  <td data-order='" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
-								echo "  <td align='center'><img title='" .$table_row["description"]. "' src='" .$table_row["badge"]. "' alt='" .$table_row["description"]. "'></td>";
-								echo "  <td data-order='1' align='center'>" .$table_row["status"]. "</td>";							
+								echo "  <td align='center'><img title='" .$table_row["description"]. "' src='" .$table_row["badge"]. "' alt='" .$table_row["description"]. "'></td>";						
 								echo "</tr>";
 						} elseif ($table_row["status"] === "Intermittent") {
-								echo "<tr class = 'text-danger'>";
+								echo "<tr class = 'text-warning'>";
 								echo "<td>" .$table_row["project_longname"]. "</td>";
+								echo "  <td data-order='2' align='center'><i class='fa fa-square' aria-hidden='true'></i></td>";
 								echo "  <td class='hidden-xs'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
 								echo "  <td class='hidden-xs'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
 								echo "  <td data-order='" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
 								echo "  <td align='center'><img title='" .$table_row["description"]. "' src='" .$table_row["badge"]. "' alt='" .$table_row["description"]. "'></td>";
-								echo "  <td data-order='2' align='center'>" .$table_row["status"]. "</td>";
 								echo "</tr>";
 						} elseif ($table_row["status"] === "Completed") {
-								echo "<tr class = 'text-muted'>";
+								echo "<tr class = 'text-danger'>";
 								echo "<td>" .$table_row["project_longname"]. "</td>";
+								echo "  <td data-order='3' align='center'><i class='fa fa-square' aria-hidden='true'></i></td>";
 								echo "  <td class='hidden-xs'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
 								echo "  <td class='hidden-xs'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
 								echo "  <td data-order='" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
 								echo "  <td align='center'><img title='" .$table_row["description"]. "' src='" .$table_row["badge"]. "' alt='" .$table_row["description"]. "'></td>";
-								echo "  <td data-order='3' align='center'>" .$table_row["status"]. "</td>";
 								echo "</tr>";
 						} else {
 								echo "<tr class = 'text-primary'>";
 								echo "<td>" .$table_row["project_longname"]. "</td>";
+								echo "  <td data-order='3' align='center'> - </td>";
 								echo "  <td class='hidden-xs'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
 								echo "  <td class='hidden-xs'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
 								echo "  <td data-order='" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
 								echo "  <td align='center'><img title='" .$table_row["description"]. "' src='" .$table_row["badge"]. "' alt='" .$table_row["description"]. "'></td>";
-								echo "  <td data-order='3' align='center'> - </td>";
 								echo "</tr>";
 						}		
 					}
@@ -301,6 +301,7 @@
             	"thousands": "<?php echo $thousands_sep; ?>",
 				"search":	"<?php echo $search; ?>"
         	},
+			"order": [[ 1, "asc" ],[ 0, "asc" ]],
     		"columnDefs": [ {
       			"targets"  : 'no-sort',
       			"orderable": false,

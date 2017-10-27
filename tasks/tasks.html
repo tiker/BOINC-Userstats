@@ -1,341 +1,51 @@
-<!-- 
-	Created by BoincTasks: http://www.efmer.eu/boinc/boinc_tasks/index.html
--->
-
-<!doctype html>
-<html lang="de">
-<head>
-	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="../favicon.gif">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-	<title>BOINC-Userstats</title>
-
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-	<meta name="viewport" content="width=device-width" />
-
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css"
-
-	<!-- Layout CSS -->
-	<link href="../paper-kit/ct-paper.css" rel="stylesheet"/>
-	<link href="../paper-kit/demo.css" rel="stylesheet"/>
-	<link href="../paper-kit/examples.css" rel="stylesheet" /> 
-
-	<!--     Fonts and icons     -->
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="https://cdn.datatables.net/plug-ins/1.10.16/integration/font-awesome/dataTables.fontAwesome.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
-
-	<!-- JS JQuery und Bootstrap --> 
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-	<!--  Plugins -->
-	<script src="../paper-kit/ct-paper-checkbox.js"></script>
-	<script src="../paper-kit/ct-paper-radio.js"></script>
-	<script src="../paper-kit/bootstrap-select.js"></script>
-	<script src="../paper-kit/bootstrap-datepicker.js"></script>
-	<script src="../paper-kit/ct-paper.js"></script>
-
-	<script src="https://code.highcharts.com/stock/highstock.js"></script>
-	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
-
-	<style type="text/css">
-		.tab-content > .tab-pane:not(.active),
-		.pill-content > .pill-pane:not(.active) {
-			display: block;
-			height: 0;
-			overflow-y: hidden;
-		}   
-	</style>'
-	
-</head>
-<body>
-
-	<style>
-		.force_min_height {
-			display: flex;
-			min-height: 100vh;
-			flex-direction: column;
-		}
-		.flex1 {
-			flex: 1;
-		}
-	</style>
-
-	<!--style>@media (max-width: 978px) { .table-condensed td, .table-condensed th { padding: 0 1px !important; } }</style-->
-			
-	<style>
-			@media (max-width: 767px) {
-				.modal-backdrop { display: none; }
-				.table-condensed td,
-				.table-condensed th {
-					padding: 3px 5px !important;
-				}
-			}
-			@media (max-width: 560px) {
-				.table-condensed td,
-				.table-condensed th {
-					padding: 1px 1px !important;
-				}
-				.container-fluid {
-					padding-left: 0 !important;
-					padding-right: 0 !important;
-				}
-			}
-		</style>
-
-<div class = "force_min_height">
-	<div class="wrapper">
-		<!--div class="landing-header"-->
-		<div class="header img-reponsive" style="background-image: url('../grafiken/header_background.jpg');">
-			<div class="container">
-				<div class="motto">
-					<h1 class="title"><font color="white">laufende WU's</font></h1>
-					<h3><font color="white">dies ist nur eine beispielhafte Auflistung</font></h3>
-					<!--h3><font color="white">von XXXXXXXXXXXXX aus dem Team XXXXXXXXXXXXXXXXXXX</font></h3-->
+		
+			<div class="alert-info">
+				<div class="container">
+					<h5><b>letzte Aktualisierung:</b></font><font size='3'> 27.10.2017 09:08:14 </font><font size='2'><font size='2'>(Aktualisierungsintervall: alle 10 Minuten)</font></h5>
 				</div>
-			</div>    
-		</div>
-	</div>
-	
-	<div class="alert-info">
-		<div class="container">
-		<h5><b>letzte Aktualisierung:</b></font><font size='3'> 27.04.2017 11:35:26 </font></h5>
-	</div>
-	
-	<div class="alert-warning">
-		<div class="container"><a href='../index.php'><i class='fa fa-home fa-fw'></i>Home</a> <i class="fa fa-arrow-right fa-fw"></i><i class='fa fa-bar-chart fa-fw'></i>laufende WU's
-		</div>
-	</div>
+			</div>	
+			
+			<div class="alert-warning">
+				<div class="container">
+					<a href='./index.php'><i class='fa fa-home fa-fw'></i>Home</a> <i class="fa fa-arrow-right fa-fw"></i><i class='fa fa-bar-chart fa-fw'></i>laufende WU's
+				</div>
+			</div>
 
-	<div class="section text-center section-default flex1" id="projekte">
-		<div class="container-fluid">
-			<div class="main">
-				<div class="section section-standard">
-					<div class="container-fluid">
-						<h2 class="title-uppercase text-center">laufende WU's</h2>
-						
-						<!-- 
-							__InsertHeaderTemplateBegin__
-							<tr class="alert-info">
-							<th>__Project__</th><th>__Application__</th><th>__Percentage__</th><th>Restzeit</th><th>__Deadline__</th><th>__Computer__</th>
-							</tr>
-						__InsertHeaderTemplateEnd__ -->
-						
-						
-						<!-- 
-							__InsertRowTemplateBegin__
-							<tr class="alert-primary">
-							<td BGCOLOR="#__ProjectColor__" style="vertical-align: middle;">__Project__</td><td BGCOLOR="#__ApplicationColor__">__Application__</td><td BGCOLOR="#__PercentageColor__"><div class="progress" style="margin-bottom: 0px;"><div class="progress-bar progress-bar-info" role="progress-bar" aria-value-now="__Percentage__" aria-valuemin="0" aria-valuemax="100" style="width: __Percentage__%">__Percentage__%<span class="sr-only">__Percentage__% Complete</span></div></div></td><td BGCOLOR="#__TimeleftColor__">__Timeleft__</td><td BGCOLOR="#__DeadlineColor__">__Deadline__</td><td BGCOLOR="#__ComputerColor__">__Computer__</td>
-							</tr>
-						__InsertRowTemplateEnd__ -->
-						
-						<table class="table table-striped table-hover table-condensed text-left" style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-							<font size='2'><font size='2'><b>Aktualisierungsintervall:</b></font><font size='3'> alle 10 Minuten</font>
-								<thead>
-									
+			<div class="section text-center section-default flex1">
+				<div class="container-fluid">
+					<div class="main">
+						<div class="section section-standard">
+							<div class="container-fluid">
+								<div class="alert alert-danger">
+									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+									Es wurden noch keine Daten übermittelt.
+								</div>								
+								<!-- 
+									__InsertHeaderTemplateBegin__
 									<tr class="alert-info">
-										<th>Projekt</th><th>Anwendung</th><th>Fortschritt</th><th>Restzeit</th><th>Deadline</th><th>Computer</th>
+									<th>__Project__</th><th>__Application__</th><th>__Percentage__</th><th>Restzeit</th><th>__Deadline__</th><th>__Computer__</th>
 									</tr>
-									
-								</thead>
-								<tbody>
-									
-									<tr class="alert-primary">
-										<td BGCOLOR="#A6F0C8" style="vertical-align: middle;">World Community Grid</td><td BGCOLOR="#A6F0C8">7.08 scc1</td><td BGCOLOR="#A6F0C8"><div class="progress" style="margin-bottom: 0px;"><div class="progress-bar progress-bar-info" role="progress-bar" aria-value-now="92" aria-valuemin="0" aria-valuemax="100" style="width: 92%">92%<span class="sr-only">92% Complete</span></div></div></td><td BGCOLOR="#A6F0C8">00:08:54</td><td BGCOLOR="#A6F0C8">07.05.2017 09:34:24</td><td BGCOLOR="#A6F0C8">PC003</td>
-									</tr>
-									
-									<tr class="alert-primary">
-										<td BGCOLOR="#A6F0C8" style="vertical-align: middle;">World Community Grid</td><td BGCOLOR="#A6F0C8">7.08 scc1</td><td BGCOLOR="#A6F0C8"><div class="progress" style="margin-bottom: 0px;"><div class="progress-bar progress-bar-info" role="progress-bar" aria-value-now="51" aria-valuemin="0" aria-valuemax="100" style="width: 51%">51%<span class="sr-only">51% Complete</span></div></div></td><td BGCOLOR="#A6F0C8">00:38:51</td><td BGCOLOR="#A6F0C8">07.05.2017 10:20:49</td><td BGCOLOR="#A6F0C8">PC003</td>
-									</tr>
-									
-									<tr class="alert-primary">
-										<td BGCOLOR="#A6F0C8" style="vertical-align: middle;">World Community Grid</td><td BGCOLOR="#A6F0C8">7.08 scc1</td><td BGCOLOR="#A6F0C8"><div class="progress" style="margin-bottom: 0px;"><div class="progress-bar progress-bar-info" role="progress-bar" aria-value-now="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%">77%<span class="sr-only">77% Complete</span></div></div></td><td BGCOLOR="#A6F0C8">00:27:13</td><td BGCOLOR="#A6F0C8">07.05.2017 09:43:09</td><td BGCOLOR="#A6F0C8">PC002</td>
-									</tr>
-									
-									<tr class="alert-primary">
-										<td BGCOLOR="#A6F0C8" style="vertical-align: middle;">World Community Grid</td><td BGCOLOR="#A6F0C8">7.08 scc1</td><td BGCOLOR="#A6F0C8"><div class="progress" style="margin-bottom: 0px;"><div class="progress-bar progress-bar-info" role="progress-bar" aria-value-now="58" aria-valuemin="0" aria-valuemax="100" style="width: 58%">58%<span class="sr-only">58% Complete</span></div></div></td><td BGCOLOR="#A6F0C8">00:48:55</td><td BGCOLOR="#A6F0C8">07.05.2017 10:11:25</td><td BGCOLOR="#A6F0C8">PC002</td>
-									</tr>
-									
-									<tr class="alert-primary">
-										<td BGCOLOR="#A6F0C8" style="vertical-align: middle;">World Community Grid</td><td BGCOLOR="#A6F0C8">7.08 scc1</td><td BGCOLOR="#A6F0C8"><div class="progress" style="margin-bottom: 0px;"><div class="progress-bar progress-bar-info" role="progress-bar" aria-value-now="84" aria-valuemin="0" aria-valuemax="100" style="width: 84%">84%<span class="sr-only">84% Complete</span></div></div></td><td BGCOLOR="#A6F0C8">00:27:26</td><td BGCOLOR="#A6F0C8">07.05.2017 08:59:34</td><td BGCOLOR="#A6F0C8">PC001</td>
-									</tr>
-									
-									<tr class="alert-primary">
-										<td BGCOLOR="#A6F0C8" style="vertical-align: middle;">World Community Grid</td><td BGCOLOR="#A6F0C8">7.08 scc1</td><td BGCOLOR="#A6F0C8"><div class="progress" style="margin-bottom: 0px;"><div class="progress-bar progress-bar-info" role="progress-bar" aria-value-now="71" aria-valuemin="0" aria-valuemax="100" style="width: 71%">71%<span class="sr-only">71% Complete</span></div></div></td><td BGCOLOR="#A6F0C8">00:40:13</td><td BGCOLOR="#A6F0C8">07.05.2017 09:43:27</td><td BGCOLOR="#A6F0C8">PC001</td>
-									</tr>
-									
-									
-									<tr class="alert-primary">
-										<td BGCOLOR="#A6F0C8" style="vertical-align: middle;">World Community Grid</td><td BGCOLOR="#A6F0C8">7.08 scc1</td><td BGCOLOR="#A6F0C8"><div class="progress" style="margin-bottom: 0px;"><div class="progress-bar progress-bar-info" role="progress-bar" aria-value-now="16" aria-valuemin="0" aria-valuemax="100" style="width: 16%">16%<span class="sr-only">16% Complete</span></div></div></td><td BGCOLOR="#A6F0C8">00:45:58</td><td BGCOLOR="#A6F0C8">07.05.2017 11:12:05</td><td BGCOLOR="#A6F0C8">PCLinux001</td>
-									</tr>
-									
-									<tr class="alert-primary">
-										<td BGCOLOR="#A6F0C8" style="vertical-align: middle;">World Community Grid</td><td BGCOLOR="#A6F0C8">7.08 scc1</td><td BGCOLOR="#A6F0C8"><div class="progress" style="margin-bottom: 0px;"><div class="progress-bar progress-bar-info" role="progress-bar" aria-value-now="11" aria-valuemin="0" aria-valuemax="100" style="width: 11%">11%<span class="sr-only">11% Complete</span></div></div></td><td BGCOLOR="#A6F0C8">00:48:52</td><td BGCOLOR="#A6F0C8">07.05.2017 11:15:05</td><td BGCOLOR="#A6F0C8">PCLinux001</td>
-									</tr>
-									
-								</tr>
+								__InsertHeaderTemplateEnd__ -->
 								
-							</tbody>
-						</table>
+								
+								<!-- 
+									__InsertRowTemplateBegin__
+									<tr class="alert-primary">
+									<td BGCOLOR="#__ProjectColor__" style="vertical-align: middle;">__Project__</td><td BGCOLOR="#__ApplicationColor__">__Application__</td><td BGCOLOR="#__PercentageColor__"><div class="progress" style="margin-bottom: 0px;"><div class="progress-bar progress-bar-info" role="progress-bar" aria-value-now="__Percentage__" aria-valuemin="0" aria-valuemax="100" style="width: __Percentage__%">__Percentage__%<span class="sr-only">__Percentage__% Complete</span></div></div></td><td BGCOLOR="#__TimeleftColor__">__Timeleft__</td><td BGCOLOR="#__DeadlineColor__">__Deadline__</td><td BGCOLOR="#__ComputerColor__">__Computer__</td>
+									</tr>
+								__InsertRowTemplateEnd__ -->
+								
+								<table id="table_boinc_tasks" class="table table-striped table-hover table-condensed text-left" style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+									<thead>
+										<tr class="alert-info">
+											<th>Projekt</th><th class="hidden-xs hidden-sm">Anwendung</th><th class="hidden-xs hidden-sm">Vergangene Zeit</th><th>Fortschritt</th><th>Restzeit</th><th class="hidden-xs hidden-sm">Deadline</th><th>Computer</th>
+										</tr>
+									</thead>
+									<tbody>
+									</tbody>
+								</table>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-
-	<!--footer ausgeben-->
-	<footer class="footer-demo section-dark">
-		<div class="container">
-			<nav>
-				<div class="copyright pull-center text-center">
-					<a href="https://userstats.timo-schneider.de" target="_blank">BOINC Userstats</a> Version 3.4.0, <i class="fa fa-copyright fa-lg"></i> 2017 by Timo Schneider (XSmeagolX)<br />Template by <a href="https://www.creative-tim.com/product/paper-kit">Creative Tim</a> - Diese Seite verwendet <a href="https://www.highcharts.com">Highcharts<i class="fa fa-copyright"></i></a>
-					<br>
-					<a class="btn btn-simple btn-sm" data-toggle="modal" data-target="#modalImpressum">Impressum</a> 
-					<a class="btn btn-simple btn-sm" data-toggle="modal" data-target="#modalDisclaimer">Disclaimer</a> 
-					<a class="btn btn-simple btn-sm" data-toggle="modal" data-target="#modalDatenschutz">Datenschutz</a> 
-					<a href="https://github.com/XSmeagolX/Pers-nliche-BOINC-Userstats/blob/master/LICENSE" class="btn btn-simple btn-sm" target="_new">MIT License</a> 
-				</div>
-			</nav>
-		</div>
-	</footer>
-	<!-- Modal -->
-	<div class="modal fade" id="modalImpressum" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content ">
-				<div class="modal-header section-light-blue">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="modelTitleId">Impressum</h4>
-				</div>
-				<div class="modal-body section-light-blue">
-					Angaben gemäß § 5 TMG:<br>
-					<br>
-					<u>Kontakt:</u><br>
-					DEIN NAME<br>
-					<strong>E-Mail:</strong> DEINE EMAIL-ADRESSE
-				</div>
-				<div class="modal-footer section-light-blue">
-					<button type="button" class="btn btn-default btn-simple" data-dismiss="modal">OK</button>
-				</div>
-			</div>
-		</div>
-	</div>  
-
-	<div class="modal fade" id="modalDisclaimer" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header section-light-blue">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="modelTitleId">Haftungsausschluss (Disclaimer)</h4>
-				</div>
-				<div class="modal-body section-light-blue">
-					<strong>Haftung für Inhalte</strong>
-					<br>
-					Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
-					<br>
-					<br>
-					<strong>Haftung für Links</strong>
-					<br>
-					Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
-					<br>
-					<br>
-					<strong>Urheberrecht</strong>
-					<br>
-					Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
-				</div>
-				<div class="modal-footer section-light-blue">
-					<button type="button" class="btn btn-default btn-simple" data-dismiss="modal">OK</button>
-				</div>
-			</div>
-		</div>
-	</div> 
-
-	<div class="modal fade" id="modalDatenschutz" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header section-light-blue">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="modelTitleId">Datenschutz</h4>
-				</div>
-				<div class="modal-body section-light-blue">
-					<strong>Auskunft, Löschung, Sperrung</strong>
-					<br>
-					Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden.
-					<br>
-					<br>
-					<strong>Cookies</strong>
-					<br>
-					Die Internetseiten verwenden teilweise so genannte Cookies. Cookies richten auf Ihrem Rechner keinen Schaden an und enthalten keine Viren. Cookies dienen dazu, unser Angebot nutzerfreundlicher, effektiver und sicherer zu machen. Cookies sind kleine Textdateien, die auf Ihrem Rechner abgelegt werden und die Ihr Browser speichert.
-					<br>
-					Die meisten der von uns verwendeten Cookies sind so genannte „Session-Cookies“. Sie werden nach Ende Ihres Besuchs automatisch gelöscht. Andere Cookies bleiben auf Ihrem Endgerät gespeichert, bis Sie diese löschen. Diese Cookies ermöglichen es uns, Ihren Browser beim nächsten Besuch wiederzuerkennen.
-					<br>
-					Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und Cookies nur im Einzelfall erlauben, die Annahme von Cookies für bestimmte Fälle oder generell ausschließen sowie das automatische Löschen der Cookies beim Schließen des Browser aktivieren. Bei der Deaktivierung von Cookies kann die Funktionalität dieser Website eingeschränkt sein.
-					<br>
-					<br>
-					<strong>Server-Log-Files</strong>
-					<br>
-					Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log Files, die Ihr Browser automatisch an uns übermittelt. Dies sind:
-					<br>
-					Browsertyp/ Browserversion
-					verwendetes Betriebssystem
-					Referrer URL
-					Hostname des zugreifenden Rechners
-					Uhrzeit der Serveranfrage
-					<br>
-					<br>
-					Diese Daten sind nicht bestimmten Personen zuordenbar. Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Wir behalten uns vor, diese Daten nachträglich zu prüfen, wenn uns konkrete Anhaltspunkte für eine rechtswidrige Nutzung bekannt werden.
-					<br>
-					<br>
-					<strong>Kontaktformular</strong>
-					<br>
-					Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.   
-				</div>
-				<div class="modal-footer section-light-blue">
-					<button type="button" class="btn btn-default btn-simple" data-dismiss="modal">OK</button>
-				</div>
-			</div>
-		</div>
-	</div> 
-</div>
-</body>
-</html>
-
-<!-- 
-	Allowed names in header and row:
-	
-	__ProjectColor__ __Project__
-	__ApplicationColor__ __Application__
-	__NameColor__ __Name__
-	__ElapsedColor__ __Elapsed__
-	__CpuPercentageColor__ __CpuPercentage__
-	__PercentageColor__ __Percentage__
-	__TimeleftColor__ __Timeleft__
-	__DeadlineColor__ __Deadline__
-	__UseColor__ __Use__
-	__StateColor__ __State__
-	__TthrottleColor__ __Tthrottle__
-	__TemperatureColor__ __Temperature__
-	__ComputerColor__ __Computer__
-	__CheckpointColor__ __Checkpoint__
-	__DebtColor__ __Debt__
-	
-	You can create multiple templates called:
-	tasks_template.html	> tasks.html			This one is normally used.
-	tasks_template0.html	> tasks0.html			Additional output html.
-	tasks_template1.html	> tasks1.html
-	.....................
-	tasks_template9.html	> tasks9.html
--->
-

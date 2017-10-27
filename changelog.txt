@@ -15,6 +15,7 @@ Version 4.3:
   - zu kurze Seiten werden nun automatisch bildschirmfüllend angezeigt, so dass der Seiten-Footer auch immer ganz unten ist.
 
   EINSTELLUNGEN:
+  - Der Link in der Navbar auf dem Brand-Logo läßt sich nun individuell setzen.
   - Option zum Anzeigen eines Links im Header zum manuellen Aktualisieren der Pending Credits wurde hinzugefügt
   - Die Versionierung wurde aus den Einstellungen herausgetrennt und hat nun eine eigene Datei (version.php)
     So müssen nicht bei jeder neuen Version auch noch die Einstellungen erneut gesetzt werden.
@@ -24,6 +25,11 @@ Version 4.3:
   - Es wird nun nur noch eine Meldung angezeigt, wenn keine Badges konfiguriert wurden
   - die blaue Tabellenzeile für Gesamt in der Projektübersicht (ganz unten) bleibt nun blau (auch bei Mouseover)
   - Der Tabellen-Header beim Anzeigen eines einzelnen Projektes (project.php) ist nun wie überall gelb hinterlegt
+
+  MODUL BOINCTASKS:
+  - Die BoincTasks-Erweiterung wurde neu konzeptioniert. Die entsprechende tasks_template.html wurde angepasst und sollte ab Version 4.3 genutzt werden.
+    Der "neue" Link zu den Tasks ist nun ./tasks.php und includiert die ./tasks/tasks.html.
+    Somit sind keine zusätzlichen Anpassungen mehr nötig und die Seite übernimmt automatisch das Design der Statistik-Seite.
 
   und wie immer noch ein paar weitere Code-Optimierungen und Anpassungen
 
