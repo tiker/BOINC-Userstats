@@ -63,9 +63,9 @@
 		}
 
 	foreach ($xml->Project as $project_status)
-	       {
-	         $status[strval($project_status->Name)] = strval($project_status->Status);
-	         }
+		   {
+			 $status[strval($project_status->Name)] = strval($project_status->Status);
+			 }
 	
 	$xml_string = FALSE;
 	$xml_string = @file_get_contents ("http://www.worldcommunitygrid.org/verifyMember.do?name=" . $project_wcgname . "&code=" . $wcg_verification . "");
@@ -297,15 +297,15 @@
 	$(document).ready(function() {
 		$('#table_wcg').DataTable( {
 			"language": {
-            	"decimal": "<?php echo $dec_point; ?>",
-            	"thousands": "<?php echo $thousands_sep; ?>",
+				"decimal": "<?php echo $dec_point; ?>",
+				"thousands": "<?php echo $thousands_sep; ?>",
 				"search":	"<?php echo $search; ?>"
-        	},
+			},
 			"order": [[ 1, "asc" ],[ 0, "asc" ]],
-    		"columnDefs": [ {
-      			"targets"  : 'no-sort',
-      			"orderable": false,
-    		}],
+			"columnDefs": [ {
+	  			"targets"  : 'no-sort',
+	  			"orderable": false,
+			}],
 			"paging":   false,
 			"info":     false
 		} );

@@ -4,7 +4,7 @@
 	
 	// Sprachdefinierung
 	if (isset($_GET["lang"])) $lang = $_GET["lang"];
-    else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
+	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
 
 	# Beginn fuer Datenzusammenstellung User
 	$query_getUserData = mysqli_query($db_conn, "SELECT * from boinc_user");  //alle Userdaten einlesen

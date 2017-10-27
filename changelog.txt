@@ -2,52 +2,52 @@ Version 4.3:
 ============
 Da das Changelog zu Version 4.2 so überschaulich und nüchtern war, diesmal etwas ausführlicher.
 
-  ERWEITERUNGEN:
-  - Filtern/Sortieren von Tabellen ist endlich möglich (für aktive Projekte in der Übersicht, auf der Seite mit Pending Credits und sofern aktiviert in der WCG-Detail-Ansicht)
-  - Errorhandling für Datenbankabfragen hinzugefügt und damit es nicht so alleine ist sogar incl. eigener Fehlerseite (errordocs/db_initial_err.php)
-  - neue Vorlage für das Apache Errorhandling hinzugefügt (/error.php), wer es denn nutzen möchte und sich damit auskennt! :D
-    Im Grunde müsst ihr dafür nur die # im Errorhandling der .htaccess rausnehmen oder es gleich in die Apache-Config reinhauen
+	ERWEITERUNGEN:
+	- Filtern/Sortieren von Tabellen ist endlich möglich (für aktive Projekte in der Übersicht, auf der Seite mit Pending Credits und sofern aktiviert in der WCG-Detail-Ansicht)
+	- Errorhandling für Datenbankabfragen hinzugefügt und damit es nicht so alleine ist sogar incl. eigener Fehlerseite (errordocs/db_initial_err.php)
+	- neue Vorlage für das Apache Errorhandling hinzugefügt (/error.php), wer es denn nutzen möchte und sich damit auskennt! :D
+	  Im Grunde müsst ihr dafür nur die # im Errorhandling der .htaccess rausnehmen oder es gleich in die Apache-Config reinhauen
 
-  DESING-ANPASSUNGEN:
-  - Die Zeile für die Gesamt-Credits wollte nicht mehr Schlußlicht sein und wird nun auch zusätzlich als erste Zeile in der Projekt-Übersichts-Tabelle angezeigt.
-  - auf der WCG-Detail-Seite :
-    * Unterscheidung aktives Team zu vergangenen Teams ist nun deutlicher erkennbar
-    * Der Projektstatus einzelner Subprojekte wurde integriert und ist für Verkehrsteilnehmer nun klar in den Farben rot/gelb/grün zu unterscheiden
-    * Die Tabelle kann man natürlich auch sortieren/filtern, aber das erwähnte ich ja schon
-  - zu kurze Seiten werden nun automatisch bildschirmfüllend angezeigt, so dass der Seiten-Footer nicht mehr so in der Luft hängt.
+	DESING-ANPASSUNGEN:
+	- Die Zeile für die Gesamt-Credits wollte nicht mehr Schlußlicht sein und wird nun auch zusätzlich als erste Zeile in der Projekt-Übersichts-Tabelle angezeigt.
+	- auf der WCG-Detail-Seite :
+		* Unterscheidung aktives Team zu vergangenen Teams ist nun deutlicher erkennbar
+		* Der Projektstatus einzelner Subprojekte wurde integriert und ist für Verkehrsteilnehmer nun klar in den Farben rot/gelb/grün zu unterscheiden
+		* Die Tabelle kann man natürlich auch sortieren/filtern, aber das erwähnte ich ja schon
+	- zu kurze Seiten werden nun automatisch bildschirmfüllend angezeigt, so dass der Seiten-Footer nicht mehr so in der Luft hängt.
 
-  EINSTELLUNGEN:
-  - Der Link in der Navbar auf dem Brand-Logo läßt sich nun auch individuell setzen ($hp_nav_brand_link in settings.php).
-  - Das manuelle Eintippen der URL zum Aktualisieren von Pendings hat ein Ende. Es wurde eine Option zum Anzeigen eines Links im Header hinzugefügt
-  - Die Versionierung war nicht gesellig und wurde aus den Einstellungen herausgetrennt und hat nun eine eigene Datei (version.php)
-    So müssen nicht bei jeder neuen Version auch noch die Einstellungen erneut gesetzt werden, sofern sich da nix geändert haben sollte.
-    Aber diesmal ist leider nochmal so. :D
+	EINSTELLUNGEN:
+	- Der Link in der Navbar auf dem Brand-Logo läßt sich nun auch individuell setzen ($hp_nav_brand_link in settings.php).
+	- Das manuelle Eintippen der URL zum Aktualisieren von Pendings hat ein Ende. Es wurde eine Option zum Anzeigen eines Links im Header hinzugefügt
+	- Die Versionierung war nicht gesellig und wurde aus den Einstellungen herausgetrennt und hat nun eine eigene Datei (version.php)
+		So müssen nicht bei jeder neuen Version auch noch die Einstellungen erneut gesetzt werden, sofern sich da nix geändert haben sollte.
+		Aber diesmal ist leider nochmal so. :D
 
-  FEHLERBEHEBUNGEN:
-  - Die Badges waren es leid, alles dreimal sagen zu müssen. Es wird nun nur noch eine Meldung angezeigt, wenn gar keine Badges konfiguriert wurden
-  - die durstige blaue Tabellenzeile für Gesamt in der Projektübersicht (ganz unten) bleibt nun blau, auch wenn eine Maus vorbeihuscht
-  - Der Tabellen-Header beim Anzeigen eines einzelnen Projektes (project.php) erstrahlt nun wie überall in einem gelbem Glanz
+	FEHLERBEHEBUNGEN:
+	- Die Badges waren es leid, alles dreimal sagen zu müssen. Es wird nun nur noch eine Meldung angezeigt, wenn gar keine Badges konfiguriert wurden
+	- die durstige blaue Tabellenzeile für Gesamt in der Projektübersicht (ganz unten) bleibt nun blau, auch wenn eine Maus vorbeihuscht
+	- Der Tabellen-Header beim Anzeigen eines einzelnen Projektes (project.php) erstrahlt nun wie überall in einem gelbem Glanz
 
-  MODUL BOINCTASKS:
-  - Die BoincTasks-Erweiterung wurde komplett neu konzeptioniert. Die entsprechende tasks_template.html findet zusätzlich Einlaß in den Code und wurde angepasst.
-    Bitte nutzt ab Version 4.3 nur noch diese tasks_template.html!
-    Der "neue" Link zu den Tasks lautet nun ./tasks.php und includiert die ./tasks/tasks.html.
-    Damit sind keine zusätzlichen Anpassungen mehr nötig und die Tasks-Seite übernimmt automatisch das Design der Statistik-Seite.
+	MODUL BOINCTASKS:
+	- Die BoincTasks-Erweiterung wurde komplett neu konzeptioniert. Die entsprechende tasks_template.html findet zusätzlich Einlaß in den Code und wurde angepasst.
+		Bitte nutzt ab Version 4.3 nur noch diese tasks_template.html!
+		Der "neue" Link zu den Tasks lautet nun ./tasks.php und includiert die ./tasks/tasks.html.
+		Damit sind keine zusätzlichen Anpassungen mehr nötig und die Tasks-Seite übernimmt automatisch das Design der Statistik-Seite.
 
-  und wie immer noch ein paar weitere Code-Optimierungen und Anpassungen
-  
-  Achja... Passend zur noch weit entfernten Weihnachtszeit hab ich ein kleines Osterei versteckt... Aber nur ein klitzekleines... nix dolles...
+	und wie immer noch ein paar weitere Code-Optimierungen und Anpassungen
+	
+	Achja... Passend zur noch weit entfernten Weihnachtszeit hab ich ein kleines Osterei versteckt... Aber nur ein klitzekleines... nix dolles...
 
 
 Version 4.2:
 ============
 
-  - Unterstützung von php7/mysqli
+	- Unterstützung von php7/mysqli
 
-  - Die Datei für die Einstellungen hat nun ein eigenes Verzeichnis und ist somit leichter zu finden (settings/settings.php)
-    !!ACHTUNG:!!
-    Es haben sich hier viele Änderungen ergeben, so dass die Einstellungen über diese Datei neu gesetzt werden müssen.
+	- Die Datei für die Einstellungen hat nun ein eigenes Verzeichnis und ist somit leichter zu finden (settings/settings.php)
+		!!ACHTUNG:!!
+		Es haben sich hier viele Änderungen ergeben, so dass die Einstellungen über diese Datei neu gesetzt werden müssen.
 
-  - Fehlerbehebungen (z.B. Initialisierung von Variablen)
+	- Fehlerbehebungen (z.B. Initialisierung von Variablen)
 
-  - Verbesserungen und Optimierungen
+	- Verbesserungen und Optimierungen

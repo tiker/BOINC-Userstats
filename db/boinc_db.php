@@ -19,7 +19,7 @@
 		//	$db_conn_status = mysqli_connect_errno()." : ".mysqli_connect_error();
 		$connErrorTitle = "Datenbankfehler";
 		$connErrorDescription = "Es konnte keine Verbindung zur Datenbank aufgebaut werden.</br>
-                    Bitte überprüfe deine Zugangsdaten.";
+					Bitte überprüfe deine Zugangsdaten.";
 			include "./errordocs/db_initial_err.php";
 			exit();
 		// d. error logging

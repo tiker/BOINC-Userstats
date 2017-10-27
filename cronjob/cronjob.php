@@ -17,10 +17,10 @@ $gesamt_pendings_h = "0";
 $unixtime = time();
 
 $ctx = stream_context_create(array(
-  'http' => array(
-	  'timeout' => 10
-	  )
-  )
+		'http' => array(
+			'timeout' => 10
+		)
+	)
 );
 
 $updatestarttime = time();
