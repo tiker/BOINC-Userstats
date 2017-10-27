@@ -6,7 +6,7 @@ Da das Changelog zu Version 4.2 so überschaulich und nüchtern war, diesmal etw
 	- Filtern/Sortieren von Tabellen ist endlich möglich (für aktive Projekte in der Übersicht, auf der Seite mit Pending Credits und sofern aktiviert in der WCG-Detail-Ansicht)
 	- Errorhandling für Datenbankabfragen hinzugefügt und damit es nicht so alleine ist sogar incl. eigener Fehlerseite (errordocs/db_initial_err.php)
 	- neue Vorlage für das Apache Errorhandling hinzugefügt (/error.php), wer es denn nutzen möchte und sich damit auskennt! :D
-	  Im Grunde müsst ihr dafür nur die # im Errorhandling der .htaccess rausnehmen oder es gleich in die Apache-Config reinhauen
+		Im Grunde müsst ihr dafür nur die # im Errorhandling der .htaccess rausnehmen oder es gleich in die Apache-Config reinhauen
 
 	DESING-ANPASSUNGEN:
 	- Die Zeile für die Gesamt-Credits wollte nicht mehr Schlußlicht sein und wird nun auch zusätzlich als erste Zeile in der Projekt-Übersichts-Tabelle angezeigt.

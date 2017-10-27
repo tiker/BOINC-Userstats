@@ -10,7 +10,7 @@
 	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2));
 	
 	# Beginn fuer Datenzusammenstellung User
-	$result_user = mysqli_query($db_conn, "SELECT * FROM boinc_user");  //alle Userdaten einlesen
+	$result_user = mysqli_query($db_conn, "SELECT * FROM boinc_user"); //alle Userdaten einlesen
 	if ( !$result_user || mysqli_num_rows($result_user) === 0 ) { 	
 		$connErrorTitle = "Datenbankfehler";
 		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -112,7 +112,7 @@
 					?>
 					
 				</div>
-			</div>    
+			</div>
 		</div>
 	</div>
 
@@ -135,14 +135,14 @@
 							</thead>
 							<tbody>									
 								<?php
-									$query = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte WHERE project_status = 1;");  //nur bei aktiven Projekten Werte lesen
+									$query = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte WHERE project_status = 1;"); //nur bei aktiven Projekten Werte lesen
 									if ( !$query ) { 	
 										$connErrorTitle = "Datenbankfehler";
 										$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
 											Es bestehen wohl Probleme mit der Datenbankanbindung.";
 										include "./errordocs/db_initial_err.php";
 										exit();
-									} elseif  ( mysqli_num_rows($query) === 0 ) { 
+									} elseif ( mysqli_num_rows($query) === 0 ) { 
 										$connErrorTitle = "Datenbankfehler";
 										$connErrorDescription = "Es existiern keine Projekte in deiner Datenbank, welche als aktiv (1) gesetzt sind.";
 										include "./errordocs/db_initial_err.php";
@@ -167,14 +167,14 @@
 											$pending_credits = intval($xml_pendings->total_claimed_credit);
 										}
 										$pendings_gesamt = $pendings_gesamt + $pending_credits;
-										$sql_pendings = "UPDATE boinc_grundwerte SET pending_credits='" . $pending_credits . "' WHERE project_shortname='" . $row['project_shortname'] . "'";   //aktuelle Pendings des Projektes in Grundwerttabelle eintragen
-										mysqli_query($db_conn, $sql_pendings);  //Werte in DB eintragen
+										$sql_pendings = "UPDATE boinc_grundwerte SET pending_credits='" . $pending_credits . "' WHERE project_shortname='" . $row['project_shortname'] . "'"; //aktuelle Pendings des Projektes in Grundwerttabelle eintragen
+										mysqli_query($db_conn, $sql_pendings); //Werte in DB eintragen
 										
-										echo "  <tr><td class='text-right'>" . $projectname . "</td>";
-										echo "  <td class='text-left'>" . number_format($pending_credits, 0, $dec_point, $thousands_sep) . "</td></tr>";
+										echo "<tr><td class='text-right'>" . $projectname . "</td>";
+										echo "<td class='text-left'>" . number_format($pending_credits, 0, $dec_point, $thousands_sep) . "</td></tr>";
 									}
 									echo "<thead><tr class='alert-info'><tr><td class='alert-info text-right'>GESAMT Pendings</td>";
-									echo "  <td class='alert-info text-left'>" . number_format($pendings_gesamt, 0, $dec_point, $thousands_sep) . "</td></tr></thead>";
+									echo "<td class='alert-info text-left'>" . number_format($pendings_gesamt, 0, $dec_point, $thousands_sep) . "</td></tr></thead>";
 								?>
 							</tbody>
 						</table>							
@@ -195,11 +195,11 @@
 					"search":	"<?php echo $search; ?>"
 				},
 				"columnDefs": [ {
-					"targets"  : 'no-sort',
+					"targets": 'no-sort',
 					"orderable": false,
 				}],
-				"paging":   false,
-				"info":     false
+				"paging": false,
+				"info": false
 			} );
 		} );
 	</script>

@@ -157,7 +157,7 @@
 				display: block;
 				height: 0;
 				overflow-y: hidden;
-			}   
+			}
 		</style>';
 	
 	// Hier die TOP-Navbar konfigurieren //
@@ -234,7 +234,7 @@
 				</div>
 			</div>
 		</div>
-	</div>  
+	</div>
 	
 	<div class="modal fade" id="modalDisclaimer" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
 		<div class="modal-dialog">
@@ -307,12 +307,12 @@
 					<br>
 					<strong>Kontaktformular</strong>
 					<br>
-					Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.   
+					Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
 				</div>
 				<div class="modal-footer section-light-blue">
 					<button type="button" class="btn btn-default btn-simple" data-dismiss="modal">OK</button>
 				</div>
 			</div>
 		</div>
-	</div>';        
+	</div>';
 ?>

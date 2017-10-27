@@ -24,7 +24,7 @@
 	// für die Navbar sind drei Links vorgesehen
 	// Bitte das Logo images/brand.jpg durch ein eigenes ersetzen
 	$brand_logo = "../images/brand.jpg"; //das kleine Logo oben links neben dem Namen in der Navbar
-	$hp_nav_brand_link =  "./index.php"; //wohin der Link auf dem Brand-Logo führen soll
+	$hp_nav_brand_link = "./index.php"; //wohin der Link auf dem Brand-Logo führen soll
 	$hp_nav_name01 = "Link-Name#1";
 	$hp_nav_link01 = "http://link.zu.Link-Name#1";
 	$hp_nav_name02 = "Link-Name#2";
@@ -33,29 +33,29 @@
 	$hp_nav_link03 = "http://link.zu.Link-Name#3";
 	
 	//Header Hintergrund
-	$header_backround_url = "./grafiken/header_background.jpg";   //Hier den Link zu deiner Header-Hintergrundgrafik einfuegen
+	$header_backround_url = "./grafiken/header_background.jpg"; //Hier den Link zu deiner Header-Hintergrundgrafik einfuegen
 	
 	// User BOINC-Badges
 	// Die Badge-Grafik kann man auch per cronjob 1x täglich in sein Webverzeichnis kopieren und dann hier relativ verlinken.
 	// Dafür ist die Einrichtung der Badges über die Registrierung auf der Homepage von http://signature.statseb.fr notwendig.
 	$showUserBadges = false; // true - wenn angezeigt werden soll, ansonsten auf false setzen. Standard ist false
-	$linkUserBadges = "http://signature.statseb.fr/sig-12.png";   //Hier den Link zu Deinem User-Badge von http://signature.statseb.fr einfuegen
+	$linkUserBadges = "http://signature.statseb.fr/sig-12.png"; //Hier den Link zu Deinem User-Badge von http://signature.statseb.fr einfuegen
 	
 	// WCG-Badge-Signatur
 	// Die WCG-Signatur kann man auch per cronjob 1x täglich in sein Webverzeichnis kopieren und dann hier relativ verlinken.
 	// Dafür ist die Einrichtung der WCG-Signatur auf der Homepage von wcgsig.com notwendig (oben in der Mitte - Request a signature).
 	$showWcgLogo = false; // true - wenn angezeigt werden soll, ansonsten auf false setzen. Standard ist false
-	$linkWcgSig = "http://wcgsig.com/653215.gif";  //Hier den Link zu deinem WCG-Logo von http://wcgsig.com einfuegen
+	$linkWcgSig = "http://wcgsig.com/653215.gif"; //Hier den Link zu deinem WCG-Logo von http://wcgsig.com einfuegen
 	
 	// SG-WCG-Badges
 	// Die Badge-Grafik kann man auch per cronjob 1x täglich in sein Webverzeichnis kopieren und dann hier relativ verlinken.
 	// Hier kannst du die WCG-Badges des Badge-Generators von SETI.Germany integrieren. 
 	// Hinter badge_ folgt dein WCG-Name, danach _ gefolgt von der Anzahl an Reihen. 0 steht für alle Badges in einer Reihe (halte ich am sinnvollsten)
 	$showSgWcgBadges = false; // true - wenn angezeigt werden soll, ansonsten auf false setzen. Standard ist false
-	$linkSgWcgBadges = "https://www.seti-germany.de/wcg/badge_XSmeagolX_0.png";  // WCG-Badges von XSmeagolX, alle in einer Reihe
+	$linkSgWcgBadges = "https://www.seti-germany.de/wcg/badge_XSmeagolX_0.png"; // WCG-Badges von XSmeagolX, alle in einer Reihe
 	
 	//Hier dein Teamname und die URL zu der Homepage deines Teams eintragen
-	$hasTeamHp = true; 	// true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
+	$hasTeamHp = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
 	$teamHpName = "SETI.Germany";
 	$teamHpURL = "https://www.seti-germany.de";
 	

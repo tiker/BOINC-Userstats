@@ -25,7 +25,7 @@
 		$connErrorDescription = "Es konnte keine Verbindung zur Datenbank aufgebaut werden.";
 		include "./errordocs/db_initial_err.php";
 		exit();
-	} elseif  ( mysqli_num_rows($query_check) === 0 ) { 
+	} elseif ( mysqli_num_rows($query_check) === 0 ) { 
 		$connErrorTitle = "Fehler";
 		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
 								Offenbar existieren keine Werte in deiner Datenbank";
@@ -51,7 +51,7 @@
 	
 	############################################################
 	# Beginn fuer Datenzusammenstellung User
-	$query_getUserData=mysqli_query($db_conn,"SELECT * from boinc_user");  //alle Userdaten einlesen
+	$query_getUserData=mysqli_query($db_conn,"SELECT * from boinc_user"); //alle Userdaten einlesen
 	if ( !$query_getUserData || mysqli_num_rows($query_getUserData) === 0 ) { 
 		$connErrorTitle = "Datenbankfehler";
 		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -135,7 +135,7 @@
 	
 	#####################################
 	# Daten fuer Tabelle holen
-	$query_getProjetData=mysqli_query($db_conn,"SELECT * from boinc_grundwerte where project_shortname = '$projectid'");  //alle Projektgrunddaten einlesen
+	$query_getProjetData=mysqli_query($db_conn,"SELECT * from boinc_grundwerte where project_shortname = '$projectid'"); //alle Projektgrunddaten einlesen
 	if ( !$query_getProjetData || mysqli_num_rows($query_getProjetData) === 0 ) { 
 		$connErrorTitle = "Datenbankfehler";
 		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -184,7 +184,7 @@
 		
 		#Daten der letzten 6 Stunden holen
 		$query_getProjectOutput6h = mysqli_query($db_conn,"SELECT sum(credits) AS sum6h FROM boinc_werte WHERE project_shortname='" .$shortname. "' and time_stamp>'" .$sechsh. "'");
-		if ( !$query_getProjectOutput6h  || mysqli_num_rows($query_getProjectOutput6h) === 0 ) { 
+		if ( !$query_getProjectOutput6h || mysqli_num_rows($query_getProjectOutput6h) === 0 ) { 
 			$connErrorTitle = "Datenbankfehler";
 			$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
 									Es bestehen wohl Probleme mit der Datenbankanbindung.";
@@ -341,7 +341,7 @@ else include "./lang/highstock_en.js";
 						};
 					?>
 				</div>
-			</div>    
+			</div>
 		</div>
 	</div>
 
@@ -398,8 +398,8 @@ else include "./lang/highstock_en.js";
 												if ($table_row["project_name"] == "World Community Grid" || $table_row["project_name"] == "WCG") {
 													if ($wcg_verification === NULL || $wcg_verification === "") {
 														echo ""; } else {
-														echo "  <a href class='primary' data-toggle='modal' data-target='#modalwcgdetail'><i class='fa fa-list'></i></a>";
-													}           
+														echo "<a href class='primary' data-toggle='modal' data-target='#modalwcgdetail'><i class='fa fa-list'></i></a>";
+													}
 												} 
 									echo "	<td>" .number_format($table_row["total_credits"],0,$dec_point,$thousands_sep). "</td>
 											<td class='hidden-xs'>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>
@@ -478,7 +478,7 @@ else include "./lang/highstock_en.js";
 			</div>
 		</div>
 			
-		<div id="badges" class="tab-pane fade">    
+		<div id="badges" class="tab-pane fade">
 			<div class="section text-center section-default">
 				<div class="container-fluid">
 					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">

@@ -36,7 +36,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `boinc_grundwerte` (
 	`project` varchar(50) NOT NULL,
-	`project_userid` int(10) NOT NULL,                      
+	`project_userid` int(10) NOT NULL,
 	`authenticator` varchar(40) NOT NULL,
 	`url` varchar(100) NOT NULL,
 	`project_homepage_url` varchar(100) NOT NULL,

@@ -12,14 +12,14 @@ else include "./lang/en.txt.php";
 
 ############################################################
 # Beginn fuer Datenzusammenstellung User
-$query_getUserData = mysqli_query($db_conn, "SELECT * from boinc_user");  //alle Userdaten einlesen
+$query_getUserData = mysqli_query($db_conn, "SELECT * from boinc_user"); //alle Userdaten einlesen
 if ( !$query_getUserData ) { 	
 	$connErrorTitle = "Datenbankfehler";
 	$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
 							Es bestehen wohl Probleme mit der Datenbankanbindung.";
 	include "./errordocs/db_initial_err.php";
 	exit();
-} elseif  ( mysqli_num_rows($query_getUserData) === 0 ) { 
+} elseif ( mysqli_num_rows($query_getUserData) === 0 ) { 
 	$connErrorTitle = "Datenbankfehler";
 	$connErrorDescription = "Die Tabelle boinc_user enthält keine Daten.";
 	include "./errordocs/db_initial_err.php";
@@ -100,7 +100,7 @@ $lastupdate = date("H:i:s", $datum);
 
 	<div class="section text-center section-default flex1">
 		<h1 class="title"><?php echo $connErrorTitle; ?></h1>
-		<h5 class="description text-center"><?php  echo $connErrorDescription; ?></h5>					
+		<h5 class="description text-center"><?php echo $connErrorDescription; ?></h5>					
 	</div>
 
 	<?php echo "$tr_hp_footer" ?>

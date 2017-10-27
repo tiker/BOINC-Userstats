@@ -657,7 +657,7 @@ else include "./lang/highstock_en.js";
 			</div>
 		</div>
 		
-		<div id="badges" class="tab-pane fade">    
+		<div id="badges" class="tab-pane fade">
 			<div class="section text-center section-default">
 				<div class="container-fluid">
 					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
@@ -695,8 +695,8 @@ else include "./lang/highstock_en.js";
 					"targets"  : 'no-sort',
 					"orderable": false,
 				}],
-				"paging":   false,
-				"info":     false
+				"paging": false,
+				"info": false
 			} );
 		} );
 	</script>
