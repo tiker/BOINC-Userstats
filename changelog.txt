@@ -25,7 +25,7 @@ Da das Changelog zu Version 4.2 so überschaulich und nüchtern war, diesmal etw
 
 	FEHLERBEHEBUNGEN:
 	- Die Badges waren es leid, alles dreimal sagen zu müssen. Es wird nun nur noch eine Meldung angezeigt, wenn gar keine Badges konfiguriert wurden
-	- die durstige blaue Tabellenzeile für Gesamt in der Projektübersicht (ganz unten) bleibt nun blau, auch wenn eine Maus vorbeihuscht
+	- die furchtsame blaue Tabellenzeile für Gesamt in der Projektübersicht (ganz unten) bleibt nun blau, auch wenn eine Maus vorbeihuscht
 	- Der Tabellen-Header beim Anzeigen eines einzelnen Projektes (project.php) erstrahlt nun wie überall in einem gelbem Glanz
 
 	MODUL BOINCTASKS:
