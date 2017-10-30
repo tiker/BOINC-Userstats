@@ -118,7 +118,7 @@ $updatestarttime = time();
 	}
 	
 	############################################
-	# Zeitstempel Ende cronjob in DB eintragen
+	# Zeitstempel Ende cronjob in DB eintragen 
 	$updatetime = time();
 	$sqlupdatetime = "UPDATE boinc_user 
 	SET lastupdate='" .$updatetime. "'";
