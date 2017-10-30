@@ -12,7 +12,7 @@
 	include "version.php";
 
 	//Pfad zur Datenbank-Verbindung
-	include "./db/boinc_db.php";
+	include "../db/boinc_db.php";
 	
 	// Main-Data für Navigation und Impressum //
 	$hp_username = "Dein Name";
@@ -33,7 +33,7 @@
 	$hp_nav_link03 = "http://link.zu.Link-Name#3";
 	
 	//Header Hintergrund
-	$header_backround_url = "./grafiken/header_background.jpg"; //Hier den Link zu deiner Header-Hintergrundgrafik einfuegen
+	$header_backround_url = "./images/header_background.jpg"; //Hier den Link zu deiner Header-Hintergrundgrafik einfuegen
 	
 	// User BOINC-Badges
 	// Die Badge-Grafik kann man auch per cronjob 1x täglich in sein Webverzeichnis kopieren und dann hier relativ verlinken.

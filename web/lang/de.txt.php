@@ -125,9 +125,9 @@
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
 
 		<!-- Layout CSS -->
-		<link href="./paper-kit/ct-paper.css" rel="stylesheet"/>
-		<link href="./paper-kit/demo.css" rel="stylesheet"/>
-		<link href="./paper-kit/examples.css" rel="stylesheet" /> 
+		<link href="./include/css/ct-paper.css" rel="stylesheet"/>
+		<link href="./include/css/demo.css" rel="stylesheet"/>
+		<link href="./include/css/examples.css" rel="stylesheet" /> 
 	
 		<!--     Fonts and icons     -->
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -140,11 +140,11 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	
 		<!--  Plugins -->
-		<script src="./paper-kit/ct-paper-checkbox.js"></script>
-		<script src="./paper-kit/ct-paper-radio.js"></script>
-		<script src="./paper-kit/bootstrap-select.js"></script>
-		<script src="./paper-kit/bootstrap-datepicker.js"></script>
-		<script src="./paper-kit/ct-paper.js"></script>
+		<script src="./include/js/ct-paper-checkbox.js"></script>
+		<script src="./include/js/ct-paper-radio.js"></script>
+		<script src="./include/js/bootstrap-select.js"></script>
+		<script src="./include/js/bootstrap-datepicker.js"></script>
+		<script src="./include/js/ct-paper.js"></script>
 	
 		<script src="https://code.highcharts.com/stock/highstock.js"></script>
 		<script src="https://code.highcharts.com/modules/exporting.js"></script>

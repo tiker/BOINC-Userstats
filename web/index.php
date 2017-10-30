@@ -332,13 +332,13 @@ else include "./lang/highstock_en.js";
 ?>
 
 <!-- Highcharts definieren  -->
-<?php include("./charts/pie.js"); ?>
-<?php include("./charts/output.js"); ?>
-<?php include("./charts/output_gesamt_hour.js"); ?>
-<?php include("./charts/output_gesamt_day.js"); ?>
-<?php include("./charts/output_gesamt_week.js"); ?>
-<?php include("./charts/output_gesamt_month.js"); ?>
-<?php include("./charts/output_gesamt_year.js"); ?>
+<?php include("./include/highcharts/pie.js"); ?>
+<?php include("./include/highcharts/output.js"); ?>
+<?php include("./include/highcharts/output_gesamt_hour.js"); ?>
+<?php include("./include/highcharts/output_gesamt_day.js"); ?>
+<?php include("./include/highcharts/output_gesamt_week.js"); ?>
+<?php include("./include/highcharts/output_gesamt_month.js"); ?>
+<?php include("./incclude/highcharts/output_gesamt_year.js"); ?>
 
 </head>
 <body>

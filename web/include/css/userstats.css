@@ -1,0 +1,58 @@
+h1, .h1 {
+	font-size: 4.5em;
+}
+
+h5, .h5 {
+font-size: 1.25em;
+font-weight: 400;
+line-height: 1.4em;
+margin-bottom: 15px;
+}
+
+.text-white {
+	color: white
+}
+
+.tab-content > .tab-pane:not(.active),
+.pill-content > .pill-pane:not(.active) {
+	display: block;
+	height: 0;
+	overflow-y: hidden;
+}
+
+@media (max-width: 767px) {
+	.modal-backdrop { display: none; }
+	.table-condensed td,
+	.table-condensed th {
+		padding: 3px 5px !important;
+	}
+}
+@media (max-width: 560px) {
+	.table-condensed td,
+	.table-condensed th {
+		padding: 1px 1px !important;
+	}
+	.container-fluid {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+}
+
+/*  
+@media (max-width: 978px) { 
+		.table-condensed td,
+		.table-condensed th {
+			padding: 0 1px !important;
+			} 
+	} 
+*/
+
+.force_min_height {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.flex1 {
+	flex: 1;
+}

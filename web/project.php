@@ -269,12 +269,12 @@ else include "./lang/highstock_en.js";
 ?>
 
 <!-- Highcharts definieren  -->
-<?php include("./charts/project_output.js"); ?>
-<?php include("./charts/project_output_hour.js"); ?>
-<?php include("./charts/project_output_day.js"); ?>
-<?php include("./charts/project_output_week.js"); ?>
-<?php include("./charts/project_output_month.js"); ?>
-<?php include("./charts/project_output_year.js"); ?>
+<?php include("./include/highcharts/project_output.js"); ?>
+<?php include("./include/highcharts/project_output_hour.js"); ?>
+<?php include("./include/highcharts/project_output_day.js"); ?>
+<?php include("./include/highcharts/project_output_week.js"); ?>
+<?php include("./include/highcharts/project_output_month.js"); ?>
+<?php include("./include/highcharts/project_output_year.js"); ?>
 
 </head>
 <body>
