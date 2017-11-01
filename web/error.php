@@ -26,9 +26,9 @@ if ( !$query_getUserData ) {
 	exit();
 }
 while ($row = mysqli_fetch_assoc($query_getUserData)) {
-	$project_username = $row["boinc_name"];
-	$project_wcgname = $row["wcg_name"];
-	$project_teamname = $row["team_name"];
+	$boinc_username = $row["boinc_name"];
+	$boinc_wcgname = $row["wcg_name"];
+	$boinc_teamname = $row["team_name"];
 	$cpid = $row["cpid"];
 	$datum_start = $row["lastupdate_start"];
 	$datum = $row["lastupdate"];
@@ -280,7 +280,7 @@ switch ($errorcode) {
 	}
 ?>
 
-<?php echo $tr_hp_header; ?>
+<?php echo $html_head; ?>
 	<style>
 		.force_min_height {
 			display: flex;
@@ -294,13 +294,13 @@ switch ($errorcode) {
 </head>
 <body>
 <div class="wrapper force_min_height">	
-	<?php if ( $showNavbar ) echo $tr_hp_nav ?>
+	<?php if ( $showNavbar ) echo $html_nav ?>
 	<!--div class="landing-header"-->
 	<div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
 		<div class="container">
 			<div class="motto">
 				<h1 class="title" style="color: white;"><?php echo "$tr_th_bp" ?></h1>
-				<h3><font color="white"><?php echo "$project_username" . " " . $tr_th_ot . " " . $project_teamname ?></font></h3>				
+				<h3><font color="white"><?php echo "$boinc_username" . " " . $tr_th_ot . " " . $boinc_teamname ?></font></h3>				
 				<?php //sind laufende WUs im Internet ersichtlich
 					if ( $hasBoinctasks ) {
 						echo '<a href="' . $linkBoinctasks . '" class="btn btn-neutral btn-simple"><i class="fa fa-tasks"></i> ' . $linkNameBoinctasks . '</a>';
@@ -340,7 +340,7 @@ switch ($errorcode) {
 				</h5>					
 	</div>
 
-	<?php echo "$tr_hp_footer" ?>
+	<?php echo "$html_footer" ?>
 </div>
 </body>
 </html>

@@ -5,10 +5,6 @@
 	// ab hier bitte keine Aenderungen vornehmen, wenn man nicht weiß, was man tut!!! :D
 	//-----------------------------------------------------------------------------------
 	
-	// Sprachdefinierung
-	if(isset($_GET["lang"])) $lang=$_GET["lang"];
-	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2));
-	
 	//Variablen initialisieren
 	$sum1h_total = 0;
 	$sum2h_total = 0;
@@ -61,10 +57,10 @@
 	}
 	# und hier geht es nun weiter, wenn die Abfrage erwartete Werte liefert.
 	while($row=mysqli_fetch_assoc($query_getUserData)){
-		$project_username = $row["boinc_name"];
-		$project_wcgname = $row["wcg_name"];
+		$boinc_username = $row["boinc_name"];
+		$boinc_wcgname = $row["wcg_name"];
 		$wcg_verification = $row["wcg_verificationkey"];
-		$project_teamname = $row["team_name"];
+		$boinc_teamname = $row["team_name"];
 		$cpid = $row["cpid"];
 		$datum_start = $row["lastupdate_start"];
 		$datum = $row["lastupdate"];
@@ -244,106 +240,35 @@
 	}
 	# Ende Datenzusammenstellung fuer Tabelle
 	##########################################
-	if (file_exists("./lang/" .$lang. ".txt.php")) include "./lang/" .$lang. ".txt.php";
-	else include "./lang/en.txt.php";
+
 ?>
 
-<!-- ########################################-->
-<!-- Beginn der HTML-Seite mit Diagrammen -->
-
-<!-- HTML-Header -->
-<?php echo $tr_hp_header; ?>
-	<style>
-		.force_min_height {
-			display: flex;
-			min-height: 100vh;
-			flex-direction: column;
-		}
-		.flex1 {
-			flex: 1;
-		}
-	</style>
 <?php
-if (file_exists("./lang/highstock_" . $lang . ".js")) include "./lang/highstock_" . $lang . ".js";
-else include "./lang/highstock_en.js";
+	//Sprache feststellen
+	if (isset($_GET["lang"])) $lang = $_GET["lang"];
+	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
+	
+	//Sprachpaket HP einlesen
+	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
+	else include "./lang/en.txt.php";
+
+	//Sprachpaket Highcharts einlesen
+	if (file_exists("./lang/highstock_" . $lang . ".js")) include "./lang/highstock_" . $lang . ".js";
+	else include "./lang/highstock_en.js";
 ?>
+
+<?php include("./header.php"); ?>
+
 
 <!-- Highcharts definieren  -->
-<?php include("./include/highcharts/project_output.js"); ?>
-<?php include("./include/highcharts/project_output_hour.js"); ?>
-<?php include("./include/highcharts/project_output_day.js"); ?>
-<?php include("./include/highcharts/project_output_week.js"); ?>
-<?php include("./include/highcharts/project_output_month.js"); ?>
-<?php include("./include/highcharts/project_output_year.js"); ?>
+<?php include("./include/highcharts/output_project.js"); ?>
+<?php include("./include/highcharts/output_project_hour.js"); ?>
+<?php include("./include/highcharts/output_project_day.js"); ?>
+<?php include("./include/highcharts/output_project_week.js"); ?>
+<?php include("./include/highcharts/output_project_month.js"); ?>
+<?php include("./include/highcharts/output_project_year.js"); ?>
 
-</head>
-<body>
 
-	<!--style>@media (max-width: 978px) { .table-condensed td, .table-condensed th { padding: 0 1px !important; } }</style-->
-			
-	<style>
-		@media (max-width: 767px) {
-			.modal-backdrop { display: none; }
-			.table-condensed td,
-			.table-condensed th {
-				padding: 3px 5px !important;
-			}
-		}
-		@media (max-width: 560px) {
-			.table-condensed td,
-			.table-condensed th {
-				padding: 1px 1px !important;
-			}
-			.container-fluid {
-				padding-left: 0 !important;
-				padding-right: 0 !important;
-			}
-		}
-	</style>
-
-<div class="force_min_height">	
-
-	<div class="wrapper">	
-		<?php if ( $showNavbar ) echo $tr_hp_nav ?>
-		<div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
-			<div class="container">
-				<div class="motto">
-					<h1 class="title"><font color="white"><?php echo $table_row['project_name']; ?></font></h1>
-					<h3><font color="white"><?php echo "$project_of" . " " . "$project_username" . " " . "$tr_th_ot" . " " . "$project_teamname" ?></font></h3>
-
-					<?php //sind laufende WUs im Internet ersichtlich
-						if ( $hasBoinctasks ) {
-							echo '<a href="' . $linkBoinctasks . '" class="btn btn-neutral btn-simple"><i class="fa fa-tasks"></i> ' . $linkNameBoinctasks . '</a>';
-						};
-					?>
-				
-					<?php //Link zu Boinctasks
-						if ( $hasBoincstats ) {
-							echo '<a href="' . $linkBoincstats . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-bar-chart"></i> ' . $linkNameBoincstats . '</a>';
-						};
-					?>
-					<br/>
-					<?php //Link zu Team
-						if ( $hasTeamHp ) {
-							echo '<a href="' . $teamHpURL . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-link"></i> ' . $teamHpName . '</a>';
-						};
-					?>
-				
-					<?php //Link zu WCG
-						if ( $hasWcg ) {
-							echo '<a href="' . $linkWcg . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-globe"></i> ' . $linkNameWcg . '</a>';
-						};
-					?>
-
-					<?php //Pendings
-						if ( $hasPendings ) {
-							echo '<a href="' . $linkPendings . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-refresh"></i> ' . $linkNamePendings . '</a>';
-						};
-					?>
-				</div>
-			</div>
-		</div>
-	</div>
 
 	<div class="alert-info">
 		<div class="container">
@@ -356,22 +281,22 @@ else include "./lang/highstock_en.js";
 		</div>
 	</div>
 
-	<div class="nav-tabs-navigation">
-		<div class="nav-tabs-wrapper">
-			<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-				<li class="active"><a data-toggle="tab" href="#projekte"><i class="fa fa-table"></i> <?php echo "$tabs_project" ?></a></li>
-				<li><a data-toggle="tab" href="#gesamt"><i class="fa fa-area-chart"></i> <?php echo "$tabs_total" ?></a></li>
-				<li><a data-toggle="tab" href="#stunde"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_hour" ?></a></li>
-				<li><a data-toggle="tab" href="#tag"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_day" ?></a></li>
-				<li><a data-toggle="tab" href="#woche"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_week" ?></a></li>
-				<li><a data-toggle="tab" href="#monat"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_month" ?></a></li>
-				<li><a data-toggle="tab" href="#jahr"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_year" ?></a></li>
-				<li><a data-toggle="tab" href="#badges"><i class="fa fa-certificate"></i> <?php echo "$tabs_badge" ?></a></li>
-			</ul>
-		</div>
+	<div class="card">
+		<ul id="tabs" class="nav nav-tabs justify-content-center" role="tablist">
+			<li class="nav-item active"><a class="nav-link" role="tablist" data-toggle="tab"  href="#projekte"><i class="fa fa-table"></i> <?php echo "$tabs_project" ?></a></li>
+			<li class="nav-item"><a class="nav-link" role="tablist" data-toggle="tab"  href="#gesamt"><i class="fa fa-area-chart"></i> <?php echo "$tabs_total" ?></a></li>
+			<li class="nav-item"><a class="nav-link" role="tablist" data-toggle="tab"  href="#stunde"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_hour" ?></a></li>
+			<li class="nav-item"><a class="nav-link" role="tablist" data-toggle="tab"  href="#tag"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_day" ?></a></li>
+			<li class="nav-item"><a class="nav-link" role="tablist" data-toggle="tab"  href="#woche"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_week" ?></a></li>
+			<li class="nav-item"><a class="nav-link" role="tablist" data-toggle="tab"  href="#monat"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_month" ?></a></li>
+			<li class="nav-item"><a class="nav-link" role="tablist" data-toggle="tab"  href="#jahr"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_year" ?></a></li>
+			<li class="nav-item"><a class="nav-link" role="tablist" data-toggle="tab"  href="#badges"><i class="fa fa-certificate"></i> <?php echo "$tabs_badge" ?></a></li>
+		</ul>
 	</div>
 
-	<div class="tab-content text-center flex1">
+	<div class = "card-body">
+		<div class="tab-content flex1">
+		
 		<div id="projekte" class="tab-pane fade in active">		
 			<div class="section text-center section-default">
 				<div class="container-fluid">
@@ -422,7 +347,7 @@ else include "./lang/highstock_en.js";
 			<div class="section text-center section-default">
 				<div class="container-fluid">
 					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-						<div id="project_output"></div>
+						<div id="output_project"></div>
 					</div>
 				</div>
 			</div>
@@ -432,7 +357,7 @@ else include "./lang/highstock_en.js";
 			<div class="section text-center section-default">
 				<div class="container-fluid">
 					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-						<div id="project_output_hour"></div>
+						<div id="output_project_hour"></div>
 					</div>
 				</div>
 			</div>
@@ -442,7 +367,7 @@ else include "./lang/highstock_en.js";
 			<div class="section text-center section-default">
 				<div class="container-fluid">
 					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-						<div id="project_output_day"></div>
+						<div id="output_project_day"></div>
 					</div>
 				</div>
 			</div>
@@ -452,7 +377,7 @@ else include "./lang/highstock_en.js";
 			<div class="section text-center section-default">
 				<div class="container-fluid">
 					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-						<div id="project_output_week"></div>
+						<div id="output_project_week"></div>
 					</div>
 				</div>
 			</div>
@@ -462,7 +387,7 @@ else include "./lang/highstock_en.js";
 			<div class="section text-center section-default">
 				<div class="container-fluid">
 					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-						<div id="project_output_month"></div>
+						<div id="output_project_month"></div>
 					</div>
 				</div>
 			</div>
@@ -472,7 +397,7 @@ else include "./lang/highstock_en.js";
 			<div class="section text-center section-default">
 				<div class="container-fluid">
 					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-						<div id="project_output_year"></div>
+						<div id="output_project_year"></div>
 					</div>
 				</div>
 			</div>
@@ -502,7 +427,7 @@ else include "./lang/highstock_en.js";
 		</div>
 	</div>
 
-	<?php echo "$tr_hp_footer" ?>
+	<?php include("./footer.php"); ?>
 
 	<!-- WCG-Detail-Statistik modal hinzufuegen -->
 	<div class="modal fade" id="modalwcgdetail" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -525,7 +450,3 @@ else include "./lang/highstock_en.js";
 			</div>
 		</div>
 	</div> 
-	 
-</div>
-</body>
-</html>

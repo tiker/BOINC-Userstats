@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\WinSCP\WinSCP.com" /script="C:\%username%\SG333\AppData\Roaming\eFMer\BoincTasks\html\boinctasks_ftp.txt"

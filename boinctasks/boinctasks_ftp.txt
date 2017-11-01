@@ -1,0 +1,19 @@
+﻿# Automatically answer all prompts negatively not to stall
+# the script on errors
+option batch on
+# Disable overwrite confirmations that conflict with the previous
+option confirm off
+# Erstelle einen Favoriten in WinSCP und füge nach dem Befehl open diesen "Kurznamen" ein
+# Connect
+open Kurzname
+# wechsle in das Upload-Verzeichnis
+# Hier den vollständigen Pfad zum Upload-Verzeichnis einfügen
+cd /var/www/html/boinc/tasks
+# Hochladen der Datei
+# Hier den vollständigen lokalen Pfad eingeben.
+# Dazu muss hier normalerweise nur der Benutzername %username% geändert werden.
+put "C:\Users\%username%\AppData\Roaming\eFMer\BoincTasks\html\tasks.html"
+# Disconnect
+close
+# Exit WinSCP
+exit

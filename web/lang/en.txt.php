@@ -1,7 +1,7 @@
 <?php
 	// English version //
 	$search = "Filter/Search";
-	$tr_hp_title = "<title>Personal Userstats of " .$project_username. " from Team " .$project_teamname. "</title>";
+	$tr_hp_title = "<title>Personal Userstats of " .$boinc_username. " from Team " .$boinc_teamname. "</title>";
 	$tr_th_bp = "BOINC-Projects of";
 	$tr_th_ot = "of team";
 	$tr_th_lu = "last update";
@@ -108,7 +108,7 @@
 	$tabs_year = "Year";
 	$tabs_badge = "Badges";
 	
-	$tr_hp_header ='<!doctype html>
+	$html_head ='<!doctype html>
 	<html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -161,7 +161,7 @@
 		</style>';
 	
 	// Hier die TOP-Navbar konfigurieren //
-	$tr_hp_nav = '<nav class="navbar navbar-default" role="navigation-demo" id="demo-navbar">
+	$html_nav = '<nav class="navbar navbar-default" role="navigation-demo" id="demo-navbar">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
@@ -197,7 +197,7 @@
 		</div>
 	</nav>';
 	
-	$tr_hp_footer ='<!--footer ausgeben-->
+	$html_footer ='<!--footer ausgeben-->
 	<footer class="footer-demo section-dark">
 		<div class="container">
 			<nav>

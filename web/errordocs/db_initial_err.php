@@ -26,9 +26,9 @@ if ( !$query_getUserData ) {
 	exit();
 }
 while ($row = mysqli_fetch_assoc($query_getUserData)) {
-	$project_username = $row["boinc_name"];
-	$project_wcgname = $row["wcg_name"];
-	$project_teamname = $row["team_name"];
+	$boinc_username = $row["boinc_name"];
+	$boinc_wcgname = $row["wcg_name"];
+	$boinc_teamname = $row["team_name"];
 	$cpid = $row["cpid"];
 	$datum_start = $row["lastupdate_start"];
 	$datum = $row["lastupdate"];
@@ -40,28 +40,19 @@ $lastupdate = date("H:i:s", $datum);
 ############################################################
 ?>
 
-<?php echo $tr_hp_header; ?>
-	<style>
-		.force_min_height {
-			display: flex;
-			min-height: 100vh;
-			flex-direction: column;
-		}
-		.flex1 {
-			flex: 1;
-		}
-	</style>
+<?php echo $html_head; ?>
+
 </head>
 <body>
 <div class="wrapper force_min_height">
-	<?php if ( $showNavbar ) echo $tr_hp_nav ?>
+	<?php if ( $showNavbar ) echo $html_nav ?>
 	<!--div class="landing-header"-->
 	<div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
 		<div class="container">
 			<div class="motto">
 				<h1 class="title" style="color: white;"><?php echo "$tr_th_bp" ?></h1>
 				<h3>
-					<font color="white"><?php echo "$project_username" . " " . $tr_th_ot . " " . $project_teamname ?></font>
+					<font color="white"><?php echo "$boinc_username" . " " . $tr_th_ot . " " . $boinc_teamname ?></font>
 				</h3>
 				
 				<?php //sind laufende WUs im Internet ersichtlich
@@ -103,7 +94,7 @@ $lastupdate = date("H:i:s", $datum);
 		<h5 class="description text-center"><?php echo $connErrorDescription; ?></h5>					
 	</div>
 
-	<?php echo "$tr_hp_footer" ?>
+	<?php echo "$html_footer" ?>
 
 </div>
 </body>

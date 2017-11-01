@@ -35,13 +35,13 @@
 		include "./errordocs/db_initial_err.php";
 		exit();
 	}
-	$project_wcgname = "";
+	$boinc_wcgname = "";
 	$wcg_verification = "";
 	while ($row = mysqli_fetch_assoc($query_getUserData)) {
-		$project_username = $row["boinc_name"];
-		$project_wcgname = $row["wcg_name"];
+		$boinc_username = $row["boinc_name"];
+		$boinc_wcgname = $row["wcg_name"];
 		$wcg_verification = $row["wcg_verificationkey"];
-		$project_teamname = $row["team_name"];
+		$boinc_teamname = $row["team_name"];
 		$cpid = $row["cpid"];
 		$datum_start = $row["lastupdate_start"];
 		$datum = $row["lastupdate"];
@@ -68,7 +68,7 @@
 		}
 	
 	$xml_string = FALSE;
-	$xml_string = @file_get_contents ("http://www.worldcommunitygrid.org/verifyMember.do?name=" . $project_wcgname . "&code=" . $wcg_verification . "");
+	$xml_string = @file_get_contents ("http://www.worldcommunitygrid.org/verifyMember.do?name=" . $boinc_wcgname . "&code=" . $wcg_verification . "");
 	$xml = @simplexml_load_string($xml_string);
 	if($xml_string == FALSE) echo "<div class='alert alert-danger'><strong>FEHLER!</strong> Die Liste der Projekte ist derzeit nicht verfügbar!</div>";
 	$last_result = strval($xml->MemberStats->MemberStat->LastResult);
@@ -100,7 +100,6 @@
 		
 		$table_team[]=$table_row;
 	}
-	
 	
 	############################################################	
 	# Project Badges (aktualisieren der wcg-badges fuer wcg_badges)
@@ -146,39 +145,6 @@
 	if (file_exists("./lang/" .$lang. ".txt.php")) include "./lang/" .$lang. ".txt.php";
 	else include "./lang/en.txt.php";
 ?>
-
-<style>
-	@media (min-width: 768px) {
-	.modal-dialog {
-	width: 750px;
-	margin: 30px auto;
-	}
-	.modal-content {
-	-webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-	6}
-	.modal-sm {
-	width: 300px;
-	}
-	}
-	@media (min-width: 960px) {
-	.modal-dialog {
-	width: 900px;
-	margin: 30px auto;
-	}
-	.modal-content {
-	-webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-	6}
-	.modal-sm {
-	width: 300px;
-	}
-	}
-	
-</style>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 
 <div class="container-fluid">
 <b><?php echo "$wcg_detail_team_history" ?></b>
