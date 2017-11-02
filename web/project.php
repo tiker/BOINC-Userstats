@@ -298,7 +298,7 @@
 		<div class="tab-content flex1">
 		
 		<div id="projekte" class="tab-pane fade in active">		
-			<div class="section text-center section-default">
+			<div class="container text-center ">
 				<div class="container-fluid">
 					<table class="table table-striped table-hover text-right" style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
 						<thead class="alert-warning"> 
@@ -344,7 +344,7 @@
 		</div>
 
 		<div id="gesamt" class="tab-pane fade">
-			<div class="section text-center section-default">
+			<div class="container text-center ">
 				<div class="container-fluid">
 					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
 						<div id="output_project"></div>
@@ -354,7 +354,7 @@
 		</div>
 	
 		<div id="stunde" class="tab-pane fade">
-			<div class="section text-center section-default">
+			<div class="container text-center ">
 				<div class="container-fluid">
 					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
 						<div id="output_project_hour"></div>
@@ -364,7 +364,7 @@
 		</div>
 		
 		<div id="tag" class="tab-pane fade">
-			<div class="section text-center section-default">
+			<div class="container text-center ">
 				<div class="container-fluid">
 					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
 						<div id="output_project_day"></div>
@@ -374,7 +374,7 @@
 		</div>
 	
 		<div id="woche" class="tab-pane fade">
-			<div class="section text-center section-default">
+			<div class="container text-center ">
 				<div class="container-fluid">
 					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
 						<div id="output_project_week"></div>
@@ -384,7 +384,7 @@
 		</div>
 			
 		<div id="monat" class="tab-pane fade">
-			<div class="section text-center section-default">
+			<div class="container text-center ">
 				<div class="container-fluid">
 					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
 						<div id="output_project_month"></div>
@@ -394,7 +394,7 @@
 		</div>
 	
 		<div id="jahr" class="tab-pane fade">
-			<div class="section text-center section-default">
+			<div class="container text-center ">
 				<div class="container-fluid">
 					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
 						<div id="output_project_year"></div>
@@ -404,7 +404,7 @@
 		</div>
 			
 		<div id="badges" class="tab-pane fade">
-			<div class="section text-center section-default">
+			<div class="container text-center ">
 				<div class="container-fluid">
 					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
 						<br>
@@ -433,18 +433,18 @@
 	<div class="modal fade" id="modalwcgdetail" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content ">
-				<div class="modal-header section-default">
+				<div class="modal-header ">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<h4 class="modal-title" id="modelTitleId"><?php echo "$project_wcg_detail_link" ?></h4>
 				</div>
-				<div class="modal-body section-default">
+				<div class="modal-body ">
 					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
 						<div id="file-content"><?php include './wcg_detail_html.php'; ?></div>
 					</div>
 				</div>
-				<div class="modal-footer section-default">
+				<div class="modal-footer ">
 					<button type="button" class="btn btn-default btn-simple" data-dismiss="modal">OK</button>
 				</div>
 			</div>

@@ -89,7 +89,7 @@ $lastupdate = date("H:i:s", $datum);
 		</div>
 	</div>
 
-	<div class="section text-center section-default flex1">
+	<div class="container text-center  flex1">
 		<h1 class="title"><?php echo $connErrorTitle; ?></h1>
 		<h5 class="description text-center"><?php echo $connErrorDescription; ?></h5>					
 	</div>

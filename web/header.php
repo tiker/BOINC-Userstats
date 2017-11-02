@@ -17,7 +17,7 @@
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
 		
 		<!-- Layout CSS -->
-		<link href="./assets/css/now-ui-kit.css?v=1.1.0" rel="stylesheet" />
+		<!--link href="./assets/css/now-ui-kit.css?v=1.1.0" rel="stylesheet" /-->
 		<link rel="stylesheet" href="./include/css/userstats.css"> 
 
 		<!--     Fonts and icons     -->
@@ -36,21 +36,19 @@
 		<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 		
 		<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-		<script src="./assets/js/plugins/bootstrap-switch.js"></script>
+		<!--script src="./assets/js/plugins/bootstrap-switch.js"></script-->
 		<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-		<script src="./assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+		<!-- script src="./assets/js/plugins/nouislider.min.js" type="text/javascript"></script-->
 		<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-		<script src="./assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
+		<!-- script src="./assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script-->
 		<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-		<script src="./assets/js/now-ui-kit.js?v=1.1.0" type="text/javascript"></script>
+		<!-- script src="./assets/js/now-ui-kit.js?v=1.1.0" type="text/javascript"></script-->
 	</head>
 	
 	<body>
 		<div class = "force_min_height">
 			<div class="wrapper">
-				<div class="page-header page-header-small" filter-color="orange">
-					<div class="page-header-image" style="background-image: url('./assets/img/bg5.jpg');">
-					</div>
+				<div class="jumbotron">
 					<?php if ( $showNavbar ) include("./nav.php"); ?>
 					<div class="container">
 						<div class="content-center brand">

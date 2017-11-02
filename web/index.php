@@ -353,7 +353,7 @@
 	<div class = "card-body">
 		<div class="tab-content flex1">
 			<div id="projekte" class="tab-pane fade in active" style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-				<table class="table table-striped table-hover text-right" width="100%">					
+				<table id="table_projects" class="table table-striped table-hover text-right" width="100%">					
 					<thead class="alert-warning">
 						<tr class="alert-warning">
 							<th class="text-right"><?php echo $tr_tb_pr ?></th>
@@ -432,65 +432,65 @@
 							}
 						?>
 						<thead>
-							<tr class="alert-warning">
-								<td class="alert-warning"><b><?php echo $tr_th2_rp ?></b></td>
-								<td class="alert-warning"><b><?php #echo $tr_tb_det ?></b></td>
-								<td class="alert-warning"><b><?php echo $tr_tb_cr ?></b></td>
-								<td class="alert-warning d-none d-md-block"></b></td>
-								<td class="alert-warning d-none d-sm-block"><b><?php echo $tr_tb_01 ?></b></td>
-								<td class="alert-warning d-none d-md-block"><b><?php echo $tr_tb_02 ?></b></td>
-								<td class="alert-warning d-none d-md-block"><b><?php echo $tr_tb_06 ?></b></td>
-								<td class="alert-warning d-none d-sm-block"><b><?php echo $tr_tb_12 ?></b></td>
-								<td class="alert-success"><b><?php echo $tr_tb_to ?></b></td>
-								<td class="alert-info d-none d-sm-block"><b><?php echo $tr_tb_ye ?></b></td>
-								<td class="alert-danger d-none d-sm-block"><b><?php echo $tr_tb_pe ?></b></td>
+							<tr class="alert-warning text-right">
+								<td class="alert-warning text-right"><b><?php echo $tr_th2_rp ?></b></td>
+								<td class="alert-warning text-right"><b><?php #echo $tr_tb_det ?></b></td>
+								<td class="alert-warning text-right"><b><?php echo $tr_tb_cr ?></b></td>
+								<td class="alert-warning d-none d-md-block text-right"></b></td>
+								<td class="alert-warning d-none d-sm-block text-right"><b><?php echo $tr_tb_01 ?></b></td>
+								<td class="alert-warning d-none d-md-block text-right"><b><?php echo $tr_tb_02 ?></b></td>
+								<td class="alert-warning d-none d-md-block text-right"><b><?php echo $tr_tb_06 ?></b></td>
+								<td class="alert-warning d-none d-sm-block text-right"><b><?php echo $tr_tb_12 ?></b></td>
+								<td class="alert-success text-right"><b><?php echo $tr_tb_to ?></b></td>
+								<td class="alert-info d-none d-sm-block text-right"><b><?php echo $tr_tb_ye ?></b></td>
+								<td class="alert-danger d-none d-sm-block text-right"><b><?php echo $tr_tb_pe ?></b></td>
 							</tr>
 						</thead>
 						
 						<?php
 							foreach ($table_retired as $table_row_retired) {
-								echo "<tr class='text-muted'>
-										<td><a href='" . $table_row_retired["project_home_link"] . "'>" . $table_row_retired["project_name"] ."</a></td>
-										<td><a href='" . $table_row_retired["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
-										<td><b>" . number_format($table_row_retired["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
-										<td class='d-none d-md-block'>" . number_format($table_row_retired["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>
-										<td class='d-none d-sm-block'></td>
-										<td class='d-none d-md-block'></td>
-										<td class='d-none d-md-block'></td>
-										<td class='d-none d-sm-block'></td>
-										<td class='success'></td>
-										<td class='info d-none d-sm-block'></td>
-										<td class='danger d-none d-sm-block'></td>
+								echo "<tr class='text-muted text-right'>
+										<td class='text-muted text-right'><a href='" . $table_row_retired["project_home_link"] . "'>" . $table_row_retired["project_name"] ."</a></td>
+										<td class='text-muted text-right'><a href='" . $table_row_retired["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
+										<td class='text-muted text-right'><b>" . number_format($table_row_retired["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
+										<td class='d-none d-md-block text-right'>" . number_format($table_row_retired["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>
+										<td class='d-none d-sm-block text-right'></td>
+										<td class='d-none d-md-block text-right'></td>
+										<td class='d-none d-md-block text-right'></td>
+										<td class='d-none d-sm-block text-right'></td>
+										<td class='success text-right'></td>
+										<td class='info d-none d-sm-block text-right'></td>
+										<td class='danger d-none d-sm-block text-right'></td>
 									</tr>";
 							}
 						?>
 
 						<thead>
-							<tr class="alert-info">
-								<td class="alert-info"><b><?php echo $tr_th_boinc_total ?></b></td>
-								<td class="alert-info"><b><?php #echo $tr_th_detail ?></b></td>
-								<td class="alert-info"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
-								<td class="alert-info d-none d-md-block"><b>100%</b></td>
-								<td class="alert-info d-none d-sm-block"><b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-								<td class="alert-info d-none d-md-block"><b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-								<td class="alert-info d-none d-md-block"><b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-								<td class="alert-info d-none d-sm-block"><b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-								<td class="alert-success"><b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
-								<td class="alert-info d-none d-sm-block"><b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
-								<td class="alert-danger d-none d-sm-block"><b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
+							<tr class="alert-info text-right">
+								<td class="alert-info text-right"><b><?php echo $tr_th_boinc_total ?></b></td>
+								<td class="alert-info text-right"><b><?php #echo $tr_th_detail ?></b></td>
+								<td class="alert-info text-right"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
+								<td class="alert-info d-none d-md-block text-right"><b>100%</b></td>
+								<td class="alert-info d-none d-sm-block text-right"><b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+								<td class="alert-info d-none d-md-block text-right"><b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+								<td class="alert-info d-none d-md-block text-right"><b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+								<td class="alert-info d-none d-sm-block text-right"><b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+								<td class="alert-success text-right"><b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
+								<td class="alert-info d-none d-sm-block text-right"><b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
+								<td class="alert-danger d-none d-sm-block text-right"><b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
 							</tr>
-							<tr class="alert-warning">
-								<td></td>
-								<td><?php #echo $tr_tb_det ?></td>
-								<td><?php #echo $tr_tb_cr ?></td>
-								<td class="d-none d-md-block"></td>
-								<td class="d-none d-sm-block"><?php echo $tr_tb_01 ?></td>
-								<td class="d-none d-md-block"><?php echo $tr_tb_02 ?></td>
-								<td class="d-none d-md-block"><?php echo $tr_tb_06 ?></td>
-								<td class="d-none d-sm-block"><?php echo $tr_tb_12 ?></td>
-								<td class="alert-success"><b><?php echo $tr_tb_to ?></b></td>
-								<td class="alert-info d-none d-sm-block"><b><?php echo $tr_tb_ye ?></b></td>
-								<td class="alert-danger d-none d-sm-block"><b><?php echo $tr_tb_pe ?></b></td>
+							<tr class="alert-warning text-right">
+								<td class="text-right"></td>
+								<td class="text-right"><?php #echo $tr_tb_det ?></td>
+								<td class="text-right"><?php #echo $tr_tb_cr ?></td>
+								<td class="d-none d-md-block text-right"></td>
+								<td class="d-none d-sm-block text-right"><?php echo $tr_tb_01 ?></td>
+								<td class="d-none d-md-block text-right"><?php echo $tr_tb_02 ?></td>
+								<td class="d-none d-md-block text-right"><?php echo $tr_tb_06 ?></td>
+								<td class="d-none d-sm-block text-right"><?php echo $tr_tb_12 ?></td>
+								<td class="alert-success text-right"><b><?php echo $tr_tb_to ?></b></td>
+								<td class="alert-info d-none d-sm-block text-right"><b><?php echo $tr_tb_ye ?></b></td>
+								<td class="alert-danger d-none d-sm-block text-right"><b><?php echo $tr_tb_pe ?></b></td>
 							</tr>
 						</thead>
 					</tbody>

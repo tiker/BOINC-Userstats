@@ -1,7 +1,7 @@
 		
 		</div>
 
-		<footer class="footer-demo section-dark">
+		<footer class="footer">
 			<div class="container">
 				<nav>
 					<div class="copyright pull-center text-center">
@@ -20,20 +20,20 @@
 		<div class="modal fade" id="modalImpressum" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content ">
-					<div class="modal-header section-light-blue">
+					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 						<h4 class="modal-title" id="modelTitleId">Impressum</h4>
 					</div>
-					<div class="modal-body section-light-blue">
+					<div class="modal-body">
 						Angaben gemäß § 5 TMG:<br>
 						<br>
 						<u>Kontakt:</u><br>
 						<?php echo $hp_username; ?><br>
 						<strong>E-Mail:</strong><?php echo $hp_email; ?>
 					</div>
-					<div class="modal-footer section-light-blue">
+					<div class="modal-footer">
 						<button type="button" class="btn btn-default btn-simple" data-dismiss="modal">OK</button>
 					</div>
 				</div>
@@ -43,13 +43,13 @@
 		<div class="modal fade" id="modalDisclaimer" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<div class="modal-header section-light-blue">
+					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 						<h4 class="modal-title" id="modelTitleId">Haftungsausschluss (Disclaimer)</h4>
 					</div>
-					<div class="modal-body section-light-blue">
+					<div class="modal-body ">
 						<strong>Haftung für Inhalte</strong>
 						<br>
 						Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
@@ -64,7 +64,7 @@
 						<br>
 						Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
 					</div>
-					<div class="modal-footer section-light-blue">
+					<div class="modal-footer">
 						<button type="button" class="btn btn-default btn-simple" data-dismiss="modal">OK</button>
 					</div>
 				</div>
@@ -74,13 +74,13 @@
 		<div class="modal fade" id="modalDatenschutz" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<div class="modal-header section-light-blue">
+					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 						<h4 class="modal-title" id="modelTitleId">Datenschutz</h4>
 					</div>
-					<div class="modal-body section-light-blue">
+					<div class="modal-body">
 						<strong>Auskunft, Löschung, Sperrung</strong>
 						<br>
 						Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden.
@@ -113,7 +113,7 @@
 						<br>
 						Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
 					</div>
-					<div class="modal-footer section-light-blue">
+					<div class="modal-footer">
 						<button type="button" class="btn btn-default btn-simple" data-dismiss="modal">OK</button>
 					</div>
 				</div>

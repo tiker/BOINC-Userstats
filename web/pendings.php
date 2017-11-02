@@ -85,10 +85,10 @@
 		</div>
 	</div>
 
-	<div class="section text-center section-default flex1">
+	<div class="container text-center  flex1">
 		<div class="container">
 			<div class="main">
-				<div class="section section-standard">
+				<div class="container ">
 					<div class="container">
 						<h2 class="title-uppercase text-center">Pending Credits</h2>
 						<div class="alert alert-success">

@@ -58,7 +58,17 @@ margin-bottom: 15px;
 }
 
 
-<style>
+table.dataTable {
+    clear: both;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+    border-collapse: collapse !important;
+}
+
+
+
+/*
 @media (min-width: 768px) {
 .modal-dialog {
 width: 750px;
@@ -85,5 +95,4 @@ box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 width: 300px;
 }
 }
-
-</style>
+*/
