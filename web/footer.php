@@ -1,8 +1,8 @@
 		
 		</div>
 
-		<footer class="footer">
-			<div class="container">
+		<footer class="footer bg-dark">
+			<div class="container text-light">
 				<nav>
 					<div class="copyright pull-center text-center">
 						<a href="https://userstats.timo-schneider.de" target="_blank">BOINC Userstats</a> <?php echo $userstats_version; ?>, <i class="fa fa-copyright fa-lg"></i> 2017 by Timo Schneider<br />Template by <a href="https://www.creative-tim.com/product/paper-kit">Creative Tim</a> - Diese Seite verwendet <a href="https://www.highcharts.com">Highcharts<i class="fa fa-copyright"></i></a>

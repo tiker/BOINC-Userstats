@@ -1,3 +1,7 @@
+.card {
+	border: 0px;
+}	
+
 h1, .h1 {
 	font-size: 4.5em;
 }
@@ -9,9 +13,6 @@ line-height: 1.4em;
 margin-bottom: 15px;
 }
 
-.text-white {
-	color: white
-}
 
 .tab-content > .tab-pane:not(.active),
 .pill-content > .pill-pane:not(.active) {
@@ -58,12 +59,22 @@ margin-bottom: 15px;
 }
 
 
+table {
+    clear: both;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+	border-collapse: collapse !important;
+	text-align: right;
+}
+
 table.dataTable {
     clear: both;
     margin-top: 6px !important;
     margin-bottom: 6px !important;
     max-width: none !important;
-    border-collapse: collapse !important;
+	border-collapse: collapse !important;
+	text-align: right;
 }
 
 

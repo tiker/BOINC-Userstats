@@ -8,20 +8,12 @@
 
 		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport" />
 
-		<!--     Fonts and icons     -->
-		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
-		
-		<!-- Layout CSS -->
-		<!--link href="./assets/css/now-ui-kit.css?v=1.1.0" rel="stylesheet" /-->
-		<link rel="stylesheet" href="./include/css/userstats.css"> 
 
 		<!--     Fonts and icons     -->
-		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 		<link href="https://cdn.datatables.net/plug-ins/1.10.16/integration/font-awesome/dataTables.fontAwesome.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
@@ -43,6 +35,11 @@
 		<!-- script src="./assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script-->
 		<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
 		<!-- script src="./assets/js/now-ui-kit.js?v=1.1.0" type="text/javascript"></script-->
+
+		<!-- Layout CSS -->
+		<!--link href="./assets/css/now-ui-kit.css?v=1.1.0" rel="stylesheet" /-->
+		<link rel="stylesheet" href="./include/css/userstats.css"> 
+
 	</head>
 	
 	<body>

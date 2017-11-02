@@ -272,7 +272,7 @@
 
 	<div class="alert-info">
 		<div class="container">
-			<h5><?php echo $tr_th_lu ?>: <?php echo $lastupdate_start ?> - <?php echo $lastupdate ?> (UTC)</h5> <!--a href="index.php"><i class="pull-right fa fa-home align-right"></i></a-->
+			<h5><?php echo $tr_th_lu ?>: <?php echo $lastupdate_start ?> - <?php echo $lastupdate ?> (UTC)</h5>
 		</div>
 	</div>
 
@@ -298,20 +298,20 @@
 		<div class="tab-content flex1">
 		
 		<div id="projekte" class="tab-pane fade in active">		
-			<div class="container text-center ">
+			<div class="container text-center">
 				<div class="container-fluid">
-					<table class="table table-striped table-hover text-right" style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-						<thead class="alert-warning"> 
-							<tr class="alert-warning text-right">
-								<th class="text-right"><?php echo "$project_project" ?></th>
-								<th class="text-right"><?php echo "$tr_tb_cr" ?></th>
-								<th class="d-none d-sm-block text-right"><?php echo "$tr_tb_01" ?></th>
-								<th class="d-none d-md-block text-right"><?php echo "$tr_tb_02" ?></th>
-								<th class="d-none d-md-block text-right"><?php echo "$tr_tb_06" ?></th>
-								<th class="d-none d-sm-block text-right"><?php echo "$tr_tb_12" ?></th>
-								<th class="alert-success text-right"><?php echo "$tr_tb_to" ?></th>
-								<th class="alert-info text-right"><?php echo "$tr_tb_ye" ?></th>
-								<th class="d-none d-sm-block alert-danger text-right"><?php echo "$tr_tb_pe" ?></th>
+					<table class="table table-striped table-hover">
+						<thead>
+							<tr>
+								<th><?php echo "$project_project" ?></th>
+								<th><?php echo "$tr_tb_cr" ?></th>
+								<th><?php echo "$tr_tb_01" ?></th>
+								<th><?php echo "$tr_tb_02" ?></th>
+								<th><?php echo "$tr_tb_06" ?></th>
+								<th><?php echo "$tr_tb_12" ?></th>
+								<th><?php echo "$tr_tb_to" ?></th>
+								<th><?php echo "$tr_tb_ye" ?></th>
+								<th><?php echo "$tr_tb_pe" ?></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -327,13 +327,13 @@
 													}
 												} 
 									echo "	<td>" .number_format($table_row["total_credits"],0,$dec_point,$thousands_sep). "</td>
-											<td class='d-none d-sm-block'>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>
-											<td class='d-none d-md-block'>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
-											<td class='d-none d-md-block'>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
-											<td class='d-none d-sm-block'>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
-											<td class='success text-success'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
-											<td class='info text-info'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
-											<td class='d-none d-sm-block danger text-danger'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
+											<td>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>
+											<td>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
+											<td>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
+											<td>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
+											<td>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
+											<td>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
+											<td>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
 										</tr>";
 								}
 							?>
@@ -346,7 +346,7 @@
 		<div id="gesamt" class="tab-pane fade">
 			<div class="container text-center ">
 				<div class="container-fluid">
-					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+					<div>
 						<div id="output_project"></div>
 					</div>
 				</div>
@@ -356,7 +356,7 @@
 		<div id="stunde" class="tab-pane fade">
 			<div class="container text-center ">
 				<div class="container-fluid">
-					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+					<div>
 						<div id="output_project_hour"></div>
 					</div>
 				</div>
@@ -366,7 +366,7 @@
 		<div id="tag" class="tab-pane fade">
 			<div class="container text-center ">
 				<div class="container-fluid">
-					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+					<div>
 						<div id="output_project_day"></div>
 					</div>
 				</div>
@@ -376,7 +376,7 @@
 		<div id="woche" class="tab-pane fade">
 			<div class="container text-center ">
 				<div class="container-fluid">
-					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+					<div>
 						<div id="output_project_week"></div>
 					</div>
 				</div>
@@ -386,7 +386,7 @@
 		<div id="monat" class="tab-pane fade">
 			<div class="container text-center ">
 				<div class="container-fluid">
-					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+					<div>
 						<div id="output_project_month"></div>
 					</div>
 				</div>
@@ -396,7 +396,7 @@
 		<div id="jahr" class="tab-pane fade">
 			<div class="container text-center ">
 				<div class="container-fluid">
-					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+					<div>
 						<div id="output_project_year"></div>
 					</div>
 				</div>
@@ -406,7 +406,7 @@
 		<div id="badges" class="tab-pane fade">
 			<div class="container text-center ">
 				<div class="container-fluid">
-					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+					<div>
 						<br>
 						<?php //Userbadge
 							if (!$showUserBadges AND !$showWcgLogo AND !$showSgWcgBadges) echo $no_badge ."<br>";

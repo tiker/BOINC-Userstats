@@ -2,8 +2,9 @@ Version 5.0.0:
 ==============
 
 Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
- pre_alpha_01: Erste Anpassungen Pfadstruktur für Neuaufbau
- pre_alpha_02: Einbindung Testumgebung Bootstrap 4 mit temporärem Now-UI-Kit
+ dev_01: Erste Anpassungen Pfadstruktur für Neuaufbau
+ dev_02: Einbindung Testumgebung Bootstrap 4 mit temporärem Now-UI-Kit
+ dev_03: Einbindung dataTables.bootstrap4, Design-Reset (alle Formatierungen/class entfernt)
 
 
 
