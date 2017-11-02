@@ -33,7 +33,7 @@
 		<script src="https://code.highcharts.com/stock/highstock.js"></script>
 		<script src="https://code.highcharts.com/modules/exporting.js"></script>
 		<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-		<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 		
 		<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
 		<script src="./assets/js/plugins/bootstrap-switch.js"></script>

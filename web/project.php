@@ -305,13 +305,13 @@
 							<tr class="alert-warning text-right">
 								<th class="text-right"><?php echo "$project_project" ?></th>
 								<th class="text-right"><?php echo "$tr_tb_cr" ?></th>
-								<th class="hidden-xs text-right"><?php echo "$tr_tb_01" ?></th>
-								<th class="hidden-xs hidden-sm text-right"><?php echo "$tr_tb_02" ?></th>
-								<th class="hidden-xs hidden-sm text-right"><?php echo "$tr_tb_06" ?></th>
-								<th class="hidden-xs text-right"><?php echo "$tr_tb_12" ?></th>
+								<th class="d-none d-sm-block text-right"><?php echo "$tr_tb_01" ?></th>
+								<th class="d-none d-md-block text-right"><?php echo "$tr_tb_02" ?></th>
+								<th class="d-none d-md-block text-right"><?php echo "$tr_tb_06" ?></th>
+								<th class="d-none d-sm-block text-right"><?php echo "$tr_tb_12" ?></th>
 								<th class="alert-success text-right"><?php echo "$tr_tb_to" ?></th>
 								<th class="alert-info text-right"><?php echo "$tr_tb_ye" ?></th>
-								<th class="hidden-xs alert-danger text-right"><?php echo "$tr_tb_pe" ?></th>
+								<th class="d-none d-sm-block alert-danger text-right"><?php echo "$tr_tb_pe" ?></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -323,17 +323,17 @@
 												if ($table_row["project_name"] == "World Community Grid" || $table_row["project_name"] == "WCG") {
 													if ($wcg_verification === NULL || $wcg_verification === "") {
 														echo ""; } else {
-														echo "<a href class='primary' data-toggle='modal' data-target='#modalwcgdetail'><i class='fa fa-list'></i></a>";
+														echo " <a href class='primary' data-toggle='modal' data-target='#modalwcgdetail'><i class='fa fa-list'></i></a>";
 													}
 												} 
 									echo "	<td>" .number_format($table_row["total_credits"],0,$dec_point,$thousands_sep). "</td>
-											<td class='hidden-xs'>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>
-											<td class='hidden-xs hidden-sm'>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
-											<td class='hidden-xs hidden-sm'>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
-											<td class='hidden-xs'>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
+											<td class='d-none d-sm-block'>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>
+											<td class='d-none d-md-block'>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
+											<td class='d-none d-md-block'>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
+											<td class='d-none d-sm-block'>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
 											<td class='success text-success'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
 											<td class='info text-info'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
-											<td class='hidden-xs danger text-danger'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
+											<td class='d-none d-sm-block danger text-danger'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
 										</tr>";
 								}
 							?>

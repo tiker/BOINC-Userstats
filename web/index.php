@@ -359,14 +359,14 @@
 							<th class="text-right"><?php echo $tr_tb_pr ?></th>
 							<th class="text-right no-sort"></th>
 							<th class="text-right"><?php echo $tr_tb_cr ?></th>
-							<th class="hidden-xs hidden-sm text-right">%</th>
-							<th class="hidden-xs text-right"><?php echo $tr_tb_01 ?></th>
-							<th class="hidden-xs hidden-sm text-right"><?php echo $tr_tb_02 ?></th>
-							<th class="hidden-xs hidden-sm text-right"><?php echo $tr_tb_06 ?></th>
-							<th class="hidden-xs text-right"><?php echo $tr_tb_12 ?></th>
+							<th class="d-none d-md-block text-right">%</th>
+							<th class="d-none d-sm-block text-right"><?php echo $tr_tb_01 ?></th>
+							<th class="d-none d-md-block text-right"><?php echo $tr_tb_02 ?></th>
+							<th class="d-none d-md-block text-right"><?php echo $tr_tb_06 ?></th>
+							<th class="d-none d-sm-block text-right"><?php echo $tr_tb_12 ?></th>
 							<th class="alert-success text-right"><?php echo $tr_tb_to ?></th>
-							<th class="alert-info hidden-xs text-right"><?php echo $tr_tb_ye ?></th>
-							<th class="alert-danger hidden-xs text-right"><?php echo $tr_tb_pe ?></th>
+							<th class="alert-info d-none d-sm-block text-right"><?php echo $tr_tb_ye ?></th>
+							<th class="alert-danger d-none d-sm-block text-right"><?php echo $tr_tb_pe ?></th>
 						</tr>
 					</thead>
 					<thead>
@@ -374,20 +374,20 @@
 							<th class="alert-info text-right"><b><?php echo $tr_th_boinc_total ?></b></th>
 							<th class="alert-info text-right"><b><?php #echo $tr_th_detail ?></b></th>
 							<th class="alert-info text-right"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<th class="alert-info hidden-xs hidden-sm text-right"><b>100%</b></th>
-							<th class="alert-info hidden-xs text-right">
+							<th class="alert-info d-none d-md-block text-right"><b>100%</b></th>
+							<th class="alert-info d-none d-sm-block text-right">
 							<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></th>
-							<th class="alert-info hidden-xs hidden-sm text-right">
+							<th class="alert-info d-none d-md-block text-right">
 							<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></th>
-							<th class="alert-info hidden-xs hidden-sm text-right">
+							<th class="alert-info d-none d-md-block text-right">
 							<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></th>
-							<th class="alert-info hidden-xs text-right">
+							<th class="alert-info d-none d-sm-block text-right">
 							<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></th>
 							<th class="alert-success text-right">
 							<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></th>
-							<th class="alert-info hidden-xs text-right">
+							<th class="alert-info d-none d-sm-block text-right">
 							<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></th>
-							<th class="alert-danger hidden-xs text-right">
+							<th class="alert-danger d-none d-sm-block text-right">
 							<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></th>
 						</tr>
 					</thead>
@@ -399,35 +399,35 @@
 									<td class='text-right'><a href='" . $table_row["project_home_link"] . "'>" . $table_row["project_name"] ."</a></td>
 									<td class='text-right'><a href='" . $table_row["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
 									<td class='text-right'>" . number_format($table_row["total_credits"], 0, $dec_point, $thousands_sep) . "</td>
-									<td class='hidden-xs hidden-sm text-right'>" . number_format($table_row["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>";
+									<td class='d-none d-md-block text-right'>" . number_format($table_row["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>";
 									if ($table_row["sum1h"] != "") {
-										echo "<td class='hidden-xs text-right'>" . number_format($table_row['sum1h'], 0, $dec_point, $thousands_sep) . "</td>";
+										echo "<td class='d-none d-sm-block text-right'>" . number_format($table_row['sum1h'], 0, $dec_point, $thousands_sep) . "</td>";
 									} else
-										echo "<td class='hidden-xs text-right'>-</td>";
+										echo "<td class='d-none d-sm-block text-right'>-</td>";
 									if ($table_row["sum2h"] != "") {
-										echo "<td class='hidden-xs hidden-sm text-right'>" . number_format($table_row["sum2h"], 0, $dec_point, $thousands_sep) . "</td>";
+										echo "<td class='d-none d-md-block text-right'>" . number_format($table_row["sum2h"], 0, $dec_point, $thousands_sep) . "</td>";
 									} else
-										echo "<td class='hidden-xs hidden-sm text-right'>-</td>";
+										echo "<td class='d-none d-md-block text-right'>-</td>";
 									if ($table_row["sum6h"] != "") {
-										echo "<td class='hidden-xs hidden-sm text-right'>" . number_format($table_row["sum6h"], 0, $dec_point, $thousands_sep) . "</td>";
+										echo "<td class='d-none d-md-block text-right'>" . number_format($table_row["sum6h"], 0, $dec_point, $thousands_sep) . "</td>";
 									} else
-										echo "  <td class='hidden-xs hidden-sm text-right'>-</td>";
+										echo "  <td class='d-none d-md-block text-right'>-</td>";
 									if ($table_row["sum12h"] != "") {
-										echo "  <td class='hidden-xs text-right'>" . number_format($table_row["sum12h"], 0, $dec_point, $thousands_sep) . "</td>";
+										echo "  <td class='d-none d-sm-block text-right'>" . number_format($table_row["sum12h"], 0, $dec_point, $thousands_sep) . "</td>";
 									} else
-										echo "  <td class='hidden-xs text-right'>-</td>";
+										echo "  <td class='d-none d-sm-block text-right'>-</td>";
 									if ($table_row["sum_today"] != "") {
 										echo "  <td class='success text-success text-right'><b>" . number_format($table_row["sum_today"], 0, $dec_point, $thousands_sep) . "</b></td>";
 									} else
 										echo "  <td class='success text-success text-right'>-</td>";
 									if ($table_row["sum_yesterday"] != "") {
-										echo "  <td class='info text-info hidden-xs text-right'><b>" . number_format($table_row["sum_yesterday"], 0, $dec_point, $thousands_sep) . "</b></td>";
+										echo "  <td class='info text-info d-none d-sm-block text-right'><b>" . number_format($table_row["sum_yesterday"], 0, $dec_point, $thousands_sep) . "</b></td>";
 									} else
-										echo "  <td class='info text-info hidden-xs text-right'>-</td>";
+										echo "  <td class='info text-info d-none d-sm-block text-right'>-</td>";
 									if ($table_row["pending_credits"] >> "0") {
-										echo "  <td class='danger hidden-xs text-danger text-right'><b>" . number_format($table_row["pending_credits"], 0, $dec_point, $thousands_sep) . "</b></td>";
+										echo "  <td class='danger d-none d-sm-block text-danger text-right'><b>" . number_format($table_row["pending_credits"], 0, $dec_point, $thousands_sep) . "</b></td>";
 									} else
-										echo "  <td class='danger hidden-xs text-danger text-right'>-</td>
+										echo "  <td class='danger d-none d-sm-block text-danger text-right'>-</td>
 									</tr>";
 							}
 						?>
@@ -436,14 +436,14 @@
 								<td class="alert-warning"><b><?php echo $tr_th2_rp ?></b></td>
 								<td class="alert-warning"><b><?php #echo $tr_tb_det ?></b></td>
 								<td class="alert-warning"><b><?php echo $tr_tb_cr ?></b></td>
-								<td class="alert-warning hidden-xs hidden-sm"></b></td>
-								<td class="alert-warning hidden-xs"><b><?php echo $tr_tb_01 ?></b></td>
-								<td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_02 ?></b></td>
-								<td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_06 ?></b></td>
-								<td class="alert-warning hidden-xs"><b><?php echo $tr_tb_12 ?></b></td>
+								<td class="alert-warning d-none d-md-block"></b></td>
+								<td class="alert-warning d-none d-sm-block"><b><?php echo $tr_tb_01 ?></b></td>
+								<td class="alert-warning d-none d-md-block"><b><?php echo $tr_tb_02 ?></b></td>
+								<td class="alert-warning d-none d-md-block"><b><?php echo $tr_tb_06 ?></b></td>
+								<td class="alert-warning d-none d-sm-block"><b><?php echo $tr_tb_12 ?></b></td>
 								<td class="alert-success"><b><?php echo $tr_tb_to ?></b></td>
-								<td class="alert-info hidden-xs"><b><?php echo $tr_tb_ye ?></b></td>
-								<td class="alert-danger hidden-xs"><b><?php echo $tr_tb_pe ?></b></td>
+								<td class="alert-info d-none d-sm-block"><b><?php echo $tr_tb_ye ?></b></td>
+								<td class="alert-danger d-none d-sm-block"><b><?php echo $tr_tb_pe ?></b></td>
 							</tr>
 						</thead>
 						
@@ -453,14 +453,14 @@
 										<td><a href='" . $table_row_retired["project_home_link"] . "'>" . $table_row_retired["project_name"] ."</a></td>
 										<td><a href='" . $table_row_retired["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
 										<td><b>" . number_format($table_row_retired["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
-										<td class='hidden-xs hidden-sm'>" . number_format($table_row_retired["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>
-										<td class='hidden-xs'></td>
-										<td class='hidden-xs hidden-sm'></td>
-										<td class='hidden-xs hidden-sm'></td>
-										<td class='hidden-xs'></td>
+										<td class='d-none d-md-block'>" . number_format($table_row_retired["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>
+										<td class='d-none d-sm-block'></td>
+										<td class='d-none d-md-block'></td>
+										<td class='d-none d-md-block'></td>
+										<td class='d-none d-sm-block'></td>
 										<td class='success'></td>
-										<td class='info hidden-xs'></td>
-										<td class='danger hidden-xs'></td>
+										<td class='info d-none d-sm-block'></td>
+										<td class='danger d-none d-sm-block'></td>
 									</tr>";
 							}
 						?>
@@ -470,27 +470,27 @@
 								<td class="alert-info"><b><?php echo $tr_th_boinc_total ?></b></td>
 								<td class="alert-info"><b><?php #echo $tr_th_detail ?></b></td>
 								<td class="alert-info"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
-								<td class="alert-info hidden-xs hidden-sm"><b>100%</b></td>
-								<td class="alert-info hidden-xs"><b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-								<td class="alert-info hidden-xs hidden-sm"><b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-								<td class="alert-info hidden-xs hidden-sm"><b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-								<td class="alert-info hidden-xs"><b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+								<td class="alert-info d-none d-md-block"><b>100%</b></td>
+								<td class="alert-info d-none d-sm-block"><b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+								<td class="alert-info d-none d-md-block"><b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+								<td class="alert-info d-none d-md-block"><b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+								<td class="alert-info d-none d-sm-block"><b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
 								<td class="alert-success"><b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
-								<td class="alert-info hidden-xs"><b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
-								<td class="alert-danger hidden-xs"><b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
+								<td class="alert-info d-none d-sm-block"><b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
+								<td class="alert-danger d-none d-sm-block"><b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
 							</tr>
 							<tr class="alert-warning">
 								<td></td>
 								<td><?php #echo $tr_tb_det ?></td>
 								<td><?php #echo $tr_tb_cr ?></td>
-								<td class="hidden-xs hidden-sm"></td>
-								<td class="hidden-xs"><?php echo $tr_tb_01 ?></td>
-								<td class="hidden-xs hidden-sm"><?php echo $tr_tb_02 ?></td>
-								<td class="hidden-xs hidden-sm"><?php echo $tr_tb_06 ?></td>
-								<td class="hidden-xs"><?php echo $tr_tb_12 ?></td>
+								<td class="d-none d-md-block"></td>
+								<td class="d-none d-sm-block"><?php echo $tr_tb_01 ?></td>
+								<td class="d-none d-md-block"><?php echo $tr_tb_02 ?></td>
+								<td class="d-none d-md-block"><?php echo $tr_tb_06 ?></td>
+								<td class="d-none d-sm-block"><?php echo $tr_tb_12 ?></td>
 								<td class="alert-success"><b><?php echo $tr_tb_to ?></b></td>
-								<td class="alert-info hidden-xs"><b><?php echo $tr_tb_ye ?></b></td>
-								<td class="alert-danger hidden-xs"><b><?php echo $tr_tb_pe ?></b></td>
+								<td class="alert-info d-none d-sm-block"><b><?php echo $tr_tb_ye ?></b></td>
+								<td class="alert-danger d-none d-sm-block"><b><?php echo $tr_tb_pe ?></b></td>
 							</tr>
 						</thead>
 					</tbody>
