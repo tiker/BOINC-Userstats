@@ -5,6 +5,7 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_01: Erste Anpassungen Pfadstruktur für Neuaufbau
  dev_02: Einbindung Testumgebung Bootstrap 4 mit temporärem Now-UI-Kit
  dev_03: Einbindung dataTables.bootstrap4, Design-Reset (alle Formatierungen/class entfernt)
+ dev_04: Der Style von Version 4 wurde auf Bootstrap 4 umgesetzt
 
 
 
