@@ -269,163 +269,142 @@
 <?php include("./include/highcharts/output_project_year.js"); ?>
 
 
-
-	<div class="alert-info">
-		<div class="container">
-			<h5><?php echo $tr_th_lu ?>: <?php echo $lastupdate_start ?> - <?php echo $lastupdate ?> (UTC)</h5>
+		<div class="alert alert-info" role="alert">
+			<div class="container">
+				<?php echo $tr_th_lu ?>: <?php echo $lastupdate_start ?> - <?php echo $lastupdate ?> (UTC)
+			</div>
 		</div>
-	</div>
 
-	<div class="alert-warning">		
-		<div class="container"><a href='index.php'><i class='fa fa-home fa-fw'></i>Home</a> <i class="fa fa-arrow-right fa-fw"></i><i class='fa fa-bar-chart fa-fw'></i><?php echo "$project_project" ?>: <?php echo $table_row['project_name']; ?>
-		</div>
-	</div>
-
-	<div class="card">
-		<ul id="tabs" class="nav nav-tabs justify-content-center" role="tablist">
-			<li class="nav-item active"><a class="nav-link" role="tablist" data-toggle="tab"  href="#projekte"><i class="fa fa-table"></i> <?php echo "$tabs_project" ?></a></li>
-			<li class="nav-item"><a class="nav-link" role="tablist" data-toggle="tab"  href="#gesamt"><i class="fa fa-area-chart"></i> <?php echo "$tabs_total" ?></a></li>
-			<li class="nav-item"><a class="nav-link" role="tablist" data-toggle="tab"  href="#stunde"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_hour" ?></a></li>
-			<li class="nav-item"><a class="nav-link" role="tablist" data-toggle="tab"  href="#tag"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_day" ?></a></li>
-			<li class="nav-item"><a class="nav-link" role="tablist" data-toggle="tab"  href="#woche"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_week" ?></a></li>
-			<li class="nav-item"><a class="nav-link" role="tablist" data-toggle="tab"  href="#monat"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_month" ?></a></li>
-			<li class="nav-item"><a class="nav-link" role="tablist" data-toggle="tab"  href="#jahr"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_year" ?></a></li>
-			<li class="nav-item"><a class="nav-link" role="tablist" data-toggle="tab"  href="#badges"><i class="fa fa-certificate"></i> <?php echo "$tabs_badge" ?></a></li>
+		<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+			<li class="nav-item">
+				<a class="nav-link active" id="projekte-tab" data-toggle="tab" href="#projekte" role="tab" aria-controls="projekte" aria-selected="true"><i class="fa fa-table"></i> <?php echo "$tabs_project" ?></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="gesamt-tab" data-toggle="tab" href="#gesamt" role="tab" aria-controls="gesamt" aria-selected="false"><i class="fa fa-area-chart"></i> <?php echo "$tabs_total" ?></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="stunde-tab" data-toggle="tab" href="#stunde" role="tab" aria-controls="stunde" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_hour" ?></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="tag-tab" data-toggle="tab" href="#tag" role="tab" aria-controls="tag" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_day" ?></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="woche-tab" data-toggle="tab" href="#woche" role="tab" aria-controls="woche" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_week" ?></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="monat-tab" data-toggle="tab" href="#monat" role="tab" aria-controls="monat" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_month" ?></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="jahr-tab" data-toggle="tab" href="#jahr" role="tab" aria-controls="jahr" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_year" ?></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="badges-tab" data-toggle="tab" href="#badges" role="tab" aria-controls="badges" aria-selected="false"><i class="fa fa-certificate"></i> <?php echo "$tabs_badge" ?></a>
+			</li>
 		</ul>
-	</div>
 
-	<div class = "card-body">
-		<div class="tab-content flex1">
+		<div class="tab-content flex1" id="myTabContent">
 		
-		<div id="projekte" class="tab-pane fade in active">		
-			<div class="container text-center">
-				<div class="container-fluid">
-					<table class="table table-striped table-hover">
-						<thead>
-							<tr>
-								<th><?php echo "$project_project" ?></th>
-								<th><?php echo "$tr_tb_cr" ?></th>
-								<th><?php echo "$tr_tb_01" ?></th>
-								<th><?php echo "$tr_tb_02" ?></th>
-								<th><?php echo "$tr_tb_06" ?></th>
-								<th><?php echo "$tr_tb_12" ?></th>
-								<th><?php echo "$tr_tb_to" ?></th>
-								<th><?php echo "$tr_tb_ye" ?></th>
-								<th><?php echo "$tr_tb_pe" ?></th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php
-								foreach($table as $table_row){
-									echo "<tr>
-											<td>
-												<a href='" .$table_row["project_home_link"] . "'>" .$table_row["project_name"] . "</a>";
-												if ($table_row["project_name"] == "World Community Grid" || $table_row["project_name"] == "WCG") {
-													if ($wcg_verification === NULL || $wcg_verification === "") {
-														echo ""; } else {
-														echo " <a href class='primary' data-toggle='modal' data-target='#modalwcgdetail'><i class='fa fa-list'></i></a>";
-													}
-												} 
-									echo "	<td>" .number_format($table_row["total_credits"],0,$dec_point,$thousands_sep). "</td>
-											<td>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>
-											<td>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
-											<td>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
-											<td>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
-											<td>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
-											<td>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
-											<td>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
-										</tr>";
-								}
-							?>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-
-		<div id="gesamt" class="tab-pane fade">
-			<div class="container text-center ">
-				<div class="container-fluid">
-					<div>
-						<div id="output_project"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	
-		<div id="stunde" class="tab-pane fade">
-			<div class="container text-center ">
-				<div class="container-fluid">
-					<div>
-						<div id="output_project_hour"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div id="tag" class="tab-pane fade">
-			<div class="container text-center ">
-				<div class="container-fluid">
-					<div>
-						<div id="output_project_day"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	
-		<div id="woche" class="tab-pane fade">
-			<div class="container text-center ">
-				<div class="container-fluid">
-					<div>
-						<div id="output_project_week"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-			
-		<div id="monat" class="tab-pane fade">
-			<div class="container text-center ">
-				<div class="container-fluid">
-					<div>
-						<div id="output_project_month"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	
-		<div id="jahr" class="tab-pane fade">
-			<div class="container text-center ">
-				<div class="container-fluid">
-					<div>
-						<div id="output_project_year"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-			
-		<div id="badges" class="tab-pane fade">
-			<div class="container text-center ">
-				<div class="container-fluid">
-					<div>
-						<br>
-						<?php //Userbadge
-							if (!$showUserBadges AND !$showWcgLogo AND !$showSgWcgBadges) echo $no_badge ."<br>";
-							if ($showUserBadges) {
-								echo '<img src="' . $linkUserBadges . '" class="img-responsive center-block"></img><br>';
-							};
-							if ($showWcgLogo) {
-								echo '<img src="' . $linkWcgSig . '" class="img-responsive center-block"></img><br>';
-							};
-							if ($showSgWcgBadges) {
-								echo '<img src="' . $linkSgWcgBadges . '" class="img-responsive center-block"></img><br>';
-							};
+			<div id="projekte" class="tab-pane fade show active" role="tabpanel" aria-labelledby="projekte-tab">
+				<table id="table_projects" class="table table-sm table-striped table-hover table-responsive-sm" width="100%">	
+					<thead>
+						<tr class = "alert-warning">
+							<th><?php echo "$project_project" ?></th>
+							<th><?php echo "$tr_tb_cr" ?></th>
+							<th><?php echo "$tr_tb_01" ?></th>
+							<th><?php echo "$tr_tb_02" ?></th>
+							<th><?php echo "$tr_tb_06" ?></th>
+							<th><?php echo "$tr_tb_12" ?></th>
+							<th class = "alert-success"><?php echo $tr_tb_to; ?></th>
+							<th class = "alert-info"><?php echo $tr_tb_ye; ?></th>
+							<th class = "alert-danger"><?php echo $tr_tb_pe; ?></th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+							foreach($table as $table_row){
+								echo "<tr>
+										<td>
+											<a href='" .$table_row["project_home_link"] . "'>" .$table_row["project_name"] . "</a>";
+											if ($table_row["project_name"] == "World Community Grid" || $table_row["project_name"] == "WCG") {
+												if ($wcg_verification === NULL || $wcg_verification === "") {
+													echo ""; } else {
+													echo " <a href class='primary' data-toggle='modal' data-target='#modalwcgdetail'><i class='fa fa-list'></i></a>";
+												}
+											} 
+								echo "	<td>" .number_format($table_row["total_credits"],0,$dec_point,$thousands_sep). "</td>
+										<td>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>
+										<td>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
+										<td>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
+										<td>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
+										<td>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
+										<td>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
+										<td>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
+									</tr>";
+							}
 						?>
-						<br>
-					</div>
-				</div>
-			</div>		
+					</tbody>
+				</table>
+			</div>
+
+			<div id="gesamt" class="tab-pane fade" role="tabpanel" aria-labelledby="gesamt-tab">
+				<div id="output_project"></div>
+			</div>
+		
+			<div id="stunde" class="tab-pane fade" role="tabpanel" aria-labelledby="stunde-tab">
+				<div id="output_project_hour"></div>
+			</div>
+			
+			<div id="tag" class="tab-pane fade" role="tabpanel" aria-labelledby="tag-tab">
+				<div id="output_project_day"></div>
+			</div>
+		
+			<div id="woche" class="tab-pane fade" role="tabpanel" aria-labelledby="woche-tab">
+				<div id="output_project_week"></div>
+			</div>
+				
+			<div id="monat" class="tab-pane fade" role="tabpanel" aria-labelledby="monat-tab">
+				<div id="output_project_month"></div>
+			</div>
+		
+			<div id="jahr" class="tab-pane fade" role="tabpanel" aria-labelledby="jahr-tab">
+				<div id="output_project_year"></div>
+			</div>
+				
+			<div id="badges" class="tab-pane fade text-center" role="tabpanel" aria-labelledby="badges-tab">
+				<br>
+				<?php //Userbadge
+					if (!$showUserBadges AND !$showWcgLogo AND !$showSgWcgBadges) echo $no_badge ."<br>";
+					if ($showUserBadges) {
+						echo '<img src="' . $linkUserBadges . '" class="img-responsive center-block"></img><br>';
+					};
+					if ($showWcgLogo) {
+						echo '<img src="' . $linkWcgSig . '" class="img-responsive center-block"></img><br>';
+					};
+					if ($showSgWcgBadges) {
+						echo '<img src="' . $linkSgWcgBadges . '" class="img-responsive center-block"></img><br>';
+					};
+				?>
+				<br>
+			</div>
 		</div>
-	</div>
+
+		<script>
+		$(document).ready(function() {
+			$('#table_projects').DataTable( {
+				"language": {
+					"decimal": "<?php echo $dec_point; ?>",
+					"thousands": "<?php echo $thousands_sep; ?>",
+					"search":	"<?php echo $search; ?>"
+				},
+				"columnDefs": [ {
+					"targets"  : 'no-sort',
+					"orderable": false,
+				}],
+				"paging": false,
+				"info": false
+			} );
+		} );
+	</script>
 
 	<?php include("./footer.php"); ?>
 
