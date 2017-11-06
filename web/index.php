@@ -367,11 +367,11 @@
 	<div class="tab-content flex1" id="myTabContent">
 
 		<div id="projekte" class="tab-pane fade show active" role="tabpanel" aria-labelledby="projekte-tab">
-			<table id="table_projects" class="table table-sm table-striped table-hover table-responsive-sm borderless" width="100%">					
+			<table id="table_projects" class="table table-sm table-striped table-hover table-responsive-sm table-ellipsis borderless" width="100%">					
 				<thead>
 					<tr class = "alert alert-warning">
 						<th><?php echo $tr_tb_pr; ?></th>
-						<th class="align-middle"> </th>
+						<th class="align-middle text-center"> </th>
 						<th><?php echo $tr_tb_cr; ?></th>
 						<th>%</th>
 						<th><?php echo $tr_tb_01; ?></th>
@@ -385,7 +385,7 @@
 
 					<tr class = "alert alert-info">
 						<th><b><?php echo $tr_th_boinc_total ?></b></th>
-						<th class="align-middle"><b><?php #echo $tr_th_detail ?></b></th>
+						<th class="align-middle text-center"><b><?php #echo $tr_th_detail ?></b></th>
 						<th><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
 						<th><b>100%</b></th>
 						<th>
@@ -410,7 +410,7 @@
 						foreach ($table as $table_row) {
 							echo "<tr class='alert-default'>
 								<td><a href='" . $table_row["project_home_link"] . "'>" . $table_row["project_name"] ."</a></td>
-								<td class='align-middle'><a href='" . $table_row["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
+								<td class='align-middle text-center'><a href='" . $table_row["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
 								<td>" . number_format($table_row["total_credits"], 0, $dec_point, $thousands_sep) . "</td>
 								<td>" . number_format($table_row["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>";
 								if ($table_row["sum1h"] != "") {
@@ -447,7 +447,7 @@
 					<thead>
 						<tr class = "alert-warning">
 							<td><b><?php echo $tr_th2_rp ?></b></td>
-							<td class="align-middle"><b><?php #echo $tr_tb_det ?><i class="text-success fa fa-toggle-on fa-lg" aria-hidden="true"></i></b></td>
+							<td class="align-middle text-center"><b><?php #echo $tr_tb_det ?><i class="text-success fa fa-toggle-on fa-lg" aria-hidden="true"></i></b></td>
 							<td><b><?php echo $tr_tb_cr ?></b></td>
 							<td></b></td>
 							<td><b><?php echo $tr_tb_01 ?></b></td>
@@ -464,7 +464,7 @@
 						foreach ($table_retired as $table_row_retired) {
 							echo "<tr class = 'text-muted text-sm'>
 									<td><a href='" . $table_row_retired["project_home_link"] . "'>" . $table_row_retired["project_name"] ."</a></td>
-									<td class='align-middle'><a href='" . $table_row_retired["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
+									<td class='align-middle text-center'><a href='" . $table_row_retired["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
 									<td><b>" . number_format($table_row_retired["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
 									<td>" . number_format($table_row_retired["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>
 									<td></td>
@@ -481,7 +481,7 @@
 					<thead>
 						<tr class = "alert-warning">
 							<td><b><?php echo $tr_th_boinc_total ?></b></td>
-							<td class="align-middle"><b><?php #echo $tr_th_detail ?></b></td>
+							<td class="align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
 							<td><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
 							<td><b>100%</b></td>
 							<td><b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
@@ -494,7 +494,7 @@
 						</tr>
 						<tr class = "alert-info">
 							<td></td>
-							<td class="align-middle"><?php #echo $tr_tb_det ?></td>
+							<td class="align-middle text-center"><?php #echo $tr_tb_det ?></td>
 							<td><?php #echo $tr_tb_cr ?></td>
 							<td></td>
 							<td><?php echo $tr_tb_01 ?></td>

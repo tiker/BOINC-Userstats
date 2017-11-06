@@ -327,7 +327,7 @@
 				<br>
 				<table class="table table-sm table-striped table-hover table-responsive-sm" width="100%">	
 					<thead>
-						<tr class = "alert-warning">
+						<tr class = "alert alert-warning">
 							<th><?php echo "$project_project" ?></th>
 							<th><?php echo "$tr_tb_cr" ?></th>
 							<th><?php echo "$tr_tb_01" ?></th>
@@ -342,16 +342,16 @@
 					<tbody>
 						<?php
 							foreach($table as $table_row){
-								echo "<tr>
+								echo "<tr class='alert-default'>
 										<td><a href='" .$table_row["project_home_link"] . "'>" .$table_row["project_name"] . "</a>
 										<td>" .number_format($table_row["total_credits"],0,$dec_point,$thousands_sep). "</td>
 										<td>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>
 										<td>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
 										<td>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
 										<td>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'alert-success'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'alert-info'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'alert-danger'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
+										<td class = 'success text-success'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
+										<td class = 'info text-info'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
+										<td class = 'danger text-danger'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
 									</tr>";
 							}
 						?>
