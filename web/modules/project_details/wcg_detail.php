@@ -184,7 +184,7 @@
 						echo "</tr>";
 					}					
 				}
-				echo "</tbody>"
+				echo "</tbody>";
 				echo "<tfoot>";
 				echo "	<tr class='alert alert-info'>";
 				echo "		<td>Gesamt<br>";
