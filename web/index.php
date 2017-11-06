@@ -447,7 +447,9 @@
 					<thead>
 						<tr class = "alert-warning">
 							<td><b><?php echo $tr_th2_rp ?></b></td>
-							<td class="align-middle text-center"><b><?php #echo $tr_tb_det ?><i class="text-success fa fa-toggle-on fa-lg" aria-hidden="true"></i></b></td>
+							<td class="align-middle text-center"><b><?php #echo $tr_tb_det ?>
+								<i class="text-muted fa fa-toggle-on fa-lg" aria-hidden="true"></i></b>
+							</td>
 							<td><b><?php echo $tr_tb_cr ?></b></td>
 							<td></b></td>
 							<td><b><?php echo $tr_tb_01 ?></b></td>
@@ -590,6 +592,10 @@
 				"info": false
 			} );
 		} );
+	</script>
+	<script>
+		$('#change-color-switch').bootstrapSwitch('setOnClass', 'success');
+		$('#change-color-switch').bootstrapSwitch('setOffClass', 'danger');
 	</script>
 
 <?php include("./footer.php"); ?>

@@ -8,6 +8,7 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_04: Der Style von Version 4 wurde auf Bootstrap 4 umgesetzt
  dev_05: Modul für Projekt-Details (derzeit nur WCG) integriert
  dev_06: Design-Anpassungen (z.B. Navbar und Jumbotron)
+ dev_07: Code-Bereinigungen
  
 - seperate Module für weitere Projekt-Details (Verzeichnis project_details), in Vorbereitung für weitere Projekt-Details (derzeit nur WCG)
 - weitere Projekt-Detail-Stats haben nun einen eigenen Tab (derzeit nur WCG)

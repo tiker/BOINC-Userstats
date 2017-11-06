@@ -1,18 +1,17 @@
 <!doctype html>
 <html lang="de">
 	<head>
+		<title>BOINC-Userstats</title>
+
+		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<title>BOINC-Userstats</title>
-
-		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport" />
-
-		<!-- Bootstrap CSS -->
+		<!-- Layout Standard CSS Bootstrap & DataTables -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
 
-		<!--     Fonts and icons     -->
+		<!--  Fonts and icons  -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 		<link href="https://cdn.datatables.net/plug-ins/1.10.16/integration/font-awesome/dataTables.fontAwesome.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
@@ -26,18 +25,8 @@
 		<script src="https://code.highcharts.com/modules/exporting.js"></script>
 		<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 		<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-		
-		<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-		<!--script src="./assets/js/plugins/bootstrap-switch.js"></script-->
-		<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-		<!-- script src="./assets/js/plugins/nouislider.min.js" type="text/javascript"></script-->
-		<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-		<!-- script src="./assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script-->
-		<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-		<!-- script src="./assets/js/now-ui-kit.js?v=1.1.0" type="text/javascript"></script-->
 
-		<!-- Layout CSS -->
-		<!--link href="./assets/css/now-ui-kit.css?v=1.1.0" rel="stylesheet" /-->
+		<!-- Layout CSS for Userstats-->
 		<link rel="stylesheet" href="./include/css/userstats.css"> 
 
 	</head>
