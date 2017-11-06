@@ -150,7 +150,7 @@
 		<b><?php echo $wcg_detail_team_history; ?></b>
 	</div>
 
-	<table id="table_wcg_teams" class="table table-sm table-striped table-hover table-responsive-sm" width="100%">
+	<table class="table table-sm table-striped table-hover table-responsive-sm" width="100%">
 		<thead>
 			<tr class="alert alert-warning">
 				<th><b><?php echo "$wcg_detail_team" ?></b></th>
@@ -184,20 +184,19 @@
 						echo "</tr>";
 					}					
 				}
+				echo "</tbody>"
 				echo "<tfoot>";
-				echo "<tr class='alert alert-info'>";
-				echo "<td>Gesamt";
-				echo "<br>Position</td>";
-				echo "<td><br></td>";
-				echo "<td><br></td>";
-				echo "<td>" .$user_total_runtime. "<br>(# " .number_format($user_total_runtime_rank,0,$dec_point,$thousands_sep). ")</td>";
-				echo "<td>" .number_format($user_total_points,0,$dec_point,$thousands_sep). "<br>(# " .number_format($user_total_points_rank,0,$dec_point,$thousands_sep). ")</td>";
-				echo "<td>" .number_format($user_total_results,0,$dec_point,$thousands_sep). "<br>(# " .number_format($user_total_results_rank,0,$dec_point,$thousands_sep). ")</td>";
-				echo "</tr>";
-				echo "</tfoot>"
-				
+				echo "	<tr class='alert alert-info'>";
+				echo "		<td>Gesamt<br>";
+				echo "		Position</td>";
+				echo "		<td><br></td>";
+				echo "		<td><br></td>";
+				echo "		<td>" .$user_total_runtime. "<br>(# " .number_format($user_total_runtime_rank,0,$dec_point,$thousands_sep). ")</td>";
+				echo "		<td>" .number_format($user_total_points,0,$dec_point,$thousands_sep). "<br>(# " .number_format($user_total_points_rank,0,$dec_point,$thousands_sep). ")</td>";
+				echo "		<td>" .number_format($user_total_results,0,$dec_point,$thousands_sep). "<br>(# " .number_format($user_total_results_rank,0,$dec_point,$thousands_sep). ")</td>";
+				echo "	</tr>";
+				echo "</tfoot>"	
 			?>
-		</tbody>
 	</table>
 
 	<br>
@@ -262,7 +261,6 @@
 			?>
 		</tbody>
 	</table>
-
 
 <script>
 	$(document).ready(function() {
