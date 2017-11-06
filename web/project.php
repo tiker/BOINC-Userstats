@@ -271,12 +271,12 @@
 
 
 <!-- Highcharts definieren  -->
-<?php include("./include/highcharts/output_project.js"); ?>
-<?php include("./include/highcharts/output_project_hour.js"); ?>
-<?php include("./include/highcharts/output_project_day.js"); ?>
-<?php include("./include/highcharts/output_project_week.js"); ?>
-<?php include("./include/highcharts/output_project_month.js"); ?>
-<?php include("./include/highcharts/output_project_year.js"); ?>
+<?php include("./modules/highcharts/output_project.js"); ?>
+<?php include("./modules/highcharts/output_project_hour.js"); ?>
+<?php include("./modules/highcharts/output_project_day.js"); ?>
+<?php include("./modules/highcharts/output_project_week.js"); ?>
+<?php include("./modules/highcharts/output_project_month.js"); ?>
+<?php include("./modules/highcharts/output_project_year.js"); ?>
 
 
 		<div class="alert alert-info" role="alert">

@@ -318,13 +318,13 @@
 	<?php include("./header.php"); ?>
 
 	<!-- Highcharts definieren  -->
-	<?php include("./include/highcharts/pie.js"); ?>
-	<?php include("./include/highcharts/output_gesamt.js"); ?>
-	<?php include("./include/highcharts/output_gesamt_hour.js"); ?>
-	<?php include("./include/highcharts/output_gesamt_day.js"); ?>
-	<?php include("./include/highcharts/output_gesamt_week.js"); ?>
-	<?php include("./include/highcharts/output_gesamt_month.js"); ?>
-	<?php include("./include/highcharts/output_gesamt_year.js"); ?>
+	<?php include("./modules/highcharts/pie.js"); ?>
+	<?php include("./modules/highcharts/output_gesamt.js"); ?>
+	<?php include("./modules/highcharts/output_gesamt_hour.js"); ?>
+	<?php include("./modules/highcharts/output_gesamt_day.js"); ?>
+	<?php include("./modules/highcharts/output_gesamt_week.js"); ?>
+	<?php include("./modules/highcharts/output_gesamt_month.js"); ?>
+	<?php include("./modules/highcharts/output_gesamt_year.js"); ?>
 
 	<div class="alert alert-info" role="alert">
 		<div class="container">
