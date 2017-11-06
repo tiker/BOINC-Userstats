@@ -23,7 +23,7 @@
 
 	// für die Navbar sind drei Links vorgesehen
 	// Bitte das Logo images/brand.jpg durch ein eigenes ersetzen
-	$brand_logo = "./images/brand.jpg"; //das kleine Logo oben links neben dem Namen in der Navbar
+	$brand_logo = "./images/brand_logo.png"; //das kleine Logo oben links neben dem Namen in der Navbar
 	$hp_nav_brand_link = "./index.php"; //wohin der Link auf dem Brand-Logo führen soll
 	$hp_nav_name01 = "Link-Name#1";
 	$hp_nav_link01 = "http://link.zu.Link-Name#1";

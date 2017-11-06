@@ -24,8 +24,17 @@ margin-bottom: 15px;
 
 .jumbotron {
 margin-bottom: 0rem;
+color: rgb(255, 255, 255);
 }
 
+.btn {
+    color: rgb(255, 255, 255);
+  }
+
+.btn:hover, .btn:focus, .btn:active, .btn.active, .open > .btn.dropdown-toggle {
+  background-color: rgba(102, 97, 91, 0);
+  color: rgba(255, 255, 255, 0.7);
+}
 
 .navbar a {
     font-size: 10pt;
