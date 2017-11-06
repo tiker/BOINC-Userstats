@@ -48,11 +48,11 @@ else include "./lang/highstock_en.js";
 
 <?php include("./header.php"); ?>	
 
-<?php include "./tasks/tasks.html"; ?>
+<?php include ($linkUploadFileBoinctasks); ?>
 
 	<script>
 		$(document).ready(function() {
-			$('#table_boinc_tasks').DataTable( {
+			$('#table_boinctasks').DataTable( {
 				"language": {
 					"decimal": "<?php echo $dec_point; ?>",
 					"thousands": "<?php echo $thousands_sep; ?>",

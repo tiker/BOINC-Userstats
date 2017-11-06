@@ -52,10 +52,10 @@ else include "./lang/highstock_en.js";
 			<div class="container">
 				<?php echo $tr_hp_pendings_02; ?>	
 			</div>
-			<table id="table_pendings" class="table table-striped table-hover" width="100%">
+			<table id="table_pendings" class="table table-striped table-hover table-sm table-responsive" width="100%">
 				<thead>
-					<th><?php echo $tr_tb_pr ?></th>
-					<th><?php echo $tr_tb_pe ?></th>
+					<th class="alert-warning"><?php echo $tr_tb_pr ?></th>
+					<th class="alert-warning"><?php echo $tr_tb_pe ?></th>
 				</thead>
 				<tbody>									
 					<?php
@@ -94,14 +94,21 @@ else include "./lang/highstock_en.js";
 							$sql_pendings = "UPDATE boinc_grundwerte SET pending_credits='" . $pending_credits . "' WHERE project_shortname='" . $row['project_shortname'] . "'"; //aktuelle Pendings des Projektes in Grundwerttabelle eintragen
 							mysqli_query($db_conn, $sql_pendings); //Werte in DB eintragen
 							
-							echo "<tr><td>" . $projectname . "</td>";
-							echo "<td>" . number_format($pending_credits, 0, $dec_point, $thousands_sep) . "</td></tr>";
+							if ($pending_credits > 0) {
+								echo "<tr><td>" . $projectname . "</td>";
+								echo "<td>" . number_format($pending_credits, 0, $dec_point, $thousands_sep) . "</td></tr>";
+							}
 						}
-						echo "<thead><tr><tr><td>GESAMT Pendings</td>";
-						echo "<td>" . number_format($pendings_gesamt, 0, $dec_point, $thousands_sep) . "</td></tr></thead>";
+						echo "<tfoot><tr class='alert-info'><td>GESAMT Pendings</td>";
+						echo "<td>" . number_format($pendings_gesamt, 0, $dec_point, $thousands_sep) . "</td></tr></tfoot>";
 					?>
 				</tbody>
 			</table>
+			<div class="alert alert-danger" role="alert">
+				<div class="container">
+					<?php echo $zero_pendings ?>
+				</div>
+			</div>			
 		</div>
 	</div>
 

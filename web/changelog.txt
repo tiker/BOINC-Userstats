@@ -6,6 +6,12 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_02: Einbindung Testumgebung Bootstrap 4 mit temporärem Now-UI-Kit
  dev_03: Einbindung dataTables.bootstrap4, Design-Reset (alle Formatierungen/class entfernt)
  dev_04: Der Style von Version 4 wurde auf Bootstrap 4 umgesetzt
+ dev_05: Modul für Projekt-Details (derzeit nur WCG) integriert
+ 
+- seperate Module für weitere Projekt-Details (Verzeichnis project_details), in Vorbereitung für weitere Projekt-Details (derzeit nur WCG)
+- weitere Projekt-Detail-Stats haben nun einen eigenen Tab (derzeit nur WCG)
+- Pending Credits: Es werden nur noch Projekte ausgegeben, die den Export der Pendings unterstützen bzw. deren Wert größer 0 ist
+
 
 
 

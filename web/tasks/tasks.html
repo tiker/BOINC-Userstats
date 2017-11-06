@@ -7,39 +7,33 @@
 
 			<div class="container text-center flex1">
 				<div class="container-fluid">
-					<div class="main">
-						<div class="container ">
-							<div class="container-fluid">
-								<div class="alert alert-danger">
-									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-									Es wurden noch keine Daten übermittelt.
-								</div>								
-								<!-- 
-									__InsertHeaderTemplateBegin__
-									<tr class="alert-info">
-									<th>__Project__</th><th>__Application__</th><th>__Percentage__</th><th>Restzeit</th><th>__Deadline__</th><th>__Computer__</th>
-									</tr>
-								__InsertHeaderTemplateEnd__ -->
-								
-								
-								<!-- 
-									__InsertRowTemplateBegin__
-									<tr class="alert-primary">
-									<td BGCOLOR="#__ProjectColor__" style="vertical-align: middle;">__Project__</td><td BGCOLOR="#__ApplicationColor__">__Application__</td><td BGCOLOR="#__PercentageColor__"><div class="progress" style="margin-bottom: 0px;"><div class="progress-bar progress-bar-info" role="progress-bar" aria-value-now="__Percentage__" aria-valuemin="0" aria-valuemax="100" style="width: __Percentage__%">__Percentage__%<span class="sr-only">__Percentage__% Complete</span></div></div></td><td BGCOLOR="#__TimeleftColor__">__Timeleft__</td><td BGCOLOR="#__DeadlineColor__">__Deadline__</td><td BGCOLOR="#__ComputerColor__">__Computer__</td>
-									</tr>
-								__InsertRowTemplateEnd__ -->
-								
-								<table id="table_boinc_tasks" class="table table-striped table-hover table-condensed text-left" style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-									<thead>
-										<tr class="alert-info">
-											<th>Projekt</th><th class="d-none d-md-block">Anwendung</th><th class="d-none d-md-block">Vergangene Zeit</th><th>Fortschritt</th><th>Restzeit</th><th class="d-none d-md-block">Deadline</th><th>Computer</th>
-										</tr>
-									</thead>
-									<tbody>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
+					<div class="alert alert-danger">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						Es wurden noch keine Daten übermittelt.
+					</div>								
+					<!-- 
+						__InsertHeaderTemplateBegin__
+						<tr class="alert-info">
+						<th>__Project__</th><th>__Application__</th><th>__Percentage__</th><th>Restzeit</th><th>__Deadline__</th><th>__Computer__</th>
+						</tr>
+					__InsertHeaderTemplateEnd__ -->
+					
+					
+					<!-- 
+						__InsertRowTemplateBegin__
+						<tr class="alert-primary">
+						<td BGCOLOR="#__ProjectColor__" style="vertical-align: middle;">__Project__</td><td BGCOLOR="#__ApplicationColor__">__Application__</td><td BGCOLOR="#__PercentageColor__"><div class="progress" style="margin-bottom: 0px;"><div class="progress-bar progress-bar-info" role="progress-bar" aria-value-now="__Percentage__" aria-valuemin="0" aria-valuemax="100" style="width: __Percentage__%">__Percentage__%<span class="sr-only">__Percentage__% Complete</span></div></div></td><td BGCOLOR="#__TimeleftColor__">__Timeleft__</td><td BGCOLOR="#__DeadlineColor__">__Deadline__</td><td BGCOLOR="#__ComputerColor__">__Computer__</td>
+						</tr>
+					__InsertRowTemplateEnd__ -->
+					
+					<table id="table_boinctasks" class="table table-striped table-hover table-condensed text-left" style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+						<thead>
+							<tr class="alert-info">
+								<th>Projekt</th><th>Anwendung</th><th>Vergangene Zeit</th><th>Fortschritt</th><th>Restzeit</th><th>Deadline</th><th>Computer</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
 				</div>
 			</div>

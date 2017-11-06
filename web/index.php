@@ -367,11 +367,11 @@
 	<div class="tab-content flex1" id="myTabContent">
 
 		<div id="projekte" class="tab-pane fade show active" role="tabpanel" aria-labelledby="projekte-tab">
-			<table id="table_projects" class="table table-sm table-striped table-hover table-responsive-sm" width="100%">					
+			<table id="table_projects" class="table table-sm table-striped table-hover table-responsive-sm borderless" width="100%">					
 				<thead>
-					<tr class = "alert-warning">
+					<tr class = "alert alert-warning">
 						<th><?php echo $tr_tb_pr; ?></th>
-						<th> </th>
+						<th class="align-middle"> </th>
 						<th><?php echo $tr_tb_cr; ?></th>
 						<th>%</th>
 						<th><?php echo $tr_tb_01; ?></th>
@@ -383,9 +383,9 @@
 						<th class = "alert-danger"><?php echo $tr_tb_pe; ?></th>
 					</tr>
 
-					<tr class = "alert-info">
+					<tr class = "alert alert-info">
 						<th><b><?php echo $tr_th_boinc_total ?></b></th>
-						<th><b><?php #echo $tr_th_detail ?></b></th>
+						<th class="align-middle"><b><?php #echo $tr_th_detail ?></b></th>
 						<th><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
 						<th><b>100%</b></th>
 						<th>
@@ -398,7 +398,7 @@
 						<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></th>
 						<th class = "alert-success">
 						<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></th>
-						<th class = "alert-info">
+						<th class = "alet-info">
 						<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></th>
 						<th class = "alert-danger">
 						<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></th>
@@ -408,9 +408,9 @@
 					<!-- Fuer jedes Projekt eine Zeile in die Tabelle hinzufuegen -->						
 					<?php
 						foreach ($table as $table_row) {
-							echo "<tr>
+							echo "<tr class='alert-default'>
 								<td><a href='" . $table_row["project_home_link"] . "'>" . $table_row["project_name"] ."</a></td>
-								<td><a href='" . $table_row["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
+								<td class='align-middle'><a href='" . $table_row["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
 								<td>" . number_format($table_row["total_credits"], 0, $dec_point, $thousands_sep) . "</td>
 								<td>" . number_format($table_row["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>";
 								if ($table_row["sum1h"] != "") {
@@ -430,33 +430,33 @@
 								} else
 									echo "  <td>-</td>";
 								if ($table_row["sum_today"] != "") {
-									echo "  <td class = 'table-success text-success'><b>" . number_format($table_row["sum_today"], 0, $dec_point, $thousands_sep) . "</b></td>";
+									echo "  <td class = 'success text-success'><b>" . number_format($table_row["sum_today"], 0, $dec_point, $thousands_sep) . "</b></td>";
 								} else
-									echo "  <td class = 'table-success text-success'>-</td>";
+									echo "  <td class = 'success text-success'>-</td>";
 								if ($table_row["sum_yesterday"] != "") {
-									echo "  <td class = 'table-info text-info'><b>" . number_format($table_row["sum_yesterday"], 0, $dec_point, $thousands_sep) . "</b></td>";
+									echo "  <td class = 'info text-info'><b>" . number_format($table_row["sum_yesterday"], 0, $dec_point, $thousands_sep) . "</b></td>";
 								} else
-									echo "  <td class = 'table-info text-info'>-</td>";
+									echo "  <td class = 'info text-info'>-</td>";
 								if ($table_row["pending_credits"] >> "0") {
-									echo "  <td class = 'table-danger text-danger'><b>" . number_format($table_row["pending_credits"], 0, $dec_point, $thousands_sep) . "</b></td>";
+									echo "  <td class = 'danger text-danger'><b>" . number_format($table_row["pending_credits"], 0, $dec_point, $thousands_sep) . "</b></td>";
 								} else
-									echo "  <td class = 'table-danger text-danger'>-</td>
+									echo "  <td class = 'danger text-danger'>-</td>
 								</tr>";
 						}
 					?>
 					<thead>
 						<tr class = "alert-warning">
 							<td><b><?php echo $tr_th2_rp ?></b></td>
-							<td><b><?php #echo $tr_tb_det ?></b></td>
+							<td class="align-middle"><b><?php #echo $tr_tb_det ?><i class="text-success fa fa-toggle-on fa-lg" aria-hidden="true"></i></b></td>
 							<td><b><?php echo $tr_tb_cr ?></b></td>
 							<td></b></td>
 							<td><b><?php echo $tr_tb_01 ?></b></td>
 							<td><b><?php echo $tr_tb_02 ?></b></td>
 							<td><b><?php echo $tr_tb_06 ?></b></td>
 							<td><b><?php echo $tr_tb_12 ?></b></td>
-							<td><b><?php echo $tr_tb_to ?></b></td>
-							<td><b><?php echo $tr_tb_ye ?></b></td>
-							<td><b><?php echo $tr_tb_pe ?></b></td>
+							<th class = "alert-success"><?php echo $tr_tb_to; ?></th>
+							<th class = "alert-info"><?php echo $tr_tb_ye; ?></th>
+							<th class = "alert-danger"><?php echo $tr_tb_pe; ?></th>
 						</tr>
 					</thead>
 					
@@ -464,7 +464,7 @@
 						foreach ($table_retired as $table_row_retired) {
 							echo "<tr class = 'text-muted text-sm'>
 									<td><a href='" . $table_row_retired["project_home_link"] . "'>" . $table_row_retired["project_name"] ."</a></td>
-									<td><a href='" . $table_row_retired["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
+									<td class='align-middle'><a href='" . $table_row_retired["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
 									<td><b>" . number_format($table_row_retired["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
 									<td>" . number_format($table_row_retired["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>
 									<td></td>
@@ -481,29 +481,29 @@
 					<thead>
 						<tr class = "alert-warning">
 							<td><b><?php echo $tr_th_boinc_total ?></b></td>
-							<td><b><?php #echo $tr_th_detail ?></b></td>
+							<td class="align-middle"><b><?php #echo $tr_th_detail ?></b></td>
 							<td><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
 							<td><b>100%</b></td>
 							<td><b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
 							<td><b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
 							<td><b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
 							<td><b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td><b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td><b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td><b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
+							<td class="alert-success"><b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
+							<td class="alert-info"><b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
+							<td class="alert-danger"><b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
 						</tr>
 						<tr class = "alert-info">
 							<td></td>
-							<td><?php #echo $tr_tb_det ?></td>
+							<td class="align-middle"><?php #echo $tr_tb_det ?></td>
 							<td><?php #echo $tr_tb_cr ?></td>
 							<td></td>
 							<td><?php echo $tr_tb_01 ?></td>
 							<td><?php echo $tr_tb_02 ?></td>
 							<td><?php echo $tr_tb_06 ?></td>
 							<td><?php echo $tr_tb_12 ?></td>
-							<td><b><?php echo $tr_tb_to ?></b></td>
-							<td><b><?php echo $tr_tb_ye ?></b></td>
-							<td><b><?php echo $tr_tb_pe ?></b></td>
+							<th class = "alert-success"><?php echo $tr_tb_to; ?></th>
+							<th class = "alert-info"><?php echo $tr_tb_ye; ?></th>
+							<th class = "alert-danger"><?php echo $tr_tb_pe; ?></th>
 						</tr>
 					</thead>
 				</tbody>

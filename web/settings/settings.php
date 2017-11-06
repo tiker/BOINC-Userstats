@@ -68,7 +68,8 @@
 	$hasBoinctasks = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
 	$linkNameBoinctasks = "laufende WUs";
 	$linkBoinctasks = "./tasks.php"; // Link zu den laufenden WUs von XSmeagolX
-	
+	$linkUploadFileBoinctasks = "./tasks/tasks.html"; // Link zum Upload-File von Boinctasks
+
 	//Hier die URL zum WCG, wird im Seitenkopf angezeigt
 	$hasWcg = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist true
 	$linkNameWcg = "World Community Grid";

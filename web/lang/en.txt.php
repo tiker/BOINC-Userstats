@@ -107,6 +107,8 @@
 	$tabs_month = "Month";
 	$tabs_year = "Year";
 	$tabs_badge = "Badges";
+
+	$zero_pendings = "All other projects do not have any pending credits or the project does not export this value with WebRPC";
 	
 	$html_head ='<!doctype html>
 	<html lang="en">

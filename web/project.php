@@ -255,6 +255,16 @@
 	//Sprachpaket Highcharts einlesen
 	if (file_exists("./lang/highstock_" . $lang . ".js")) include "./lang/highstock_" . $lang . ".js";
 	else include "./lang/highstock_en.js";
+
+	//Check für WCG-Details
+	$showWCGDetails = false;
+	if ($table_row["project_name"] == "World Community Grid" || $table_row["project_name"] == "wcg") {
+		if ($wcg_verification === NULL || $wcg_verification === "") {
+			$showWCGDetails = false; 
+		} else {
+			$showWCGDetails = true;
+		}
+	} 
 ?>
 
 <?php include("./header.php"); ?>
@@ -279,6 +289,15 @@
 			<li class="nav-item">
 				<a class="nav-link active" id="projekte-tab" data-toggle="tab" href="#projekte" role="tab" aria-controls="projekte" aria-selected="true"><i class="fa fa-table"></i> <?php echo "$tabs_project" ?></a>
 			</li>
+			<?php
+				if ($showWCGDetails) { echo '
+					<li class="nav-item">
+						<a class="nav-link" id="wcgdetails-tab" data-toggle="tab" href="#wcgdetails" role="tab" aria-controls="wcgdetails" aria-selected="false"><i class="fa fa-table"></i> Details</a>
+					</li>
+				';
+				}
+			?>
+
 			<li class="nav-item">
 				<a class="nav-link" id="gesamt-tab" data-toggle="tab" href="#gesamt" role="tab" aria-controls="gesamt" aria-selected="false"><i class="fa fa-area-chart"></i> <?php echo "$tabs_total" ?></a>
 			</li>
@@ -303,9 +322,10 @@
 		</ul>
 
 		<div class="tab-content flex1" id="myTabContent">
-		
+
 			<div id="projekte" class="tab-pane fade show active" role="tabpanel" aria-labelledby="projekte-tab">
-				<table id="table_projects" class="table table-sm table-striped table-hover table-responsive-sm" width="100%">	
+				<br>
+				<table class="table table-sm table-striped table-hover table-responsive-sm" width="100%">	
 					<thead>
 						<tr class = "alert-warning">
 							<th><?php echo "$project_project" ?></th>
@@ -323,33 +343,36 @@
 						<?php
 							foreach($table as $table_row){
 								echo "<tr>
-										<td>
-											<a href='" .$table_row["project_home_link"] . "'>" .$table_row["project_name"] . "</a>";
-											if ($table_row["project_name"] == "World Community Grid" || $table_row["project_name"] == "WCG") {
-												if ($wcg_verification === NULL || $wcg_verification === "") {
-													echo ""; } else {
-													echo " <a href class='primary' data-toggle='modal' data-target='#modalwcgdetail'><i class='fa fa-list'></i></a>";
-												}
-											} 
-								echo "	<td>" .number_format($table_row["total_credits"],0,$dec_point,$thousands_sep). "</td>
+										<td><a href='" .$table_row["project_home_link"] . "'>" .$table_row["project_name"] . "</a>
+										<td>" .number_format($table_row["total_credits"],0,$dec_point,$thousands_sep). "</td>
 										<td>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>
 										<td>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
 										<td>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
 										<td>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
-										<td>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
-										<td>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
-										<td>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
+										<td class = 'alert-success'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
+										<td class = 'alert-info'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
+										<td class = 'alert-danger'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
 									</tr>";
 							}
 						?>
 					</tbody>
 				</table>
+				<?php
+					
+				?>
 			</div>
+
+			<?php
+			if ($showWCGDetails) { echo '
+			<div id="wcgdetails" class="tab-pane fade" role="tabpanel" aria-labelledby="wcgdetails-tab">';
+				include ("./modules/project_details/wcg_detail.php");
+			echo '</div>'; }
+			?>
 
 			<div id="gesamt" class="tab-pane fade" role="tabpanel" aria-labelledby="gesamt-tab">
 				<div id="output_project"></div>
 			</div>
-		
+
 			<div id="stunde" class="tab-pane fade" role="tabpanel" aria-labelledby="stunde-tab">
 				<div id="output_project_hour"></div>
 			</div>
@@ -388,44 +411,4 @@
 			</div>
 		</div>
 
-		<script>
-		$(document).ready(function() {
-			$('#table_projects').DataTable( {
-				"language": {
-					"decimal": "<?php echo $dec_point; ?>",
-					"thousands": "<?php echo $thousands_sep; ?>",
-					"search":	"<?php echo $search; ?>"
-				},
-				"columnDefs": [ {
-					"targets"  : 'no-sort',
-					"orderable": false,
-				}],
-				"paging": false,
-				"info": false
-			} );
-		} );
-	</script>
-
 	<?php include("./footer.php"); ?>
-
-	<!-- WCG-Detail-Statistik modal hinzufuegen -->
-	<div class="modal fade" id="modalwcgdetail" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content ">
-				<div class="modal-header ">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="modelTitleId"><?php echo "$project_wcg_detail_link" ?></h4>
-				</div>
-				<div class="modal-body ">
-					<div style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
-						<div id="file-content"><?php include './wcg_detail_html.php'; ?></div>
-					</div>
-				</div>
-				<div class="modal-footer ">
-					<button type="button" class="btn btn-default btn-simple" data-dismiss="modal">OK</button>
-				</div>
-			</div>
-		</div>
-	</div> 

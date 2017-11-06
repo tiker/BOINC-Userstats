@@ -7,6 +7,7 @@ line-height: 1.4285;
 -webkit-font-smoothing: antialiased;
 }
 
+/*
 h1, .h1 {
 font-size: 4.5em;
 }
@@ -17,6 +18,7 @@ font-weight: 400;
 line-height: 1.4em;
 margin-bottom: 15px;
 }
+*/
 
 .jumbotron {
 margin-bottom: 0rem;
@@ -41,10 +43,30 @@ color: rgb(170, 206, 218);
 text-decoration: none;
 }
 
-table, th, tr, td {
+table, th, tr, td {  
 border-spacing: 0px;
 border-collapse: none !important;
 text-align: right;
+}
+
+.borderless td, .borderless th {
+    border: none;
+}
+
+.info {
+background-color: #d9edf7;
+}
+
+.success {
+background-color: #dff0d8;
+}
+
+.warning {
+background-color: #FFE28C;
+}
+
+.danger {
+background-color: #f2dede;
 }
 
 .alert-info {
@@ -91,6 +113,7 @@ color: #BB992F !important;
 color: #B33C12 !important;
 }
 
+
 .force_min_height {
 display: flex;
 min-height: 100vh;
@@ -107,4 +130,9 @@ flex: 1;
 
 .footer a {
     font-size: 8pt;
+}
+
+.modal-dialog {
+max-width: 80%;
+margin: 30px auto;
 }
