@@ -464,7 +464,7 @@
 					<?php
 						foreach ($table_retired as $table_row_retired) {
 							echo "<tr class = 'text-muted text-sm'>
-									<td><a href='" . $table_row_retired["project_home_link"] . "'>" . $table_row_retired["project_name"] ."</a></td>
+									<td>" . $table_row_retired["project_name"] ."</td>
 									<td class='align-middle text-center'><a href='" . $table_row_retired["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
 									<td><b>" . number_format($table_row_retired["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
 									<td>" . number_format($table_row_retired["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>

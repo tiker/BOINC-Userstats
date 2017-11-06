@@ -9,10 +9,16 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_05: Modul für Projekt-Details (derzeit nur WCG) integriert
  dev_06: Design-Anpassungen (z.B. Navbar und Jumbotron)
  dev_07: Code-Bereinigungen
+ dev_08: Navbar neu eingerichtet
  
+- Die Navbar ist nun als fester Bestandteil integriert worden. Sie beinhaltet nun die wichtigsten Links.
+  Dadurch wird der Seitenheader auch kleiner.
+  Selbstverständlich ist deren Inhalt auch wieder konfigurierbar!
 - seperate Module für weitere Projekt-Details (Verzeichnis project_details), in Vorbereitung für weitere Projekt-Details (derzeit nur WCG)
 - weitere Projekt-Detail-Stats haben nun einen eigenen Tab (derzeit nur WCG)
 - Pending Credits: Es werden nur noch Projekte ausgegeben, die den Export der Pendings unterstützen bzw. deren Wert größer 0 ist
+- Die Links zu den Projektseiten von beendeten Projekten wurde entfernt.
+  Oft existiert die Webpräsenz nicht mehr und wurde von Domaingrabbern mit Werbeinhalten versehen. Solche Seiten möchte ich nicht länger verlinkt haben.
 
 
 

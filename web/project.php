@@ -12,6 +12,7 @@
 	$sum12h_total = 0;
 	$sum_today_total = 0;
 	$sum_yesterday_total = 0;
+	$showProjectHeader = true;
 
 	$goon = false;
 	$projectid = addslashes($_GET["projectid"]);
@@ -342,9 +343,13 @@
 					<tbody>
 						<?php
 							foreach($table as $table_row){
-								echo "<tr class='alert-default'>
-										<td><a href='" .$table_row["project_home_link"] . "'>" .$table_row["project_name"] . "</a>
-										<td>" .number_format($table_row["total_credits"],0,$dec_point,$thousands_sep). "</td>
+								echo "<tr class='alert-default'>";
+								if ($table_row["project_status"]=== "1") { echo "
+										<td><a href='" .$table_row["project_home_link"] . "'>" .$table_row["project_name"] . "</a>";
+								} else { echo "
+										<td>" .$table_row["project_name"] . "</td>";
+								};
+								echo "	<td>" .number_format($table_row["total_credits"],0,$dec_point,$thousands_sep). "</td>
 										<td>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>
 										<td>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
 										<td>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>

@@ -3,7 +3,7 @@
 				<div class="container text-light">
 					<nav>
 						<div class="copyright pull-center text-center">
-							<a href="https://userstats.timo-schneider.de" target="_blank">BOINC Userstats</a> <?php echo $userstats_version; ?>, <i class="fa fa-copyright fa-lg"></i> 2017 by Timo Schneider<br />Template by <a href="https://www.creative-tim.com/product/paper-kit">Creative Tim</a> - Diese Seite verwendet <a href="https://www.highcharts.com">Highcharts<i class="fa fa-copyright"></i></a>
+							<a href="https://userstats.timo-schneider.de" target="_blank">BOINC Userstats</a> <?php echo $userstats_version; ?>, <i class="fa fa-copyright fa-lg"></i> 2017 by <a href="https://timo-schneider.de" target="_blank">Timo Schneider</a><br />Template by <a href="https://www.creative-tim.com/product/paper-kit">Creative Tim</a> - Diese Seite verwendet <a href="https://www.highcharts.com">Highcharts<i class="fa fa-copyright"></i></a>
 							<br>
 							<a class="btn btn-simple btn-sm" data-toggle="modal" data-target="#modalImpressum">Impressum</a> 
 							<a class="btn btn-simple btn-sm" data-toggle="modal" data-target="#modalDisclaimer">Disclaimer</a> 

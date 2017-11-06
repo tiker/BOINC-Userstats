@@ -1,30 +1,34 @@
 <?php
-	//-----------------------------------------------------------------------------------
-	// In dem folgenden Block bitte die Variablen mit Werten entsprechend der Anmerkung vornehmen
-	//-----------------------------------------------------------------------------------
+	// -----------------------------------------------------------------------------------
+	// In dem folgenden Block bitte die Variablen mit Werten 
+	// entsprechend der Anmerkung vornehmen
+	// -----------------------------------------------------------------------------------
 	
-	# Anzeigen von Fehlermeldungen)
+	// Anzeigen von Fehlermeldungen
 	error_reporting(E_ALL);
-	#ini_set ('display_errors', 'On'); // für Testumgebung - for test environment
+	// ini_set ('display_errors', 'On'); // für Testumgebung - for test environment
 	ini_set ('display_errors', 'Off');
 
-	//Version einbinden
+	// Version einbinden   // Include version
 	include "version.php";
 
-	//Pfad zur Datenbank-Verbindung
+	// Pfad zur Datenbank-Verbindung     // Path to database connecg
 	include "../database/boinc_db.php";
 	
-	// Main-Data für Navigation und Impressum //
+	// Daten für Impressum //
 	$hp_username = "Dein Name";
 	$hp_email = "deine@email.adresse";
 	
-	//Navbar
-	$showNavbar = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
+	// Navbar
+	$showNavbar = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist true
 
-	// für die Navbar sind drei Links vorgesehen
+	// für die Navbar sind verschiedene Links möglich
 	// Bitte das Logo images/brand.jpg durch ein eigenes ersetzen
 	$brand_logo = "./images/brand_logo.png"; //das kleine Logo oben links neben dem Namen in der Navbar
 	$hp_nav_brand_link = "./index.php"; //wohin der Link auf dem Brand-Logo führen soll
+
+	// individuelle Links
+	$showLinks = false; // true - wenn die folgenden Links in der Navbar angezeigt werden sollen
 	$hp_nav_name01 = "Link-Name#1";
 	$hp_nav_link01 = "http://link.zu.Link-Name#1";
 	$hp_nav_name02 = "Link-Name#2";
@@ -32,7 +36,9 @@
 	$hp_nav_name03 = "Link-Name#3";
 	$hp_nav_link03 = "http://link.zu.Link-Name#3";
 	
-	//Header Hintergrund
+	$showMoreLinks = true; // true - wenn Links zu Seiten des Programmierers (XSmeagolX) angezeigt werden sollen
+
+	// Header Hintergrund
 	$header_backround_url = "./images/header_background.jpg"; //Hier den Link zu deiner Header-Hintergrundgrafik einfuegen
 	
 	// User BOINC-Badges
@@ -54,39 +60,42 @@
 	$showSgWcgBadges = true; // true - wenn angezeigt werden soll, ansonsten auf false setzen. Standard ist false
 	$linkSgWcgBadges = "https://www.seti-germany.de/wcg/badge_XSmeagolX_0.png"; // WCG-Badges von XSmeagolX, alle in einer Reihe
 	
-	//Hier dein Teamname und die URL zu der Homepage deines Teams eintragen
-	$hasTeamHp = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
+	// Hier dein Teamname und die URL zu der Homepage deines Teams eintragen
+	// Falls die Links zum Dev nicht angezeigt werden sollen, oder man ist Mitglied eines anderen Teams,
+	// so kann hier individuell der Link zum BOINC-Team aktiviert werden
+	$hasTeamHp = false; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
 	$teamHpName = "SETI.Germany";
 	$teamHpURL = "https://www.seti-germany.de";
 	
-	//Hier die URL zu deinen Statistiken bei boincstats.com
+	// Hier die URL zu deinen Statistiken bei boincstats.com
 	$hasBoincstats = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
 	$linkNameBoincstats = "BOINCStats";
 	$linkBoincstats = "https://boincstats.com/de/stats/-5/user/detail/15232873522/projectList"; //Link zu boincstats.com von XSmeagolX
 	
-	//Hier die URL zu den laufenden WUs, falls Du diese mit Boinctasks veröffentlichst
+	// Hier die URL zu den laufenden WUs, falls Du diese mit Boinctasks veröffentlichst
 	$hasBoinctasks = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
-	$linkNameBoinctasks = "laufende WUs";
+	$linkNameBoinctasks = "Tasks";
 	$linkBoinctasks = "./tasks.php"; // Link zu den laufenden WUs von XSmeagolX
 	$linkUploadFileBoinctasks = "./tasks/tasks.html"; // Link zum Upload-File von Boinctasks
 
-	//Hier die URL zum WCG, wird im Seitenkopf angezeigt
-	$hasWcg = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist true
-	$linkNameWcg = "World Community Grid";
+	// Hier die URL zum WCG, wird im Seitenkopf angezeigt
+	// Falls die Links zum Dev nicht angezeigt werden sollen, so kann hier individuell der Link zum WCG aktiviert werden
+	$hasWcg = false; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist true
+	$linkNameWcg = "WCG";
 	$linkWcg = "https://join.worldcommunitygrid.org/?recruiterId=653215&teamId=4VVG5BDPP1";
 
-	//Option zum Anzeigen eines Links zum Aktualisieren der Pending Credits
+	// Option zum Anzeigen eines Links zum Aktualisieren der Pending Credits
 	$hasPendings = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
-	$linkNamePendings = "Pendings aktualisieren";
+	$linkNamePendings = "Pendings";
 	$linkPendings = "./pendings.php"; // Link zu den laufenden WUs von XSmeagolX	
 
-	//Hier die Zeitzoneneinstellung vornehmen (in Stunden)
+	// Hier die Zeitzoneneinstellung vornehmen (in Stunden)
 	$timezoneoffset = 0;
 	
-	#Auswahl der Projekte fuer Tortendiagramm
-	# Hier den Wert eintragen, ab welchem Prozentanteil die Projekte separat im Kuchen ausgegeben werden sollen (Standard 1 fuer ab 1%, kann aber auch 10, 2, 0.3 eingetragen werden)
-	# 1 für Projekte ab 1% Gesamtanteil
-	# 0 für alle Projekte
+	// Auswahl der Projekte fuer Tortendiagramm
+	// Hier den Wert eintragen, ab welchem Prozentanteil die Projekte separat im Kuchen ausgegeben werden sollen (Standard 1 fuer ab 1%, kann aber auch 10, 2, 0.3 eingetragen werden)
+	// 1 für Projekte ab 1% Gesamtanteil
+	// 0 für alle Projekte
 	$separat = 0.9;
 
 ?>
