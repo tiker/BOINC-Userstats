@@ -282,7 +282,7 @@
 
 		<div class="alert alert-info" role="alert">
 			<div class="container">
-				<?php echo $tr_th_lu ?>: <?php echo $lastupdate_start ?> - <?php echo $lastupdate ?> (UTC)
+				<?php echo $text_header_lu ?>: <?php echo $lastupdate_start ?> - <?php echo $lastupdate ?> (UTC)
 			</div>
 		</div>
 

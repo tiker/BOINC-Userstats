@@ -37,6 +37,7 @@
 	$hp_nav_link03 = "http://link.zu.Link-Name#3";
 	
 	$showMoreLinks = true; // true - wenn Links zu Seiten des Programmierers (XSmeagolX) angezeigt werden sollen
+	$showMoreLinksName = "weitere Links";
 
 	// Header Hintergrund
 	$header_backround_url = "./images/header_background.jpg"; //Hier den Link zu deiner Header-Hintergrundgrafik einfuegen

@@ -47,69 +47,70 @@ else include "./lang/highstock_en.js";
 <?php include("./header.php"); ?>
 
 	<div class="container text-center flex1">
-		<div class="container">
-			<h2 class="title-uppercase text-center">Pending Credits</h2>
+		<h2 class="title-uppercase text-center">Pending Credits</h2>
+		<div class="alert alert-success" role="alert">
 			<div class="container">
-				<?php echo $tr_hp_pendings_02; ?>	
+				<?php echo $tr_hp_pendings_02; ?>
 			</div>
-			<table id="table_pendings" class="table table-striped table-hover table-sm table-responsive" width="100%">
-				<thead>
-					<th class="alert-warning"><?php echo $tr_tb_pr ?></th>
-					<th class="alert-warning"><?php echo $tr_tb_pe ?></th>
-				</thead>
-				<tbody>									
-					<?php
-						$query = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte WHERE project_status = 1;"); //nur bei aktiven Projekten Werte lesen
-						if ( !$query ) { 	
-							$connErrorTitle = "Datenbankfehler";
-							$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
-								Es bestehen wohl Probleme mit der Datenbankanbindung.";
-							include "./errordocs/db_initial_err.php";
-							exit();
-						} elseif ( mysqli_num_rows($query) === 0 ) { 
-							$connErrorTitle = "Datenbankfehler";
-							$connErrorDescription = "Es existiern keine Projekte in deiner Datenbank, welche als aktiv (1) gesetzt sind.";
-							include "./errordocs/db_initial_err.php";
-							exit();
-						}
-						$ctx = stream_context_create(array(
-								'http' => array(
-								'timeout' => 1
-								)
+		</div>	
+		<br><br>
+		<table id="table_pendings" class="table table-striped table-hover table-sm table-responsive" width="100%">
+			<thead>
+				<th class="alert-warning"><?php echo $tr_tb_pr ?></th>
+				<th class="alert-warning"><?php echo $tr_tb_pe ?></th>
+			</thead>
+			<tbody>									
+				<?php
+					$query = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte WHERE project_status = 1;"); //nur bei aktiven Projekten Werte lesen
+					if ( !$query ) { 	
+						$connErrorTitle = "Datenbankfehler";
+						$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+							Es bestehen wohl Probleme mit der Datenbankanbindung.";
+						include "./errordocs/db_initial_err.php";
+						exit();
+					} elseif ( mysqli_num_rows($query) === 0 ) { 
+						$connErrorTitle = "Datenbankfehler";
+						$connErrorDescription = "Es existiern keine Projekte in deiner Datenbank, welche als aktiv (1) gesetzt sind.";
+						include "./errordocs/db_initial_err.php";
+						exit();
+					}
+					$ctx = stream_context_create(array(
+							'http' => array(
+							'timeout' => 1
 							)
-						);
-						$xml_string_pendings = "false";
-						$pendings_gesamt = 0;
-						while ($row = mysqli_fetch_assoc($query)) {
-							$xml_string_pendings = @file_get_contents($row['url'] . "pending.php?format=xml&authenticator=" . $row['authenticator'], 0, $ctx);
-							if ($xml_string_pendings == FALSE) {
-								$projectname = $row['project'];
-								$pending_credits = $row['pending_credits'];
-								} else {
-								$projectname = $row['project'];
-								$xml_pendings = @simplexml_load_string($xml_string_pendings);
-								$pending_credits = intval($xml_pendings->total_claimed_credit);
-							}
-							$pendings_gesamt = $pendings_gesamt + $pending_credits;
-							$sql_pendings = "UPDATE boinc_grundwerte SET pending_credits='" . $pending_credits . "' WHERE project_shortname='" . $row['project_shortname'] . "'"; //aktuelle Pendings des Projektes in Grundwerttabelle eintragen
-							mysqli_query($db_conn, $sql_pendings); //Werte in DB eintragen
-							
-							if ($pending_credits > 0) {
-								echo "<tr><td>" . $projectname . "</td>";
-								echo "<td>" . number_format($pending_credits, 0, $dec_point, $thousands_sep) . "</td></tr>";
-							}
+						)
+					);
+					$xml_string_pendings = "false";
+					$pendings_gesamt = 0;
+					while ($row = mysqli_fetch_assoc($query)) {
+						$xml_string_pendings = @file_get_contents($row['url'] . "pending.php?format=xml&authenticator=" . $row['authenticator'], 0, $ctx);
+						if ($xml_string_pendings == FALSE) {
+							$projectname = $row['project'];
+							$pending_credits = $row['pending_credits'];
+							} else {
+							$projectname = $row['project'];
+							$xml_pendings = @simplexml_load_string($xml_string_pendings);
+							$pending_credits = intval($xml_pendings->total_claimed_credit);
 						}
-						echo "<tfoot><tr class='alert-info'><td>GESAMT Pendings</td>";
-						echo "<td>" . number_format($pendings_gesamt, 0, $dec_point, $thousands_sep) . "</td></tr></tfoot>";
-					?>
-				</tbody>
-			</table>
-			<div class="alert alert-danger" role="alert">
-				<div class="container">
-					<?php echo $zero_pendings ?>
-				</div>
-			</div>			
-		</div>
+						$pendings_gesamt = $pendings_gesamt + $pending_credits;
+						$sql_pendings = "UPDATE boinc_grundwerte SET pending_credits='" . $pending_credits . "' WHERE project_shortname='" . $row['project_shortname'] . "'"; //aktuelle Pendings des Projektes in Grundwerttabelle eintragen
+						mysqli_query($db_conn, $sql_pendings); //Werte in DB eintragen
+						
+						if ($pending_credits > 0) {
+							echo "<tr><td>" . $projectname . "</td>";
+							echo "<td>" . number_format($pending_credits, 0, $dec_point, $thousands_sep) . "</td></tr>";
+						}
+					}
+					echo "<tfoot><tr class='alert-info'><td>GESAMT Pendings</td>";
+					echo "<td>" . number_format($pendings_gesamt, 0, $dec_point, $thousands_sep) . "</td></tr></tfoot>";
+				?>
+			</tbody>
+		</table>
+		<div class="alert alert-danger" role="alert">
+			<div class="container">
+				<?php echo $zero_pendings ?>
+			</div>
+		</div>			
 	</div>
 
 	<script>
@@ -118,7 +119,7 @@ else include "./lang/highstock_en.js";
 				"language": {
 					"decimal": "<?php echo $dec_point; ?>",
 					"thousands": "<?php echo $thousands_sep; ?>",
-					"search":	"<?php echo $search; ?>"
+					"search":	"<?php echo $text_search; ?>"
 				},
 				"columnDefs": [ {
 					"targets": 'no-sort',

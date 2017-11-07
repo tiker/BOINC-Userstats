@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="de">
 	<head>
-		<title>BOINC-Userstats</title>
+		<title><?php echo $text_hp_title; ?></title>
 
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
@@ -33,17 +33,17 @@
 	
 	<body>
 		<div class = "force_min_height">
-			<div class="jumbotron jumbotron-fluid" style="background-image: url('./images/header_background.jpg');">
+			<div class="jumbotron jumbotron-fluid img-responsive" style="background-image: url('<?php echo $header_backround_url; ?>');">
 				<?php if ( $showNavbar ) include("./nav.php"); ?>
 				<div class="container">
 					<div class="content-center brand"><br><br>
 						<?php if ($showProjectHeader) { echo '
 								<h1 class="title"><font color="white">' . $projectname . '</font></h1>
 						';} else { echo '
-							<h1 class="title"><font color="white">' . $tr_th_bp .  '</font></h1>
+							<h1 class="title"><font color="white">' . $text_header_motto .  '</font></h1>
 						';};
 						?>
-						<h3><font color="white"><?php echo "$boinc_username" . " <font size='3'> " . $tr_th_ot . "</font> " . $boinc_teamname ?></font></h3>
+						<h3><font color="white"><?php echo "$boinc_username" . " <font size='3'> " . $text_header_ot . "</font> " . $boinc_teamname ?></font></h3>
 						
 						<?php 
 							//sind laufende WUs im Internet ersichtlich
@@ -64,7 +64,7 @@
 #							};
 							 //Pendings
 #							if ( $hasPendings ) {
-#								echo '<a href="' . $linkPendings . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-refresh"></i> ' . $linkNamePendings . '</a>';
+#								echo '<a href="' . $linkPendings . '" class="btn btn-neutral btn-simple"><i class="fa fa-refresh"></i> ' . $linkNamePendings . '</a>';
 #							};
 						?>
 

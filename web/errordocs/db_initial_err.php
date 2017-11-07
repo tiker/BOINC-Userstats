@@ -50,9 +50,9 @@ $lastupdate = date("H:i:s", $datum);
 	<div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
 		<div class="container">
 			<div class="motto">
-				<h1 class="title" style="color: white;"><?php echo "$tr_th_bp" ?></h1>
+				<h1 class="title" style="color: white;"><?php echo "$text_header_motto" ?></h1>
 				<h3>
-					<font color="white"><?php echo "$boinc_username" . " " . $tr_th_ot . " " . $boinc_teamname ?></font>
+					<font color="white"><?php echo "$boinc_username" . " " . $text_header_ot . " " . $boinc_teamname ?></font>
 				</h3>
 				
 				<?php //sind laufende WUs im Internet ersichtlich

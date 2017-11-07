@@ -1,12 +1,12 @@
 <?php
 	// English version //
-	$search = "Filter/Search";
-	$tr_hp_title = "<title>Personal Userstats of " .$boinc_username. " from Team " .$boinc_teamname. "</title>";
-	$tr_th_bp = "BOINC-Projects of";
-	$tr_th_ot = "of team";
-	$tr_th_lu = "last update";
-	$tr_th_total = "Total";
-	$tr_th_boinc_total = "BOINC combined";
+	$text_search = "Filter/Search";
+	$text_hp_title = "<title>Personal Userstats of " .$boinc_username. " from Team " .$boinc_teamname. "</title>";
+	$text_header_motto = "BOINC-Projects of";
+	$text_header_ot = "of team";
+	$text_header_lu = "last update";
+	$text_total = "Total";
+	$text_boinc_total = "BOINC combined";
 	$tr_tb_pr = "active Project";
 	$tr_tb_cr = "Credits";
 	$tr_ch_week = "Week from";

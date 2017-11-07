@@ -328,7 +328,7 @@
 
 	<div class="alert alert-info" role="alert">
 		<div class="container">
-			<?php echo $tr_th_lu ?>: <?php echo $lastupdate_start ?> - <?php echo $lastupdate ?> (UTC)
+			<?php echo $text_header_lu ?>: <?php echo $lastupdate_start ?> - <?php echo $lastupdate ?> (UTC)
 		</div>
 	</div>
 
@@ -371,7 +371,7 @@
 				<thead>
 					<tr class = "alert-warning">
 						<th><?php echo $tr_tb_pr; ?></th>
-						<th class="align-middle text-center"> </th>
+						<th class=" no-sort align-middle text-center"> </th>
 						<th><?php echo $tr_tb_cr; ?></th>
 						<th>%</th>
 						<th><?php echo $tr_tb_01; ?></th>
@@ -383,7 +383,7 @@
 						<th class = "alert-danger"><?php echo $tr_tb_pe; ?></th>
 					</tr>
 					<tr class = "alert-info">
-						<th><b><?php echo $tr_th_boinc_total ?></b></th>
+						<th><b><?php echo $text_boinc_total ?></b></th>
 						<th class="align-middle text-center"><b><?php #echo $tr_th_detail ?></b></th>
 						<th><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
 						<th><b>100%</b></th>
@@ -481,7 +481,7 @@
 
 					<thead>
 						<tr class = "alert-warning">
-							<td><b><?php echo $tr_th_boinc_total ?></b></td>
+							<td><b><?php echo $text_boinc_total ?></b></td>
 							<td class="align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
 							<td><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
 							<td><b>100%</b></td>
@@ -581,7 +581,7 @@
 				"language": {
 					"decimal": "<?php echo $dec_point; ?>",
 					"thousands": "<?php echo $thousands_sep; ?>",
-					"search":	"<?php echo $search; ?>"
+					"search":	"<?php echo $text_search; ?>"
 				},
 				"columnDefs": [ {
 					"targets"  : 'no-sort',

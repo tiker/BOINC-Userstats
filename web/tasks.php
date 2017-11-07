@@ -56,7 +56,7 @@ else include "./lang/highstock_en.js";
 				"language": {
 					"decimal": "<?php echo $dec_point; ?>",
 					"thousands": "<?php echo $thousands_sep; ?>",
-					"search":	"<?php echo $search; ?>"
+					"search":	"<?php echo $text_search; ?>"
 				},
 				"order": [[ 6, "asc" ],[ 0, "asc" ]],
 				"columnDefs": [ {

@@ -1,12 +1,12 @@
 <?php
 	// Deutsche Version //
-	$search= "Filter/Suche";
-	$tr_hp_title = "<title>Persönliche Userstatistiken von " .$boinc_username. " aus dem Team " .$boinc_teamname. "</title>";
-	$tr_th_bp = "BOINC-Projekte von";
-	$tr_th_ot = "aus dem Team";
-	$tr_th_lu = "letzte Aktualisierung";
-	$tr_th_boinc_total = "BOINC Gesamt";
-	$tr_th_total = "Gesamt";
+	$text_search= "Filter/Suche";
+	$text_hp_title = "Persönliche Userstatistiken von " .$boinc_username. " aus dem Team " .$boinc_teamname;
+	$text_header_motto = "BOINC-Projekte von";
+	$text_header_ot = "aus dem Team";
+	$text_header_lu = "letzte Aktualisierung";
+	$text_boinc_total = "BOINC Gesamt";
+	$text_total = "Gesamt";
 	$tr_tb_pr = "aktive Projekte";
 	$tr_tb_cr = "Credits";
 	$tr_ch_week = "Woche ab";
@@ -53,7 +53,7 @@
 	$tr_ch_pm_header = "Projekt Credits - Monat";
 	$tr_ch_py_header = "Projekt Credits - Jahr";
 	$tr_hp_pendings_01 = "Die Pending-Credits deiner als aktiv definierten Projekte werden aktualisiert....<br>Bitte warten....";
-	$tr_hp_pendings_02 = "Die Pending-Credits deiner als aktiv markierten Projekte wurden in der Datenbank aktualisiert.<br>Klicke <a href='index.php'>hier</a>, um zu deiner Statistik-Uebersicht zurückzukehren";
+	$tr_hp_pendings_02 = "Die Pending-Credits deiner als aktiv markierten Projekte wurden in der Datenbank aktualisiert.";
 	$tr_hp_pendings_03 = "Aktualisierung der Pending Credits";
 	$tr2_hp_pp = "# Projekt";
 	$tr2_hp_pt = "# Team";
