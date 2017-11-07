@@ -37,7 +37,7 @@ $(function () {
 		},
 		yAxis: [{ // left y axis
 			opposite: false,
-			alternateGridColor: '#FDFFD5',
+			alternateGridColor: '#68646410',
 			showFirstLabel: false
 			}, { // right y axis
 			linkedTo: 0,
@@ -47,7 +47,7 @@ $(function () {
 		}],
 		series: [{
 			name: '<?php echo $tr_ch_yaxis_year; ?>',
-			color: '#5883A6',
+			color: '#686464d7',
 			data: [<?php echo $output_html;?>],
 			dataGrouping: {
 				forced: true,

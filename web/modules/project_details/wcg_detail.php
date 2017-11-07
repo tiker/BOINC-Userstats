@@ -151,13 +151,13 @@
 		<b><?php echo $wcg_detail_team_history; ?></b>
 		<table class="table table-sm table-striped table-hover table-responsive-sm" width="100%">
 			<thead>
-				<tr class="alert alert-warning">
-					<th><b><?php echo "$wcg_detail_team" ?></b></th>
-					<th><b><?php echo "$wcg_detail_join" ?></b></th>
-					<th><b><?php echo "$wcg_detail_leave" ?></b></th>
-					<th><b><?php echo "$wcg_detail_runtime" ?></b></th>
-					<th><b><?php echo "$wcg_detail_points" ?></b></th>
-					<th><b><?php echo "$wcg_detail_results" ?></b></th>
+				<tr>
+					<th class = "alert-header"><b><?php echo "$wcg_detail_team" ?></b></th>
+					<th class = "alert-header"><b><?php echo "$wcg_detail_join" ?></b></th>
+					<th class = "alert-header"><b><?php echo "$wcg_detail_leave" ?></b></th>
+					<th class = "alert-header"><b><?php echo "$wcg_detail_runtime" ?></b></th>
+					<th class = "alert-header"><b><?php echo "$wcg_detail_points" ?></b></th>
+					<th class = "alert-header"><b><?php echo "$wcg_detail_results" ?></b></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -205,13 +205,13 @@
 
 		<table id="table_wcg" class="table table-sm table-striped table-hover table-responsive-sm" width="100%">
 			<thead>
-				<tr class="alert alert-warning">
-					<th><b><?php echo $wcg_detail_project; ?></b></th>
-					<th class="text-center"><b><?php echo $wcg_detail_status; ?></b></th>
-					<th><b><?php echo $wcg_detail_points; ?></b></th>
-					<th><b><?php echo $wcg_detail_results; ?></b></th>
-					<th><b><?php echo $wcg_detail_runtimedetail; ?></b></th>
-					<th class="no-sort"><b><?php echo $wcg_detail_badge; ?></b></th>
+				<tr>
+					<th class = "alert-header"><b><?php echo $wcg_detail_project; ?></b></th>
+					<th class="alert-header text-center"><b><?php echo $wcg_detail_status; ?></b></th>
+					<th class = "alert-header"><b><?php echo $wcg_detail_points; ?></b></th>
+					<th class = "alert-header"><b><?php echo $wcg_detail_results; ?></b></th>
+					<th class = "alert-header"><b><?php echo $wcg_detail_runtimedetail; ?></b></th>
+					<th class="alert-header no-sort"><b><?php echo $wcg_detail_badge; ?></b></th>
 				</tr>
 			</thead>
 			<tbody>

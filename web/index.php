@@ -370,37 +370,37 @@
 			<table id="table_projects" class="table table-sm table-striped table-hover table-responsive-sm table-ellipsis borderless" width="100%">					
 				<thead>
 					<tr>
-						<th class = "alert-warning"><?php echo $tr_tb_pr; ?></th>
-						<th class="alert-warning no-sort align-middle text-center"> </th>
-						<th class = "alert-warning"><?php echo $tr_tb_cr; ?></th>
-						<th class = "alert-warning">%</th>
-						<th class = "alert-warning"><?php echo $tr_tb_01; ?></th>
-						<th class = "alert-warning"><?php echo $tr_tb_02; ?></th>
-						<th class = "alert-warning"><?php echo $tr_tb_06; ?></th>
-						<th class = "alert-warning"><?php echo $tr_tb_12; ?></th>
+						<th class = "alert-header"><?php echo $tr_tb_pr; ?></th>
+						<th class = "alert-header no-sort align-middle text-center"> </th>
+						<th class = "alert-header"><?php echo $tr_tb_cr; ?></th>
+						<th class = "alert-header">%</th>
+						<th class = "alert-header"><?php echo $tr_tb_01; ?></th>
+						<th class = "alert-header"><?php echo $tr_tb_02; ?></th>
+						<th class = "alert-header"><?php echo $tr_tb_06; ?></th>
+						<th class = "alert-header"><?php echo $tr_tb_12; ?></th>
 						<th class = "alert-success"><?php echo $tr_tb_to; ?></th>
 						<th class = "alert-info"><?php echo $tr_tb_ye; ?></th>
 						<th class = "alert-danger"><?php echo $tr_tb_pe; ?></th>
 					</tr>
 					<tr>
-						<th class="alert-info"><b><?php echo $text_boinc_total ?></b></th>
-						<th class="alert-info align-middle text-center"><b><?php #echo $tr_th_detail ?></b></th>
-						<th class="alert-info"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<th class="alert-info"><b>100%</b></th>
-						<th class="alert-info">
-						<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></th>
-						<th class="alert-info">
-						<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></th>
-						<th class="alert-info">
-						<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></th>
-						<th class="alert-info">
-						<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></th>
-						<th class = "alert-success">
-						<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></th>
-						<th class = "alert-info">
-						<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></th>
-						<th class = "alert-danger">
-						<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></th>
+						<td class="alert-info"><b><?php echo $text_boinc_total ?></b></td>
+						<td class="alert-info align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
+						<td class="alert-info"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
+						<td class="alert-info"><b>100%</b></th>
+						<td class="alert-info">
+						<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+						<td class="alert-info">
+						<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+						<td class="alert-info">
+						<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+						<td class="alert-info">
+						<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+						<td class = "alert-success">
+						<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
+						<td class = "alert-info">
+						<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
+						<td class = "alert-danger">
+						<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
 					</tr>
 				</thead>
 				<tbody>
@@ -444,7 +444,7 @@
 						}
 					?>
 					<thead>
-						<tr class = "alert-warning">
+						<tr class = "alert-header">
 							<td><b><?php echo $tr_th2_rp ?></b></td>
 							<td class="align-middle text-center"><b><?php #echo $tr_tb_det ?>
 								<i class="text-muted fa fa-toggle-on fa-lg" aria-hidden="true"></i></b>
@@ -455,9 +455,9 @@
 							<td><b><?php echo $tr_tb_02 ?></b></td>
 							<td><b><?php echo $tr_tb_06 ?></b></td>
 							<td><b><?php echo $tr_tb_12 ?></b></td>
-							<th class = "alert-success"><?php echo $tr_tb_to; ?></th>
-							<th class = "alert-info"><?php echo $tr_tb_ye; ?></th>
-							<th class = "alert-danger"><?php echo $tr_tb_pe; ?></th>
+							<td class = "alert-success"><?php echo $tr_tb_to; ?></td>
+							<td class = "alert-info"><?php echo $tr_tb_ye; ?></td>
+							<td class = "alert-danger"><?php echo $tr_tb_pe; ?></td>
 						</tr>
 					</thead>
 					
@@ -480,7 +480,7 @@
 					?>
 
 					<thead>
-						<tr class = "alert-warning">
+						<tr class = "alert-info">
 							<td><b><?php echo $text_boinc_total ?></b></td>
 							<td class="align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
 							<td><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
@@ -493,7 +493,7 @@
 							<td class="alert-info"><b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
 							<td class="alert-danger"><b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
 						</tr>
-						<tr class = "alert-info">
+						<tr class = "alert-header">
 							<td></td>
 							<td class="align-middle text-center"><?php #echo $tr_tb_det ?></td>
 							<td><?php #echo $tr_tb_cr ?></td>
@@ -502,9 +502,9 @@
 							<td><?php echo $tr_tb_02 ?></td>
 							<td><?php echo $tr_tb_06 ?></td>
 							<td><?php echo $tr_tb_12 ?></td>
-							<th class = "alert-success"><?php echo $tr_tb_to; ?></th>
-							<th class = "alert-info"><?php echo $tr_tb_ye; ?></th>
-							<th class = "alert-danger"><?php echo $tr_tb_pe; ?></th>
+							<td class = "alert-success"><?php echo $tr_tb_to; ?></td>
+							<td class = "alert-info"><?php echo $tr_tb_ye; ?></td>
+							<td class = "alert-danger"><?php echo $tr_tb_pe; ?></td>
 						</tr>
 					</thead>
 				</tbody>
@@ -591,10 +591,6 @@
 				"info": false
 			} );
 		} );
-	</script>
-	<script>
-		$('#change-color-switch').bootstrapSwitch('setOnClass', 'success');
-		$('#change-color-switch').bootstrapSwitch('setOffClass', 'danger');
 	</script>
 
 <?php include("./footer.php"); ?>

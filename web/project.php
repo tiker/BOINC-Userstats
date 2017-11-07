@@ -328,13 +328,13 @@
 				<br>
 				<table class="table table-sm table-striped table-hover table-responsive-sm" width="100%">	
 					<thead>
-						<tr class = "alert alert-warning">
-							<th><?php echo "$project_project" ?></th>
-							<th><?php echo "$tr_tb_cr" ?></th>
-							<th><?php echo "$tr_tb_01" ?></th>
-							<th><?php echo "$tr_tb_02" ?></th>
-							<th><?php echo "$tr_tb_06" ?></th>
-							<th><?php echo "$tr_tb_12" ?></th>
+						<tr>
+							<th class = "alert-header"><?php echo "$project_project" ?></th>
+							<th class = "alert-header"><?php echo "$tr_tb_cr" ?></th>
+							<th class = "alert-header"><?php echo "$tr_tb_01" ?></th>
+							<th class = "alert-header"><?php echo "$tr_tb_02" ?></th>
+							<th class = "alert-header"><?php echo "$tr_tb_06" ?></th>
+							<th class = "alert-header"><?php echo "$tr_tb_12" ?></th>
 							<th class = "alert-success"><?php echo $tr_tb_to; ?></th>
 							<th class = "alert-info"><?php echo $tr_tb_ye; ?></th>
 							<th class = "alert-danger"><?php echo $tr_tb_pe; ?></th>

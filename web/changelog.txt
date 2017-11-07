@@ -11,6 +11,7 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_07: Code-Bereinigungen
  dev_08: Navbar neu eingerichtet
  dev_09: weitere kleine Designanpassungen und Start umbenennen von Variablen
+ dev_10: Farbanpassungen der Charts (vergraufarbt)
  
 - Die Navbar ist nun als fester Bestandteil integriert worden. Sie beinhaltet nun die wichtigsten Links.
   Dadurch wird der Seitenheader auch kleiner.

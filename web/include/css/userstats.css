@@ -17,7 +17,7 @@ body {
 }
 
 .btn {
-	color: rgba(255, 255, 255, 0);
+	color: rgb(255, 255, 255);
 }
 
 .btn:hover, .btn:focus, .btn:active, .btn.active, .open > .btn.dropdown-toggle {
@@ -27,12 +27,12 @@ body {
 
 .navbar a {
 	font-size: 10pt;
-	color: rgb(255, 255, 255);
+	color: rgb(104, 100, 100);
 }
 
 
 a {
-	color: #68B3C8;
+	color: #686464b4;
 	-webkit-transition: all 150ms linear;
 	-moz-transition: all 150ms linear;
 	-o-transition: all 150ms linear;
@@ -41,7 +41,7 @@ a {
 }
 
 a:hover, a:focus {
-	color: rgb(3, 92, 151);
+	color: rgb(104, 100, 100);
 	text-decoration: none;
 }
 
@@ -56,10 +56,19 @@ table, th, tr, td {
 }
 
 .table.table-ellipsis tbody td {
-	max-width: 100px;
+	max-width: 5rem;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	white-space: nowrap
+	white-space: nowrap;
+}
+
+.alert-header {
+	background-color: #55525260;
+	color: #686464a7;
+}
+
+.header {
+	background-color: #686464;
 }
 
 .info {
