@@ -328,7 +328,7 @@
 
 	<div class="alert alert-info" role="alert">
 		<div class="container">
-			<?php echo $text_header_lu ?>: <?php echo $lastupdate_start ?> - <?php echo $lastupdate ?> (UTC)
+			<b><?php echo $text_header_lu ?></b>: <?php echo $lastupdate_start ?> - <?php echo $lastupdate ?> (UTC)
 		</div>
 	</div>
 
@@ -455,9 +455,9 @@
 							<td><b><?php echo $tr_tb_02 ?></b></td>
 							<td><b><?php echo $tr_tb_06 ?></b></td>
 							<td><b><?php echo $tr_tb_12 ?></b></td>
-							<td class = "alert-success"><?php echo $tr_tb_to; ?></td>
-							<td class = "alert-info"><?php echo $tr_tb_ye; ?></td>
-							<td class = "alert-danger"><?php echo $tr_tb_pe; ?></td>
+							<td class = "alert-success"><b><?php echo $tr_tb_to; ?></b></td>
+							<td class = "alert-info"><b><?php echo $tr_tb_ye; ?></b></td>
+							<td class = "alert-danger"><b><?php echo $tr_tb_pe; ?></b></td>
 						</tr>
 					</thead>
 					
@@ -479,34 +479,41 @@
 						}
 					?>
 
-					<thead>
-						<tr class = "alert-info">
-							<td><b><?php echo $text_boinc_total ?></b></td>
-							<td class="align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
-							<td><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td><b>100%</b></td>
-							<td><b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td><b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td><b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td><b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td class="alert-success"><b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td class="alert-info"><b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td class="alert-danger"><b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
-						</tr>
-						<tr class = "alert-header">
-							<td></td>
-							<td class="align-middle text-center"><?php #echo $tr_tb_det ?></td>
-							<td><?php #echo $tr_tb_cr ?></td>
-							<td></td>
-							<td><?php echo $tr_tb_01 ?></td>
-							<td><?php echo $tr_tb_02 ?></td>
-							<td><?php echo $tr_tb_06 ?></td>
-							<td><?php echo $tr_tb_12 ?></td>
-							<td class = "alert-success"><?php echo $tr_tb_to; ?></td>
-							<td class = "alert-info"><?php echo $tr_tb_ye; ?></td>
-							<td class = "alert-danger"><?php echo $tr_tb_pe; ?></td>
-						</tr>
-					</thead>
+								<thead>
+									<tr>
+										<td class="alert-info"><b><?php echo $text_boinc_total ?></b></td>
+										<td class="alert-info align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
+										<td class="alert-info"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
+										<td class="alert-info"><b>100%</b></th>
+										<td class="alert-info">
+										<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+										<td class="alert-info">
+										<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+										<td class="alert-info">
+										<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+										<td class="alert-info">
+										<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+										<td class = "alert-success">
+										<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
+										<td class = "alert-info">
+										<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
+										<td class = "alert-danger">
+										<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
+									</tr>
+									<tr>
+										<th class = "alert-header"><?php echo $tr_tb_pr; ?></th>
+										<th class = "alert-header no-sort align-middle text-center"> </th>
+										<th class = "alert-header"><?php echo $tr_tb_cr; ?></th>
+										<th class = "alert-header">%</th>
+										<th class = "alert-header"><?php echo $tr_tb_01; ?></th>
+										<th class = "alert-header"><?php echo $tr_tb_02; ?></th>
+										<th class = "alert-header"><?php echo $tr_tb_06; ?></th>
+										<th class = "alert-header"><?php echo $tr_tb_12; ?></th>
+										<th class = "alert-success"><?php echo $tr_tb_to; ?></th>
+										<th class = "alert-info"><?php echo $tr_tb_ye; ?></th>
+										<th class = "alert-danger"><?php echo $tr_tb_pe; ?></th>
+									</tr>
+								</thead>
 				</tbody>
 			</table>
 		</div>

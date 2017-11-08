@@ -61,11 +61,11 @@
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-info-circle" aria-hidden="true"></i> ' . $showMoreLinksName . '</a>
 									<div class="dropdown-menu" aria-labelledby="dropdownId">
-										<a class="dropdown-item" href="https://github.com/XSmeagolX"><i class="fa fa-github" aria-hidden="true"></i> Userstats on GitHub</a>
-										<a class="dropdown-item" href="https://userstats.timo-schneider.de"><i class="fa fa-home" aria-hidden="true"></i> Userstats Website</a>
+										<a class="dropdown-item" href="https://github.com/XSmeagolX" target="_new"><i class="fa fa-github" aria-hidden="true"></i> Userstats on GitHub</a>
+										<a class="dropdown-item" href="https://userstats.timo-schneider.de" target="_new"><i class="fa fa-home" aria-hidden="true"></i> Userstats Website</a>
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="https://www.seti-germany.de"><i class="fa fa-globe" aria-hidden="true"></i> SETI.Germany</a>
-										<a class="dropdown-item" href="https://join.worldcommunitygrid.org/?recruiterId=653215&teamId=4VVG5BDPP1"><i class="fa fa-globe" aria-hidden="true"></i> World Community Grid</a>
+										<a class="dropdown-item" href="https://www.seti-germany.de" target="_new"><i class="fa fa-globe" aria-hidden="true"></i> SETI.Germany</a>
+										<a class="dropdown-item" href="https://join.worldcommunitygrid.org/?recruiterId=653215&teamId=4VVG5BDPP1" target="_new"><i class="fa fa-globe" aria-hidden="true"></i> World Community Grid</a>
 									</div>
 								</li>
 								';
