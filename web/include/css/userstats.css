@@ -67,7 +67,7 @@ table, th, tr, td {
 
 .alert-header {
 	background-color: rgba(85, 82, 82, 0.376);
-	color: rgba(104, 100, 100, 0.655);
+	color: rgb(65, 63, 63);
 }
 
 .header {
@@ -91,23 +91,23 @@ table, th, tr, td {
 }
 
 .alert-info {
-	background-color: rgb(123, 227, 253);
-	color: rgb(47, 144, 177);
+	background-color: rgb(134, 206, 224);
+	color: rgb(10, 98, 128);
 }
 
 .alert-success {
-	background-color: rgb(142, 243, 197);
-	color: rgb(66, 160, 132);
+	background-color: rgb(139, 221, 181);
+	color: rgb(16, 109, 81);
 }
 
 .alert-warning {
-	background-color: rgb(255, 226, 140);
-	color: rgb(187, 153, 47);
+	background-color: rgb(219, 203, 157);
+	color: rgb(121, 105, 19);
 }
 
 .alert-danger {
-	background-color: rgb(255, 143, 94);
-	color: rgb(179, 60, 18);
+	background-color: rgb(224, 169, 147);
+	color: rgb(107, 16, 16);
 }
 
 .text-muted {
