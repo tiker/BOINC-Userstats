@@ -407,10 +407,10 @@
 					<!-- Fuer jedes Projekt eine Zeile in die Tabelle hinzufuegen -->						
 					<?php
 						foreach ($table as $table_row) {
-							echo "<tr class='alert-default'>
+							echo "<tr>
 								<td><a href='" . $table_row["project_home_link"] . "'>" . $table_row["project_name"] ."</a></td>
 								<td class='align-middle text-center'><a href='" . $table_row["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
-								<td>" . number_format($table_row["total_credits"], 0, $dec_point, $thousands_sep) . "</td>
+								<td><b>" . number_format($table_row["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
 								<td>" . number_format($table_row["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>";
 								if ($table_row["sum1h"] != "") {
 									echo "<td>" . number_format($table_row['sum1h'], 0, $dec_point, $thousands_sep) . "</td>";

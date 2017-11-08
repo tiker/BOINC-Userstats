@@ -41,7 +41,7 @@ $(document).ready(function() {
 		yAxis: [{ // credits insgesamt y axis
 			opposite: false,
 			floor: 0,
-			alternateGridColor: '#68646410',
+			alternateGridColor: 'rgba(104, 100, 100, 0.063)',
 			showFirstLabel: false
 			}, { // right y axis
 			linkedTo: 0,
@@ -57,7 +57,7 @@ $(document).ready(function() {
 		series: [{
 			name: '<?php echo $tr_ch_go_header;?>',
 			type: 'areaspline',
-			color: '#68646490',
+			color: 'rgba(104, 100, 100, 0.565)',
 			lineWidth: 1,
 			data: [<?php echo $output_gesamt_html;?>],
 			dataGrouping: {
@@ -71,7 +71,7 @@ $(document).ready(function() {
 		{
 			name: '<?php echo $tr_ch_pc;?>',
 			type: 'column',
-			color: '#686464d7',
+			color: 'rgba(104, 100, 100, 0.843)',
 			lineWidth: 1,
 			data: [<?php echo $output_gesamt_pendings_html;?>],
 			dataGrouping: {

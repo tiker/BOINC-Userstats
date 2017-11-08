@@ -1,6 +1,7 @@
 <?php
 	// Deutsche Version //
 	$text_search= "Filter/Suche";
+	$linkNameOverview = "Projekt-Übersicht";
 	$text_hp_title = "Persönliche Userstatistiken von " .$boinc_username. " aus dem Team " .$boinc_teamname;
 	$text_header_motto = "BOINC-Projekte von";
 	$text_header_ot = "aus dem Team";

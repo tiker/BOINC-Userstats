@@ -66,7 +66,7 @@ $(function () {
 		},
 		yAxis: [{ // left y axis
 			opposite: false,
-			alternateGridColor: '#68646410',
+			alternateGridColor: 'rgba(104, 100, 100, 0.063)',
 			labels: {
 				formatter: function() {
 					return Highcharts.numberFormat(this.value, 0);
@@ -92,7 +92,7 @@ $(function () {
 					['hour', [1]]
 				]
 			}, 
-			color: '#686464d7',
+			color: 'rgba(104, 100, 100, 0.843)',
 			data: [<?php echo $output_html;?>]
 		}]
 	});

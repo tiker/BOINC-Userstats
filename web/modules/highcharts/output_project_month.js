@@ -45,7 +45,7 @@ $(function () {
 		},
 		yAxis: [{ // left y axis
 			opposite: false,
-			alternateGridColor: '#68646410',
+			alternateGridColor: 'rgba(104, 100, 100, 0.063)',
 			showFirstLabel: false
 			}, { // right y axis
 			linkedTo: 0,
@@ -55,7 +55,7 @@ $(function () {
 		}],
 		series: [{
 			name: '<?php echo $tr_ch_yaxis_month;?>',
-			color: '#686464d7',
+			color: 'rgba(104, 100, 100, 0.843)',
 			data: [<?php echo $output_project_html;?>],
 			dataGrouping: {
 				forced: true,

@@ -7,7 +7,11 @@
 		</button>
 		<div class="collapse navbar-collapse justify-content-end" id="moreLinks">
 			<ul class="navbar-nav">
-
+						<?php
+							echo "<li class='nav-item'>";
+							echo "<a class='nav-link' href='./index.php' class='btn btn-neutral btn-simple'><i class='fa fa-home' aria-hidden='true'></i> " . $linkNameOverview . "</a>";
+							echo "</li>";
+						?>
 						<?php //sind laufende WUs im Internet ersichtlich
 							if ( $hasBoinctasks ) {
 								echo "<li class='nav-item'>";
@@ -17,7 +21,7 @@
 							//Pendings
 							if ( $hasPendings ) {
 								echo "<li class='nav-item'>";
-								echo "<a class='nav-link' href='" . $linkPendings . "' target='_new' class='btn btn-neutral btn-simple'><i class='fa fa-refresh'></i> " . $linkNamePendings . "</a>";
+								echo "<a class='nav-link' href='" . $linkPendings . "' class='btn btn-neutral btn-simple'><i class='fa fa-refresh'></i> " . $linkNamePendings . "</a>";
 								echo "</li>";
 							};
 							 //Link zu Team
@@ -71,5 +75,4 @@
 		</div>
 	</div>
 </nav>
-
-	<!-- End Navbar -->
+<!-- End Navbar -->

@@ -3,7 +3,7 @@
 }
 
 body {
-	color: #2c2c2c;
+	color: rgba(77, 76, 76, 0.966);
 	font-size: 14px;
 	font-family: "Montserrat","Helvetica Neue",Arial,sans-serif;
 	line-height: 1.4285;
@@ -12,8 +12,12 @@ body {
 }
 
 .jumbotron {
+	margin-top: 57px;
 	margin-bottom: 0rem;
 	color: rgb(255, 255, 255);
+/*	-webkit-filter: grayscale(1);
+	filter: grayscale(1);
+*/
 }
 
 .btn {
@@ -27,12 +31,11 @@ body {
 
 .navbar a {
 	font-size: 10pt;
-	color: rgb(104, 100, 100);
+	color: rgb(73, 73, 73);
 }
 
-
 a {
-	color: #686464b4;
+	color: rgb(104, 100, 100);
 	-webkit-transition: all 150ms linear;
 	-moz-transition: all 150ms linear;
 	-o-transition: all 150ms linear;
@@ -41,7 +44,7 @@ a {
 }
 
 a:hover, a:focus {
-	color: rgb(104, 100, 100);
+	color: rgb(48, 48, 48);
 	text-decoration: none;
 }
 
@@ -63,12 +66,12 @@ table, th, tr, td {
 }
 
 .alert-header {
-	background-color: #55525260;
-	color: #686464a7;
+	background-color: rgba(85, 82, 82, 0.376);
+	color: rgba(104, 100, 100, 0.655);
 }
 
 .header {
-	background-color: #686464;
+	background-color: rgb(104, 100, 100);
 }
 
 .info {
@@ -88,47 +91,47 @@ table, th, tr, td {
 }
 
 .alert-info {
-	background-color: #7CE4FE;
-	color: #3091B2;
+	background-color: rgb(123, 227, 253);
+	color: rgb(47, 144, 177);
 }
 
 .alert-success {
-	background-color: #8EF3C5;
-	color: #42A084;
+	background-color: rgb(142, 243, 197);
+	color: rgb(66, 160, 132);
 }
 
 .alert-warning {
-	background-color: #FFE28C;
-	color: #BB992F;
+	background-color: rgb(255, 226, 140);
+	color: rgb(187, 153, 47);
 }
 
 .alert-danger {
-	background-color: #FF8F5E;
-	color: #B33C12;
+	background-color: rgb(255, 143, 94);
+	color: rgb(179, 60, 18);
 }
 
 .text-muted {
-	color: #DDDDDD;
+	color: rgba(221, 221, 221, 0.692);
 }
 
 .text-primary, .text-primary:hover {
-	color: #427C89 !important;
+	color: rgb(66, 124, 137) !important;
 }
 
 .text-info, .text-info:hover {
-	color: #3091B2 !important;
+	color: rgb(48, 145, 178) !important;
 }
 
 .text-success, .text-success:hover {
-	color: #42A084 !important;
+	color: rgb(66, 160, 132) !important;
 }
 
 .text-warning, .text-warning:hover {
-	color: #BB992F !important;
+	color: rgb(187, 153, 47) !important;
 }
 
 .text-danger, .text-danger:hover {
-	color: #B33C12 !important;
+	color: rgb(179, 60, 18) !important;
 }
 
 
