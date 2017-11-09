@@ -5,9 +5,10 @@
 						<div class="copyright pull-center text-center">
 							<a href="https://userstats.timo-schneider.de" target="_blank">BOINC Userstats</a> <?php echo $userstats_version; ?>, <i class="fa fa-copyright fa-lg"></i> 2017 by <a href="https://timo-schneider.de" target="_blank">Timo Schneider</a><br />Template by <a href="https://www.creative-tim.com/product/paper-kit">Creative Tim</a> - Diese Seite verwendet <a href="https://www.highcharts.com">Highcharts<i class="fa fa-copyright"></i></a>
 							<br>
-							<a class="btn btn-simple btn-sm" data-toggle="modal" data-target="#modalImpressum">Impressum</a> 
-							<a class="btn btn-simple btn-sm" data-toggle="modal" data-target="#modalDisclaimer">Disclaimer</a> 
-							<a class="btn btn-simple btn-sm" data-toggle="modal" data-target="#modalDatenschutz">Datenschutz</a> 
+							
+							<a class="btn btn-simple btn-background btn-color btn-sm" data-toggle="modal" data-target="#modalImpressum">Impressum</a> 
+							<a class="btn btn-simple btn-background btn-color btn-sm" data-toggle="modal" data-target="#modalDisclaimer">Disclaimer</a> 
+							<a class="btn btn-simple btn-background btn-color btn-sm" data-toggle="modal" data-target="#modalDatenschutz">Datenschutz</a> 
 							<a href="https://github.com/XSmeagolX/Pers-nliche-BOINC-Userstats/blob/master/LICENSE" class="btn btn-simple btn-sm" target="_new">MIT License</a> 
 							<br><font size="1">XSmeagolX - Team <a href="https://seti-germany.de"><img src="./images/sg_logo_klein.png"></a></font>
 						</div>
