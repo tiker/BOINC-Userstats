@@ -147,69 +147,68 @@
 ?>
 
 	<br>
-	<div class="container alert" role="alert">
+	<div class="container">
 		<b><?php echo $wcg_detail_team_history; ?></b>
 		<table class="table table-sm table-striped table-hover table-responsive-sm" width="100%">
 			<thead>
 				<tr>
 					<th class = "alert-header"><b><?php echo "$wcg_detail_team" ?></b></th>
 					<th class = "alert-header text-center"><b><?php echo "$wcg_detail_join" ?></b></th>
-					<th class = "alert-header text-center"><b><?php echo "$wcg_detail_leave" ?></b></th>
+					<th class = "alert-header text-center d-none d-sm-table-cell"><b><?php echo "$wcg_detail_leave" ?></b></th>
 					<th class = "alert-header"><b><?php echo "$wcg_detail_runtime" ?></b></th>
-					<th class = "alert-header"><b><?php echo "$wcg_detail_points" ?></b></th>
-					<th class = "alert-header"><b><?php echo "$wcg_detail_results" ?></b></th>
+					<th class = "alert-header d-none d-sm-table-cell"><b><?php echo "$wcg_detail_points" ?></b></th>
+					<th class = "alert-header d-none d-md-table-cell"><b><?php echo "$wcg_detail_results" ?></b></th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php
 					foreach($table_team as $table_row) {
 						if ($table_row["team_retire_date"] > 0) { // Team Historie
-							echo "<tr class='text-muted'>";
-							echo "<td>" .$table_row["team_name"]. "</td>";
-							echo "<td class='text-center'>" .$table_row["team_join_date"]. "</td>";
-							echo "<td class='text-center'>" .$table_row["team_retire_date"]. "</td>";
-							echo "<td>" .$table_row["team_runtime"]. "</td>";
-							echo "<td>" .number_format($table_row["team_points"],0,$dec_point,$thousands_sep). "</td>";
-							echo "<td>" .number_format($table_row["team_results"],0,$dec_point,$thousands_sep). "</td>";	
+							echo "<tr>";
+							echo "<td class='text-muted'>" .$table_row["team_name"]. "</td>";
+							echo "<td class='text-muted text-center'>" .$table_row["team_join_date"]. "</td>";
+							echo "<td class='text-muted text-center d-none d-sm-table-cell'>" .$table_row["team_retire_date"]. "</td>";
+							echo "<td class='text-muted'>" .$table_row["team_runtime"]. "</td>";
+							echo "<td class='text-muted d-none d-sm-table-cell'>" .number_format($table_row["team_points"],0,$dec_point,$thousands_sep). "</td>";
+							echo "<td class='text-muted d-none d-md-table-cell'>" .number_format($table_row["team_results"],0,$dec_point,$thousands_sep). "</td>";	
 							echo "</tr>";
 						} else { //* aktuelles Team
-							echo "<tr class='text-success'>";
-							echo "<td>" .$table_row["team_name"]. "</td>";
-							echo "<td class='text-center'>" .$table_row["team_join_date"]. "</td>";
-							echo "<td class='text-center'>&nbsp;</td>";
-							echo "<td>" .$table_row["team_runtime"]. "</td>";
-							echo "<td>" .number_format($table_row["team_points"],0,$dec_point,$thousands_sep). "</td>";
-							echo "<td>" .number_format($table_row["team_results"],0,$dec_point,$thousands_sep). "</td>";	
+							echo "<tr>";
+							echo "<td class='text-success'>" .$table_row["team_name"]. "</td>";
+							echo "<td class='text-success text-center'>" .$table_row["team_join_date"]. "</td>";
+							echo "<td class='text-success text-center d-none d-sm-table-cell'>&nbsp;</td>";
+							echo "<td class='text-success'>" .$table_row["team_runtime"]. "</td>";
+							echo "<td class='text-success d-none d-sm-table-cell'>" .number_format($table_row["team_points"],0,$dec_point,$thousands_sep). "</td>";
+							echo "<td class='text-success d-none d-md-table-cell'>" .number_format($table_row["team_results"],0,$dec_point,$thousands_sep). "</td>";	
 							echo "</tr>";
 						}					
 					}
 					echo "</tbody>";
 					echo "<tfoot>";
-					echo "	<tr class='alert alert-info'>";
-					echo "		<td>" . $wcg_detail_total . "<br>";
+					echo "	<tr>";
+					echo "		<td class='alert-info'>" . $wcg_detail_total . "<br>";
 					echo "		" . $wcg_detail_position . "</td>";
-					echo "		<td><br></td>";
-					echo "		<td><br></td>";
-					echo "		<td>" .$user_total_runtime. "<br>(# " .number_format($user_total_runtime_rank,0,$dec_point,$thousands_sep). ")</td>";
-					echo "		<td>" .number_format($user_total_points,0,$dec_point,$thousands_sep). "<br>(# " .number_format($user_total_points_rank,0,$dec_point,$thousands_sep). ")</td>";
-					echo "		<td>" .number_format($user_total_results,0,$dec_point,$thousands_sep). "<br>(# " .number_format($user_total_results_rank,0,$dec_point,$thousands_sep). ")</td>";
+					echo "		<td class='alert-info'><br></td>";
+					echo "		<td class='alert-info d-none d-sm-table-cell'><br></td>";
+					echo "		<td class='alert-info'>" .$user_total_runtime. "<br>(# " .number_format($user_total_runtime_rank,0,$dec_point,$thousands_sep). ")</td>";
+					echo "		<td class='alert-info d-none d-sm-table-cell'>" .number_format($user_total_points,0,$dec_point,$thousands_sep). "<br>(# " .number_format($user_total_points_rank,0,$dec_point,$thousands_sep). ")</td>";
+					echo "		<td class='alert-info d-none d-md-table-cell'>" .number_format($user_total_results,0,$dec_point,$thousands_sep). "<br>(# " .number_format($user_total_results_rank,0,$dec_point,$thousands_sep). ")</td>";
 					echo "	</tr>";
 					echo "</tfoot>"	
 				?>
 		</table>
 	</div>
 	<br>
-	<div class="container alert" role="alert">
+	<div class="container">
 		<b><?php echo $wcg_detail_stats_per_project ?></b>
-
 
 		<table id="table_wcg" class="table table-sm table-striped table-hover table-responsive-sm" width="100%">
 			<thead>
 				<tr>
 					<th class = "alert-header"><b><?php echo $wcg_detail_project; ?></b></th>
-					<th class = "alert-header text-center"><b><?php echo $wcg_detail_status; ?></b></th>
-					<th class = "alert-header"><b><?php echo $wcg_detail_points; ?></b></th>
-					<th class = "alert-header"><b><?php echo $wcg_detail_results; ?></b></th>
+					<th class = "alert-header text-center d-none d-sm-table-cell"><b><?php echo $wcg_detail_status; ?></b></th>
+					<th class = "alert-header d-none d-sm-table-cell"><b><?php echo $wcg_detail_points; ?></b></th>
+					<th class = "alert-header d-none d-md-table-cell"><b><?php echo $wcg_detail_results; ?></b></th>
 					<th class = "alert-header"><b><?php echo $wcg_detail_runtimedetail; ?></b></th>
 					<th class = "alert-header text-center no-sort"><b><?php echo $wcg_detail_badge; ?></b></th>
 				</tr>
@@ -221,36 +220,36 @@
 							if ($table_row["status"] === "Active") {
 									echo "<tr>";
 									echo "<td class='text-success'>" .$table_row["project_longname"]. "</td>";
-									echo "<td  class='text-success text-center' data-order='1'><i class='fa fa-square' aria-hidden='true'></i></td>";	
-									echo "<td class='text-success'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
-									echo "<td class='text-success'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
+									echo "<td  class='text-success text-center d-none d-sm-table-cell' data-order='1'><i class='fa fa-square' aria-hidden='true'></i></td>";	
+									echo "<td class='text-success d-none d-sm-table-cell'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
+									echo "<td class='text-success d-none d-md-table-cell'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
 									echo "<td class='text-success' data-order='" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
 									echo "<td class='text-success text-center'><img title='" .$table_row["description"]. "' src='" .$table_row["badge"]. "' alt='" .$table_row["description"]. "'></td>";						
 									echo "</tr>";
 							} elseif ($table_row["status"] === "Intermittent") {
 									echo "<tr>";
 									echo "<td class='text-warning'>" .$table_row["project_longname"]. "</td>";
-									echo "<td class='text-warning text-center' data-order='2'><i class='fa fa-square' aria-hidden='true'></i></td>";
-									echo "<td class='text-warning'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
-									echo "<td class='text-warning'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
+									echo "<td class='text-warning text-center d-none d-sm-table-cell' data-order='2'><i class='fa fa-square' aria-hidden='true'></i></td>";
+									echo "<td class='text-warning d-none d-sm-table-cell'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
+									echo "<td class='text-warning d-none d-md-table-cell'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
 									echo "<td class='text-warning' data-order='" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
 									echo "<td class='text-warning text-center'><img title='" .$table_row["description"]. "' src='" .$table_row["badge"]. "' alt='" .$table_row["description"]. "'></td>";
 									echo "</tr>";
 							} elseif ($table_row["status"] === "Completed") {
 									echo "<tr>";
 									echo "<td class='text-danger'>" .$table_row["project_longname"]. "</td>";
-									echo "<td class='text-danger text-center' data-order='3'><i class='fa fa-square' aria-hidden='true'></i></td>";
-									echo "<td class='text-danger'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
-									echo "<td class='text-danger'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
+									echo "<td class='text-danger text-center d-none d-sm-table-cell' data-order='3'><i class='fa fa-square' aria-hidden='true'></i></td>";
+									echo "<td class='text-danger d-none d-sm-table-cell'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
+									echo "<td class='text-danger d-none d-md-table-cell'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
 									echo "<td class='text-danger' data-order='" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
 									echo "<td class='text-danger text-center'><img title='" .$table_row["description"]. "' src='" .$table_row["badge"]. "' alt='" .$table_row["description"]. "'></td>";
 									echo "</tr>";
 							} else {
 									echo "<tr>";
 									echo "<td>" .$table_row["project_longname"]. "</td>";
-									echo "<td class='text-center' data-order='3'> - </td>";
-									echo "<td>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
-									echo "<td>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
+									echo "<td class='text-center d-none d-sm-table-cell' data-order='3'> - </td>";
+									echo "<td class='text-danger d-none d-sm-table-cell'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
+									echo "<td class='text-danger d-none d-md-table-cell'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
 									echo "<td data-order='" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
 									echo "<td class='text-center'><img title='" .$table_row["description"]. "' src='" .$table_row["badge"]. "' alt='" .$table_row["description"]. "'></td>";
 									echo "</tr>";

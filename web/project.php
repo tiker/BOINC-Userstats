@@ -331,13 +331,13 @@
 						<tr>
 							<th class = "alert-header"><?php echo "$project_project" ?></th>
 							<th class = "alert-header"><?php echo "$tr_tb_cr" ?></th>
-							<th class = "alert-header"><?php echo "$tr_tb_01" ?></th>
-							<th class = "alert-header"><?php echo "$tr_tb_02" ?></th>
-							<th class = "alert-header"><?php echo "$tr_tb_06" ?></th>
-							<th class = "alert-header"><?php echo "$tr_tb_12" ?></th>
+							<th class = "alert-header d-none d-sm-table-cell"><?php echo "$tr_tb_01" ?></th>
+							<th class = "alert-header d-none d-md-table-cell"><?php echo "$tr_tb_02" ?></th>
+							<th class = "alert-header d-none d-md-table-cell"><?php echo "$tr_tb_06" ?></th>
+							<th class = "alert-header d-none d-sm-table-cell"><?php echo "$tr_tb_12" ?></th>
 							<th class = "alert-success"><?php echo $tr_tb_to; ?></th>
 							<th class = "alert-info"><?php echo $tr_tb_ye; ?></th>
-							<th class = "alert-danger"><?php echo $tr_tb_pe; ?></th>
+							<th class = "alert-danger d-none d-sm-table-cell"><?php echo $tr_tb_pe; ?></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -350,13 +350,13 @@
 										<td>" .$table_row["project_name"] . "</td>";
 								};
 								echo "	<td>" .number_format($table_row["total_credits"],0,$dec_point,$thousands_sep). "</td>
-										<td>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>
-										<td>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
-										<td>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
-										<td>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'success text-success'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'info text-info'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'danger text-danger'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
+										<td class='d-none d-sm-table-cell'>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>
+										<td class='d-none d-md-table-cell'>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
+										<td class='d-none d-md-table-cell'>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
+										<td class='d-none d-sm-table-cell'>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
+										<td class='success text-success'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
+										<td class='info text-info'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
+										<td class='danger text-danger d-none d-sm-table-cell'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
 									</tr>";
 							}
 						?>

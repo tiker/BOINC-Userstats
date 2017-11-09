@@ -134,7 +134,6 @@ table, th, tr, td {
 	color: rgb(179, 60, 18) !important;
 }
 
-
 .force_min_height {
 	display: flex;
 	min-height: 100vh;

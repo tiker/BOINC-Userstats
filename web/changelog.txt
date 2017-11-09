@@ -13,7 +13,8 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_09: weitere kleine Designanpassungen und Start umbenennen von Variablen
  dev_10: Farbanpassungen der Charts (vergraufarbt)
  dev_11: Fehlerbehebungen css und Edge-Farbkompatibiltät
- 
+ dev_12: Tabellenlayout reponsiv erstellt (hide/show von Spalten sm, md, lg)
+
 - Die Navbar ist nun als fester Bestandteil integriert worden. Sie beinhaltet nun die wichtigsten Links.
   Dadurch wird der Seitenheader auch kleiner.
   Selbstverständlich ist deren Inhalt auch wieder konfigurierbar!
@@ -23,6 +24,20 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
   Zudem wurde das Design ein wenig angepasst
 - Die Links zu den Projektseiten von beendeten Projekten wurde entfernt.
   Oft existiert die Webpräsenz nicht mehr und wurde von Domaingrabbern mit Werbeinhalten versehen. Solche Seiten möchte ich nicht länger verlinkt haben.
+
+ToDo:
+-----
+- hide columns in tasks.html
+- layout Suchfeld von dataTables
+- evtl. weitere Detail-Projekt-Module (PG?)
+- Ajax für pendings.php
+- Umstellung DB-Daten auf UTC
+- Ändern Code nach Umstellung auf UTC
+- Navigation einfügen bei deaktivierter Navbar
+- Erstellung weiterer Templates für Code-Vereinfachung?
+
+
+
 
 
 
