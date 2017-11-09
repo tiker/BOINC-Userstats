@@ -377,7 +377,7 @@
 						<th class = "alert-header d-none d-sm-table-cell"><?php echo $tr_tb_01; ?></th>
 						<th class = "alert-header d-none d-lg-table-cell"><?php echo $tr_tb_02; ?></th>
 						<th class = "alert-header d-none d-lg-table-cell"><?php echo $tr_tb_06; ?></th>
-						<th class = "alert-header d-none d-sm-table-cell"><?php echo $tr_tb_12; ?></th>
+						<th class = "alert-header d-none d-md-table-cell"><?php echo $tr_tb_12; ?></th>
 						<th class = "alert-success"><?php echo $tr_tb_to; ?></th>
 						<th class = "alert-info d-none d-sm-table-cell"><?php echo $tr_tb_ye; ?></th>
 						<th class = "alert-danger d-none d-md-table-cell"><?php echo $tr_tb_pe; ?></th>
@@ -393,7 +393,7 @@
 						<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
 						<td class="alert-info d-none d-lg-table-cell">
 						<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="alert-info d-none d-sm-table-cell">
+						<td class="alert-info d-none d-md-table-cell">
 						<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
 						<td class = "alert-success">
 						<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
@@ -425,9 +425,9 @@
 								} else
 									echo "  <td class='d-none d-lg-table-cell'>-</td>";
 								if ($table_row["sum12h"] != "") {
-									echo "  <td class='d-none d-sm-table-cell'>" . number_format($table_row["sum12h"], 0, $dec_point, $thousands_sep) . "</td>";
+									echo "  <td class='d-none d-md-table-cell'>" . number_format($table_row["sum12h"], 0, $dec_point, $thousands_sep) . "</td>";
 								} else
-									echo "  <td class='d-none d-sm-table-cell'>-</td>";
+									echo "  <td class='d-none d-md-table-cell'>-</td>";
 								if ($table_row["sum_today"] != "") {
 									echo "  <td class = 'success text-success'><b>" . number_format($table_row["sum_today"], 0, $dec_point, $thousands_sep) . "</b></td>";
 								} else
@@ -454,7 +454,7 @@
 							<td class = "alert-header d-none d-sm-table-cell"><b><?php echo $tr_tb_01 ?></b></td>
 							<td class = "alert-header d-none d-lg-table-cell"><b><?php echo $tr_tb_02 ?></b></td>
 							<td class = "alert-header d-none d-lg-table-cell"><b><?php echo $tr_tb_06 ?></b></td>
-							<td class = "alert-header d-none d-sm-table-cell"><b><?php echo $tr_tb_12 ?></b></td>
+							<td class = "alert-header d-none d-md-table-cell"><b><?php echo $tr_tb_12 ?></b></td>
 							<td class = "alert-success"><b><?php echo $tr_tb_to; ?></b></td>
 							<td class = "alert-info d-none d-sm-table-cell"><b><?php echo $tr_tb_ye; ?></b></td>
 							<td class = "alert-danger d-none d-md-table-cell"><b><?php echo $tr_tb_pe; ?></b></td>
@@ -471,7 +471,7 @@
 									<td class = 'text-muted text-sm d-none d-sm-table-cell'></td>
 									<td class = 'text-muted text-sm d-none d-lg-table-cell'></td>
 									<td class = 'text-muted text-sm d-none d-lg-table-cell'></td>
-									<td class = 'text-muted text-sm d-none d-sm-table-cell'></td>
+									<td class = 'text-muted text-sm d-none d-md-table-cell'></td>
 									<td class = 'text-muted text-sm'></td>
 									<td class = 'text-muted text-sm d-none d-sm-table-cell'></td>
 									<td class = 'text-muted text-sm d-none d-md-table-cell'></td>
@@ -491,7 +491,7 @@
 										<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
 										<td class="alert-info d-none d-lg-table-cell">
 										<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class="alert-info d-none d-sm-table-cell">
+										<td class="alert-info d-none d-md-table-cell">
 										<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
 										<td class = "alert-success">
 										<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
@@ -508,7 +508,7 @@
 										<th class = "alert-header d-none d-sm-table-cell"><?php echo $tr_tb_01; ?></th>
 										<th class = "alert-header d-none d-lg-table-cell"><?php echo $tr_tb_02; ?></th>
 										<th class = "alert-header d-none d-lg-table-cell"><?php echo $tr_tb_06; ?></th>
-										<th class = "alert-header d-none d-sm-table-cell"><?php echo $tr_tb_12; ?></th>
+										<th class = "alert-header d-none d-md-table-cell"><?php echo $tr_tb_12; ?></th>
 										<th class = "alert-success"><?php echo $tr_tb_to; ?></th>
 										<th class = "alert-info d-none d-sm-table-cell"><?php echo $tr_tb_ye; ?></th>
 										<th class = "alert-danger d-none d-md-table-cell"><?php echo $tr_tb_pe; ?></th>
