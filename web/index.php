@@ -484,25 +484,25 @@
 										<td class="dunkelblau textblau"><b><?php echo $text_boinc_total ?></b></td>
 										<td class="dunkelblau textblau align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
 										<td class="dunkelblau textblau"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class="dunkelblau textblau d-none d-sm-table-cell"><b>100%</b></th>
+										<td class="dunkelblau textblau d-none d-sm-table-cell"><b>100%</b></td>
 										<td class="dunkelblau textblau d-none d-sm-table-cell">
 										<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
 										<td class="dunkelblau textblau d-none d-lg-table-cell">
 										<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class="dunkelblau textblaud-none d-lg-table-cell">
+										<td class="dunkelblau textblau d-none d-lg-table-cell">
 										<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
 										<td class="dunkelblau textblau d-none d-md-table-cell">
 										<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
 										<td class = "dunkelgruen textgruen">
 										<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class = "dunkelblau textblau d-none d-sm-table-cell">
+										<td class = "dunkelblau text-blau d-none d-sm-table-cell">
 										<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
 										<td class = "dunkelrot textrot d-none d-md-table-cell">
 										<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
 									</tr>
 									<tr>
 										<th class = "dunkelgrau textgrau"> </th>
-										<th class = "dunkelgrau textgrau no-sort align-middle text-center"> </th>
+										<th class = "dunkelgrau textgrau align-middle text-center"> </th>
 										<th class = "dunkelgrau textgrau"><?php echo $tr_tb_cr; ?></th>
 										<th class = "dunkelgrau textgrau d-none d-sm-table-cell">%</th>
 										<th class = "dunkelgrau textgrau d-none d-sm-table-cell"><?php echo $tr_tb_01; ?></th>
