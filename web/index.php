@@ -333,7 +333,7 @@
 	</div>
 
 	<div class = "container-fluid">
-		<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+		<ul class="nav nav-tabs nav-space justify-content-center" id="myTab" role="tablist">
 			<li class="nav-item">
 				<a class="nav-link active" id="projekte-tab" data-toggle="tab" href="#projekte" role="tab" aria-controls="projekte" aria-selected="true"><i class="fa fa-table"></i> <?php echo "$tabs_project" ?></a>
 			</li>

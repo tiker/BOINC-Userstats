@@ -286,7 +286,7 @@
 			</div>
 		</div>
 
-		<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+		<ul class="nav nav-space nav-tabs justify-content-center" id="myTab" role="tablist">
 			<li class="nav-item">
 				<a class="nav-link active" id="projekte-tab" data-toggle="tab" href="#projekte" role="tab" aria-controls="projekte" aria-selected="true"><i class="fa fa-table"></i> <?php echo "$tabs_project" ?></a>
 			</li>
@@ -326,37 +326,37 @@
 
 			<div id="projekte" class="tab-pane fade show active" role="tabpanel" aria-labelledby="projekte-tab">
 				<br>
-				<table class="table table-sm table-striped table-hover table-responsive-sm" width="100%">	
+				<table id="table_projects" class="table table-sm table-striped table-hover table-responsive-sm" width="100%">	
 					<thead>
 						<tr>
-							<th class = "alert-header"><?php echo "$project_project" ?></th>
-							<th class = "alert-header"><?php echo "$tr_tb_cr" ?></th>
-							<th class = "alert-header d-none d-sm-table-cell"><?php echo "$tr_tb_01" ?></th>
-							<th class = "alert-header d-none d-md-table-cell"><?php echo "$tr_tb_02" ?></th>
-							<th class = "alert-header d-none d-md-table-cell"><?php echo "$tr_tb_06" ?></th>
-							<th class = "alert-header d-none d-md-table-cell"><?php echo "$tr_tb_12" ?></th>
-							<th class = "alert-success"><?php echo $tr_tb_to; ?></th>
-							<th class = "alert-info"><?php echo $tr_tb_ye; ?></th>
-							<th class = "alert-danger d-none d-sm-table-cell"><?php echo $tr_tb_pe; ?></th>
+							<th class = "alert-header text-center"><?php echo "$project_project" ?></th>
+							<th class = "alert-header text-center"><?php echo "$tr_tb_cr" ?></th>
+							<th class = "alert-header d-none d-sm-table-cell text-center"><?php echo "$tr_tb_01" ?></th>
+							<th class = "alert-header d-none d-md-table-cell text-center"><?php echo "$tr_tb_02" ?></th>
+							<th class = "alert-header d-none d-md-table-cell text-center"><?php echo "$tr_tb_06" ?></th>
+							<th class = "alert-header d-none d-md-table-cell text-center"><?php echo "$tr_tb_12" ?></th>
+							<th class = "alert-success text-center"><?php echo $tr_tb_to; ?></th>
+							<th class = "alert-info text-center"><?php echo $tr_tb_ye; ?></th>
+							<th class = "alert-danger d-none d-sm-table-cell text-center"><?php echo $tr_tb_pe; ?></th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php
 							foreach($table as $table_row){
-								echo "<tr class='alert-default'>";
+								echo "<tr>";
 								if ($table_row["project_status"]=== "1") { echo "
-										<td><a href='" .$table_row["project_home_link"] . "'>" .$table_row["project_name"] . "</a>";
+										<td class='text-center'><a href='" .$table_row["project_home_link"] . "'>" .$table_row["project_name"] . "</a>";
 								} else { echo "
-										<td>" .$table_row["project_name"] . "</td>";
+										<td class='text-center'>" .$table_row["project_name"] . "</td>";
 								};
-								echo "	<td>" .number_format($table_row["total_credits"],0,$dec_point,$thousands_sep). "</td>
-										<td class='d-none d-sm-table-cell'>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>
-										<td class='d-none d-md-table-cell'>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
-										<td class='d-none d-md-table-cell'>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
-										<td class='d-none d-md-table-cell'>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
-										<td class='success text-success'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
-										<td class='info text-info'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
-										<td class='danger text-danger d-none d-sm-table-cell'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
+								echo "	<td class='text-center'>" .number_format($table_row["total_credits"],0,$dec_point,$thousands_sep). "</td>
+										<td class='d-none d-sm-table-cell text-center'>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>
+										<td class='d-none d-md-table-cell text-center'>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
+										<td class='d-none d-md-table-cell text-center'>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
+										<td class='d-none d-md-table-cell text-center'>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
+										<td class='success text-success text-center'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
+										<td class='info text-info text-center'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
+										<td class='danger text-danger d-none d-sm-table-cell text-center'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
 									</tr>";
 							}
 						?>
@@ -415,5 +415,25 @@
 				<br>
 			</div>
 		</div>
+
+		<script>
+		$(document).ready(function() {
+			$('#table_projects').DataTable( {
+				"bSortCellsTop": false,
+				"language": {
+					"decimal": "<?php echo $dec_point; ?>",
+					"thousands": "<?php echo $thousands_sep; ?>",
+					"search":	"<?php echo $text_search; ?>"
+				},
+				"columnDefs": [ {
+					"targets"  : 'no-sort',
+					"orderable": false,
+				}],
+				"paging": false,
+				"info": false,
+				"searching": false
+			} );
+		} );
+	</script>
 
 	<?php include("./footer.php"); ?>

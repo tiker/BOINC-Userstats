@@ -146,10 +146,9 @@
 	else include "./lang/en.txt.php";
 ?>
 
-	<br>
 	<div class="container">
 		<b><?php echo $wcg_detail_team_history; ?></b>
-		<table class="table table-sm table-striped table-hover table-responsive-sm" width="100%">
+		<table id="table_wcgteams" class="table table-sm table-striped table-hover table-responsive-sm" width="100%">
 			<thead>
 				<tr>
 					<th class = "alert-header"><b><?php echo "$wcg_detail_team" ?></b></th>
@@ -260,6 +259,26 @@
 			</tbody>
 		</table>
 	</div>
+
+<script>
+	$(document).ready(function() {
+		$('#table_wcgteams').DataTable( {
+			"language": {
+				"decimal": "<?php echo $dec_point; ?>",
+				"thousands": "<?php echo $thousands_sep; ?>",
+				"search":	"<?php echo $text_search; ?>"
+			},
+			"order": [[ 1, "asc" ],[ 0, "asc" ]],
+			"columnDefs": [ {
+				"targets": 'no-sort',
+				"orderable": false,
+			}],
+			"paging": false,
+			"info": false,
+			"searching"; false
+		} );
+	} );
+</script>
 
 <script>
 	$(document).ready(function() {

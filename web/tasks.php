@@ -52,7 +52,7 @@ else include "./lang/highstock_en.js";
 
 	<script>
 		$(document).ready(function() {
-			$('#table_boinctasks').DataTable( {
+			$('#table_tasks').DataTable( {
 				"language": {
 					"decimal": "<?php echo $dec_point; ?>",
 					"thousands": "<?php echo $thousands_sep; ?>",

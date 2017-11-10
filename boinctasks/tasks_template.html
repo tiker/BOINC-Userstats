@@ -9,19 +9,31 @@
 				<div class="container-fluid">
 					<!-- 
 					__InsertHeaderTemplateBegin__
-					<tr class="alert-header">
-					<th>__Project__</th><th>__Application__</th><th>__Elapsed__</th><th>__Percentage__</th><th>Restzeit</th><th>__Deadline__</th><th>__Computer__</th>
+					<tr>
+						<th class = "alert-header">__Project__</th>
+						<th class = "alert-header d-none d-md-table-cell">__Application__</th>
+						<th class = "alert-header d-none d-md-table-cell">__Elapsed__</th>
+						<th class = "alert-header">__Percentage__</th>
+						<th class = "alert-header d-none d-sm-table-cell">Restzeit</th>
+						<th class = "alert-header d-none d-lg-table-cell">__Deadline__</th>
+						<th class = "alert-header">__Computer__</th>
 					</tr>
 					__InsertHeaderTemplateEnd__ -->
 
 					<!-- 
 					__InsertRowTemplateBegin__
 					<tr>
-					<td BGCOLOR="#__ProjectColor__" style="vertical-align: middle;">__Project__</td><td BGCOLOR="#__ApplicationColor__">__Application__</td><td BGCOLOR="#__ElapsedColor__">__Elapsed__</td><td BGCOLOR="#__PercentageColor__"><div class="progress" style="margin-bottom: 0px;"><div class="progress-bar progress-bar-info" role="progress-bar" aria-value-now="__Percentage__" aria-valuemin="0" aria-valuemax="100" style="width: __Percentage__%">__Percentage__%<span class="sr-only">__Percentage__% Complete</span></div></div></td><td BGCOLOR="#__TimeleftColor__">__Timeleft__</td><td BGCOLOR="#__DeadlineColor__">__Deadline__</td><td BGCOLOR="#__ComputerColor__">__Computer__</td>
+						<td BGCOLOR="#__ProjectColor__" style="vertical-align: middle;">__Project__</td>
+						<td class = "d-none d-md-table-cell" BGCOLOR="#__ApplicationColor__">__Application__</td>
+						<td class = "d-none d-md-table-cell" BGCOLOR="#__ElapsedColor__">__Elapsed__</td>
+						<td BGCOLOR="#__PercentageColor__"><div class="progress" style="margin-bottom: 0px;"><div class="progress-bar progress-bar-info" role="progress-bar" aria-value-now="__Percentage__" aria-valuemin="0" aria-valuemax="100" style="width: __Percentage__%">__Percentage__%<span class="sr-only">__Percentage__% Complete</span></div></div></td>
+						<td class = "d-none d-sm-table-cell" BGCOLOR="#__TimeleftColor__">__Timeleft__</td>
+						<td class = "d-none d-lg-table-cell" BGCOLOR="#__DeadlineColor__">__Deadline__</td>
+						<td BGCOLOR="#__ComputerColor__">__Computer__</td>
 					</tr>
 					__InsertRowTemplateEnd__ -->
 
-					<table id="table_boinctasks" class="table table-striped table-hover table-sm text-left" width="100%" style="background: linear-gradient(to bottom, #FFFFFF 70%, #F3F3F3 100%); box-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+					<table id="table_projects" class="table table-sm table-striped table-hover table-responsive-sm table-ellipsis" width="100%">
 						<thead>
 							__InsertHeader__
 						</thead>

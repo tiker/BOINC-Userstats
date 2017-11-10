@@ -280,56 +280,31 @@ switch ($errorcode) {
 	}
 ?>
 
-<?php echo $html_head; ?>
-	<style>
-		.force_min_height {
-			display: flex;
-			min-height: 100vh;
-			flex-direction: column;
+<?php
+	//Sprache feststellen
+	if (isset($_GET["lang"])) $lang = $_GET["lang"];
+	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
+	
+	//Sprachpaket HP einlesen
+	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
+	else include "./lang/en.txt.php";
+
+	//Sprachpaket Highcharts einlesen
+	if (file_exists("./lang/highstock_" . $lang . ".js")) include "./lang/highstock_" . $lang . ".js";
+	else include "./lang/highstock_en.js";
+
+	//Check für WCG-Details
+	$showWCGDetails = false;
+	if ($table_row["project_name"] == "World Community Grid" || $table_row["project_name"] == "wcg") {
+		if ($wcg_verification === NULL || $wcg_verification === "") {
+			$showWCGDetails = false; 
+		} else {
+			$showWCGDetails = true;
 		}
-		.flex1 {
-			flex: 1;
-		}
-	</style>
-</head>
-<body>
-<div class="wrapper force_min_height">	
-	<?php if ( $showNavbar ) echo $html_nav ?>
-	<!--div class="landing-header"-->
-	<div class="header img-reponsive" style="background-image: url('<?php echo $header_backround_url ?>');">
-		<div class="container">
-			<div class="motto">
-				<h1 class="title" style="color: white;"><?php echo "$text_header_motto" ?></h1>
-				<h3><font color="white"><?php echo "$boinc_username" . " " . $text_header_ot . " " . $boinc_teamname ?></font></h3>				
-				<?php //sind laufende WUs im Internet ersichtlich
-					if ( $hasBoinctasks ) {
-						echo '<a href="' . $linkBoinctasks . '" class="btn btn-neutral btn-simple"><i class="fa fa-tasks"></i> ' . $linkNameBoinctasks . '</a>';
-					};
-				?>				
-				<?php //Link zu Boinctasks
-					if ( $hasBoincstats ) {
-						echo '<a href="' . $linkBoincstats . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-bar-chart"></i> ' . $linkNameBoincstats . '</a>';
-					};
-				?>
-				<br/>
-				<?php //Link zu Team
-					if ( $hasTeamHp ) {
-						echo '<a href="' . $teamHpURL . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-link"></i> ' . $teamHpName . '</a>';
-					};
-				?>				
-				<?php //Link zu WCG
-					if ( $hasWcg ) {
-						echo '<a href="' . $linkWcg . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-globe"></i> ' . $linkNameWcg . '</a>';
-					};
-				?>
-				<?php //Pendings
-					if ( $hasPendings ) {
-						echo '<a href="' . $linkPendings . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-refresh"></i> ' . $linkNamePendings . '</a>';
-					};
-				?>
-			</div>
-		</div>
-	</div>
+	} 
+?>
+
+<?php include("./header.php"); ?>
 
 	<div class="container text-center  flex1">
 				<h1 class="title text-center"><?php echo $error_description; ?></h1>
@@ -340,7 +315,4 @@ switch ($errorcode) {
 				</h5>					
 	</div>
 
-	<?php echo "$html_footer" ?>
-</div>
-</body>
-</html>
+<?php include("./footer.php"); ?>
