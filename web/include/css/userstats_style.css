@@ -150,5 +150,5 @@ color: rgb(0, 0, 0);
 .nav-tabs-userstats .nav-item.show .nav-link, .nav-tabs-userstats .nav-link.active {
 	color: rgb(77, 76, 76) !important;
 	background-color: rgb(252, 250, 249) !important;
-    border-color: #ddd #ddd #fff;
+    border-color: rgb(77, 76, 76) rgb(77, 76, 76)rgb(252, 250, 249) rgb(77, 76, 76);
 }
