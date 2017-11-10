@@ -9,7 +9,8 @@ $(function () {
 	var chart = new Highcharts.StockChart({
 		chart: {
 			renderTo: 'output_project_month',
-			defaultSeriesType: 'column'
+			defaultSeriesType: 'column',
+			backgroundColor: 'rgb(252, 250, 249)'
 		},    
 		navigator: {
 			enabled: false,

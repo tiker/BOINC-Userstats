@@ -41,6 +41,8 @@
 					<div class="d-inline-flex flex-column" style="background: rgba(255, 255, 255, 0.3); border-radius: 12px; padding: 12px; border: 1px solid #d3d3d3">
 						<?php if ($showProjectHeader) { echo '
 								<h1 class="title"><font color="white">' . $projectname . '</font></h1>
+						';} else if ($showPendingsHeader) { echo '
+							<h1 class="title"><font color="white">' . $text_header_pendings . '</font></h1>
 						';} else { echo '
 							<h1 class="title"><font color="white">' . $text_header_motto .  '</font></h1>
 						';};

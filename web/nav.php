@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
+<nav class="navbar navbar-expand-md fixed-top navbar-userstats">
 	<div class = "container">
 	<a href="<?php echo $hp_nav_brand_link; ?>"><img class="navbar-brand" src="<?php echo $brand_logo; ?>" width="30px" alt="logo"></a>
 		<a class="navbar-brand" href="./index.php">Home</a>

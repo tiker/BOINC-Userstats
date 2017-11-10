@@ -1,6 +1,7 @@
 <?php
 	include "./settings/settings.php";
 	date_default_timezone_set('UTC');
+	$showPendingsHeader = true;
 	//-----------------------------------------------------------------------------------
 	// ab hier bitte keine Aenderungen vornehmen, wenn man nicht weiß, was man tut!!! :D
 	//-----------------------------------------------------------------------------------
@@ -46,15 +47,16 @@ else include "./lang/highstock_en.js";
 
 <?php include("./header.php"); ?>
 
+<div class="alert info-lastupdate" role="alert">
+	<div class="container">
+		<b><?php echo $tr_hp_pendings_02; ?></b>
+	</div>
+</div>
+
+
 	<div class="container text-center flex1">
-		<h2 class="title-uppercase text-center">Pending Credits</h2>
-		<div class="alert alert-success" role="alert">
-			<div class="container">
-				<?php echo $tr_hp_pendings_02; ?>
-			</div>
-		</div>	
-		<br><br>
-		<table id="table_pendings" class="table table-striped table-hover table-sm table-responsive" width="100%">
+
+			<table id="table_pendings" class="table table-striped table-hover table-sm table-responsive" width="100%">
 			<thead>
 				<th class="dunkelgrau textgrau"><?php echo $tr_tb_pr ?></th>
 				<th class="dunkelgrau textgrau text-left"><?php echo $tr_tb_pe ?></th>
@@ -116,6 +118,7 @@ else include "./lang/highstock_en.js";
 			</div>
 		</div>			
 	</div>
+
 
 	<script>
 		$(document).ready(function() {

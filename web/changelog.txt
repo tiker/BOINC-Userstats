@@ -16,6 +16,7 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_12: Tabellenlayout reponsiv erstellt (hide/show von Spalten sm, md, lg)
  dev_13: Tabellenlayout für tasks umgesetzt
  dev_14: Trennung zwischen Layout- und Style-css, Eigene Style-Templates
+ dev_15: Pendings-Seite Desing verbessert, Allgemeines Design (Hintergrundfarben, Link-Farben, Navbar-Hintergrundfarbe usw.) verbessert
 
 - Das Design wurde erneuert. Es besteht nun die Möglichkeit, die Farben individuell anzupassen (include/css/userstats_style.css).
   Von der userstats_layout.css würde ich die Finger lassen! Diese beinhaltet die wichtigen Einstellungen zum Seiten-Layout.

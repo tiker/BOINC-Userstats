@@ -9,7 +9,8 @@ $(function () {
 	var chart = new Highcharts.stockChart({
 		chart: {
 			renderTo: 'output_gesamt_day',
-			defaultSeriesType: 'column'
+			defaultSeriesType: 'column',
+			backgroundColor: 'rgb(252, 250, 249)'
 		},    
 		navigator: {
 			enabled: false,

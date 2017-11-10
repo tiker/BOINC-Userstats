@@ -7,17 +7,17 @@
 							<br>
 						</div>
 						<div class="copyright pull-left text-center">
-							<a class="btn btn-simple btn-background btn-color btn-sm" data-toggle="modal" data-target="#modalImpressum">Impressum</a> 
-							<a class="btn btn-simple btn-background btn-color btn-sm" data-toggle="modal" data-target="#modalDisclaimer">Disclaimer</a> 
-							<a class="btn btn-simple btn-background btn-color btn-sm" data-toggle="modal" data-target="#modalDatenschutz">Datenschutz</a> 
-							<a class="btn btn-simple btn-background btn-color btn-sm" href="https://github.com/XSmeagolX/Pers-nliche-BOINC-Userstats/blob/master/LICENSE" target="_new">MIT License</a> 
-							<br>Diese Seite verwendet <a href="https://www.highcharts.com">Highcharts<i class="fa fa-copyright"></i></a>
+							<a href="#" data-toggle="modal" data-target="#modalImpressum">Impressum</a> | 
+							<a href="#" data-toggle="modal" data-target="#modalDisclaimer">Disclaimer</a> | 
+							<a href="#" data-toggle="modal" data-target="#modalDatenschutz">Datenschutz</a> | 
+							<a href="https://github.com/XSmeagolX/Pers-nliche-BOINC-Userstats/blob/master/LICENSE" target="_new">MIT License</a> 
+							<br><font size="1">Diese Seite verwendet <a href="https://www.highcharts.com">Highcharts<i class="fa fa-copyright"></i></a></font>
 						</div>
 					</nav>
 				</div>
 			</footer>
 			<!-- Modal -->
-			<div class="modal fade" id="modalImpressum" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+			<div class="modal fade" id="modalImpressum" tabindex="-1" role="dialog" aria-labelledby="modalImpressum" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content ">
 						<div class="modal-header">
@@ -40,7 +40,7 @@
 				</div>
 			</div>
 			
-			<div class="modal fade" id="modalDisclaimer" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+			<div class="modal fade" id="modalDisclaimer" tabindex="-1" role="dialog" aria-labelledby="modalDisclaimer" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -71,7 +71,7 @@
 				</div>
 			</div> 
 			
-			<div class="modal fade" id="modalDatenschutz" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+			<div class="modal fade" id="modalDatenschutz" tabindex="-1" role="dialog" aria-labelledby="modalDatenschutz" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">

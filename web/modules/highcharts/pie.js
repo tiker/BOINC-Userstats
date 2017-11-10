@@ -10,7 +10,8 @@ var chart;
 $(document).ready(function() {
 	chart = new Highcharts.Chart({
 		chart: {
-			renderTo: 'projektverteilung'
+			renderTo: 'projektverteilung',
+			backgroundColor: 'rgb(252, 250, 249)'
 		},
 		title: false,
 		plotArea: {

@@ -9,7 +9,8 @@ $(document).ready(function() {
 	chart = new Highcharts.stockChart({
 		chart: {
 			renderTo: 'output',
-			defaultSeriesType: 'areaspline'
+			defaultSeriesType: 'areaspline',
+			backgroundColor: 'rgb(252, 250, 249)'
 		},
 		legend: {
 			enabled: true

@@ -3,6 +3,7 @@
 }
 
 body {
+	background-color: rgb(252, 250, 249) !important;
 	color: rgba(77, 76, 76, 0.966);
 	font-size: 14px;
 	font-family: "Montserrat","Helvetica Neue",Arial,sans-serif;
@@ -35,6 +36,11 @@ body {
 }
 
 #table_tasks {
+	width: calc(30px + 100%) !important;
+	margin-left: -15px;
+}
+
+#table_pendings {
 	width: calc(30px + 100%) !important;
 	margin-left: -15px;
 }
