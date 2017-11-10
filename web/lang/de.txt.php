@@ -99,6 +99,7 @@
 
 	$bt_headline = "Laufende WU's";
 
+	$tabs_projects = "Projekte";
 	$tabs_project = "Projekt";
 	$tabs_pie = "Verteilung";
 	$tabs_total = "Gesamt";

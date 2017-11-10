@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
 	<div class = "container">
-	<a href="<?php $hp_nav_brand_link; ?>"><img class="navbar-brand" src="<?php echo $brand_logo; ?>" width="30px" alt="logo"></a>
+	<a href="<?php echo $hp_nav_brand_link; ?>"><img class="navbar-brand" src="<?php echo $brand_logo; ?>" width="30px" alt="logo"></a>
 		<a class="navbar-brand" href="./index.php">Home</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#moreLinks" aria-controls="moreLinks" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>

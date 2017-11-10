@@ -23,7 +23,6 @@
 	$showNavbar = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist true
 
 	// für die Navbar sind verschiedene Links möglich
-	// Bitte das Logo images/brand.jpg durch ein eigenes ersetzen
 	$brand_logo = "./images/brand_logo.png"; //das kleine Logo oben links neben dem Namen in der Navbar
 	$hp_nav_brand_link = "./index.php"; //wohin der Link auf dem Brand-Logo führen soll
 

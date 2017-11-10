@@ -280,7 +280,7 @@
 <?php include("./modules/highcharts/output_project_year.js"); ?>
 
 
-		<div class="alert alert-info" role="alert">
+		<div class="alert info-lastupdate" role="alert">
 			<div class="container">
 				<?php echo $text_header_lu ?>: <?php echo $lastupdate_start ?> - <?php echo $lastupdate ?> (UTC)
 			</div>
@@ -329,15 +329,15 @@
 				<table id="table_projects" class="table table-sm table-striped table-hover table-responsive-sm" width="100%">	
 					<thead>
 						<tr>
-							<th class = "alert-header text-center"><?php echo "$project_project" ?></th>
-							<th class = "alert-header text-center"><?php echo "$tr_tb_cr" ?></th>
-							<th class = "alert-header d-none d-sm-table-cell text-center"><?php echo "$tr_tb_01" ?></th>
-							<th class = "alert-header d-none d-md-table-cell text-center"><?php echo "$tr_tb_02" ?></th>
-							<th class = "alert-header d-none d-md-table-cell text-center"><?php echo "$tr_tb_06" ?></th>
-							<th class = "alert-header d-none d-md-table-cell text-center"><?php echo "$tr_tb_12" ?></th>
-							<th class = "alert-success text-center"><?php echo $tr_tb_to; ?></th>
-							<th class = "alert-info text-center"><?php echo $tr_tb_ye; ?></th>
-							<th class = "alert-danger d-none d-sm-table-cell text-center"><?php echo $tr_tb_pe; ?></th>
+							<th class = "dunkelgrau textgrau text-center"><?php echo "$project_project" ?></th>
+							<th class = "dunkelgrau textgrau text-center"><?php echo "$tr_tb_cr" ?></th>
+							<th class = "dunkelgrau textgrau d-none d-sm-table-cell text-center"><?php echo "$tr_tb_01" ?></th>
+							<th class = "dunkelgrau textgrau d-none d-md-table-cell text-center"><?php echo "$tr_tb_02" ?></th>
+							<th class = "dunkelgrau textgrau d-none d-md-table-cell text-center"><?php echo "$tr_tb_06" ?></th>
+							<th class = "dunkelgrau textgrau d-none d-md-table-cell text-center"><?php echo "$tr_tb_12" ?></th>
+							<th class = "dunkelgruen textgruen text-center"><?php echo $tr_tb_to; ?></th>
+							<th class = "dunkelblau textblau text-center"><?php echo $tr_tb_ye; ?></th>
+							<th class = "dunkelrot textrot d-none d-sm-table-cell text-center"><?php echo $tr_tb_pe; ?></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -354,9 +354,9 @@
 										<td class='d-none d-md-table-cell text-center'>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
 										<td class='d-none d-md-table-cell text-center'>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
 										<td class='d-none d-md-table-cell text-center'>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
-										<td class='success text-success text-center'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
-										<td class='info text-info text-center'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
-										<td class='danger text-danger d-none d-sm-table-cell text-center'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
+										<td class='gruen textgruen text-center'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
+										<td class='blau textblau text-center'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
+										<td class='rot textrot d-none d-sm-table-cell text-center'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
 									</tr>";
 							}
 						?>
@@ -431,6 +431,7 @@
 				}],
 				"paging": false,
 				"info": false,
+				"sorting": false,
 				"searching": false
 			} );
 		} );

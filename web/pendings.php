@@ -56,8 +56,8 @@ else include "./lang/highstock_en.js";
 		<br><br>
 		<table id="table_pendings" class="table table-striped table-hover table-sm table-responsive" width="100%">
 			<thead>
-				<th class="alert-header"><?php echo $tr_tb_pr ?></th>
-				<th class="alert-header text-left"><?php echo $tr_tb_pe ?></th>
+				<th class="dunkelgrau textgrau"><?php echo $tr_tb_pr ?></th>
+				<th class="dunkelgrau textgrau text-left"><?php echo $tr_tb_pe ?></th>
 			</thead>
 			<tbody>									
 				<?php
@@ -101,8 +101,12 @@ else include "./lang/highstock_en.js";
 							echo "<td class='text-left'>" . number_format($pending_credits, 0, $dec_point, $thousands_sep) . "</td></tr>";
 						}
 					}
-					echo "<tfoot><tr class='alert-info'><td>GESAMT Pendings</td>";
-					echo "<td class='text-left'>" . number_format($pendings_gesamt, 0, $dec_point, $thousands_sep) . "</td></tr></tfoot>";
+					echo "<tfoot>
+							<tr>
+								<td class='dunkelblau textblau'>GESAMT Pendings</td>";
+					echo "		<td class='dunkelblau textblau text-left'>" . number_format($pendings_gesamt, 0, $dec_point, $thousands_sep) . "</td>
+							</tr>
+						</tfoot>";
 				?>
 			</tbody>
 		</table>

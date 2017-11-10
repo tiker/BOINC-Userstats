@@ -14,6 +14,7 @@ body {
 .jumbotron {
 	margin-top: 57px;
 	margin-bottom: 0rem;
+	background-color: rgba(85, 82, 82, 0.376);
 	color: rgb(255, 255, 255);
 /*	-webkit-filter: grayscale(1);
 	filter: grayscale(1);
@@ -26,18 +27,13 @@ body {
     margin-left: -15px;
     margin-right: -15px;
 }
-
-#table_project {
-	width: calc(30px + 100%) !important;
-	margin-left: 15px;
-	margin-right: 15px;
-}
 */
 
 #table_wcg {
 	width: calc(30px + 100%) !important;
 	margin-left: -15px;
 }
+
 #table_tasks {
 	width: calc(30px + 100%) !important;
 	margin-left: -15px;
@@ -49,11 +45,11 @@ body {
 
 .navbar a {
 	font-size: 10pt;
-	color: rgb(73, 73, 73);
+	color: rgba(73, 73, 73, 0.815);
 }
 
 a {
-	color: rgb(104, 100, 100);
+	color: rgba(73, 73, 73, 0.7);
 	-webkit-transition: all 150ms linear;
 	-moz-transition: all 150ms linear;
 	-o-transition: all 150ms linear;
@@ -61,8 +57,15 @@ a {
 	transition: all 150ms linear;
 }
 
-a:hover, a:focus {
-	color: rgb(48, 48, 48);
+a:hover {
+	color: rgb(44, 43, 43);
+/*	color: rgb(48, 48, 48); */
+	text-decoration: none;
+}
+
+a:focus {
+	color: rgb(36, 35, 35);
+/*	color: rgb(48, 48, 48); */
 	text-decoration: none;
 }
 
@@ -94,11 +97,18 @@ table, th, tr, td {
 }
 
 .footer {
+	padding: 20px;
 	font-size: 10pt;
 }
 
 .footer a {
-	font-size: 8pt;
+	font-size: 10pt;
+	color: rgb(170, 166, 166)
+}
+
+.footer a:hover {
+	font-size: 10pt;
+	color: rgb(255, 255, 255)
 }
 
 .modal-dialog {

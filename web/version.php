@@ -1,6 +1,6 @@
 <?php
 
 	//Versionsnummer
-	$userstats_version = "V 5.0.0 dev_13";
+	$userstats_version = "V 5.0.0 dev_14";
 	
 ?>

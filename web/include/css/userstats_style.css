@@ -1,32 +1,100 @@
+/* Hier kann der User seine eigene Farbauswahl erstellen */
+/*==================================================*/
 
-.btn:hover, .btn:focus, .btn:active, .btn.active, .open > .btn.dropdown-toggle {
-	background-color: rgba(102, 97, 91, 0);
-	color: rgb(255, 255, 255);
-}
+/* Hintergrundfarben der Tabellenspalten */
 
-.alert-header {
+.dunkelgrau {
 	background-color: rgba(85, 82, 82, 0.376);
-	color: rgb(65, 63, 63);
 }
 
-.header {
-	background-color: rgb(104, 100, 100);
+.dunkelblau {
+	background-color: rgb(134, 206, 224);
 }
 
-.info {
+.dunkelrot {
+	background-color: rgb(224, 169, 147);
+}
+
+.dunkelgelb {
+	background-color: rgb(219, 203, 157);
+}
+
+.dunkelgruen {
+	background-color: rgb(139, 221, 181);
+}
+
+.grau {
+	background-color: rgba(65, 63, 63, 0.1);
+}
+
+.blau {
 	background-color: rgba(124, 230, 254, 0.3);
 }
 
-.success {
-	background-color: rgba(142, 243, 196, 0.3);
+.rot {
+	background-color: rgba(255, 142, 94, 0.3);
 }
 
-.warning {
+.gelb {
 	background-color: rgba(255, 224, 140, 0.3);
 }
 
-.danger {
-	background-color: rgba(255, 142, 94, 0.3);
+.gruen {
+	background-color: rgba(142, 243, 196, 0.3);
+}
+
+
+/* Schriftfarben */
+
+.textprimaer {
+	color: rgb(66, 124, 137) !important;
+}
+
+.textgrau {
+	color: rgb(65, 63, 63);
+}
+
+.textblau {
+	color: rgb(10, 98, 128);
+}
+
+.textrot {
+	color: rgb(107, 16, 16);
+}
+
+.textgelb {
+	color: rgb(121, 105, 19);
+}
+
+.textgruen {
+	color: rgb(16, 109, 81);
+}
+
+.text-muted {
+	color: rgba(221, 221, 221, 0.692);
+}
+
+.texthellblau {
+	color: rgb(48, 145, 178) !important;
+}
+
+.texthellgruen {
+	color: rgb(66, 160, 132) !important;
+}
+
+.texthellgelb {
+	color: rgb(187, 153, 47) !important;
+}
+
+.texthellrot {
+	color: rgb(179, 60, 18) !important;
+}
+
+/* Farben von Alerts */
+
+.info-lastupdate {
+	background-color: rgb(134, 206, 224);
+	color: rgb(10, 98, 128);
 }
 
 .alert-info {
@@ -49,38 +117,17 @@
 	color: rgb(107, 16, 16);
 }
 
-.text-muted {
-	color: rgba(221, 221, 221, 0.692);
-}
+/* Buttons */
 
-.text-primary, .text-primary:hover {
-	color: rgb(66, 124, 137) !important;
+.btn:hover, .btn:focus, .btn:active, .btn.active, .open > .btn.dropdown-toggle {
+	background-color: rgba(102, 97, 91, 0);
+	color: rgb(255, 255, 255);
 }
-
-.text-info, .text-info:hover {
-	color: rgb(48, 145, 178) !important;
-}
-
-.text-success, .text-success:hover {
-	color: rgb(66, 160, 132) !important;
-}
-
-.text-warning, .text-warning:hover {
-	color: rgb(187, 153, 47) !important;
-}
-
-.text-danger, .text-danger:hover {
-	color: rgb(179, 60, 18) !important;
-}
-
-	/* solche sachen legst du in ein separates CSS, auf der Seite muss dieses als letztes css geladen werden*/
 
 .btn-background {
-	/* user: gib hier deine Standard-Button-Hintergrundfarbe ein */
 	background-color:#000;
 }
 
 .btn-color{
-	/* user: gib hier deine Standard-Button-Schriftfarbe ein */
 	color:#fff
 }

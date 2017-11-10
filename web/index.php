@@ -326,7 +326,7 @@
 	<?php include("./modules/highcharts/output_gesamt_month.js"); ?>
 	<?php include("./modules/highcharts/output_gesamt_year.js"); ?>
 
-	<div class="alert alert-info" role="alert">
+	<div class="alert info-lastupdate" role="alert">
 		<div class="container">
 			<b><?php echo $text_header_lu ?></b>: <?php echo $lastupdate_start ?> - <?php echo $lastupdate ?> (UTC)
 		</div>
@@ -335,7 +335,7 @@
 	<div class = "container-fluid">
 		<ul class="nav nav-tabs nav-space justify-content-center" id="myTab" role="tablist">
 			<li class="nav-item">
-				<a class="nav-link active" id="projekte-tab" data-toggle="tab" href="#projekte" role="tab" aria-controls="projekte" aria-selected="true"><i class="fa fa-table"></i> <?php echo "$tabs_project" ?></a>
+				<a class="nav-link active" id="projekte-tab" data-toggle="tab" href="#projekte" role="tab" aria-controls="projekte" aria-selected="true"><i class="fa fa-table"></i> <?php echo "$tabs_projects" ?></a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" id="pie-tab" data-toggle="tab" href="#pie" role="tab" aria-controls="pie" aria-selected="false"><i class="fa fa-pie-chart"></i> <?php echo "$tabs_pie" ?></a>
@@ -370,37 +370,37 @@
 			<table id="table_projects" class="table table-sm table-striped table-hover table-responsive-sm table-ellipsis" width="100%">					
 				<thead>
 					<tr>
-						<td class="alert-info"><b><?php echo $text_boinc_total ?></b></td>
-						<td class="alert-info align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
-						<td class="alert-info"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="alert-info d-none d-sm-table-cell"><b>100%</b></td>
-						<td class="alert-info d-none d-sm-table-cell">
+						<td class="dunkelblau textblau"><b><?php echo $text_boinc_total ?></b></td>
+						<td class="dunkelblau textblau align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
+						<td class="dunkelblau textblau"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
+						<td class="dunkelblau textblau d-none d-sm-table-cell"><b>100%</b></td>
+						<td class="dunkelblau textblau d-none d-sm-table-cell">
 						<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="alert-info d-none d-lg-table-cell">
+						<td class="dunkelblau textblau d-none d-lg-table-cell">
 						<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="alert-info d-none d-lg-table-cell">
+						<td class="dunkelblau textblau d-none d-lg-table-cell">
 						<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="alert-info d-none d-md-table-cell">
+						<td class="dunkelblau textblau d-none d-md-table-cell">
 						<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class = "alert-success">
+						<td class = "dunkelgruen textgruen">
 						<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class = "alert-info d-none d-sm-table-cell">
+						<td class = "dunkelblau text-blau d-none d-sm-table-cell">
 						<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class = "alert-danger d-none d-md-table-cell">
+						<td class = "dunkelrot textrot d-none d-md-table-cell">
 						<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
 					</tr>
 					<tr>
-						<th class = "alert-header"><?php echo $tr_tb_pr; ?></th>
-						<th class = "alert-header no-sort align-middle text-center"> </th>
-						<th class = "alert-header"><?php echo $tr_tb_cr; ?></th>
-						<th class = "alert-header d-none d-sm-table-cell">%</th>
-						<th class = "alert-header d-none d-sm-table-cell"><?php echo $tr_tb_01; ?></th>
-						<th class = "alert-header d-none d-lg-table-cell"><?php echo $tr_tb_02; ?></th>
-						<th class = "alert-header d-none d-lg-table-cell"><?php echo $tr_tb_06; ?></th>
-						<th class = "alert-header d-none d-md-table-cell"><?php echo $tr_tb_12; ?></th>
-						<th class = "alert-success"><?php echo $tr_tb_to; ?></th>
-						<th class = "alert-info d-none d-sm-table-cell"><?php echo $tr_tb_ye; ?></th>
-						<th class = "alert-danger d-none d-md-table-cell"><?php echo $tr_tb_pe; ?></th>
+						<th class = "dunkelgrau textgrau"><?php echo $tr_tb_pr; ?></th>
+						<th class = "dunkelgrau textgrau no-sort align-middle text-center"> </th>
+						<th class = "dunkelgrau textgrau"><?php echo $tr_tb_cr; ?></th>
+						<th class = "dunkelgrau textgrau d-none d-sm-table-cell">%</th>
+						<th class = "dunkelgrau textgrau d-none d-sm-table-cell"><?php echo $tr_tb_01; ?></th>
+						<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_02; ?></th>
+						<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_06; ?></th>
+						<th class = "dunkelgrau textgrau d-none d-md-table-cell"><?php echo $tr_tb_12; ?></th>
+						<th class = "dunkelgruen textgruen"><?php echo $tr_tb_to; ?></th>
+						<th class = "dunkelblau textblau d-none d-sm-table-cell"><?php echo $tr_tb_ye; ?></th>
+						<th class = "dunkelrot textrot d-none d-md-table-cell"><?php echo $tr_tb_pe; ?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -429,35 +429,35 @@
 								} else
 									echo "  <td class='d-none d-md-table-cell'>-</td>";
 								if ($table_row["sum_today"] != "") {
-									echo "  <td class = 'success text-success'><b>" . number_format($table_row["sum_today"], 0, $dec_point, $thousands_sep) . "</b></td>";
+									echo "  <td class = 'gruen textgruen'><b>" . number_format($table_row["sum_today"], 0, $dec_point, $thousands_sep) . "</b></td>";
 								} else
-									echo "  <td class = 'success text-success'>-</td>";
+									echo "  <td class = 'gruen text gruen'>-</td>";
 								if ($table_row["sum_yesterday"] != "") {
-									echo "  <td class = 'info text-info d-none d-sm-table-cell'><b>" . number_format($table_row["sum_yesterday"], 0, $dec_point, $thousands_sep) . "</b></td>";
+									echo "  <td class = 'blau textblau d-none d-sm-table-cell'><b>" . number_format($table_row["sum_yesterday"], 0, $dec_point, $thousands_sep) . "</b></td>";
 								} else
-									echo "  <td class = 'info text-info d-none d-sm-table-cell'>-</td>";
+									echo "  <td class = 'blau textblau d-none d-sm-table-cell'>-</td>";
 								if ($table_row["pending_credits"] >> "0") {
-									echo "  <td class = 'danger text-danger d-none d-md-table-cell'><b>" . number_format($table_row["pending_credits"], 0, $dec_point, $thousands_sep) . "</b></td>";
+									echo "  <td class = 'rot textrot d-none d-md-table-cell'><b>" . number_format($table_row["pending_credits"], 0, $dec_point, $thousands_sep) . "</b></td>";
 								} else
-									echo "  <td class = 'danger text-danger d-none d-md-table-cell'>-</td>
+									echo "  <td class = 'rot textrot d-none d-md-table-cell'>-</td>
 								</tr>";
 						}
 					?>
 					<thead>
 						<tr>
-							<td class = "alert-header"><b><?php echo $tr_th2_rp ?></b></td>
-							<td class="alert-header align-middle text-center"><b><?php #echo $tr_tb_det ?>
+							<td class = "dunkelgrau textgrau"><b><?php echo $tr_th2_rp ?></b></td>
+							<td class="dunkelgrau textgrau align-middle text-center"><b><?php #echo $tr_tb_det ?>
 								<i class="text-muted fa fa-toggle-on fa-lg" aria-hidden="true"></i></b>
 							</td>
-							<td class = "alert-header"><b><?php echo $tr_tb_cr ?></b></td>
-							<td class = "alert-header d-none d-sm-table-cell"></td>
-							<td class = "alert-header d-none d-sm-table-cell"><b><?php echo $tr_tb_01 ?></b></td>
-							<td class = "alert-header d-none d-lg-table-cell"><b><?php echo $tr_tb_02 ?></b></td>
-							<td class = "alert-header d-none d-lg-table-cell"><b><?php echo $tr_tb_06 ?></b></td>
-							<td class = "alert-header d-none d-md-table-cell"><b><?php echo $tr_tb_12 ?></b></td>
-							<td class = "alert-success"><b><?php echo $tr_tb_to; ?></b></td>
-							<td class = "alert-info d-none d-sm-table-cell"><b><?php echo $tr_tb_ye; ?></b></td>
-							<td class = "alert-danger d-none d-md-table-cell"><b><?php echo $tr_tb_pe; ?></b></td>
+							<td class = "dunkelgrau textgrau"><b><?php echo $tr_tb_cr ?></b></td>
+							<td class = "dunkelgrau textgrau d-none d-sm-table-cell"></td>
+							<td class = "dunkelgrau textgrau d-none d-sm-table-cell"><b><?php echo $tr_tb_01 ?></b></td>
+							<td class = "dunkelgrau textgrau d-none d-lg-table-cell"><b><?php echo $tr_tb_02 ?></b></td>
+							<td class = "dunkelgrau textgrau d-none d-lg-table-cell"><b><?php echo $tr_tb_06 ?></b></td>
+							<td class = "dunkelgrau textgrau d-none d-md-table-cell"><b><?php echo $tr_tb_12 ?></b></td>
+							<td class = "dunkelgruen textgruen"><b><?php echo $tr_tb_to; ?></b></td>
+							<td class = "dunkelblau textblau d-none d-sm-table-cell"><b><?php echo $tr_tb_ye; ?></b></td>
+							<td class = "dunkelrot textrot d-none d-md-table-cell"><b><?php echo $tr_tb_pe; ?></b></td>
 						</tr>
 					</thead>
 					
@@ -481,37 +481,37 @@
 
 								<thead>
 									<tr>
-										<td class="alert-info"><b><?php echo $text_boinc_total ?></b></td>
-										<td class="alert-info align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
-										<td class="alert-info"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class="alert-info d-none d-sm-table-cell"><b>100%</b></th>
-										<td class="alert-info d-none d-sm-table-cell">
+										<td class="dunkelblau textblau"><b><?php echo $text_boinc_total ?></b></td>
+										<td class="dunkelblau textblau align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
+										<td class="dunkelblau textblau"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
+										<td class="dunkelblau textblau d-none d-sm-table-cell"><b>100%</b></th>
+										<td class="dunkelblau textblau d-none d-sm-table-cell">
 										<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class="alert-info d-none d-lg-table-cell">
+										<td class="dunkelblau textblau d-none d-lg-table-cell">
 										<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class="alert-info d-none d-lg-table-cell">
+										<td class="dunkelblau textblaud-none d-lg-table-cell">
 										<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class="alert-info d-none d-md-table-cell">
+										<td class="dunkelblau textblau d-none d-md-table-cell">
 										<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class = "alert-success">
+										<td class = "dunkelgruen textgruen">
 										<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class = "alert-info d-none d-sm-table-cell">
+										<td class = "dunkelblau textblau d-none d-sm-table-cell">
 										<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class = "alert-danger d-none d-md-table-cell">
+										<td class = "dunkelrot textrot d-none d-md-table-cell">
 										<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
 									</tr>
 									<tr>
-										<th class = "alert-header"> </th>
-										<th class = "alert-header no-sort align-middle text-center"> </th>
-										<th class = "alert-header"><?php echo $tr_tb_cr; ?></th>
-										<th class = "alert-header d-none d-sm-table-cell">%</th>
-										<th class = "alert-header d-none d-sm-table-cell"><?php echo $tr_tb_01; ?></th>
-										<th class = "alert-header d-none d-lg-table-cell"><?php echo $tr_tb_02; ?></th>
-										<th class = "alert-header d-none d-lg-table-cell"><?php echo $tr_tb_06; ?></th>
-										<th class = "alert-header d-none d-md-table-cell"><?php echo $tr_tb_12; ?></th>
-										<th class = "alert-success"><?php echo $tr_tb_to; ?></th>
-										<th class = "alert-info d-none d-sm-table-cell"><?php echo $tr_tb_ye; ?></th>
-										<th class = "alert-danger d-none d-md-table-cell"><?php echo $tr_tb_pe; ?></th>
+										<th class = "dunkelgrau textgrau"> </th>
+										<th class = "dunkelgrau textgrau no-sort align-middle text-center"> </th>
+										<th class = "dunkelgrau textgrau"><?php echo $tr_tb_cr; ?></th>
+										<th class = "dunkelgrau textgrau d-none d-sm-table-cell">%</th>
+										<th class = "dunkelgrau textgrau d-none d-sm-table-cell"><?php echo $tr_tb_01; ?></th>
+										<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_02; ?></th>
+										<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_06; ?></th>
+										<th class = "dunkelgrau textgrau d-none d-md-table-cell"><?php echo $tr_tb_12; ?></th>
+										<th class = "dunkelgruen textgruen"><?php echo $tr_tb_to; ?></th>
+										<th class = "dunkelblau textblau d-none d-sm-table-cell"><?php echo $tr_tb_ye; ?></th>
+										<th class = "dunkelrot textrot d-none d-md-table-cell"><?php echo $tr_tb_pe; ?></th>
 									</tr>
 								</thead>
 				</tbody>
