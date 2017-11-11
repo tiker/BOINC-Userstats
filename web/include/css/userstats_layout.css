@@ -65,13 +65,11 @@ a {
 
 a:hover {
 	color: rgb(44, 43, 43);
-/*	color: rgb(48, 48, 48); */
 	text-decoration: none;
 }
 
 a:focus {
 	color: rgb(36, 35, 35);
-/*	color: rgb(48, 48, 48); */
 	text-decoration: none;
 }
 
