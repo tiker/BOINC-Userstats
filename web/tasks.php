@@ -50,23 +50,23 @@ else include "./lang/highstock_en.js";
 
 <?php include ($linkUploadFileBoinctasks); ?>
 
-	<script>
-		$(document).ready(function() {
-			$('#table_tasks').DataTable( {
-				"language": {
-					"decimal": "<?php echo $dec_point; ?>",
-					"thousands": "<?php echo $thousands_sep; ?>",
-					"search":	"<?php echo $text_search; ?>"
-				},
-				"order": [[ 6, "asc" ],[ 0, "asc" ]],
-				"columnDefs": [ {
-					"targets": 'no-sort',
-					"orderable": false,
-				}],
-				"paging": false,
-				"info": false
+		<script>
+			$(document).ready(function() {
+				$('#table_tasks').DataTable( {
+					"language": {
+						"decimal": "<?php echo $dec_point; ?>",
+						"thousands": "<?php echo $thousands_sep; ?>",
+						"search":	"<?php echo $text_search; ?>"
+					},
+					"order": [[ 6, "asc" ],[ 0, "asc" ]],
+					"columnDefs": [ {
+						"targets": 'no-sort',
+						"orderable": false,
+					}],
+					"paging": false,
+					"info": false
+				} );
 			} );
-		} );
-	</script>
+		</script>
 
 <?php include("./footer.php"); ?>

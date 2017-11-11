@@ -47,12 +47,11 @@ else include "./lang/highstock_en.js";
 
 <?php include("./header.php"); ?>
 
-<div class="alert info-lastupdate" role="alert">
-	<div class="container">
-		<b><?php echo $tr_hp_pendings_02; ?></b>
+	<div class="alert info-lastupdate" role="alert">
+		<div class="container">
+			<b><?php echo $tr_hp_pendings_02; ?></b>
+		</div>
 	</div>
-</div>
-
 
 	<div class="container text-center flex1">
 
@@ -118,7 +117,6 @@ else include "./lang/highstock_en.js";
 			</div>
 		</div>			
 	</div>
-
 
 	<script>
 		$(document).ready(function() {

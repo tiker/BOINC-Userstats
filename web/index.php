@@ -315,7 +315,7 @@
 	else include "./lang/highstock_en.js";
 ?>
 
-	<?php include("./header.php"); ?>
+<?php include("./header.php"); ?>
 
 	<!-- Highcharts definieren  -->
 	<?php include("./modules/highcharts/pie.js"); ?>
@@ -326,278 +326,278 @@
 	<?php include("./modules/highcharts/output_gesamt_month.js"); ?>
 	<?php include("./modules/highcharts/output_gesamt_year.js"); ?>
 
-	<div class="alert info-lastupdate" role="alert">
-		<div class="container">
-			<b><?php echo $text_header_lu ?>:</b> <?php echo $lastupdate_start ?> - <?php echo $lastupdate ?> (UTC)
+		<div class="alert info-lastupdate" role="alert">
+			<div class="container">
+				<b><?php echo $text_header_lu ?>:</b> <?php echo $lastupdate_start ?> - <?php echo $lastupdate ?> (UTC)
+			</div>
 		</div>
-	</div>
 
-	<div class = "container-fluid">
-		<ul class="nav nav-tabs nav-space justify-content-center nav-tabs-userstats" id="myTab" role="tablist">
-			<li class="nav-item">
-				<a class="nav-link active" id="projekte-tab" data-toggle="tab" href="#projekte" role="tab" aria-controls="projekte" aria-selected="true"><i class="fa fa-table"></i> <?php echo "$tabs_projects" ?></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" id="pie-tab" data-toggle="tab" href="#pie" role="tab" aria-controls="pie" aria-selected="false"><i class="fa fa-pie-chart"></i> <?php echo "$tabs_pie" ?></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" id="gesamt-tab" data-toggle="tab" href="#gesamt" role="tab" aria-controls="gesamt" aria-selected="false"><i class="fa fa-area-chart"></i> <?php echo "$tabs_total" ?></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" id="stunde-tab" data-toggle="tab" href="#stunde" role="tab" aria-controls="stunde" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_hour" ?></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" id="tag-tab" data-toggle="tab" href="#tag" role="tab" aria-controls="tag" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_day" ?></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" id="woche-tab" data-toggle="tab" href="#woche" role="tab" aria-controls="woche" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_week" ?></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" id="monat-tab" data-toggle="tab" href="#monat" role="tab" aria-controls="monat" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_month" ?></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" id="jahr-tab" data-toggle="tab" href="#jahr" role="tab" aria-controls="jahr" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_year" ?></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" id="badges-tab" data-toggle="tab" href="#badges" role="tab" aria-controls="badges" aria-selected="false"><i class="fa fa-certificate"></i> <?php echo "$tabs_badge" ?></a>
-			</li>
-		</ul>
-	</div>
+		<div class = "container-fluid">
+			<ul class="nav nav-tabs nav-space justify-content-center nav-tabs-userstats" id="myTab" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link active" id="projekte-tab" data-toggle="tab" href="#projekte" role="tab" aria-controls="projekte" aria-selected="true"><i class="fa fa-table"></i> <?php echo "$tabs_projects" ?></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="pie-tab" data-toggle="tab" href="#pie" role="tab" aria-controls="pie" aria-selected="false"><i class="fa fa-pie-chart"></i> <?php echo "$tabs_pie" ?></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="gesamt-tab" data-toggle="tab" href="#gesamt" role="tab" aria-controls="gesamt" aria-selected="false"><i class="fa fa-area-chart"></i> <?php echo "$tabs_total" ?></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="stunde-tab" data-toggle="tab" href="#stunde" role="tab" aria-controls="stunde" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_hour" ?></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="tag-tab" data-toggle="tab" href="#tag" role="tab" aria-controls="tag" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_day" ?></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="woche-tab" data-toggle="tab" href="#woche" role="tab" aria-controls="woche" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_week" ?></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="monat-tab" data-toggle="tab" href="#monat" role="tab" aria-controls="monat" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_month" ?></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="jahr-tab" data-toggle="tab" href="#jahr" role="tab" aria-controls="jahr" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_year" ?></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="badges-tab" data-toggle="tab" href="#badges" role="tab" aria-controls="badges" aria-selected="false"><i class="fa fa-certificate"></i> <?php echo "$tabs_badge" ?></a>
+				</li>
+			</ul>
+		</div>
 
-	<div class="tab-content flex1" id="myTabContent">
+		<div class="tab-content flex1" id="myTabContent">
 
-		<div id="projekte" class="tab-pane fade show active" role="tabpanel" aria-labelledby="projekte-tab">
-			<table id="table_projects" class="table table-sm table-striped table-hover table-responsive-sm table-ellipsis" width="100%">					
-				<thead>
-					<tr>
-						<td class="dunkelblau textblau"><b><?php echo $text_boinc_total ?></b></td>
-						<td class="dunkelblau textblau align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
-						<td class="dunkelblau textblau"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="dunkelblau textblau d-none d-sm-table-cell"><b>100%</b></td>
-						<td class="dunkelblau textblau d-none d-sm-table-cell">
-						<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="dunkelblau textblau d-none d-lg-table-cell">
-						<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="dunkelblau textblau d-none d-lg-table-cell">
-						<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class="dunkelblau textblau d-none d-md-table-cell">
-						<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class = "dunkelgruen textgruen">
-						<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class = "dunkelblau text-blau d-none d-sm-table-cell">
-						<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
-						<td class = "dunkelrot textrot d-none d-md-table-cell">
-						<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
-					</tr>
-					<tr>
-						<th class = "dunkelgrau textgrau"><?php echo $tr_tb_pr; ?></th>
-						<th class = "dunkelgrau textgrau no-sort align-middle text-center"> </th>
-						<th class = "dunkelgrau textgrau"><?php echo $tr_tb_cr; ?></th>
-						<th class = "dunkelgrau textgrau d-none d-sm-table-cell">%</th>
-						<th class = "dunkelgrau textgrau d-none d-sm-table-cell"><?php echo $tr_tb_01; ?></th>
-						<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_02; ?></th>
-						<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_06; ?></th>
-						<th class = "dunkelgrau textgrau d-none d-md-table-cell"><?php echo $tr_tb_12; ?></th>
-						<th class = "dunkelgruen textgruen"><?php echo $tr_tb_to; ?></th>
-						<th class = "dunkelblau textblau d-none d-sm-table-cell"><?php echo $tr_tb_ye; ?></th>
-						<th class = "dunkelrot textrot d-none d-md-table-cell"><?php echo $tr_tb_pe; ?></th>
-					</tr>
-				</thead>
-				<tbody>
-					<!-- Fuer jedes Projekt eine Zeile in die Tabelle hinzufuegen -->						
-					<?php
-						foreach ($table as $table_row) {
-							echo "<tr>
-								<td><a href='" . $table_row["project_home_link"] . "'>" . $table_row["project_name"] ."</a></td>
-								<td class='align-middle text-center'><a href='" . $table_row["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
-								<td><b>" . number_format($table_row["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
-								<td class='d-none d-sm-table-cell'>" . number_format($table_row["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>";
-								if ($table_row["sum1h"] != "") {
-									echo "<td class='d-none d-sm-table-cell'>" . number_format($table_row['sum1h'], 0, $dec_point, $thousands_sep) . "</td>";
-								} else
-									echo "<td class='d-none d-sm-table-cell'>-</td>";
-								if ($table_row["sum2h"] != "") {
-									echo "<td class='d-none d-lg-table-cell'>" . number_format($table_row["sum2h"], 0, $dec_point, $thousands_sep) . "</td>";
-								} else
-									echo "<td class='d-none d-lg-table-cell'>-</td>";
-								if ($table_row["sum6h"] != "") {
-									echo "<td class='d-none d-lg-table-cell'>" . number_format($table_row["sum6h"], 0, $dec_point, $thousands_sep) . "</td>";
-								} else
-									echo "  <td class='d-none d-lg-table-cell'>-</td>";
-								if ($table_row["sum12h"] != "") {
-									echo "  <td class='d-none d-md-table-cell'>" . number_format($table_row["sum12h"], 0, $dec_point, $thousands_sep) . "</td>";
-								} else
-									echo "  <td class='d-none d-md-table-cell'>-</td>";
-								if ($table_row["sum_today"] != "") {
-									echo "  <td class = 'gruen textgruen'><b>" . number_format($table_row["sum_today"], 0, $dec_point, $thousands_sep) . "</b></td>";
-								} else
-									echo "  <td class = 'gruen text gruen'>-</td>";
-								if ($table_row["sum_yesterday"] != "") {
-									echo "  <td class = 'blau textblau d-none d-sm-table-cell'><b>" . number_format($table_row["sum_yesterday"], 0, $dec_point, $thousands_sep) . "</b></td>";
-								} else
-									echo "  <td class = 'blau textblau d-none d-sm-table-cell'>-</td>";
-								if ($table_row["pending_credits"] >> "0") {
-									echo "  <td class = 'rot textrot d-none d-md-table-cell'><b>" . number_format($table_row["pending_credits"], 0, $dec_point, $thousands_sep) . "</b></td>";
-								} else
-									echo "  <td class = 'rot textrot d-none d-md-table-cell'>-</td>
-								</tr>";
-						}
-					?>
+			<div id="projekte" class="tab-pane fade show active" role="tabpanel" aria-labelledby="projekte-tab">
+				<table id="table_projects" class="table table-sm table-striped table-hover table-responsive-sm table-ellipsis" width="100%">					
 					<thead>
 						<tr>
-							<td class = "dunkelgrau textgrau"><b><?php echo $tr_th2_rp ?></b></td>
-							<td class="dunkelgrau textgrau align-middle text-center"><b><?php #echo $tr_tb_det ?>
-								<i class="text-muted fa fa-toggle-on fa-lg" aria-hidden="true"></i></b>
-							</td>
-							<td class = "dunkelgrau textgrau"><b><?php echo $tr_tb_cr ?></b></td>
-							<td class = "dunkelgrau textgrau d-none d-sm-table-cell"></td>
-							<td class = "dunkelgrau textgrau d-none d-sm-table-cell"><b><?php echo $tr_tb_01 ?></b></td>
-							<td class = "dunkelgrau textgrau d-none d-lg-table-cell"><b><?php echo $tr_tb_02 ?></b></td>
-							<td class = "dunkelgrau textgrau d-none d-lg-table-cell"><b><?php echo $tr_tb_06 ?></b></td>
-							<td class = "dunkelgrau textgrau d-none d-md-table-cell"><b><?php echo $tr_tb_12 ?></b></td>
-							<td class = "dunkelgruen textgruen"><b><?php echo $tr_tb_to; ?></b></td>
-							<td class = "dunkelblau textblau d-none d-sm-table-cell"><b><?php echo $tr_tb_ye; ?></b></td>
-							<td class = "dunkelrot textrot d-none d-md-table-cell"><b><?php echo $tr_tb_pe; ?></b></td>
+							<td class="dunkelblau textblau"><b><?php echo $text_boinc_total ?></b></td>
+							<td class="dunkelblau textblau align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
+							<td class="dunkelblau textblau"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
+							<td class="dunkelblau textblau d-none d-sm-table-cell"><b>100%</b></td>
+							<td class="dunkelblau textblau d-none d-sm-table-cell">
+							<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+							<td class="dunkelblau textblau d-none d-lg-table-cell">
+							<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+							<td class="dunkelblau textblau d-none d-lg-table-cell">
+							<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+							<td class="dunkelblau textblau d-none d-md-table-cell">
+							<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+							<td class = "dunkelgruen textgruen">
+							<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
+							<td class = "dunkelblau text-blau d-none d-sm-table-cell">
+							<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
+							<td class = "dunkelrot textrot d-none d-md-table-cell">
+							<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
+						</tr>
+						<tr>
+							<th class = "dunkelgrau textgrau"><?php echo $tr_tb_pr; ?></th>
+							<th class = "dunkelgrau textgrau no-sort align-middle text-center"> </th>
+							<th class = "dunkelgrau textgrau"><?php echo $tr_tb_cr; ?></th>
+							<th class = "dunkelgrau textgrau d-none d-sm-table-cell">%</th>
+							<th class = "dunkelgrau textgrau d-none d-sm-table-cell"><?php echo $tr_tb_01; ?></th>
+							<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_02; ?></th>
+							<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_06; ?></th>
+							<th class = "dunkelgrau textgrau d-none d-md-table-cell"><?php echo $tr_tb_12; ?></th>
+							<th class = "dunkelgruen textgruen"><?php echo $tr_tb_to; ?></th>
+							<th class = "dunkelblau textblau d-none d-sm-table-cell"><?php echo $tr_tb_ye; ?></th>
+							<th class = "dunkelrot textrot d-none d-md-table-cell"><?php echo $tr_tb_pe; ?></th>
 						</tr>
 					</thead>
-					
-					<?php
-						foreach ($table_retired as $table_row_retired) {
-							echo "<tr>
-									<td class = 'text-muted text-sm'>" . $table_row_retired["project_name"] ."</td>
-									<td class='align-middle text-center text-muted test-sm'><a href='" . $table_row_retired["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
-									<td class = 'text-muted text-sm'><b>" . number_format($table_row_retired["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
-									<td class = 'text-muted text-sm d-none d-sm-table-cell'>" . number_format($table_row_retired["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>
-									<td class = 'text-muted text-sm d-none d-sm-table-cell'></td>
-									<td class = 'text-muted text-sm d-none d-lg-table-cell'></td>
-									<td class = 'text-muted text-sm d-none d-lg-table-cell'></td>
-									<td class = 'text-muted text-sm d-none d-md-table-cell'></td>
-									<td class = 'text-muted text-sm'></td>
-									<td class = 'text-muted text-sm d-none d-sm-table-cell'></td>
-									<td class = 'text-muted text-sm d-none d-md-table-cell'></td>
-								</tr>";
-						}
-					?>
+					<tbody>
+						<!-- Fuer jedes Projekt eine Zeile in die Tabelle hinzufuegen -->						
+						<?php
+							foreach ($table as $table_row) {
+								echo "<tr>
+									<td><a href='" . $table_row["project_home_link"] . "'>" . $table_row["project_name"] ."</a></td>
+									<td class='align-middle text-center'><a href='" . $table_row["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
+									<td><b>" . number_format($table_row["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
+									<td class='d-none d-sm-table-cell'>" . number_format($table_row["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>";
+									if ($table_row["sum1h"] != "") {
+										echo "<td class='d-none d-sm-table-cell'>" . number_format($table_row['sum1h'], 0, $dec_point, $thousands_sep) . "</td>";
+									} else
+										echo "<td class='d-none d-sm-table-cell'>-</td>";
+									if ($table_row["sum2h"] != "") {
+										echo "<td class='d-none d-lg-table-cell'>" . number_format($table_row["sum2h"], 0, $dec_point, $thousands_sep) . "</td>";
+									} else
+										echo "<td class='d-none d-lg-table-cell'>-</td>";
+									if ($table_row["sum6h"] != "") {
+										echo "<td class='d-none d-lg-table-cell'>" . number_format($table_row["sum6h"], 0, $dec_point, $thousands_sep) . "</td>";
+									} else
+										echo "  <td class='d-none d-lg-table-cell'>-</td>";
+									if ($table_row["sum12h"] != "") {
+										echo "  <td class='d-none d-md-table-cell'>" . number_format($table_row["sum12h"], 0, $dec_point, $thousands_sep) . "</td>";
+									} else
+										echo "  <td class='d-none d-md-table-cell'>-</td>";
+									if ($table_row["sum_today"] != "") {
+										echo "  <td class = 'gruen textgruen'><b>" . number_format($table_row["sum_today"], 0, $dec_point, $thousands_sep) . "</b></td>";
+									} else
+										echo "  <td class = 'gruen text gruen'>-</td>";
+									if ($table_row["sum_yesterday"] != "") {
+										echo "  <td class = 'blau textblau d-none d-sm-table-cell'><b>" . number_format($table_row["sum_yesterday"], 0, $dec_point, $thousands_sep) . "</b></td>";
+									} else
+										echo "  <td class = 'blau textblau d-none d-sm-table-cell'>-</td>";
+									if ($table_row["pending_credits"] >> "0") {
+										echo "  <td class = 'rot textrot d-none d-md-table-cell'><b>" . number_format($table_row["pending_credits"], 0, $dec_point, $thousands_sep) . "</b></td>";
+									} else
+										echo "  <td class = 'rot textrot d-none d-md-table-cell'>-</td>
+									</tr>";
+							}
+						?>
+						<thead>
+							<tr>
+								<td class = "dunkelgrau textgrau"><b><?php echo $tr_th2_rp ?></b></td>
+								<td class="dunkelgrau textgrau align-middle text-center"><b><?php #echo $tr_tb_det ?>
+									<i class="text-muted fa fa-toggle-on fa-lg" aria-hidden="true"></i></b>
+								</td>
+								<td class = "dunkelgrau textgrau"><b><?php echo $tr_tb_cr ?></b></td>
+								<td class = "dunkelgrau textgrau d-none d-sm-table-cell"></td>
+								<td class = "dunkelgrau textgrau d-none d-sm-table-cell"><b><?php echo $tr_tb_01 ?></b></td>
+								<td class = "dunkelgrau textgrau d-none d-lg-table-cell"><b><?php echo $tr_tb_02 ?></b></td>
+								<td class = "dunkelgrau textgrau d-none d-lg-table-cell"><b><?php echo $tr_tb_06 ?></b></td>
+								<td class = "dunkelgrau textgrau d-none d-md-table-cell"><b><?php echo $tr_tb_12 ?></b></td>
+								<td class = "dunkelgruen textgruen"><b><?php echo $tr_tb_to; ?></b></td>
+								<td class = "dunkelblau textblau d-none d-sm-table-cell"><b><?php echo $tr_tb_ye; ?></b></td>
+								<td class = "dunkelrot textrot d-none d-md-table-cell"><b><?php echo $tr_tb_pe; ?></b></td>
+							</tr>
+						</thead>
+						
+						<?php
+							foreach ($table_retired as $table_row_retired) {
+								echo "<tr>
+										<td class = 'text-muted text-sm'>" . $table_row_retired["project_name"] ."</td>
+										<td class='align-middle text-center text-muted test-sm'><a href='" . $table_row_retired["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
+										<td class = 'text-muted text-sm'><b>" . number_format($table_row_retired["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
+										<td class = 'text-muted text-sm d-none d-sm-table-cell'>" . number_format($table_row_retired["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>
+										<td class = 'text-muted text-sm d-none d-sm-table-cell'></td>
+										<td class = 'text-muted text-sm d-none d-lg-table-cell'></td>
+										<td class = 'text-muted text-sm d-none d-lg-table-cell'></td>
+										<td class = 'text-muted text-sm d-none d-md-table-cell'></td>
+										<td class = 'text-muted text-sm'></td>
+										<td class = 'text-muted text-sm d-none d-sm-table-cell'></td>
+										<td class = 'text-muted text-sm d-none d-md-table-cell'></td>
+									</tr>";
+							}
+						?>
 
-								<thead>
-									<tr>
-										<td class="dunkelblau textblau"><b><?php echo $text_boinc_total ?></b></td>
-										<td class="dunkelblau textblau align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
-										<td class="dunkelblau textblau"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class="dunkelblau textblau d-none d-sm-table-cell"><b>100%</b></td>
-										<td class="dunkelblau textblau d-none d-sm-table-cell">
-										<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class="dunkelblau textblau d-none d-lg-table-cell">
-										<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class="dunkelblau textblau d-none d-lg-table-cell">
-										<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class="dunkelblau textblau d-none d-md-table-cell">
-										<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class = "dunkelgruen textgruen">
-										<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class = "dunkelblau text-blau d-none d-sm-table-cell">
-										<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class = "dunkelrot textrot d-none d-md-table-cell">
-										<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
-									</tr>
-									<tr>
-										<th class = "dunkelgrau textgrau"> </th>
-										<th class = "dunkelgrau textgrau align-middle text-center"> </th>
-										<th class = "dunkelgrau textgrau"><?php echo $tr_tb_cr; ?></th>
-										<th class = "dunkelgrau textgrau d-none d-sm-table-cell">%</th>
-										<th class = "dunkelgrau textgrau d-none d-sm-table-cell"><?php echo $tr_tb_01; ?></th>
-										<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_02; ?></th>
-										<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_06; ?></th>
-										<th class = "dunkelgrau textgrau d-none d-md-table-cell"><?php echo $tr_tb_12; ?></th>
-										<th class = "dunkelgruen textgruen"><?php echo $tr_tb_to; ?></th>
-										<th class = "dunkelblau textblau d-none d-sm-table-cell"><?php echo $tr_tb_ye; ?></th>
-										<th class = "dunkelrot textrot d-none d-md-table-cell"><?php echo $tr_tb_pe; ?></th>
-									</tr>
-								</thead>
-				</tbody>
-			</table>
-		</div>
-	
-		<div id="pie" class="tab-pane fade" role="tabpanel" aria-labelledby="pie-tab">
-			<div>
-				<div id="projektverteilung"></div>
+									<thead>
+										<tr>
+											<td class="dunkelblau textblau"><b><?php echo $text_boinc_total ?></b></td>
+											<td class="dunkelblau textblau align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
+											<td class="dunkelblau textblau"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
+											<td class="dunkelblau textblau d-none d-sm-table-cell"><b>100%</b></td>
+											<td class="dunkelblau textblau d-none d-sm-table-cell">
+											<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+											<td class="dunkelblau textblau d-none d-lg-table-cell">
+											<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+											<td class="dunkelblau textblau d-none d-lg-table-cell">
+											<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+											<td class="dunkelblau textblau d-none d-md-table-cell">
+											<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+											<td class = "dunkelgruen textgruen">
+											<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
+											<td class = "dunkelblau text-blau d-none d-sm-table-cell">
+											<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
+											<td class = "dunkelrot textrot d-none d-md-table-cell">
+											<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
+										</tr>
+										<tr>
+											<th class = "dunkelgrau textgrau"> </th>
+											<th class = "dunkelgrau textgrau align-middle text-center"> </th>
+											<th class = "dunkelgrau textgrau"><?php echo $tr_tb_cr; ?></th>
+											<th class = "dunkelgrau textgrau d-none d-sm-table-cell">%</th>
+											<th class = "dunkelgrau textgrau d-none d-sm-table-cell"><?php echo $tr_tb_01; ?></th>
+											<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_02; ?></th>
+											<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_06; ?></th>
+											<th class = "dunkelgrau textgrau d-none d-md-table-cell"><?php echo $tr_tb_12; ?></th>
+											<th class = "dunkelgruen textgruen"><?php echo $tr_tb_to; ?></th>
+											<th class = "dunkelblau textblau d-none d-sm-table-cell"><?php echo $tr_tb_ye; ?></th>
+											<th class = "dunkelrot textrot d-none d-md-table-cell"><?php echo $tr_tb_pe; ?></th>
+										</tr>
+									</thead>
+					</tbody>
+				</table>
 			</div>
-		</div>
 		
-		<div id="gesamt" class="tab-pane fade" role="tabpanel" aria-labelledby="gesamt-tab">
-			<div>
-				<div id="output"></div>
+			<div id="pie" class="tab-pane fade" role="tabpanel" aria-labelledby="pie-tab">
+				<div>
+					<div id="projektverteilung"></div>
+				</div>
 			</div>
-		</div>
-
-		<div id="stunde" class="tab-pane fade" role="tabpanel" aria-labelledby="stunde-tab">
-			<div>
-				<div id="output_gesamt_hour"></div>
+			
+			<div id="gesamt" class="tab-pane fade" role="tabpanel" aria-labelledby="gesamt-tab">
+				<div>
+					<div id="output"></div>
+				</div>
 			</div>
-		</div>
 
-		<div id="tag" class="tab-pane fade" role="tabpanel" aria-labelledby="tag-tab">
-			<div>
-				<div id="output_gesamt_day"></div>
+			<div id="stunde" class="tab-pane fade" role="tabpanel" aria-labelledby="stunde-tab">
+				<div>
+					<div id="output_gesamt_hour"></div>
+				</div>
 			</div>
-		</div>
 
-		<div id="woche" class="tab-pane fade" role="tabpanel" aria-labelledby="woche-tab">
-			<div>
-				<div id="output_gesamt_week"></div>
+			<div id="tag" class="tab-pane fade" role="tabpanel" aria-labelledby="tag-tab">
+				<div>
+					<div id="output_gesamt_day"></div>
+				</div>
 			</div>
-		</div>
 
-		<div id="monat" class="tab-pane fade" role="tabpanel" aria-labelledby="monat-tab">
-			<div>
-				<div id="output_gesamt_month"></div>
+			<div id="woche" class="tab-pane fade" role="tabpanel" aria-labelledby="woche-tab">
+				<div>
+					<div id="output_gesamt_week"></div>
+				</div>
 			</div>
-		</div>
 
-		<div id="jahr" class="tab-pane fade" role="tabpanel" aria-labelledby="jahr-tab">
-			<div>
-				<div id="output_gesamt_year"></div>
+			<div id="monat" class="tab-pane fade" role="tabpanel" aria-labelledby="monat-tab">
+				<div>
+					<div id="output_gesamt_month"></div>
+				</div>
 			</div>
-		</div>
 
-		<div id="badges" class="tab-pane fade text-center" role="tabpanel" aria-labelledby="badges-tab">
-			<div>
-				<br>
-				<?php //Userbadge
-					if (!$showUserBadges AND !$showWcgLogo AND !$showSgWcgBadges) echo $no_badge ."<br>";
-					if ($showUserBadges) {
-						echo '<img src="' . $linkUserBadges . '" class="img-fluid center-block"></img><br>';
-					};
-					if ($showWcgLogo) {
-						echo '<img src="' . $linkWcgSig . '" class="img-fluid center-block"></img><br>';
-					};
-					if ($showSgWcgBadges) {
-						echo '<img src="' . $linkSgWcgBadges . '" class="img-fluid center-block"></img><br>';
-					};
-				?>
-				<br>
+			<div id="jahr" class="tab-pane fade" role="tabpanel" aria-labelledby="jahr-tab">
+				<div>
+					<div id="output_gesamt_year"></div>
+				</div>
 			</div>
-		</div>
 
-	</div> <!--  flex1  -->
-	
-	<script>
-		$(document).ready(function() {
-			$('#table_projects').DataTable( {
-				"bSortCellsTop": false,
-				"language": {
-					"decimal": "<?php echo $dec_point; ?>",
-					"thousands": "<?php echo $thousands_sep; ?>",
-					"search":	"<?php echo $text_search; ?>"
-				},
-				"columnDefs": [ {
-					"targets"  : 'no-sort',
-					"orderable": false,
-				}],
-				"paging": false,
-				"info": false
+			<div id="badges" class="tab-pane fade text-center" role="tabpanel" aria-labelledby="badges-tab">
+				<div>
+					<br>
+					<?php //Userbadge
+						if (!$showUserBadges AND !$showWcgLogo AND !$showSgWcgBadges) echo $no_badge ."<br>";
+						if ($showUserBadges) {
+							echo '<img src="' . $linkUserBadges . '" class="img-fluid center-block"></img><br>';
+						};
+						if ($showWcgLogo) {
+							echo '<img src="' . $linkWcgSig . '" class="img-fluid center-block"></img><br>';
+						};
+						if ($showSgWcgBadges) {
+							echo '<img src="' . $linkSgWcgBadges . '" class="img-fluid center-block"></img><br>';
+						};
+					?>
+					<br>
+				</div>
+			</div>
+
+		</div> <!--  flex1  -->
+		
+		<script>
+			$(document).ready(function() {
+				$('#table_projects').DataTable( {
+					"bSortCellsTop": false,
+					"language": {
+						"decimal": "<?php echo $dec_point; ?>",
+						"thousands": "<?php echo $thousands_sep; ?>",
+						"search":	"<?php echo $text_search; ?>"
+					},
+					"columnDefs": [ {
+						"targets"  : 'no-sort',
+						"orderable": false,
+					}],
+					"paging": false,
+					"info": false
+				} );
 			} );
-		} );
-	</script>
+		</script>
 
 <?php include("./footer.php"); ?>

@@ -306,13 +306,13 @@ switch ($errorcode) {
 
 <?php include("./header.php"); ?>
 
-	<div class="container text-center  flex1">
-				<h1 class="title text-center"><?php echo $error_description; ?></h1>
-				<h5 class="description text-center">
-				<?php
-					if ($lang = "de") echo $err_de; else echo $err_en;
-				?>
-				</h5>					
-	</div>
+		<div class="container text-center  flex1">
+					<h1 class="title text-center"><?php echo $error_description; ?></h1>
+					<h5 class="description text-center">
+						<?php
+							if ($lang = "de") echo $err_de; else echo $err_en;
+						?>
+					</h5>					
+		</div>
 
 <?php include("./footer.php"); ?>

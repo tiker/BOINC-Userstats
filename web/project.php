@@ -298,7 +298,6 @@
 				';
 				}
 			?>
-
 			<li class="nav-item">
 				<a class="nav-link" id="gesamt-tab" data-toggle="tab" href="#gesamt" role="tab" aria-controls="gesamt" aria-selected="false"><i class="fa fa-area-chart"></i> <?php echo "$tabs_total" ?></a>
 			</li>
@@ -362,9 +361,6 @@
 						?>
 					</tbody>
 				</table>
-				<?php
-					
-				?>
 			</div>
 
 			<?php
@@ -417,24 +413,24 @@
 		</div>
 
 		<script>
-		$(document).ready(function() {
-			$('#table_projects').DataTable( {
-				"bSortCellsTop": false,
-				"language": {
-					"decimal": "<?php echo $dec_point; ?>",
-					"thousands": "<?php echo $thousands_sep; ?>",
-					"search":	"<?php echo $text_search; ?>"
-				},
-				"columnDefs": [ {
-					"targets"  : 'no-sort',
-					"orderable": false,
-				}],
-				"paging": false,
-				"info": false,
-				"sorting": false,
-				"searching": false
+			$(document).ready(function() {
+				$('#table_projects').DataTable( {
+					"bSortCellsTop": false,
+					"language": {
+						"decimal": "<?php echo $dec_point; ?>",
+						"thousands": "<?php echo $thousands_sep; ?>",
+						"search":	"<?php echo $text_search; ?>"
+					},
+					"columnDefs": [ {
+						"targets"  : 'no-sort',
+						"orderable": false,
+					}],
+					"paging": false,
+					"info": false,
+					"sorting": false,
+					"searching": false
+				} );
 			} );
-		} );
-	</script>
+		</script>
 
-	<?php include("./footer.php"); ?>
+<?php include("./footer.php"); ?>
