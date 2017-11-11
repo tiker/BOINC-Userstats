@@ -35,7 +35,6 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
 ToDo:
 -----
 - Design error.php verschönern
-- Tabellenbreite der tasks.html anpassen (vielleicht ändert sich das auch automatisch, wenn mal Daten vorhanden sind!)
 - layout Suchfeld von dataTables
 - evtl. weitere Detail-Projekt-Module (PG?)
 - Ajax für pendings.php
@@ -43,9 +42,7 @@ ToDo:
 - Ändern Code nach Umstellung auf UTC
 - Navigation einfügen bei deaktivierter Navbar
 - Erstellung weiterer Templates für Code-Vereinfachung?
-
-
-
+- SASS
 
 
 
