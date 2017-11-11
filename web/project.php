@@ -326,7 +326,7 @@
 
 			<div id="projekte" class="tab-pane fade show active" role="tabpanel" aria-labelledby="projekte-tab">
 				<br>
-				<table id="table_projects" class="table table-sm table-striped table-hover table-responsive-sm" width="100%">	
+				<table id="table_projects" class="table table-sm table-striped table-hover table-responsive-sm table-ellipsis" width="100%">	
 					<thead>
 						<tr>
 							<th class = "dunkelgrau textgrau text-center"><?php echo "$project_project" ?></th>
