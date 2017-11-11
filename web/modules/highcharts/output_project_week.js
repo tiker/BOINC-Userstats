@@ -10,7 +10,7 @@ $(function () {
 		chart: {
 			renderTo: 'output_project_week',
 			defaultSeriesType: 'column',
-			backgroundColor: 'rgb(252, 250, 249)'
+			backgroundColor: '<?php echo $highchartsBGColor; ?>'
 		},    
 		navigator: {
 			enabled: false,
@@ -50,7 +50,7 @@ $(function () {
 		},
 		yAxis: [{ // left y axis
 			opposite: false,
-			alternateGridColor: 'rgba(104, 100, 100, 0.063)',
+			alternateGridColor: '<?php echo $highchartAlternateGridColor; ?>',
 			showFirstLabel: false
 			}, { // right y axis
 			linkedTo: 0,
@@ -60,7 +60,7 @@ $(function () {
 		}],
 		series: [{
 			name: '<?php echo $tr_ch_yaxis_week;?>',
-			color: 'rgba(104, 100, 100, 0.843)',
+			color: '<?php echo $highchartBarChartColor; ?>',
 			data: [<?php echo $output_project_html;?>],
 			dataGrouping: {
 				forced: true,

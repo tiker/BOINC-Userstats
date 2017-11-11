@@ -10,7 +10,7 @@ $(function () {
 		chart: {
 			renderTo: 'output_gesamt_hour',
 			defaultSeriesType: 'column',
-			backgroundColor: 'rgb(252, 250, 249)'
+			backgroundColor: '<?php echo $highchartsBGColor; ?>'
 		},    
 		navigator: {
 			enabled: false,
@@ -67,7 +67,7 @@ $(function () {
 		},
 		yAxis: [{ // left y axis
 			opposite: false,
-			alternateGridColor: 'rgba(104, 100, 100, 0.063)',
+			alternateGridColor: '<?php echo $highchartAlternateGridColor; ?>',
 			labels: {
 				formatter: function() {
 					return Highcharts.numberFormat(this.value, 0);
@@ -93,7 +93,7 @@ $(function () {
 					['hour', [1]]
 				]
 			}, 
-			color: 'rgba(104, 100, 100, 0.843)',
+			color: '<?php echo $highchartBarChartColor; ?>',
 			data: [<?php echo $output_html;?>]
 		}]
 	});

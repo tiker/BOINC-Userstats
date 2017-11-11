@@ -318,6 +318,7 @@
 <?php include("./header.php"); ?>
 
 	<!-- Highcharts definieren  -->
+	<?php include("./modules/highcharts/highcharts_color.php"); ?>
 	<?php include("./modules/highcharts/pie.js"); ?>
 	<?php include("./modules/highcharts/output_gesamt.js"); ?>
 	<?php include("./modules/highcharts/output_gesamt_hour.js"); ?>

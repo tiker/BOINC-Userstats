@@ -272,6 +272,7 @@
 
 
 <!-- Highcharts definieren  -->
+<?php include("./modules/highcharts/highcharts_color.php"); ?>
 <?php include("./modules/highcharts/output_project.js"); ?>
 <?php include("./modules/highcharts/output_project_hour.js"); ?>
 <?php include("./modules/highcharts/output_project_day.js"); ?>

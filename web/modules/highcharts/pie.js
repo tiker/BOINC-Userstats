@@ -11,7 +11,7 @@ $(document).ready(function() {
 	chart = new Highcharts.Chart({
 		chart: {
 			renderTo: 'projektverteilung',
-			backgroundColor: 'rgb(252, 250, 249)'
+			backgroundColor: '<?php echo $highchartsBGColor; ?>'
 		},
 		title: false,
 		plotArea: {
