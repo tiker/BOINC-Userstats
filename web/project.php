@@ -248,15 +248,21 @@
 	//Sprache feststellen
 	if (isset($_GET["lang"])) $lang = $_GET["lang"];
 	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
-	
+
 	//Sprachpaket HP einlesen
 	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
 	else include "./lang/en.txt.php";
+?>
 
+<?php include("./header.php"); ?>
+
+<?php
 	//Sprachpaket Highcharts einlesen
 	if (file_exists("./lang/" . $lang . ".highstock.php")) include "./lang/" . $lang . ".highstock.php";
 	else include "./lang/en.highstock.php";
+?>
 
+<?php
 	//Check für WCG-Details
 	$showWCGDetails = false;
 	if ($table_row["project_name"] == "World Community Grid" || $table_row["project_name"] == "wcg") {
@@ -267,9 +273,6 @@
 		}
 	} 
 ?>
-
-<?php include("./header.php"); ?>
-
 
 <!-- Highcharts definieren  -->
 <?php include("./modules/highcharts/highcharts_color.php"); ?>

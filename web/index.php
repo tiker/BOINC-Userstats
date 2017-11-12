@@ -309,13 +309,15 @@
 	//Sprachpaket HP einlesen
 	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
 	else include "./lang/en.txt.php";
+?>
 
+<?php include("./header.php"); ?>
+
+<?php
 	//Sprachpaket Highcharts einlesen
 	if (file_exists("./lang/" . $lang . ".highstock.php")) include "./lang/" . $lang . ".highstock.php";
 	else include "./lang/en.highstock.php";
 ?>
-
-<?php include("./header.php"); ?>
 
 	<!-- Highcharts definieren  -->
 	<?php include("./modules/highcharts/highcharts_color.php"); ?>
