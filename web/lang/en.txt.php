@@ -110,4 +110,4 @@
 	$tabs_badge = "Badges";
 
 	$zero_pendings = "All other projects do not have any pending credits or the project does not export this value using WebRPC";
-	
+?>

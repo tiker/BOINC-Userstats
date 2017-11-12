@@ -112,3 +112,4 @@
 	$tabs_badge = "Badges";
 
 	$zero_pendings = "Alle weiteren Projekte haben keine Pendings oder exportieren diesen Wert nicht per Web-RPC";
+?>

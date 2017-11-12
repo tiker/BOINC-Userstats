@@ -254,8 +254,8 @@
 	else include "./lang/en.txt.php";
 
 	//Sprachpaket Highcharts einlesen
-	if (file_exists("./lang/highstock_" . $lang . ".js")) include "./lang/highstock_" . $lang . ".js";
-	else include "./lang/highstock_en.js";
+	if (file_exists("./lang/" . $lang . ".highstock.php")) include "./lang/" . $lang . ".highstock.php";
+	else include "./lang/en.highstock.php";
 
 	//Check für WCG-Details
 	$showWCGDetails = false;
@@ -336,7 +336,7 @@
 							<th class = "dunkelgrau textgrau d-none d-md-table-cell text-center"><?php echo "$tr_tb_06" ?></th>
 							<th class = "dunkelgrau textgrau d-none d-md-table-cell text-center"><?php echo "$tr_tb_12" ?></th>
 							<th class = "dunkelgruen textgruen text-center"><?php echo $tr_tb_to; ?></th>
-							<th class = "dunkelblau textblau text-center"><?php echo $tr_tb_ye; ?></th>
+							<th class = "dunkelblau text-blau d-none d-sm-table-cell text-center"><?php echo $tr_tb_ye; ?></th>
 							<th class = "dunkelrot textrot d-none d-sm-table-cell text-center"><?php echo $tr_tb_pe; ?></th>
 						</tr>
 					</thead>
@@ -355,7 +355,7 @@
 										<td class='d-none d-md-table-cell text-center'>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
 										<td class='d-none d-md-table-cell text-center'>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
 										<td class='gruen textgruen text-center'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
-										<td class='blau textblau text-center'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
+										<td class='d-none d-sm-table-cell blau textblau text-center'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
 										<td class='rot textrot d-none d-sm-table-cell text-center'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
 									</tr>";
 							}

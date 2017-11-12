@@ -32,17 +32,13 @@
 
 
 <?php
-//Sprache feststellen
-if (isset($_GET["lang"])) $lang = $_GET["lang"];
-else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
+	//Sprache feststellen
+	if (isset($_GET["lang"])) $lang = $_GET["lang"];
+	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
 
-//Sprachpaket HP einlesen
-if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
-else include "./lang/en.txt.php";
-
-//Sprachpaket Highcharts einlesen
-if (file_exists("./lang/highstock_" . $lang . ".js")) include "./lang/highstock_" . $lang . ".js";
-else include "./lang/highstock_en.js";
+	//Sprachpaket HP einlesen
+	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
+	else include "./lang/en.txt.php";
 ?>
 
 <?php include("./header.php"); ?>

@@ -289,10 +289,6 @@ switch ($errorcode) {
 	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
 	else include "./lang/en.txt.php";
 
-	//Sprachpaket Highcharts einlesen
-	if (file_exists("./lang/highstock_" . $lang . ".js")) include "./lang/highstock_" . $lang . ".js";
-	else include "./lang/highstock_en.js";
-
 	//Check für WCG-Details
 	$showWCGDetails = false;
 	if ($table_row["project_name"] == "World Community Grid" || $table_row["project_name"] == "wcg") {
