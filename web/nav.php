@@ -57,7 +57,7 @@
 			echo '
 			<li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-info-circle" aria-hidden="true"></i> ' . $showMoreLinksName . '</a>
-			<div class="dropdown-menu" aria-labelledby="dropdownId">
+			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownId">
 			<a class="dropdown-item" href="https://github.com/XSmeagolX" target="_new"><i class="fa fa-github" aria-hidden="true"></i> Userstats on GitHub</a>
 			<a class="dropdown-item" href="https://userstats.timo-schneider.de" target="_new"><i class="fa fa-home" aria-hidden="true"></i> Userstats Website</a>
 			<div class="dropdown-divider"></div>
