@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de">
+<html lang="<?php echo $lang; ?>">
 	<head>
 		<title><?php echo $text_hp_title; ?></title>
 
@@ -37,7 +37,6 @@
 		<div class = "force_min_height">
 			<div class="jumbotron jumbotron-fluid img-responsive" style="background-image: url('<?php echo $header_backround_url; ?>');">
 				<div class="container">
-					<!--div class="inline-flex flex-column" style="background: #263226c0; birder.radius: 12px; padding: 12px; box-shadow: 0 5px 11px #219ae7;"-->
 					<div class="d-inline-flex flex-column" style="background: rgba(255, 255, 255, 0.3); border-radius: 12px; padding: 12px; border: 1px solid #d3d3d3">
 						<?php if ($showProjectHeader) { echo '
 								<h1 class="title"><font color="white">' . $projectname . '</font></h1>

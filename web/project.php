@@ -245,43 +245,40 @@
 ?>
 
 <?php
-	//Sprache feststellen
+	// Sprache feststellen
 	if (isset($_GET["lang"])) $lang = $_GET["lang"];
 	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
 
-	//Sprachpaket HP einlesen
+	// Sprachpaket HP einlesen
 	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
 	else include "./lang/en.txt.php";
-?>
 
-<?php include("./header.php"); ?>
+	// Seitenheader einlesen
+	include("./header.php"); 
 
-<?php
-	//Sprachpaket Highcharts einlesen
+	// Sprachpaket Highcharts einlesen
 	if (file_exists("./lang/" . $lang . ".highstock.php")) include "./lang/" . $lang . ".highstock.php";
 	else include "./lang/en.highstock.php";
-?>
 
-<?php
-	//Check für WCG-Details
+	// Check für WCG-Details
 	$showWCGDetails = false;
-	if ($table_row["project_name"] == "World Community Grid" || $table_row["project_name"] == "wcg") {
+	if ($table_row["project_name"] == "World Community Grid" || $table_row["project_name"] == "WCG" || $table_row["project_name"] == "WCGrid") {
 		if ($wcg_verification === NULL || $wcg_verification === "") {
 			$showWCGDetails = false; 
 		} else {
 			$showWCGDetails = true;
 		}
 	} 
-?>
 
-<!-- Highcharts definieren  -->
-<?php include("./modules/highcharts/highcharts_color.php"); ?>
-<?php include("./modules/highcharts/output_project.js"); ?>
-<?php include("./modules/highcharts/output_project_hour.js"); ?>
-<?php include("./modules/highcharts/output_project_day.js"); ?>
-<?php include("./modules/highcharts/output_project_week.js"); ?>
-<?php include("./modules/highcharts/output_project_month.js"); ?>
-<?php include("./modules/highcharts/output_project_year.js"); ?>
+	// Highcharts definieren
+	include("./modules/highcharts/highcharts_color.php");
+	include("./modules/highcharts/output_project.js");
+	include("./modules/highcharts/output_project_hour.js");
+	include("./modules/highcharts/output_project_day.js");
+	include("./modules/highcharts/output_project_week.js");
+	include("./modules/highcharts/output_project_month.js");
+	include("./modules/highcharts/output_project_year.js"); 
+?>
 
 
 		<div class="alert info-lastupdate" role="alert">
@@ -403,13 +400,13 @@
 				<?php //Userbadge
 					if (!$showUserBadges AND !$showWcgLogo AND !$showSgWcgBadges) echo $no_badge ."<br>";
 					if ($showUserBadges) {
-						echo '<img src="' . $linkUserBadges . '" class="img-responsive center-block"></img><br>';
+						echo '<img src="' . $linkUserBadges . '" class="img-responsive center-block"><br>';
 					};
 					if ($showWcgLogo) {
-						echo '<img src="' . $linkWcgSig . '" class="img-responsive center-block"></img><br>';
+						echo '<img src="' . $linkWcgSig . '" class="img-responsive center-block"><br>';
 					};
 					if ($showSgWcgBadges) {
-						echo '<img src="' . $linkSgWcgBadges . '" class="img-responsive center-block"></img><br>';
+						echo '<img src="' . $linkSgWcgBadges . '" class="img-responsive center-block"><br>';
 					};
 				?>
 				<br>

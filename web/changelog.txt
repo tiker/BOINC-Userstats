@@ -19,6 +19,8 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_15: Pendings-Seite Desing verbessert, Allgemeines Design (Hintergrundfarben, Link-Farben, Navbar-Hintergrundfarbe usw.) verbessert
  dev_16: Anzeige von Spalten in der tasks.html für kleinere Displays aktualisiert, Codebereinigung
  dev_17: Highchart Farbdefinierung zentralisiert (modules/highchart/highcharts_color.php)
+ dev_18: Highchart Sprachdefinierung nun wieder funktional
+ dev_19: Code-Optimierung und -Bereinigung
  
 - Das Design wurde erneuert. Es besteht nun die Möglichkeit, die Farben individuell anzupassen (include/css/userstats_style.css).
   Von der userstats_layout.css würde ich die Finger lassen! Diese beinhaltet die wichtigen Einstellungen zum Seiten-Layout.

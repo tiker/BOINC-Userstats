@@ -275,7 +275,7 @@
 			}],
 			"paging": false,
 			"info": false,
-			"searching"; false
+			"searching": false
 		} );
 	} );
 </script>

@@ -11,32 +11,31 @@
 					echo "<li class='nav-item'>";
 					echo "<a class='nav-link' href='./index.php' class='btn btn-neutral btn-simple'><i class='fa fa-home' aria-hidden='true'></i> " . $linkNameOverview . "</a>";
 					echo "</li>";
-				?>
-				<?php //sind laufende WUs im Internet ersichtlich
+					// sind laufende WUs im Internet ersichtlich
 					if ( $hasBoinctasks ) {
 						echo "<li class='nav-item'>";
 						echo "<a class='nav-link' href='" . $linkBoinctasks . "' class='btn btn-neutral btn-simple'><i class='fa fa-tasks'></i> " . $linkNameBoinctasks . "</a>";
 						echo "</li>";
 					};
-					//Pendings
+					// Pendings
 					if ( $hasPendings ) {
 						echo "<li class='nav-item'>";
 						echo "<a class='nav-link' href='" . $linkPendings . "' class='btn btn-neutral btn-simple'><i class='fa fa-refresh'></i> " . $linkNamePendings . "</a>";
 						echo "</li>";
 					};
-						//Link zu Team
+					// Link zu Team
 					if ( $hasTeamHp ) {
 						echo "<li class='nav-item'>";
 						echo "<a class='nav-link' href='" . $teamHpURL . "' target='_new' class='btn btn-neutral btn-simple'><i class='fa fa-globe'></i> " . $teamHpName . "</a>";
 						echo "</li>";
 					};
-						//Link zu Boinctasks
+					// Link zu Boinctasks
 						if ( $hasBoincstats ) {
 						echo "<li class='nav-item'>";
 						echo "<a class='nav-link' href='" . $linkBoincstats . "' target='_new' class='btn btn-neutral btn-simple'><i class='fa fa-bar-chart'></i> " . $linkNameBoincstats . "</a>";
 						echo "</li>";
 					};
-						//Link zu WCG
+					// Link zu WCG
 					if ( $hasWcg ) {
 						echo "<li class='nav-item'>";
 						echo "<a class='nav-link' href='" . $linkWcg . "' target='_new' class='btn btn-neutral btn-simple'><i class='fa fa-globe'></i> " . $linkNameWcg . "</a>";

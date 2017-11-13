@@ -281,26 +281,17 @@ switch ($errorcode) {
 ?>
 
 <?php
-	//Sprache feststellen
+	// Sprache feststellen
 	if (isset($_GET["lang"])) $lang = $_GET["lang"];
 	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
-	
-	//Sprachpaket HP einlesen
+
+	// Sprachpaket HP einlesen
 	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
 	else include "./lang/en.txt.php";
 
-	//Check für WCG-Details
-	$showWCGDetails = false;
-	if ($table_row["project_name"] == "World Community Grid" || $table_row["project_name"] == "wcg") {
-		if ($wcg_verification === NULL || $wcg_verification === "") {
-			$showWCGDetails = false; 
-		} else {
-			$showWCGDetails = true;
-		}
-	} 
+	// Seitenheader einlesen
+	include("./header.php"); 
 ?>
-
-<?php include("./header.php"); ?>
 
 		<div class="container text-center  flex1">
 					<h1 class="title text-center"><?php echo $error_description; ?></h1>

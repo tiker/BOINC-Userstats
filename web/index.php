@@ -302,32 +302,31 @@
 ?>
 
 <?php
-	//Sprache feststellen
+	// Sprache feststellen
 	if (isset($_GET["lang"])) $lang = $_GET["lang"];
 	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
 
-	//Sprachpaket HP einlesen
+	// Sprachpaket HP einlesen
 	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
 	else include "./lang/en.txt.php";
-?>
 
-<?php include("./header.php"); ?>
+	// Seitenheader einlesen
+	include("./header.php"); 
 
-<?php
-	//Sprachpaket Highcharts einlesen
+	// Sprachpaket Highcharts einlesen
 	if (file_exists("./lang/" . $lang . ".highstock.php")) include "./lang/" . $lang . ".highstock.php";
 	else include "./lang/en.highstock.php";
-?>
 
-	<!-- Highcharts definieren  -->
-	<?php include("./modules/highcharts/highcharts_color.php"); ?>
-	<?php include("./modules/highcharts/pie.js"); ?>
-	<?php include("./modules/highcharts/output_gesamt.js"); ?>
-	<?php include("./modules/highcharts/output_gesamt_hour.js"); ?>
-	<?php include("./modules/highcharts/output_gesamt_day.js"); ?>
-	<?php include("./modules/highcharts/output_gesamt_week.js"); ?>
-	<?php include("./modules/highcharts/output_gesamt_month.js"); ?>
-	<?php include("./modules/highcharts/output_gesamt_year.js"); ?>
+	// Highcharts definieren  -->
+	include("./modules/highcharts/highcharts_color.php");
+	include("./modules/highcharts/pie.js");
+	include("./modules/highcharts/output_gesamt.js");
+	include("./modules/highcharts/output_gesamt_hour.js");
+	include("./modules/highcharts/output_gesamt_day.js");
+	include("./modules/highcharts/output_gesamt_week.js");
+	include("./modules/highcharts/output_gesamt_month.js");
+	include("./modules/highcharts/output_gesamt_year.js");
+?>
 
 		<div class="alert info-lastupdate" role="alert">
 			<div class="container">
@@ -481,43 +480,43 @@
 									</tr>";
 							}
 						?>
-
-									<thead>
-										<tr>
-											<td class="dunkelblau textblau"><b><?php echo $text_boinc_total ?></b></td>
-											<td class="dunkelblau textblau align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
-											<td class="dunkelblau textblau"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
-											<td class="dunkelblau textblau d-none d-sm-table-cell"><b>100%</b></td>
-											<td class="dunkelblau textblau d-none d-sm-table-cell">
-											<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-											<td class="dunkelblau textblau d-none d-lg-table-cell">
-											<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-											<td class="dunkelblau textblau d-none d-lg-table-cell">
-											<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-											<td class="dunkelblau textblau d-none d-md-table-cell">
-											<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-											<td class = "dunkelgruen textgruen">
-											<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
-											<td class = "dunkelblau text-blau d-none d-sm-table-cell">
-											<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
-											<td class = "dunkelrot textrot d-none d-md-table-cell">
-											<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
-										</tr>
-										<tr>
-											<th class = "dunkelgrau textgrau"> </th>
-											<th class = "dunkelgrau textgrau align-middle text-center"> </th>
-											<th class = "dunkelgrau textgrau"><?php echo $tr_tb_cr; ?></th>
-											<th class = "dunkelgrau textgrau d-none d-sm-table-cell">%</th>
-											<th class = "dunkelgrau textgrau d-none d-sm-table-cell"><?php echo $tr_tb_01; ?></th>
-											<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_02; ?></th>
-											<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_06; ?></th>
-											<th class = "dunkelgrau textgrau d-none d-md-table-cell"><?php echo $tr_tb_12; ?></th>
-											<th class = "dunkelgruen textgruen"><?php echo $tr_tb_to; ?></th>
-											<th class = "dunkelblau textblau d-none d-sm-table-cell"><?php echo $tr_tb_ye; ?></th>
-											<th class = "dunkelrot textrot d-none d-md-table-cell"><?php echo $tr_tb_pe; ?></th>
-										</tr>
-									</thead>
 					</tbody>
+								<tfoot>
+									<tr>
+										<td class="dunkelblau textblau"><b><?php echo $text_boinc_total ?></b></td>
+										<td class="dunkelblau textblau align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
+										<td class="dunkelblau textblau"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
+										<td class="dunkelblau textblau d-none d-sm-table-cell"><b>100%</b></td>
+										<td class="dunkelblau textblau d-none d-sm-table-cell">
+										<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+										<td class="dunkelblau textblau d-none d-lg-table-cell">
+										<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+										<td class="dunkelblau textblau d-none d-lg-table-cell">
+										<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+										<td class="dunkelblau textblau d-none d-md-table-cell">
+										<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+										<td class = "dunkelgruen textgruen">
+										<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
+										<td class = "dunkelblau text-blau d-none d-sm-table-cell">
+										<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
+										<td class = "dunkelrot textrot d-none d-md-table-cell">
+										<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
+									</tr>
+									<tr>
+										<th class = "dunkelgrau textgrau"> </th>
+										<th class = "dunkelgrau textgrau align-middle text-center"> </th>
+										<th class = "dunkelgrau textgrau"><?php echo $tr_tb_cr; ?></th>
+										<th class = "dunkelgrau textgrau d-none d-sm-table-cell">%</th>
+										<th class = "dunkelgrau textgrau d-none d-sm-table-cell"><?php echo $tr_tb_01; ?></th>
+										<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_02; ?></th>
+										<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_06; ?></th>
+										<th class = "dunkelgrau textgrau d-none d-md-table-cell"><?php echo $tr_tb_12; ?></th>
+										<th class = "dunkelgruen textgruen"><?php echo $tr_tb_to; ?></th>
+										<th class = "dunkelblau textblau d-none d-sm-table-cell"><?php echo $tr_tb_ye; ?></th>
+										<th class = "dunkelrot textrot d-none d-md-table-cell"><?php echo $tr_tb_pe; ?></th>
+									</tr>
+								</tfoot>
+
 				</table>
 			</div>
 		
@@ -569,13 +568,13 @@
 					<?php //Userbadge
 						if (!$showUserBadges AND !$showWcgLogo AND !$showSgWcgBadges) echo $no_badge ."<br>";
 						if ($showUserBadges) {
-							echo '<img src="' . $linkUserBadges . '" class="img-fluid center-block"></img><br>';
+							echo '<img src="' . $linkUserBadges . '" class="img-fluid center-block"><br>';
 						};
 						if ($showWcgLogo) {
-							echo '<img src="' . $linkWcgSig . '" class="img-fluid center-block"></img><br>';
+							echo '<img src="' . $linkWcgSig . '" class="img-fluid center-block"><br>';
 						};
 						if ($showSgWcgBadges) {
-							echo '<img src="' . $linkSgWcgBadges . '" class="img-fluid center-block"></img><br>';
+							echo '<img src="' . $linkSgWcgBadges . '" class="img-fluid center-block"><br>';
 						};
 					?>
 					<br>

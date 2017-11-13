@@ -32,16 +32,16 @@
 
 
 <?php
-	//Sprache feststellen
+	// Sprache feststellen
 	if (isset($_GET["lang"])) $lang = $_GET["lang"];
 	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
 
-	//Sprachpaket HP einlesen
+	// Sprachpaket HP einlesen
 	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
 	else include "./lang/en.txt.php";
-?>
 
-<?php include("./header.php"); ?>
+	include("./header.php");
+?>
 
 	<div class="alert info-lastupdate" role="alert">
 		<div class="container">

@@ -2,7 +2,7 @@
 	// English version //
 	$text_search = "Filter/Search";
 	$linkNameOverview = "Project-Overview";
-	$text_hp_title = "<title>Personal Userstats of " .$boinc_username. " from Team " .$boinc_teamname. "</title>";
+	$text_hp_title = "Personal Userstats of " .$boinc_username. " from Team " .$boinc_teamname;
 	$text_header_motto = "BOINC-Projects of";
 	$text_header_ot = "of team";
 	$text_header_lu = "last update";
@@ -99,6 +99,7 @@
 
 	$bt_headline = "Running WU's";
 
+	$tabs_projects = "Projects";
 	$tabs_project = "Project";
 	$tabs_pie = "Pie";
 	$tabs_total = "Total";
