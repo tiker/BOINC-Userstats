@@ -148,7 +148,7 @@
 
 	<div class="container">
 		<b><?php echo $wcg_detail_team_history; ?></b>
-		<table id="table_wcgteams" class="table table-sm table-striped table-hover table-responsive-sm" width="100%">
+		<table id="table_wcgteams" class="table table-sm table-striped table-hover table-responsive-xs" width="100%">
 			<thead>
 				<tr>
 					<th class = "dunkelgrau textgrau"><b><?php echo "$wcg_detail_team" ?></b></th>
@@ -201,7 +201,7 @@
 	<div class="container">
 		<b><?php echo $wcg_detail_stats_per_project ?></b>
 
-		<table id="table_wcg" class="table table-sm table-striped table-hover table-responsive-sm" width="100%">
+		<table id="table_wcg" class="table table-sm table-striped table-hover table-responsive-xs" width="100%">
 			<thead>
 				<tr>
 					<th class = "dunkelgrau textgrau"><b><?php echo $wcg_detail_project; ?></b></th>
