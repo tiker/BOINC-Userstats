@@ -26,6 +26,18 @@ body {
 	border-radius: 0px;
 }
 
+.danger-lastupdate {
+	border-radius: 0px;
+}
+
+.warning-lastupdate {
+	border-radius: 0px;
+}
+
+.success-lastupdate {
+	border-radius: 0px;
+}
+
 /*
 #table_projects {
     width: calc(30px + 100%) !important;

@@ -110,5 +110,6 @@
 	$tabs_year = "Year";
 	$tabs_badge = "Badges";
 
+	$text_info_update_inprogress = "<b>Update in progress.</b> This could take up to 2 minutes (or more). The update started at: ";
 	$zero_pendings = "All other projects do not have any pending credits or the project does not export this value using WebRPC";
 ?>

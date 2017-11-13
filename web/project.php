@@ -280,12 +280,25 @@
 	include("./modules/highcharts/output_project_year.js"); 
 ?>
 
-
-		<div class="alert info-lastupdate" role="alert">
+<?php 
+	if ($datum < $datum_start) {
+		echo '
+		<div class="alert warning-lastupdate" role="alert">
 			<div class="container">
-				<b><?php echo $text_header_lu ?>:</b> <?php echo $lastupdate_start ?> - <?php echo $lastupdate ?> (UTC)
+				' . $text_info_update_inprogress .  $lastupdate_start .'
 			</div>
 		</div>
+		';
+	} else {
+		echo '
+		<div class="alert info-lastupdate" role="alert">
+			<div class="container">
+				<b>' . $text_header_lu . ':</b> ' . $lastupdate_start . ' - ' . $lastupdate . ' (UTC)
+			</div>
+		</div>
+		';
+	}
+?>
 
 		<ul class="nav nav-space nav-tabs nav-tabs-userstats justify-content-center" id="myTab" role="tablist">
 			<li class="nav-item">

@@ -97,6 +97,23 @@
 	color: rgb(10, 98, 128);
 }
 
+.danger-lastupdate {
+	background-color: rgb(224, 169, 147);
+	color: rgb(107, 16, 16);
+}
+
+.success-lastupdate {
+	background-color: rgb(139, 221, 181);
+	color: rgb(16, 109, 81);
+}
+
+.warning-lastupdate {
+	background-color: rgb(219, 203, 157);
+	color: rgb(121, 105, 19);
+}
+
+
+
 .alert-info {
 	background-color: rgb(134, 206, 224);
 	color: rgb(10, 98, 128);

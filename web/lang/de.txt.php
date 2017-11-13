@@ -111,5 +111,6 @@
 	$tabs_year = "Jahr";
 	$tabs_badge = "Badges";
 
+	$text_info_update_inprogress = "<b>Deine Projekte werden derzeit aktualisiert.</b> Dies kann bis zu 2 Minuten dauern (oder mehr). Startzeitpunkt: ";
 	$zero_pendings = "Alle weiteren Projekte haben keine Pendings oder exportieren diesen Wert nicht per Web-RPC";
 ?>
