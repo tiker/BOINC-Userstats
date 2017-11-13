@@ -32,12 +32,12 @@ body {
     margin-left: -15px;
     margin-right: -15px;
 }
-*/
 
 #table_wcg {
 	width: calc(30px + 100%) !important;
 	margin-left: -15px;
 }
+*/
 
 #table_tasks {
 	width: calc(30px + 100%) !important;

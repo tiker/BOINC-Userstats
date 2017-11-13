@@ -314,8 +314,8 @@
 	include("./header.php"); 
 
 	// Sprachpaket Highcharts einlesen
-	if (file_exists("./lang/" . $lang . ".highstock.php")) include "./lang/" . $lang . ".highstock.php";
-	else include "./lang/en.highstock.php";
+	if (file_exists("./lang/" . $lang . ".highstock.js")) include "./lang/" . $lang . ".highstock.js";
+	else include "./lang/en.highstock.js";
 
 	// Highcharts definieren  -->
 	include("./modules/highcharts/highcharts_color.php");

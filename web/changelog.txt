@@ -22,6 +22,7 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_18: Highchart Sprachdefinierung nun wieder funktional
  dev_19: Code-Optimierung und -Bereinigung
  dev_20: reponisves Verhalten der Tabellen bei xs-Auflösung angepasst
+ dev_21: highchart lang-Optionen nun wieder als js-Datei includiert
  
 - Das Design wurde erneuert. Es besteht nun die Möglichkeit, die Farben individuell anzupassen (include/css/userstats_style.css).
   Von der userstats_layout.css würde ich die Finger lassen! Diese beinhaltet die wichtigen Einstellungen zum Seiten-Layout.

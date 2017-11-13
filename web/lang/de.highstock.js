@@ -1,5 +1,3 @@
-<?php
-?>
 	<script type="text/javascript">
 		Highcharts.setOptions({
 			lang: {
