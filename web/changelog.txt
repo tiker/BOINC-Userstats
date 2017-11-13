@@ -24,6 +24,7 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_20: reponisves Verhalten der Tabellen bei xs-Auflösung angepasst
  dev_21: highchart lang-Optionen nun wieder als js-Datei includiert
  dev_22: Footer mal erneuert, aber noch nicht abschließend :D
+ dev_23: Navbar und Footer bearbeitet
  
 - Das Design wurde erneuert. Es besteht nun die Möglichkeit, die Farben individuell anzupassen (include/css/userstats_style.css).
   Von der userstats_layout.css würde ich die Finger lassen! Diese beinhaltet die wichtigen Einstellungen zum Seiten-Layout.
