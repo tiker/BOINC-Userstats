@@ -72,6 +72,23 @@
 	# Ende Datenzusammenstellung User
 	############################################################
 	
+	# Berechnung der aktuellen Gesamt-Credits bei allen Projekten des Users
+	$query_getTotalCredits = mysqli_query($db_conn, "SELECT SUM(total_credits) AS sum_total from boinc_grundwerte");
+	if ( !$query_getTotalCredits ) { 	
+		$connErrorTitle = "Datenbankfehler";
+		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+								Es bestehen wohl Probleme mit der Datenbankanbindung.";
+		include "./errordocs/db_initial_err.php";
+		exit();
+	} elseif  ( mysqli_num_rows($query_getTotalCredits) === 0 ) { 
+		$connErrorTitle = "Datenbankfehler";
+		$connErrorDescription = "Die Tabelle boinc_grundwerte enthält keine Daten.";
+		include "./errordocs/db_initial_err.php";
+		exit();
+	}
+	$row2 = mysqli_fetch_assoc($query_getTotalCredits);
+	$sum_total = $row2["sum_total"];
+
 	############################################################
 	# Beginn fuer Datenzusammenstellung Projekt
 	$query_getProjectData =mysqli_query($db_conn,"SELECT * FROM boinc_grundwerte WHERE project_shortname = '$projectid'") or die(mysqli_error());
@@ -235,6 +252,7 @@
 		$sum_yesterday_total += $table_row["sum_yesterday"];
 		
 		$table_row["project_link"]= "project.php?projectid=" .$shortname. "";
+		$table_row["proz_anteil"] = sprintf("%01.2f", $row["total_credits"] * 100 / $sum_total);
 		
 		$table[]=$table_row;
 		# Ende Datenzusammenstellung fuer Tabelle
@@ -344,13 +362,14 @@
 						<tr>
 							<th class = "dunkelgrau textgrau text-center"><?php echo "$project_project" ?></th>
 							<th class = "dunkelgrau textgrau text-center"><?php echo "$tr_tb_cr" ?></th>
+							<th class = "dunkelgrau textgrau d-none d-sm-table-cell text-center">%</th>
 							<th class = "dunkelgrau textgrau d-none d-sm-table-cell text-center"><?php echo "$tr_tb_01" ?></th>
-							<th class = "dunkelgrau textgrau d-none d-md-table-cell text-center"><?php echo "$tr_tb_02" ?></th>
-							<th class = "dunkelgrau textgrau d-none d-md-table-cell text-center"><?php echo "$tr_tb_06" ?></th>
+							<th class = "dunkelgrau textgrau d-none d-lg-table-cell text-center"><?php echo "$tr_tb_02" ?></th>
+							<th class = "dunkelgrau textgrau d-none d-lg-table-cell text-center"><?php echo "$tr_tb_06" ?></th>
 							<th class = "dunkelgrau textgrau d-none d-md-table-cell text-center"><?php echo "$tr_tb_12" ?></th>
 							<th class = "dunkelgruen textgruen text-center"><?php echo $tr_tb_to; ?></th>
 							<th class = "dunkelblau text-blau d-none d-sm-table-cell text-center"><?php echo $tr_tb_ye; ?></th>
-							<th class = "dunkelrot textrot d-none d-sm-table-cell text-center"><?php echo $tr_tb_pe; ?></th>
+							<th class = "dunkelrot textrot d-none d-md-table-cell text-center"><?php echo $tr_tb_pe; ?></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -363,13 +382,14 @@
 										<td class='text-center'>" .$table_row["project_name"] . "</td>";
 								};
 								echo "	<td class='text-center'>" .number_format($table_row["total_credits"],0,$dec_point,$thousands_sep). "</td>
+										<td class='d-none d-sm-table-cell text-center'>" . $table_row["proz_anteil"] . "</td>
 										<td class='d-none d-sm-table-cell text-center'>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>
-										<td class='d-none d-md-table-cell text-center'>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
-										<td class='d-none d-md-table-cell text-center'>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
+										<td class='d-none d-lg-table-cell text-center'>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
+										<td class='d-none d-lg-table-cell text-center'>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
 										<td class='d-none d-md-table-cell text-center'>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
 										<td class='gruen textgruen text-center'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
 										<td class='d-none d-sm-table-cell blau textblau text-center'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
-										<td class='rot textrot d-none d-sm-table-cell text-center'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
+										<td class='rot textrot d-none d-md-table-cell text-center'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
 									</tr>";
 							}
 						?>

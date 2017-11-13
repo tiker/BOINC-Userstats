@@ -26,6 +26,7 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_22: Footer mal erneuert, aber noch nicht abschließend :D
  dev_23: Navbar und Footer bearbeitet
  dev_24: Prüfung und Ausgabe, falls bei Aufruf der Seite noch Daten aktuell von den Projekten erhoben werden.
+ dev_25: der Prozentuale Anteil des Projekts wird nun auch in der Projekt-Ansicht angezeigt
  
 - Die Version 5.0.0 wurde mit sehr viel Liebe zum Detail erstellt. Dies wurde im Footer deutlich gemacht. Zudem wurde das Copyright-Symbol entfernt. Der Code steht unter MIT-Lizenz.
 - Das Design wurde erneuert. Es besteht nun die Möglichkeit, die Farben individuell anzupassen (include/css/userstats_style.css).
