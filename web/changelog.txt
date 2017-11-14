@@ -47,6 +47,7 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
 
 ToDo:
 -----
+- Sortierung tasks (Progressbar)
 - Design error.php verschönern
 - layout Suchfeld von dataTables
 - evtl. weitere Detail-Projekt-Module (PG?)
