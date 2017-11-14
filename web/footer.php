@@ -5,12 +5,12 @@
 							Diese Seite verwendet <a href="https://www.highcharts.com"><i class="fa fa-copyright"></i> Highcharts</a><br>
 								<a href="#" data-toggle="modal" data-target="#modalImpressum">Impressum</a> | 
 								<a href="#" data-toggle="modal" data-target="#modalDisclaimer">Disclaimer</a> | 
-								<a href="#" data-toggle="modal" data-target="#modalDatenschutz">Datenschutz</a> | 
+								<a href="#" data-toggle="modal" data-target="#modalDatenschutz">Datenschutz</a><br>
 								<a href="https://github.com/XSmeagolX/Pers-nliche-BOINC-Userstats/blob/master/LICENSE" target="_new">MIT License</a> 
 							</div>
 							<div class="col-12 col-sm-6 col-md-5 text-center align-self-center">
 								<a href="https://userstats.timo-schneider.de" target="_blank">BOINC Userstats</a> 
-								<?php echo $userstats_version; ?><br>made with <font color="#f57c7c"><i class="fa fa-heart"></i></font> by <a href="https://timo-schneider.de" target="_blank">Timo Schneider</a><br><font size="1">(XSmeagolX - Team <a href="https://seti-germany.de"><img src="./images/sg_logo_klein.png"></a>)</font>
+								<?php echo $userstats_version; ?><br>made with <font color="#f57c7c"><i class="fa fa-heart"></i></font> by <a href="https://timo-schneider.de" target="_blank">Timo Schneider</a><br><font size="1">(XSmeagolX - Team <a href="https://seti-germany.de"><img src="./assets/images/sg_logo_klein.png"></a>)</font>
 							</div>
 						</div>
 				</div>

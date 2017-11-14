@@ -18,7 +18,7 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_14: Trennung zwischen Layout- und Style-css, Eigene Style-Templates
  dev_15: Pendings-Seite Desing verbessert, Allgemeines Design (Hintergrundfarben, Link-Farben, Navbar-Hintergrundfarbe usw.) verbessert
  dev_16: Anzeige von Spalten in der tasks.html für kleinere Displays aktualisiert, Codebereinigung
- dev_17: Highchart Farbdefinierung zentralisiert (modules/highchart/highcharts_color.php)
+ dev_17: Highchart Farbdefinierung zentralisiert (assets/js/highchart/highcharts_color.php)
  dev_18: Highchart Sprachdefinierung nun wieder funktional
  dev_19: Code-Optimierung und -Bereinigung
  dev_20: reponisves Verhalten der Tabellen bei xs-Auflösung angepasst
@@ -27,10 +27,11 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_23: Navbar und Footer bearbeitet
  dev_24: Prüfung und Ausgabe, falls bei Aufruf der Seite noch Daten aktuell von den Projekten erhoben werden.
  dev_25: der Prozentuale Anteil des Projekts wird nun auch in der Projekt-Ansicht angezeigt
+ dev_26: Neustrukturierung des Codes (assets)
  
 - Die Version 5.0.0 wurde mit sehr viel Liebe zum Detail erstellt. Dies wurde im Footer deutlich gemacht. Zudem wurde das Copyright-Symbol entfernt. Der Code steht unter MIT-Lizenz.
-- Das Design wurde erneuert. Es besteht nun die Möglichkeit, die Farben individuell anzupassen (include/css/userstats_style.css).
-  Von der userstats_layout.css würde ich die Finger lassen! Diese beinhaltet die wichtigen Einstellungen zum Seiten-Layout.
+- Das Design wurde erneuert. Es besteht nun die Möglichkeit, die Farben individuell anzupassen (assets/css/userstats_style.css).
+  Von der assets/css/userstats_layout.css würde ich die Finger lassen! Diese beinhaltet die wichtigen Einstellungen zum Seiten-Layout.
 - Die Navbar ist nun als fester Bestandteil integriert worden. Sie beinhaltet nun die wichtigsten Links.
   Sie kann aber dennoch komplett deaktiviert werden (führt evtl. zu Navigationsproblemen) bzw. deren Inhalt kann frei konfiguriert werden.
   Insgesamt wird durch die permanente Integration nun auch der Seitenheader etwas kleiner.

@@ -134,23 +134,6 @@
 	color: rgb(107, 16, 16);
 }
 
-/* Buttons */
-
-.btn-nav {
-	background-color:rgba(0, 0, 0, 0);
-	color:rgb(175, 52, 52)
-}
-
-.btn-nav:hover, .btn-nav:active, .btn-nav.active {
-	background-color:rgba(0, 0, 0, 0);
-	color:rgb(38, 100, 85)
-}
-
-.btn:hover, .btn:focus, .btn:active, .btn.active, .open > .btn.dropdown-toggle {
-	background-color: rgba(102, 97, 91, 0);
-	color: rgb(255, 255, 255);
-}
-
 /* Navbar */
 
 .navbar-userstats {

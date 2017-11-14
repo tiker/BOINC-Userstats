@@ -3,7 +3,7 @@ date_default_timezone_set('UTC');
 		if( !ini_get('safe_mode') ){ 
 			set_time_limit(120); 
 		} 
-include "/path/to/db_connect.php";
+include "/path/to/boinc_db_connect.php";
 #----------------------------------------------------------
 # Anfang des Abrufs der persoenlichen Daten
 #----------------------------------------------------------

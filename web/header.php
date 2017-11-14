@@ -27,8 +27,8 @@
 		<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 
 		<!-- Layout CSS for Userstats-->
-		<link rel="stylesheet" href="./include/css/userstats_layout.css">
-		<link rel="stylesheet" href="./include/css/userstats_style.css"> 
+		<link rel="stylesheet" href="./assets/css/userstats_layout.css">
+		<link rel="stylesheet" href="./assets/css/userstats_style.css"> 
 
 	</head>
 	

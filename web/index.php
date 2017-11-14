@@ -318,14 +318,14 @@
 	else include "./lang/en.highstock.js";
 
 	// Highcharts definieren  -->
-	include("./modules/highcharts/highcharts_color.php");
-	include("./modules/highcharts/pie.js");
-	include("./modules/highcharts/output_gesamt.js");
-	include("./modules/highcharts/output_gesamt_hour.js");
-	include("./modules/highcharts/output_gesamt_day.js");
-	include("./modules/highcharts/output_gesamt_week.js");
-	include("./modules/highcharts/output_gesamt_month.js");
-	include("./modules/highcharts/output_gesamt_year.js");
+	include("./assets/js/highcharts/highcharts_color.php");
+	include("./assets/js/highcharts/pie.js");
+	include("./assets/js/highcharts/output_gesamt.js");
+	include("./assets/js/highcharts/output_gesamt_hour.js");
+	include("./assets/js/highcharts/output_gesamt_day.js");
+	include("./assets/js/highcharts/output_gesamt_week.js");
+	include("./assets/js/highcharts/output_gesamt_month.js");
+	include("./assets/js/highcharts/output_gesamt_year.js");
 ?>
 
 <?php 

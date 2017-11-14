@@ -13,7 +13,7 @@
 	include "version.php";
 
 	// Pfad zur Datenbank-Verbindung     // Path to database connecg
-	include "../database/boinc_db.php";
+	include "../database/boinc_db_connect.php";
 	
 	// Daten für Impressum //
 	$hp_username = "Dein Name";
@@ -23,7 +23,7 @@
 	$showNavbar = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist true
 
 	// für die Navbar sind verschiedene Links möglich
-	$brand_logo = "./images/brand_logo.png"; //das kleine Logo oben links neben dem Namen in der Navbar
+	$brand_logo = "./assets/images/brand_logo.png"; //das kleine Logo oben links neben dem Namen in der Navbar
 	$hp_nav_brand_link = "./index.php"; //wohin der Link auf dem Brand-Logo führen soll
 
 	// individuelle Links
@@ -39,7 +39,7 @@
 	$showMoreLinksName = "weitere Links";
 
 	// Header Hintergrund
-	$header_backround_url = "./images/header_background.jpg"; //Hier den Link zu deiner Header-Hintergrundgrafik einfuegen
+	$header_backround_url = "./assets/images/header_background.jpg"; //Hier den Link zu deiner Header-Hintergrundgrafik einfuegen
 	
 	// User BOINC-Badges
 	// Die Badge-Grafik kann man auch per cronjob 1x täglich in sein Webverzeichnis kopieren und dann hier relativ verlinken.

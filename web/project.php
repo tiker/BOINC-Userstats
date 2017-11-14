@@ -289,13 +289,13 @@
 	} 
 
 	// Highcharts definieren
-	include("./modules/highcharts/highcharts_color.php");
-	include("./modules/highcharts/output_project.js");
-	include("./modules/highcharts/output_project_hour.js");
-	include("./modules/highcharts/output_project_day.js");
-	include("./modules/highcharts/output_project_week.js");
-	include("./modules/highcharts/output_project_month.js");
-	include("./modules/highcharts/output_project_year.js"); 
+	include("./assets/js/highcharts/highcharts_color.php");
+	include("./assets/js/highcharts/output_project.js");
+	include("./assets/js/highcharts/output_project_hour.js");
+	include("./assets/js/highcharts/output_project_day.js");
+	include("./assets/js/highcharts/output_project_week.js");
+	include("./assets/js/highcharts/output_project_month.js");
+	include("./assets/js/highcharts/output_project_year.js"); 
 ?>
 
 <?php 
@@ -400,7 +400,7 @@
 			<?php
 			if ($showWCGDetails) { echo '
 			<div id="wcgdetails" class="tab-pane fade" role="tabpanel" aria-labelledby="wcgdetails-tab">';
-				include ("./modules/project_details/wcg_detail.php");
+				include ("./modules/wcg_detail.php");
 			echo '</div>'; }
 			?>
 

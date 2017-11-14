@@ -297,7 +297,9 @@ switch ($errorcode) {
 					<h1 class="title text-center"><?php echo $error_description; ?></h1>
 					<h5 class="description text-center">
 						<?php
-							if ($lang = "de") echo $err_de; else echo $err_en;
+							if ($lang === "de") echo $err_de;
+							elseif ($lang === "fr") echo $err_fr;
+							else echo $err_en;
 						?>
 					</h5>					
 		</div>
