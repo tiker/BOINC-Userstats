@@ -135,3 +135,14 @@ table, th, tr, td {
 	max-width: 80%;
 	margin: 30px auto;
 }
+
+.progress-bar-userstats {
+	background-color: #7A9E9F;
+}
+
+.progress-userstats {
+	background-color: #DDDDDD;
+	border-radius: 3px;
+	box-shadow: none;
+	height: 20px;
+}

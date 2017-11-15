@@ -9,26 +9,32 @@
 				<!-- 
 				__InsertHeaderTemplateBegin__
 				<tr>
-					<th class = "dunkelgrau textgrau">__Project__</th>
-					<th class = "dunkelgrau textgrau d-none d-md-table-cell">__Application__</th>
+					<th class = "text-left dunkelgrau textgrau">__Project__</th>
+					<th class = "text-left dunkelgrau textgrau d-none d-md-table-cell">__Application__</th>
 					<th class = "dunkelgrau textgrau d-none d-lg-table-cell">__Elapsed__</th>
-					<th class = "dunkelgrau textgrau">__Percentage__</th>
+					<th class = "text-center dunkelgrau textgrau" max-width="100px">__Percentage__</th>
 					<th class = "dunkelgrau textgrau d-none d-sm-table-cell">Restzeit</th>
 					<th class = "dunkelgrau textgrau d-none d-lg-table-cell">__Deadline__</th>
-					<th class = "dunkelgrau textgrau">__Computer__</th>
+					<th class = "text-left dunkelgrau textgrau">__Computer__</th>
 				</tr>
 				__InsertHeaderTemplateEnd__ -->
 
 				<!-- 
 				__InsertRowTemplateBegin__
 				<tr>
-					<td BGCOLOR="#__ProjectColor__" style="vertical-align: middle;">__Project__</td>
-					<td class = "d-none d-md-table-cell" BGCOLOR="#__ApplicationColor__">__Application__</td>
+					<td class = "text-left" BGCOLOR="#__ProjectColor__" style="vertical-align: middle;">__Project__</td>
+					<td class = "text-left d-none d-md-table-cell" BGCOLOR="#__ApplicationColor__">__Application__</td>
 					<td class = "d-none d-lg-table-cell" BGCOLOR="#__ElapsedColor__">__Elapsed__</td>
-					<td BGCOLOR="#__PercentageColor__"><div class="progress" style="margin-bottom: 0px;"><div class="progress-bar progress-bar-info" role="progress-bar" aria-value-now="__Percentage__" aria-valuemin="0" aria-valuemax="100" style="width: __Percentage__%">__Percentage__%<span class="sr-only">__Percentage__% Complete</span></div></div></td>
+					<td BGCOLOR="#__PercentageColor__" data-order="__Percentage__">
+						<div class="progress progress-userstats">
+							<div class="progress-bar progress-bar-userstats" role="progressbar" aria-value-now="__Percentage__" aria-valuemin="0" aria-valuemax="100" style="width: __Percentage__%">
+								__Percentage__%
+							</div>
+						</div>
+					</td>
 					<td class = "d-none d-sm-table-cell" BGCOLOR="#__TimeleftColor__">__Timeleft__</td>
 					<td class = "d-none d-lg-table-cell" BGCOLOR="#__DeadlineColor__">__Deadline__</td>
-					<td BGCOLOR="#__ComputerColor__">__Computer__</td>
+					<td class = "text-left" BGCOLOR="#__ComputerColor__">__Computer__</td>
 				</tr>
 				__InsertRowTemplateEnd__ -->
 
@@ -41,4 +47,3 @@
 					</tbody>
 				</table>
 			</div>
-	
