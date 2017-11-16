@@ -160,4 +160,14 @@ table, th, tr, td {
 .progress.progress-userstats .progress-bar[aria-value-now="7"], 
 .progress.progress-userstats .progress-bar[aria-value-now="8"], 
 .progress.progress-userstats .progress-bar[aria-value-now="9"],
-.progress.progress-userstats .progress-bar[aria-value-now="10"] { justify-content: left;}
+.progress.progress-userstats .progress-bar[aria-value-now="10"], 
+.progress.progress-userstats .progress-bar[aria-value-now="11"], 
+.progress.progress-userstats .progress-bar[aria-value-now="12"], 
+.progress.progress-userstats .progress-bar[aria-value-now="13"], 
+.progress.progress-userstats .progress-bar[aria-value-now="14"], 
+.progress.progress-userstats .progress-bar[aria-value-now="15"], 
+.progress.progress-userstats .progress-bar[aria-value-now="16"], 
+.progress.progress-userstats .progress-bar[aria-value-now="17"], 
+.progress.progress-userstats .progress-bar[aria-value-now="18"], 
+.progress.progress-userstats .progress-bar[aria-value-now="19"],
+.progress.progress-userstats .progress-bar[aria-value-now="20"] { justify-content: left;}
