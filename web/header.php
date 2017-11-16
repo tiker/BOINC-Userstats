@@ -33,45 +33,44 @@
 	</head>
 	
 	<body>
-	<?php if ( $showNavbar ) include("./nav.php"); ?>
-		<div class = "force_min_height">
-			<div class="jumbotron jumbotron-fluid img-responsive" style="background-image: url('<?php echo $header_backround_url; ?>');">
-				<div class="container">
-					<div class="d-inline-flex flex-column" style="background: rgba(255, 255, 255, 0.3); border-radius: 12px; padding: 12px; border: 1px solid #d3d3d3">
-						<?php if ($showProjectHeader) { echo '
-								<h1 class="title"><font color="white">' . $projectname . '</font></h1>
-						';} else if ($showPendingsHeader) { echo '
-							<h1 class="title"><font color="white">' . $text_header_pendings . '</font></h1>
-						';} else { echo '
-							<h1 class="title"><font color="white">' . $text_header_motto .  '</font></h1>
-						';};
-						?>
-						<h3><font color="white"><?php echo "$boinc_username" . " <font size='3'> " . $text_header_ot . "</font> " . $boinc_teamname ?></font></h3>
-						
-						<?php 
-							//sind laufende WUs im Internet ersichtlich
-#							if ( $hasBoinctasks ) {
-#								echo '<a href="' . $linkBoinctasks . '" class="btn btn-neutral btn-simple"><i class="fa fa-tasks"></i> ' . $linkNameBoinctasks . '</a>';
-#							};
-							//Link zu Boinctasks
-#							if ( $hasBoincstats ) {
-#								echo '<a href="' . $linkBoincstats . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-bar-chart"></i> ' . $linkNameBoincstats . '</a>';
-#							};
-							 //Link zu Team
-#							if ( $hasTeamHp ) {
-#								echo '<a href="' . $teamHpURL . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-link"></i> ' . $teamHpName . '</a>';
-#							};
-							//Link zu WCG
-#							if ( $hasWcg ) {
-#								echo '<a href="' . $linkWcg . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-globe"></i> ' . $linkNameWcg . '</a>';
-#							};
-							 //Pendings
-#							if ( $hasPendings ) {
-#								echo '<a href="' . $linkPendings . '" class="btn btn-neutral btn-simple"><i class="fa fa-refresh"></i> ' . $linkNamePendings . '</a>';
-#							};
-						?>
-
+		<?php if ( $showNavbar ) include("./nav.php"); ?>
+			<div class = "force_min_height">
+				<div class="jumbotron jumbotron-fluid img-responsive" style="background-image: url('<?php echo $header_backround_url; ?>');">
+					<div class="container">
+						<div class="d-inline-flex flex-column" style="background: rgba(255, 255, 255, 0.3); border-radius: 12px; padding: 12px; border: 1px solid #d3d3d3">
+							<?php if ($showProjectHeader) { echo '
+									<h1 class="title"><font color="white">' . $projectname . '</font></h1>
+							';} else if ($showPendingsHeader) { echo '
+								<h1 class="title"><font color="white">' . $text_header_pendings . '</font></h1>
+							';} else { echo '
+								<h1 class="title"><font color="white">' . $text_header_motto .  '</font></h1>
+							';};
+							?>
+							<h3><font color="white"><?php echo "$boinc_username" . " <font size='3'> " . $text_header_ot . "</font> " . $boinc_teamname ?></font></h3>
+							
+							<?php 
+								//sind laufende WUs im Internet ersichtlich
+#								if ( $hasBoinctasks ) {
+#									echo '<a href="' . $linkBoinctasks . '" class="btn btn-neutral btn-simple"><i class="fa fa-tasks"></i> ' . $linkNameBoinctasks . '</a>';
+#								};
+								//Link zu Boinctasks
+#								if ( $hasBoincstats ) {
+#									echo '<a href="' . $linkBoincstats . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-bar-chart"></i> ' . $linkNameBoincstats . '</a>';
+#								};
+								//Link zu Team
+#								if ( $hasTeamHp ) {
+#									echo '<a href="' . $teamHpURL . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-link"></i> ' . $teamHpName . '</a>';
+#								};
+								//Link zu WCG
+#								if ( $hasWcg ) {
+#									echo '<a href="' . $linkWcg . '" target="_new" class="btn btn-neutral btn-simple"><i class="fa fa-globe"></i> ' . $linkNameWcg . '</a>';
+#								};
+								//Pendings
+#								if ( $hasPendings ) {
+#									echo '<a href="' . $linkPendings . '" class="btn btn-neutral btn-simple"><i class="fa fa-refresh"></i> ' . $linkNamePendings . '</a>';
+#								};
+							?>
+						</div>
 					</div>
 				</div>
-			</div>
 

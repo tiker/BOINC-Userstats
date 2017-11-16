@@ -136,6 +136,9 @@ table, th, tr, td {
 	margin: 30px auto;
 }
 
+
+/* Progress Bar */
+
 .progress-bar-userstats {
 	background-color: #7A9E9F;
 }
@@ -146,3 +149,15 @@ table, th, tr, td {
 	box-shadow: none;
 	height: 20px;
 }
+
+.progress.progress-userstats .progress-bar[aria-value-now="0"], 
+.progress.progress-userstats .progress-bar[aria-value-now="1"], 
+.progress.progress-userstats .progress-bar[aria-value-now="2"], 
+.progress.progress-userstats .progress-bar[aria-value-now="3"], 
+.progress.progress-userstats .progress-bar[aria-value-now="4"], 
+.progress.progress-userstats .progress-bar[aria-value-now="5"], 
+.progress.progress-userstats .progress-bar[aria-value-now="6"], 
+.progress.progress-userstats .progress-bar[aria-value-now="7"], 
+.progress.progress-userstats .progress-bar[aria-value-now="8"], 
+.progress.progress-userstats .progress-bar[aria-value-now="9"],
+.progress.progress-userstats .progress-bar[aria-value-now="10"] { justify-content: left;}
