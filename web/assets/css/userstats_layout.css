@@ -148,6 +148,12 @@ table, th, tr, td {
 	border-radius: 3px;
 	box-shadow: none;
 	height: 20px;
+	position: relative;
+}
+
+.progress-bar:not(.progress-bar-userstats) {
+	position: absolute;
+	top: 2px;
 }
 
 /*
