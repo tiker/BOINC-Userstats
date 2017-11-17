@@ -140,11 +140,11 @@ table, th, tr, td {
 /* Progress Bar */
 
 .progress-bar-userstats {
-	background-color: #7A9E9F;
+	background-color: rgb(122, 158, 159);
 }
 
 .progress-userstats {
-	background-color: #DDDDDD;
+	background-color: rgb(221, 221, 221);
 	border-radius: 3px;
 	box-shadow: none;
 	height: 20px;
@@ -154,6 +154,8 @@ table, th, tr, td {
 .progress-bar:not(.progress-bar-userstats) {
 	position: absolute;
 	top: 2px;
+	color: rgb(39, 51, 51);
+/*	text-shadow: 0px 0px 2px rgb(0, 0, 0); */
 }
 
 /*
