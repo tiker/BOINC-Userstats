@@ -150,6 +150,7 @@ table, th, tr, td {
 	height: 20px;
 }
 
+/*
 .progress.progress-userstats .progress-bar[aria-value-now="0"], 
 .progress.progress-userstats .progress-bar[aria-value-now="1"], 
 .progress.progress-userstats .progress-bar[aria-value-now="2"], 
@@ -171,3 +172,4 @@ table, th, tr, td {
 .progress.progress-userstats .progress-bar[aria-value-now="18"], 
 .progress.progress-userstats .progress-bar[aria-value-now="19"],
 .progress.progress-userstats .progress-bar[aria-value-now="20"] { justify-content: left;}
+*/
