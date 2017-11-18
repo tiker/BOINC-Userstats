@@ -427,23 +427,26 @@
 			<div id="jahr" class="tab-pane fade" role="tabpanel" aria-labelledby="jahr-tab">
 				<div id="output_project_year"></div>
 			</div>
-				
+
+
 			<div id="badges" class="tab-pane fade text-center" role="tabpanel" aria-labelledby="badges-tab">
-				<br>
-				<?php //Userbadge
-					if (!$showUserBadges AND !$showWcgLogo AND !$showSgWcgBadges) echo $no_badge ."<br>";
-					if ($showUserBadges) {
-						echo '<img src="' . $linkUserBadges . '" class="img-responsive center-block"><br>';
-					};
-					if ($showWcgLogo) {
-						echo '<img src="' . $linkWcgSig . '" class="img-responsive center-block"><br>';
-					};
-					if ($showSgWcgBadges) {
-						echo '<img src="' . $linkSgWcgBadges . '" class="img-responsive center-block"><br>';
-					};
-				?>
-				<br>
-			</div>
+				<div>
+					<br>
+					<?php //Userbadge
+						if (!$showUserBadges AND !$showWcgLogo AND !$showSgWcgBadges) echo $no_badge ."<br>";
+						if ($showUserBadges) {
+							echo '<img src="' . $linkUserBadges . '" class="img-fluid center-block"><br>';
+						};
+						if ($showWcgLogo) {
+							echo '<img src="' . $linkWcgSig . '" class="img-fluid center-block"><br>';
+						};
+						if ($showSgWcgBadges) {
+							echo '<img src="' . $linkSgWcgBadges . '" class="img-fluid center-block"><br>';
+						};
+					?>
+					<br>
+				</div>
+			</div>				
 		</div>
 
 		<script>
