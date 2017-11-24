@@ -411,7 +411,7 @@
 								<td class = "dunkelgrau textgrau"><b><?php echo $tr_th2_rp ?></b></td>
 								<td class="dunkelgrau textgrau align-middle text-center"><b><?php #echo $tr_tb_det ?></b>
 								<a class="toggle-text" data-toggle="collapse" data-target = ".retiredProjects">
-									<span><i class="text-muted fa fa-toggle-off fa-lg"></i></span><span class="hidden"><i class="fa fa-toggle-on fa-lg"></i></span>
+									<span><i class="textrot fa fa-toggle-on fa-lg fa-rotate-180"></i></span><span class="hidden"><i class="textgruen fa fa-toggle-on fa-lg"></i></span>
 								</a>
 									<!--a class = "toggle-text"><span><i class="fa fa-toggle-on fa-lg"></i></span><span class = "hidden"><i class="text-muted fa fa-toggle-off fa-lg"></i></span></a-->
 								</td>
