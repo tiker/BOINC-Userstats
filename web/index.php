@@ -409,8 +409,11 @@
 						<thead>
 							<tr>
 								<td class = "dunkelgrau textgrau"><b><?php echo $tr_th2_rp ?></b></td>
-								<td class="dunkelgrau textgrau align-middle text-center"><b><?php #echo $tr_tb_det ?>
-									<i class="text-muted fa fa-toggle-on fa-lg" aria-hidden="true"></i></b>
+								<td class="dunkelgrau textgrau align-middle text-center"><b><?php #echo $tr_tb_det ?></b>
+								<a class="toggle-text" data-toggle="collapse" data-target = ".retiredProjects">
+									<span><i class="text-muted fa fa-toggle-off fa-lg"></i></span><span class="hidden"><i class="fa fa-toggle-on fa-lg"></i></span>
+								</a>
+									<!--a class = "toggle-text"><span><i class="fa fa-toggle-on fa-lg"></i></span><span class = "hidden"><i class="text-muted fa fa-toggle-off fa-lg"></i></span></a-->
 								</td>
 								<td class = "dunkelgrau textgrau"><b><?php echo $tr_tb_cr ?></b></td>
 								<td class = "dunkelgrau textgrau d-none d-sm-table-cell"></td>
@@ -426,9 +429,9 @@
 						
 						<?php
 							foreach ($table_retired as $table_row_retired) {
-								echo "<tr>
+								echo "<tr class = 'collapse in retiredProjects'>
 										<td class = 'text-muted text-sm'>" . $table_row_retired["project_name"] ."</td>
-										<td class='align-middle text-center text-muted test-sm'><a href='" . $table_row_retired["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
+										<td class = 'align-middle text-center text-muted test-sm'><a href='" . $table_row_retired["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
 										<td class = 'text-muted text-sm'><b>" . number_format($table_row_retired["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
 										<td class = 'text-muted text-sm d-none d-sm-table-cell'>" . number_format($table_row_retired["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>
 										<td class = 'text-muted text-sm d-none d-sm-table-cell'></td>
@@ -543,6 +546,14 @@
 			</div>
 
 		</div>
+
+		<script>
+			$('.hidden').removeClass('hidden').hide();
+			$('.toggle-text').click(function() {
+				$(this).find('span').each(function() { $(this).toggle(); });
+			});
+		</script>
+
 		
 		<script>
 			$(document).ready(function() {
