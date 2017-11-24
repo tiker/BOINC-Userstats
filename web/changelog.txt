@@ -49,6 +49,8 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
   Oft existiert die Webpräsenz nicht mehr und wurde von Domaingrabbern mit Werbeinhalten versehen. Solche Seiten möchte ich nicht länger verlinkt haben.
 - Die blaue Leiste unter dem Header dient nun als Informations-Leiste und gibt je nach Umstand mehr Infos aus.
   Es wurde z.B. eine Prüfung integriert, die beim Aufrufen der Seite eine entsprechende Ausgabe tätigt, falls gerade Daten von den Projekten erhoben werden.
+- Beendete Projekte in der Projekt-Übersicht werden standardmäßig nicht angezeigt. Ein "Schalter" zum Anzeigen beendeter Projekte wurde hinzugfügt und befindet sich direkt neben dem Text "beendete Projekte"
+   
 
 ToDo:
 -----
