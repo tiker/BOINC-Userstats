@@ -2,8 +2,7 @@
 	include "./settings/settings.php";
 	date_default_timezone_set('UTC');
 
-	# Beginn fuer Datenzusammenstellung User
-	$query_getUserData = mysqli_query($db_conn, "SELECT * from boinc_user"); //alle Userdaten einlesen
+	$query_getUserData = mysqli_query($db_conn, "SELECT * from boinc_user");
 	if ( !$query_getUserData ) { 	
 		$connErrorTitle = "Datenbankfehler";
 		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -27,24 +26,17 @@
 	
 	$lastupdate_start = date("d.m.Y H:i:s", $datum_start);
 	$lastupdate = date("H:i:s", $datum);
-	# Ende Datenzusammenstellung User
-	############################################################
-
 ?>
 
 <?php
-	// Sprache feststellen
 	if (isset($_GET["lang"])) $lang = $_GET["lang"];
 	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
 
-	// Sprachpaket HP einlesen
 	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
 	else include "./lang/en.txt.php";
 
-	// Seitenheader einlesen
 	include("./header.php"); 
-	
-	// Liste mit Tasks einlesen
+
 	include ($linkUploadFileBoinctasks);
 ?>
 

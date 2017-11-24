@@ -1,11 +1,7 @@
 <?php
 	include "./settings/settings.php";
 	date_default_timezone_set('UTC');
-	//-----------------------------------------------------------------------------------
-	// ab hier bitte keine Aenderungen vornehmen, wenn man nicht weiß, was man tut!!! :D
-	//-----------------------------------------------------------------------------------
-	
-	// Sprachdefinierung
+
 	if(isset($_GET["lang"])) $lang=$_GET["lang"];
 	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2));
 	
@@ -21,9 +17,8 @@
 		$sekunden %= 60;
 		return array ($jahre, $tage, $stunden, $minuten, $sekunden);
 	}
-	############################################################
-	# Beginn für Grundwerte einlesen
-	$query_getUserData = mysqli_query($db_conn, "SELECT * FROM boinc_user"); //alle Userdaten einlesen
+
+	$query_getUserData = mysqli_query($db_conn, "SELECT * FROM boinc_user");
 	if ( !$query_getUserData ) { 	
 		$connErrorTitle = $wcg_detail_dbstatus;
 		$connErrorDescription = $wcg_detail_dbfehler_text01;
@@ -46,8 +41,6 @@
 		$datum_start = $row["lastupdate_start"];
 		$datum = $row["lastupdate"];
 	}
-	########################################################
-	# Abruf des Projekt-Status
 
 	$xml_string = FALSE;
 	$status = [];
@@ -73,8 +66,6 @@
 	if($xml_string == FALSE) echo "<div class='alert alert-danger'><strong>FEHLER!</strong> Die Liste der Projekte ist derzeit nicht verfügbar!</div>";
 	$last_result = strval($xml->MemberStats->MemberStat->LastResult);
 	
-	############################################################	
-	# Total Stats fuer wcg_total_werte
 	$total_time_stamp = date('Y-m-d H'). ':00:00';
 	$user_total_runtime_seconds = strval($xml->MemberStats->MemberStat->StatisticsTotals->RunTime);
 	$a = zeit($user_total_runtime_seconds);
@@ -85,8 +76,6 @@
 	$user_total_results = strval($xml->MemberStats->MemberStat->StatisticsTotals->Results);
 	$user_total_results_rank = strval($xml->MemberStats->MemberStat->StatisticsTotals->ResultsRank);
 	
-	############################################################
-	# Team Stats fuer wcg_team (aktualisieren der Teams fuer wcg_team
 	foreach ($xml->TeamHistory->Team as $team_history)
 	{
 		$table_row["team_name"] = strval($team_history->Name);
@@ -101,8 +90,6 @@
 		$table_team[]=$table_row;
 	}
 	
-	############################################################	
-	# Project Badges (aktualisieren der wcg-badges fuer wcg_badges)
 	foreach ($xml->MemberStats->MemberStat->Badges->Badge as $project_badge)
 	{
 		$table_row["project_fullname"] = strval($project_badge->ProjectName);
@@ -112,8 +99,6 @@
 		$badges[strval($project_badge->ProjectName)]=$table_row;
 	}
 	
-	############################################################
-	# Project Stats fuer wcg_project_werte
 	$timestamp = date('Y-m-d H'). ':00:00';
 	foreach ($xml->MemberStatsByProjects->Project as $project_values)
 	{
@@ -162,7 +147,7 @@
 			<tbody>
 				<?php
 					foreach($table_team as $table_row) {
-						if ($table_row["team_retire_date"] > 0) { // Team Historie
+						if ($table_row["team_retire_date"] > 0) {
 							echo "<tr>";
 							echo "<td class='text-muted'>" .$table_row["team_name"]. "</td>";
 							echo "<td class='text-muted text-center'>" .$table_row["team_join_date"]. "</td>";
@@ -171,7 +156,7 @@
 							echo "<td class='text-muted d-none d-sm-table-cell'>" .number_format($table_row["team_points"],0,$dec_point,$thousands_sep). "</td>";
 							echo "<td class='text-muted d-none d-md-table-cell'>" .number_format($table_row["team_results"],0,$dec_point,$thousands_sep). "</td>";	
 							echo "</tr>";
-						} else { //* aktuelles Team
+						} else {
 							echo "<tr>";
 							echo "<td class='texthellgruen'>" .$table_row["team_name"]. "</td>";
 							echo "<td class='texthellgruen text-center'>" .$table_row["team_join_date"]. "</td>";

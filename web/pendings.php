@@ -2,12 +2,8 @@
 	include "./settings/settings.php";
 	date_default_timezone_set('UTC');
 	$showPendingsHeader = true;
-	//-----------------------------------------------------------------------------------
-	// ab hier bitte keine Aenderungen vornehmen, wenn man nicht weiß, was man tut!!! :D
-	//-----------------------------------------------------------------------------------
 	
-	# Beginn fuer Datenzusammenstellung User
-	$result_user = mysqli_query($db_conn, "SELECT * FROM boinc_user"); //alle Userdaten einlesen
+	$result_user = mysqli_query($db_conn, "SELECT * FROM boinc_user");
 	if ( !$result_user || mysqli_num_rows($result_user) === 0 ) { 	
 		$connErrorTitle = "Datenbankfehler";
 		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -24,19 +20,12 @@
 		$datum = $row["lastupdate"];
 	}
 	$lastupdate_start = date("d.m.Y H:i:s",$datum_start);
-	$lastupdate = date("H:i:s",$datum);
-	
+	$lastupdate = date("H:i:s",$datum);	
 	$pending_credits = "0";
-	
-?>
 
-
-<?php
-	// Sprache feststellen
 	if (isset($_GET["lang"])) $lang = $_GET["lang"];
 	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
 
-	// Sprachpaket HP einlesen
 	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
 	else include "./lang/en.txt.php";
 
@@ -57,7 +46,7 @@
 			</thead>
 			<tbody>									
 				<?php
-					$query = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte WHERE project_status = 1;"); //nur bei aktiven Projekten Werte lesen
+					$query = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte WHERE project_status = 1;");
 					if ( !$query ) { 	
 						$connErrorTitle = "Datenbankfehler";
 						$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -89,8 +78,8 @@
 							$pending_credits = intval($xml_pendings->total_claimed_credit);
 						}
 						$pendings_gesamt = $pendings_gesamt + $pending_credits;
-						$sql_pendings = "UPDATE boinc_grundwerte SET pending_credits='" . $pending_credits . "' WHERE project_shortname='" . $row['project_shortname'] . "'"; //aktuelle Pendings des Projektes in Grundwerttabelle eintragen
-						mysqli_query($db_conn, $sql_pendings); //Werte in DB eintragen
+						$sql_pendings = "UPDATE boinc_grundwerte SET pending_credits='" . $pending_credits . "' WHERE project_shortname='" . $row['project_shortname'] . "'";
+						mysqli_query($db_conn, $sql_pendings);
 						
 						if ($pending_credits > 0) {
 							echo "<tr><td>" . $projectname . "</td>";

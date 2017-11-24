@@ -2,7 +2,6 @@
 	date_default_timezone_set('UTC');
 	include "./settings/settings.php";
 
-	//Variablen initialisieren
 	$sum1h_total = 0;
 	$sum2h_total = 0;
 	$sum6h_total = 0;
@@ -13,9 +12,7 @@
 	$pie_other = 0;
 	$pie_html = "";
 
-	############################################################
-	# Beginn fuer Datenzusammenstellung User
-	$query_getUserData = mysqli_query($db_conn, "SELECT * from boinc_user");  //alle Userdaten einlesen
+	$query_getUserData = mysqli_query($db_conn, "SELECT * from boinc_user");
 	if ( !$query_getUserData ) { 	
 		$connErrorTitle = "Datenbankfehler";
 		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -39,14 +36,10 @@
 	
 	$lastupdate_start = date("d.m.Y H:i:s", $datum_start);
 	$lastupdate = date("H:i:s", $datum);
-	# Ende Datenzusammenstellung User
-	############################################################
 	
-	# Berechnung der Zeitabstaende fuer Anzeige der letzten 48 Stunden bzw. letzte 30 Tage bei Stunden- bzw. Tages-Output
-	$timestamp_hour = date("Y-m-d H:i:s", mktime(date("H"), 0, 0, date("m"), date("d") - 2, date("Y")));  //letzte 48 Stunden bei Stunden-Output
-	$timestamp_day = date("Y-m-d H:i:s", mktime(date("H"), 0, 0, date("m"), date("d") - 31, date("Y")));  // letzte 31 Tage bei Tages-Output
+	$timestamp_hour = date("Y-m-d H:i:s", mktime(date("H"), 0, 0, date("m"), date("d") - 2, date("Y")));
+	$timestamp_day = date("Y-m-d H:i:s", mktime(date("H"), 0, 0, date("m"), date("d") - 31, date("Y")));
 	
-	# Berechnung der aktuellen Gesamt-Credits bei allen Projekten des Users
 	$query_getTotalCredits = mysqli_query($db_conn, "SELECT SUM(total_credits) AS sum_total from boinc_grundwerte");
 	if ( !$query_getTotalCredits ) { 	
 		$connErrorTitle = "Datenbankfehler";
@@ -63,7 +56,6 @@
 	$row2 = mysqli_fetch_assoc($query_getTotalCredits);
 	$sum_total = $row2["sum_total"];
 	
-	# Berechnung der aktuellen Gesamt-Pendings-Credits bei allen Projekten des Users
 	$query_getTotalPendingCredits = mysqli_query($db_conn, "SELECT SUM(pending_credits) AS sum_total from boinc_grundwerte");
 	if ( !$query_getTotalPendingCredits ) { 	
 		$connErrorTitle = "Datenbankfehler";
@@ -80,16 +72,12 @@
 	$row2 = mysqli_fetch_assoc($query_getTotalPendingCredits);
 	$sum_pendings = $row2["sum_total"];
 	
-	##########################################################################
-	# Erhebung der Projekt-Daten
-	##########################################################################
-	
 	$einsh = mktime(date("H"), 0, 0, date("m"), date("d"), date("Y"));
 	$zweih = mktime(date("H") - 1, 0, 0, date("m"), date("d"), date("Y"));
 	$sechsh = mktime(date("H") - 5, 0, 0, date("m"), date("d"), date("Y"));
 	$zwoelfh = mktime(date("H") - 11, 0, 0, date("m"), date("d"), date("Y"));
 	
-	$query_getAllProjects = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte ORDER BY project ASC");  //alle Projektgrunddaten einlesen
+	$query_getAllProjects = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte ORDER BY project ASC");
 	if ( !$query_getAllProjects ) { 	
 		$connErrorTitle = "Datenbankfehler";
 		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -106,8 +94,6 @@
 		
 		if ($row["project_status"] <= 1) {
 			
-			############################################################
-			# Daten fuer Tabelle zuammenstellen
 			$shortname = $row["project_shortname"];
 			$table_row["project_name"] = $row["project"];
 			$table_row["total_credits"] = $row["total_credits"];
@@ -115,7 +101,6 @@
 			$table_row["project_home_link"] = $row["project_homepage_url"];
 			$table_row["user_stats_vorhanden"] = $row["project_status"];
 			
-			#Daten fuer letzte Stunde holen
 			$query_getOutput1h = mysqli_query($db_conn,"SELECT sum(credits) AS sum1h FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $einsh . "'");
 			if ( !$query_getOutput1h || mysqli_num_rows($query_getOutput1h) === 0 ) { 	
 				$connErrorTitle = "Datenbankfehler";
@@ -128,7 +113,6 @@
 			$table_row["sum1h"] = $row2["sum1h"];
 			$sum1h_total += $table_row["sum1h"];
 			
-			#Daten der letzten 2 Stunden holen
 			$query_getOutput2h = mysqli_query($db_conn,"SELECT sum(credits) AS sum2h FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $zweih . "'");
 			if ( !$query_getOutput2h || mysqli_num_rows($query_getOutput2h) === 0 ) { 	
 				$connErrorTitle = "Datenbankfehler";
@@ -141,7 +125,6 @@
 			$table_row["sum2h"] = $row2["sum2h"];
 			$sum2h_total += $table_row["sum2h"];
 			
-			#Daten der letzten 6 Stunden holen
 			$query_getOutput6h = mysqli_query($db_conn,"SELECT sum(credits) AS sum6h FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $sechsh . "'");
 			if ( !$query_getOutput6h || mysqli_num_rows($query_getOutput6h) === 0 ) { 	
 				$connErrorTitle = "Datenbankfehler";
@@ -154,7 +137,6 @@
 			$table_row["sum6h"] = $row2["sum6h"];
 			$sum6h_total += $table_row["sum6h"];
 			
-			#Daten der letzten 12 Stunden holen
 			$query_getOutput12h = mysqli_query($db_conn,"SELECT sum(credits) AS sum12h FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $zwoelfh . "'");
 			if ( !$query_getOutput12h || mysqli_num_rows($query_getOutput12h) === 0 ) { 	
 				$connErrorTitle = "Datenbankfehler";
@@ -167,7 +149,6 @@
 			$table_row["sum12h"] = $row2["sum12h"];
 			$sum12h_total += $table_row["sum12h"];
 			
-			#Aktueller Tagesoutput
 			$tagesanfang = mktime(0, 0, 1, date("m"), date("d"), date("Y"));
 			$query_getOutputToday = mysqli_query($db_conn,"SELECT sum(credits) AS sum_today FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $tagesanfang . "'");
 			if ( !$query_getOutputToday || mysqli_num_rows($query_getOutputToday) === 0 ) { 	
@@ -181,7 +162,6 @@
 			$table_row["sum_today"] = $row2["sum_today"];
 			$sum_today_total += $table_row["sum_today"];
 			
-			#Tagesoutput gestern
 			$gestern_anfang = mktime(0, 0, 1, date("m"), date("d") - 1, date("Y"));
 			$gestern_ende = mktime(0, 0, 0, date("m"), date("d"), date("Y"));
 			
@@ -203,13 +183,9 @@
 			
 			$table[] = $table_row;
 			$pie_array = $table_row;
-			# Ende Datenzusammenstellung fuer Tabelle
-			############################################################
 			
 			} else {
 			
-			############################################################
-			# Daten fuer Tabelle beendete Projekte zuammenstellen
 			$shortname = $row["project_shortname"];
 			$table_row["project_name"] = $row["project"];
 			$table_row["total_credits"] = $row["total_credits"];
@@ -222,22 +198,15 @@
 			$table_retired[] = $table_row;
 			$pie_array = $table_row;
 		}
-		
-		############################################################
-		# Beginn fuer Datenzusammenstellung Tortendiagramm
+
 		if ($table_row["proz_anteil"] >= $separat && !$table_row["retired"]) {
 			$pie_html .= "	['" . $pie_array["project_name"] . "',	 " . round($pie_array["total_credits"] * 100 / $sum_total, 2) . "],\n";
 			} else {
 			if (!$table_row["retired"]) $pie_other += ($pie_array["total_credits"] * 100 / $sum_total);
 			else $pie_other_retired += ($pie_array["total_credits"] * 100 / $sum_total);
-		}
-		# Ende Datenzusammenstellung Tortendiagramm
-		############################################################
-		
+		}		
 	}
 	
-	############################################################
-	# Zusammenfassung weiterer Projekte nur anzeigen, wenn vorhanden
 	if ($pie_other > 0) {
 		$pie_html .= "	['" . $tr_ch_pie_zwp . "',	 " . round($pie_other, 2) . "],\n";
 	}
@@ -245,8 +214,6 @@
 		$pie_html .= "	['" . $tr_ch_pie_ret . "',	 " . round($pie_other_retired, 2) . "]\n";
 	}
 	
-	############################################################
-	# Beginn Datenzusammenstellung Stunden-Gesamt-Output
 	$query_getTotalOutputPerHour = mysqli_query($db_conn,"SELECT time_stamp, credits FROM boinc_werte WHERE project_shortname='gesamt'");
 	if ( !$query_getTotalOutputPerHour ) { 	
 		$connErrorTitle = "Datenbankfehler";
@@ -266,11 +233,7 @@
 		$output_html .= "[" . $timestamp . ", " . $row["credits"] . "], ";
 	}
 	$output_html = substr($output_html, 0, -2);
-	# Ende Datenzusammenstellung
-	############################################################
-	
-	############################################################
-	# Beginn Datenzusammenstellung Gesamt-Credits
+
 	$query_getTotalOutputPerDay = mysqli_query($db_conn,"SELECT time_stamp, total_credits, pending_credits FROM boinc_werte_day WHERE project_shortname='gesamt'");
 	if ( !$query_getTotalOutputPerDay ) { 	
 		$connErrorTitle = "Datenbankfehler";
@@ -293,31 +256,18 @@
 	}
 	$output_gesamt_html = substr($output_gesamt_html, 0, -2);
 	$output_gesamt_pendings_html = substr($output_gesamt_pendings_html, 0, -2);
-	# Ende Datenzusammenstellung Gesamt
-	############################################################
-	
-	##########################################################################
-	# Ende Erhebung der Projekt-Daten
-	##########################################################################
-?>
 
-<?php
-	// Sprache feststellen
 	if (isset($_GET["lang"])) $lang = $_GET["lang"];
 	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
 
-	// Sprachpaket HP einlesen
 	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
 	else include "./lang/en.txt.php";
 
-	// Seitenheader einlesen
 	include("./header.php"); 
 
-	// Sprachpaket Highcharts einlesen
 	if (file_exists("./lang/" . $lang . ".highstock.js")) include "./lang/" . $lang . ".highstock.js";
 	else include "./lang/en.highstock.js";
 
-	// Highcharts definieren  -->
 	include("./assets/js/highcharts/highcharts_color.php");
 	include("./assets/js/highcharts/pie.js");
 	include("./assets/js/highcharts/output_gesamt.js");
@@ -326,9 +276,7 @@
 	include("./assets/js/highcharts/output_gesamt_week.js");
 	include("./assets/js/highcharts/output_gesamt_month.js");
 	include("./assets/js/highcharts/output_gesamt_year.js");
-?>
 
-<?php 
 	if ($datum < $datum_start) {
 		echo '
 		<div class="alert warning-lastupdate" role="alert">
@@ -419,8 +367,7 @@
 							<th class = "dunkelrot textrot d-none d-md-table-cell"><?php echo $tr_tb_pe; ?></th>
 						</tr>
 					</thead>
-					<tbody>
-						<!-- Fuer jedes Projekt eine Zeile in die Tabelle hinzufuegen -->						
+					<tbody>				
 						<?php
 							foreach ($table as $table_row) {
 								echo "<tr>
@@ -579,7 +526,7 @@
 			<div id="badges" class="tab-pane fade text-center" role="tabpanel" aria-labelledby="badges-tab">
 				<div>
 					<br>
-					<?php //Userbadge
+					<?php
 						if (!$showUserBadges AND !$showWcgLogo AND !$showSgWcgBadges) echo $no_badge ."<br>";
 						if ($showUserBadges) {
 							echo '<img src="' . $linkUserBadges . '" class="img-fluid center-block"><br>';
@@ -595,7 +542,7 @@
 				</div>
 			</div>
 
-		</div> <!--  flex1  -->
+		</div>
 		
 		<script>
 			$(document).ready(function() {

@@ -2,17 +2,13 @@
 
 include "./settings/settings.php";
 
-// Sprachdefinierung
 if (isset($_GET["lang"])) $lang = $_GET["lang"];
 else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
 
-# Auswahl der Sprache, wenn nicht vorhanden, Nutzung von englischer Sprachdatei
 if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
 else include "./lang/en.txt.php";
 
-############################################################
-# Beginn fuer Datenzusammenstellung User
-$query_getUserData = mysqli_query($db_conn, "SELECT * from boinc_user"); //alle Userdaten einlesen
+$query_getUserData = mysqli_query($db_conn, "SELECT * from boinc_user");
 if ( !$query_getUserData ) { 	
 	$connErrorTitle = "Datenbankfehler";
 	$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -36,8 +32,6 @@ while ($row = mysqli_fetch_assoc($query_getUserData)) {
 
 $lastupdate_start = date("d.m.Y H:i:s", $datum_start);
 $lastupdate = date("H:i:s", $datum);
-# Ende Datenzusammenstellung User
-############################################################
 
 if (!isset($_GET['error'])) { $errorcode = ""; } else { $errorcode = $_GET['error'];}
 if (!isset($_SERVER['HTTP_REFERER'])) { $HTTP_REFERER = ""; } else { $HTTP_REFERER = $_SERVER['HTTP_REFERER'];}
@@ -278,18 +272,13 @@ switch ($errorcode) {
 	default: 
 		$error_description = "not supported";
 	}
-?>
 
-<?php
-	// Sprache feststellen
 	if (isset($_GET["lang"])) $lang = $_GET["lang"];
 	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
 
-	// Sprachpaket HP einlesen
 	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
 	else include "./lang/en.txt.php";
 
-	// Seitenheader einlesen
 	include("./header.php"); 
 ?>
 

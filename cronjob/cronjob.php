@@ -1,29 +1,26 @@
 <?php 
-date_default_timezone_set('UTC');
-		if( !ini_get('safe_mode') ){ 
-			set_time_limit(120); 
-		} 
-include "/path/to/boinc_db_connect.php";
-#----------------------------------------------------------
-# Anfang des Abrufs der persoenlichen Daten
-#----------------------------------------------------------
+	date_default_timezone_set('UTC');
+			if( !ini_get('safe_mode') ){ 
+				set_time_limit(120); 
+			} 
+	include "/path/to/boinc_db_connect.php";
 
-$query=mysqli_query($db_conn,"SELECT * FROM boinc_grundwerte WHERE project_status = 1;") or die (mysqli_error()); //nur bei aktiven Projekten Werte lesen
+	$query=mysqli_query($db_conn,"SELECT * FROM boinc_grundwerte WHERE project_status = 1;") or die (mysqli_error());
 
-$total_credits_day = "0"; # total_credits_day nur hier, weiter unten total_credits
-$pending_credits = "0";
-$gesamtcredits_h = "0";
-$gesamt_pendings_h = "0";
-$unixtime = time();
+	$total_credits_day = "0";
+	$pending_credits = "0";
+	$gesamtcredits_h = "0";
+	$gesamt_pendings_h = "0";
+	$unixtime = time();
 
-$ctx = stream_context_create(array(
-		'http' => array(
-			'timeout' => 10
+	$ctx = stream_context_create(array(
+			'http' => array(
+				'timeout' => 10
+			)
 		)
-	)
-);
+	);
 
-$updatestarttime = time();
+	$updatestarttime = time();
 
 	$sqlupdatestarttime = "UPDATE boinc_user 
 	SET lastupdate_start='" .$updatestarttime. "'";
@@ -46,12 +43,12 @@ $updatestarttime = time();
 		
 		if($xml_string == FALSE || intval($xml->total_credit)==0) {
 			$total_credits = $row['total_credits'];
-			$timestamp = ceil($unixtime/3600) * 3600; // Zeitstempel definieren und auf Punkt 0 der aktuellen Stunde setzen
+			$timestamp = ceil($unixtime/3600) * 3600;
 			$diff1h = 0;
 		}
-		else {	// bei positivem Abfrageergebnis
-			$total_credits = intval($xml->total_credit); //aktuelle Credits der Variable zuordnen
-			$timestamp = ceil($unixtime/3600) * 3600; // Zeitstempel definieren und auf Punkt 0 der aktuellen Stunde setzen
+		else {
+			$total_credits = intval($xml->total_credit);
+			$timestamp = ceil($unixtime/3600) * 3600;
 			$diff1h = $total_credits - $row['total_credits'];
 			$gesamtcredits_h = $gesamtcredits_h + $diff1h;
 		}
@@ -73,23 +70,18 @@ $updatestarttime = time();
 		WHERE project_shortname='" .$row['project_shortname']. "'";
 		mysqli_query($db_conn,$sql_pendings); 
 		
-		
-		###############################################
-		# Um Mitternacht die Gesamtcredits der Projekte eintragen 
-		$timestamp = date('Y-m-d H').':00:00'; // Zeitstempel definieren und auf Punkt 0 der aktuellen Stunde setzen
+		$timestamp = date('Y-m-d H').':00:00';
 		if ($timestamp == date('Y-m-d'). ' 00:00:00') {
-			$time_stamp = ceil($unixtime/3600) * 3600; // Zeitstempel definieren und auf Punkt 0 der aktuellen Stunde setzen	
+			$time_stamp = ceil($unixtime/3600) * 3600;	
 			$sql= "INSERT INTO boinc_werte_day (project_shortname, time_stamp, total_credits, pending_credits) 
 			VALUES
 			('" .$row['project_shortname']. "', '" .$time_stamp. "', ".$total_credits.", ".$pending_credits.")";
-			mysqli_query($db_conn,$sql); //Werte fuer Tages-Output der einzelnen Projekte DB eintragen
+			mysqli_query($db_conn,$sql);
 		}
 	}
-	
-	#############################################
-	# Stunden-Gesamt-Output in DB schreiben
+
 	if ($gesamtcredits_h > 0) {
-		$time_stamp = ceil($unixtime/3600) * 3600; // Zeitstempel definieren und auf Punkt 0 der aktuellen Stunde setzen
+		$time_stamp = ceil($unixtime/3600) * 3600;
 		$sql= "INSERT boinc_werte 
 		(project_shortname, time_stamp, credits) 
 		VALUES 
@@ -97,34 +89,26 @@ $updatestarttime = time();
 		mysqli_query($db_conn,$sql);
 	}
 	
-	#############################################
-	# Um Mitternacht Gesamttagesoutput und aktuelle Pendings in DB schreiben
-	$timestamp = date('Y-m-d H').':00:00'; // Zeitstempel definieren und auf Punkt 0 der aktuellen Stunde setzen
+	$timestamp = date('Y-m-d H').':00:00';
 	if ($timestamp == date('Y-m-d'). ' 00:00:00') {
-		# Gesamt Credits
 		$gesamt_gestern_query = "SELECT sum(total_credits) AS total_credits FROM boinc_grundwerte";
 		$gesamt = mysqli_query($db_conn,$gesamt_gestern_query);
 		$gesamt_vortag = mysqli_fetch_assoc($gesamt);
 		$total_credits_gestern = $gesamt_vortag['total_credits'];
-		# Pendings
+
 		$pending_gestern_query = "SELECT sum(pending_credits) AS pending_credits FROM boinc_grundwerte";
 		$pendings = mysqli_query($db_conn,$pending_gestern_query);
 		$pendings_vortag = mysqli_fetch_assoc($pendings);
 		$total_pendings_gestern = $pendings_vortag['pending_credits'];
+
 		$time = ceil($unixtime/3600) * 3600;
 		$sql_gesamt= "INSERT INTO boinc_werte_day (project_shortname, time_stamp, total_credits, pending_credits) 
 		VALUES ('gesamt', '" .$time. "', '" .$total_credits_gestern. "', '" .$total_pendings_gestern. "')";
-		mysqli_query($db_conn,$sql_gesamt); // Werte in die DB eintragen
+		mysqli_query($db_conn,$sql_gesamt);
 	}
 	
-	############################################
-	# Zeitstempel Ende cronjob in DB eintragen 
 	$updatetime = time();
 	$sqlupdatetime = "UPDATE boinc_user 
 	SET lastupdate='" .$updatetime. "'";
 	mysqli_query($db_conn,$sqlupdatetime);
-	
-	#----------------------------------------------------------
-	# Ende des Abrufs der persoenlichen Daten
-	#----------------------------------------------------------
 ?>
