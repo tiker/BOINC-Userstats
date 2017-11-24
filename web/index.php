@@ -429,7 +429,7 @@
 						
 						<?php
 							foreach ($table_retired as $table_row_retired) {
-								echo "<tr class = 'collapse in retiredProjects'>
+								echo "<tr class = 'collapse retiredProjects'>
 										<td class = 'text-muted text-sm'>" . $table_row_retired["project_name"] ."</td>
 										<td class = 'align-middle text-center text-muted test-sm'><a href='" . $table_row_retired["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
 										<td class = 'text-muted text-sm'><b>" . number_format($table_row_retired["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
@@ -466,7 +466,7 @@
 										<td class = "dunkelrot textrot d-none d-md-table-cell">
 										<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
 									</tr>
-									<tr>
+									<tr class = 'collapse retiredProjects'>
 										<th class = "dunkelgrau textgrau"> </th>
 										<th class = "dunkelgrau textgrau align-middle text-center"> </th>
 										<th class = "dunkelgrau textgrau"><?php echo $tr_tb_cr; ?></th>
