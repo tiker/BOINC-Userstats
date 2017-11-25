@@ -406,27 +406,26 @@
 									</tr>";
 							}
 						?>
-						<thead>
-							<tr>
-								<td class = "dunkelgrau textgrau"><b><?php echo $tr_th2_rp ?></b></td>
-								<td class="dunkelgrau textgrau align-middle text-center"><b><?php #echo $tr_tb_det ?></b>
+					<thead>
+						<tr>
+							<td class = "dunkelgrau textgrau"><b><?php echo $tr_th2_rp ?></b></td>
+							<td class="dunkelgrau textgrau align-middle text-center">
 								<a class="toggle-text" data-toggle="collapse" data-target = ".retiredProjects">
-									<span><i class="textrot fa fa-toggle-on fa-lg fa-rotate-180"></i></span><span class="hidden"><i class="textgruen fa fa-toggle-on fa-lg"></i></span>
+									<span><i class="textrot fa fa-toggle-on fa-lg fa-rotate-180"></i></span>
+									<span class="hidden"><i class="textgruen fa fa-toggle-on fa-lg"></i></span>
 								</a>
-									<!--a class = "toggle-text"><span><i class="fa fa-toggle-on fa-lg"></i></span><span class = "hidden"><i class="text-muted fa fa-toggle-off fa-lg"></i></span></a-->
-								</td>
-								<td class = "dunkelgrau textgrau"><b><?php echo $tr_tb_cr ?></b></td>
-								<td class = "dunkelgrau textgrau d-none d-sm-table-cell"></td>
-								<td class = "dunkelgrau textgrau d-none d-sm-table-cell"><b><?php echo $tr_tb_01 ?></b></td>
-								<td class = "dunkelgrau textgrau d-none d-lg-table-cell"><b><?php echo $tr_tb_02 ?></b></td>
-								<td class = "dunkelgrau textgrau d-none d-lg-table-cell"><b><?php echo $tr_tb_06 ?></b></td>
-								<td class = "dunkelgrau textgrau d-none d-md-table-cell"><b><?php echo $tr_tb_12 ?></b></td>
-								<td class = "dunkelgruen textgruen"><b><?php echo $tr_tb_to; ?></b></td>
-								<td class = "dunkelblau textblau d-none d-sm-table-cell"><b><?php echo $tr_tb_ye; ?></b></td>
-								<td class = "dunkelrot textrot d-none d-md-table-cell"><b><?php echo $tr_tb_pe; ?></b></td>
-							</tr>
-						</thead>
-						
+							</td>
+							<td class = "dunkelgrau textgrau"><b><?php echo $tr_tb_cr ?></b></td>
+							<td class = "dunkelgrau textgrau d-none d-sm-table-cell"></td>
+							<td class = "dunkelgrau textgrau d-none d-sm-table-cell"><b><?php echo $tr_tb_01 ?></b></td>
+							<td class = "dunkelgrau textgrau d-none d-lg-table-cell"><b><?php echo $tr_tb_02 ?></b></td>
+							<td class = "dunkelgrau textgrau d-none d-lg-table-cell"><b><?php echo $tr_tb_06 ?></b></td>
+							<td class = "dunkelgrau textgrau d-none d-md-table-cell"><b><?php echo $tr_tb_12 ?></b></td>
+							<td class = "dunkelgruen textgruen"><b><?php echo $tr_tb_to; ?></b></td>
+							<td class = "dunkelblau textblau d-none d-sm-table-cell"><b><?php echo $tr_tb_ye; ?></b></td>
+							<td class = "dunkelrot textrot d-none d-md-table-cell"><b><?php echo $tr_tb_pe; ?></b></td>
+						</tr>
+					</thead>			
 						<?php
 							foreach ($table_retired as $table_row_retired) {
 								echo "<tr class = 'collapse retiredProjects'>
@@ -445,42 +444,41 @@
 							}
 						?>
 					</tbody>
-								<tfoot>
-									<tr>
-										<td class="dunkelblau textblau"><b><?php echo $text_boinc_total ?></b></td>
-										<td class="dunkelblau textblau align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
-										<td class="dunkelblau textblau"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class="dunkelblau textblau d-none d-sm-table-cell"><b>100%</b></td>
-										<td class="dunkelblau textblau d-none d-sm-table-cell">
-										<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class="dunkelblau textblau d-none d-lg-table-cell">
-										<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class="dunkelblau textblau d-none d-lg-table-cell">
-										<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class="dunkelblau textblau d-none d-md-table-cell">
-										<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class = "dunkelgruen textgruen">
-										<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class = "dunkelblau textblau d-none d-sm-table-cell">
-										<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class = "dunkelrot textrot d-none d-md-table-cell">
-										<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
-									</tr>
-									<tr class = 'collapse retiredProjects'>
-										<th class = "dunkelgrau textgrau"> </th>
-										<th class = "dunkelgrau textgrau align-middle text-center"> </th>
-										<th class = "dunkelgrau textgrau"><?php echo $tr_tb_cr; ?></th>
-										<th class = "dunkelgrau textgrau d-none d-sm-table-cell">%</th>
-										<th class = "dunkelgrau textgrau d-none d-sm-table-cell"><?php echo $tr_tb_01; ?></th>
-										<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_02; ?></th>
-										<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_06; ?></th>
-										<th class = "dunkelgrau textgrau d-none d-md-table-cell"><?php echo $tr_tb_12; ?></th>
-										<th class = "dunkelgruen textgruen"><?php echo $tr_tb_to; ?></th>
-										<th class = "dunkelblau textblau d-none d-sm-table-cell"><?php echo $tr_tb_ye; ?></th>
-										<th class = "dunkelrot textrot d-none d-md-table-cell"><?php echo $tr_tb_pe; ?></th>
-									</tr>
-								</tfoot>
-
+					<tfoot>
+						<tr>
+							<td class="dunkelblau textblau"><b><?php echo $text_boinc_total ?></b></td>
+							<td class="dunkelblau textblau align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
+							<td class="dunkelblau textblau"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
+							<td class="dunkelblau textblau d-none d-sm-table-cell"><b>100%</b></td>
+							<td class="dunkelblau textblau d-none d-sm-table-cell">
+							<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+							<td class="dunkelblau textblau d-none d-lg-table-cell">
+							<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+							<td class="dunkelblau textblau d-none d-lg-table-cell">
+							<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+							<td class="dunkelblau textblau d-none d-md-table-cell">
+							<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
+							<td class = "dunkelgruen textgruen">
+							<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
+							<td class = "dunkelblau textblau d-none d-sm-table-cell">
+							<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
+							<td class = "dunkelrot textrot d-none d-md-table-cell">
+							<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
+						</tr>
+						<tr class = 'collapse retiredProjects'>
+							<th class = "dunkelgrau textgrau"> </th>
+							<th class = "dunkelgrau textgrau align-middle text-center"> </th>
+							<th class = "dunkelgrau textgrau"><?php echo $tr_tb_cr; ?></th>
+							<th class = "dunkelgrau textgrau d-none d-sm-table-cell">%</th>
+							<th class = "dunkelgrau textgrau d-none d-sm-table-cell"><?php echo $tr_tb_01; ?></th>
+							<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_02; ?></th>
+							<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_06; ?></th>
+							<th class = "dunkelgrau textgrau d-none d-md-table-cell"><?php echo $tr_tb_12; ?></th>
+							<th class = "dunkelgruen textgruen"><?php echo $tr_tb_to; ?></th>
+							<th class = "dunkelblau textblau d-none d-sm-table-cell"><?php echo $tr_tb_ye; ?></th>
+							<th class = "dunkelrot textrot d-none d-md-table-cell"><?php echo $tr_tb_pe; ?></th>
+						</tr>
+					</tfoot>
 				</table>
 			</div>
 		
@@ -553,7 +551,6 @@
 				$(this).find('span').each(function() { $(this).toggle(); });
 			});
 		</script>
-
 		
 		<script>
 			$(document).ready(function() {
