@@ -348,7 +348,7 @@
 							<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
 							<td class = "dunkelgruen textgruen">
 							<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td class = "dunkelblau text-blau d-none d-sm-table-cell">
+							<td class = "dunkelblau textblau d-none d-sm-table-cell">
 							<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
 							<td class = "dunkelrot textrot d-none d-md-table-cell">
 							<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
@@ -461,7 +461,7 @@
 										<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
 										<td class = "dunkelgruen textgruen">
 										<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
-										<td class = "dunkelblau text-blau d-none d-sm-table-cell">
+										<td class = "dunkelblau textblau d-none d-sm-table-cell">
 										<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
 										<td class = "dunkelrot textrot d-none d-md-table-cell">
 										<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
