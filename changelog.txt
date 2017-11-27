@@ -34,6 +34,7 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_30: Codebereinigung
  dev_31: Toggle beendete Projekte integriert (default ausgeblendet)
  dev_32: Footer Formatierungen vorgenommen
+ dev_33: fixed Error . in boinc_db_connect.php, Verschieben von changelog.txt in App-root
  
 - Die Version 5.0.0 wurde mit sehr viel Liebe zum Detail erstellt. Dies wurde im Footer deutlich gemacht. Zudem wurde das Copyright-Symbol entfernt. Der Code steht unter MIT-Lizenz.
 - Das Design wurde erneuert. Es besteht nun die Möglichkeit, die Farben individuell anzupassen (assets/css/userstats_style.css).

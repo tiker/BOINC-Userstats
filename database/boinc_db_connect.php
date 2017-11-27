@@ -42,7 +42,7 @@
 		$connErrorTitle = "Datenbankfehler";
 		$connErrorDescription = "Es wurden noch keine Daten abgerufen.</br>
 		Bitte warte bis der erste erfolgreiche Datenabruf durchgeführt wurde.";
-		include "./errordocs/db_initial_err.php.";
+		include "./errordocs/db_initial_err.php";
 		exit();
 	}
 ?>
