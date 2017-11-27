@@ -27,7 +27,7 @@
 	}
 
 	$result = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte LIMIT 1");
-	$rowCountResult = mysqli_fetch_assoc($result);
+	$rowCountResult = mysqli_num_rows($result);
 	if ($rowCountResult < 1) {
 		$connErrorTitle = "Datenbankfehler";
 		$connErrorDescription = "Du hast noch keine Projekte eingepflegt.</br>
@@ -37,7 +37,7 @@
 	}
 
 	$result = mysqli_query($db_conn, "SELECT * FROM boinc_werte LIMIT 1");
-	$rowCountResult = mysqli_fetch_assoc($result);
+	$rowCountResult = mysqli_num_rows($result);
 	if ($rowCountResult < 1) {
 		$connErrorTitle = "Datenbankfehler";
 		$connErrorDescription = "Es wurden noch keine Daten abgerufen.</br>
