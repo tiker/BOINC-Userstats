@@ -568,8 +568,12 @@
 					},
 					"columnDefs": [ {
 						"targets"  : 'no-sort',
-						"orderable": false,
-					}],
+						"orderable": false
+						},{
+						targets : [0,2,3,4,5,6,7,8,9,10],
+						orderSequence:["desc", "asc"]
+						},
+					],
 					"paging": false,
 					"info": false
 				} );
