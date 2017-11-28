@@ -559,7 +559,7 @@
 		<script>
 			$(document).ready(function() {
 				$('#table_projects').DataTable( {
-					fixedHeader: true,
+					"fixedHeader": true,
 					"bSortCellsTop": false,
 					"language": {
 						"decimal": "<?php echo $dec_point; ?>",
