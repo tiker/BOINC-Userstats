@@ -2,14 +2,21 @@
 	date_default_timezone_set('UTC');
 	include "./settings/settings.php";
 
+	if (isset($_GET["lang"])) $lang = $_GET["lang"];
+	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
+
+	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
+	else include "./lang/en.txt.php";
+	
 	$sum1h_total = 0;
 	$sum2h_total = 0;
 	$sum6h_total = 0;
 	$sum12h_total = 0;
 	$sum_today_total = 0;
 	$sum_yesterday_total = 0;
-	$pie_other_retired = 0;
-	$pie_other = 0;
+	$total_credits_retired = 0;
+	$pie_other_retired = "";
+	$pie_other = "";
 	$pie_html = "";
 
 	$query_getUserData = mysqli_query($db_conn, "SELECT * from boinc_user");
@@ -195,6 +202,7 @@
 			$table_row["proz_anteil"] = sprintf("%01.2f", $row["total_credits"] * 100 / $sum_total);
 			$table_row["project_link"] = "project.php?projectid=" . $shortname . "";
 			$table_row["retired"] = true;
+			$total_credits_retired = $total_credits_retired + $row["total_credits"];
 			$table_retired[] = $table_row;
 			$pie_array = $table_row;
 		}
@@ -256,12 +264,6 @@
 	}
 	$output_gesamt_html = substr($output_gesamt_html, 0, -2);
 	$output_gesamt_pendings_html = substr($output_gesamt_pendings_html, 0, -2);
-
-	if (isset($_GET["lang"])) $lang = $_GET["lang"];
-	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
-
-	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
-	else include "./lang/en.txt.php";
 
 	include("./header.php"); 
 
@@ -415,8 +417,10 @@
 									<span class="hidden"><i class="textgruen fa fa-toggle-on fa-lg"></i></span>
 								</a>
 							</td>
-							<td class = "dunkelgrau textgrau"><b><?php echo $tr_tb_cr ?></b></td>
-							<td class = "dunkelgrau textgrau d-none d-sm-table-cell"></td>
+							<td class = "dunkelgrau textgrau">
+									<span><b><?php echo number_format($total_credits_retired, 0, $dec_point, $thousands_sep) ?></b></span>
+							</td>
+							<td class = "dunkelgrau textgrau d-none d-sm-table-cell"><?php echo number_format($pie_other_retired, 2, $dec_point, $thousands_sep) ?></td>
 							<td class = "dunkelgrau textgrau d-none d-sm-table-cell"><b><?php echo $tr_tb_01 ?></b></td>
 							<td class = "dunkelgrau textgrau d-none d-lg-table-cell"><b><?php echo $tr_tb_02 ?></b></td>
 							<td class = "dunkelgrau textgrau d-none d-lg-table-cell"><b><?php echo $tr_tb_06 ?></b></td>
@@ -555,6 +559,7 @@
 		<script>
 			$(document).ready(function() {
 				$('#table_projects').DataTable( {
+					fixedHeader: true,
 					"bSortCellsTop": false,
 					"language": {
 						"decimal": "<?php echo $dec_point; ?>",

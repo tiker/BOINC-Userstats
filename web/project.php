@@ -1,9 +1,12 @@
 <?php
 	include "./settings/settings.php";
 	date_default_timezone_set('UTC');
-	//-------------------------------------------------------------------------------
-	// ab hier bitte keine Aenderungen vornehmen, wenn man nicht weiß, was man tut!!!
-	//-------------------------------------------------------------------------------
+
+	if (isset($_GET["lang"])) $lang = $_GET["lang"];
+	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
+
+	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
+	else include "./lang/en.txt.php";
 
 	$sum1h_total = 0;
 	$sum2h_total = 0;
@@ -237,12 +240,6 @@
 ?>
 
 <?php
-	if (isset($_GET["lang"])) $lang = $_GET["lang"];
-	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
-
-	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
-	else include "./lang/en.txt.php";
-
 	include("./header.php"); 
 
 	if (file_exists("./lang/" . $lang . ".highstock.js")) include "./lang/" . $lang . ".highstock.js";
@@ -267,7 +264,16 @@
 ?>
 
 <?php 
-	if ($datum < $datum_start) {
+
+	if ($status == "2") {
+		echo '
+		<div class="alert warning-lastupdate" role="alert">
+			<div class="container">
+				' . $text_info_project_retired .'
+			</div>
+		</div>
+		';	
+	} elseif ($datum < $datum_start) {
 		echo '
 		<div class="alert warning-lastupdate" role="alert">
 			<div class="container">

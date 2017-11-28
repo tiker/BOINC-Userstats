@@ -106,6 +106,14 @@ table, th, tr, td {
 	white-space: nowrap;
 }
 
+table.dataTable {
+	clear: both;
+	margin-top: 56px !important;
+	margin-bottom: 56px !important;
+	max-width: none !important;
+	border-collapse: separate !important;
+}
+
 .force_min_height {
 	display: flex;
 	min-height: 100vh;

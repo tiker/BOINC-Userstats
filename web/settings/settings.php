@@ -19,7 +19,7 @@
 	$hp_username = "Dein Name";
 	$hp_email = "deine@email.adresse";
 	
-	// Navbar
+	// Navbar - DAS DEAKTIVIEREN FÜHRT ZU FEHLERHAFTER DESIGN-DARSTELLUNG
 	$showNavbar = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist true
 
 	// für die Navbar sind verschiedene Links möglich

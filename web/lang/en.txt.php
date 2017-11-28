@@ -27,7 +27,7 @@
 	$tr_tb_det = "Details";
 	$tr_th2_rp = "Retired Projects";
 	$tr_ch_pie_01 = "BOINC Project Comparison";
-	$tr_ch_pie_zwp = "Other";
+	$tr_ch_pie_zwp = "Other projects";
 	$tr_ch_pie_ret = "Finished projects";
 	$tr_ch_go_header = "BOINC Total Credits";
 	$tr_ch_go_yaxis = "Total Credits";
@@ -111,5 +111,6 @@
 	$tabs_badge = "Badges";
 
 	$text_info_update_inprogress = "<b>Update in progress.</b> This could take up to 2 minutes (or more). The update started at: ";
+	$text_info_project_retired = "<b>This project is marked as retired in your database</b>";
 	$zero_pendings = "All other projects do not have any pending credits or the project does not export this value using WebRPC";
 ?>

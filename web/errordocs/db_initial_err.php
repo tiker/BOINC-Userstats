@@ -6,7 +6,7 @@
 
 	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
 	else include "./lang/en.txt.php";
-
+	
 	$query_getUserData = mysqli_query($db_conn, "SELECT * from boinc_user");
 	if ( !$query_getUserData ) { 	
 		$connErrorTitle = "Datenbankfehler";
@@ -31,12 +31,6 @@
 
 	$lastupdate_start = date("d.m.Y H:i:s", $datum_start);
 	$lastupdate = date("H:i:s", $datum);
-
-	if (isset($_GET["lang"])) $lang = $_GET["lang"];
-	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
-
-	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
-	else include "./lang/en.txt.php";
 
 	include("./header.php"); 
 ?>

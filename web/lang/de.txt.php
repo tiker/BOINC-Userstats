@@ -28,7 +28,7 @@
 	$tr_tb_det = "Detail";
 	$tr_th2_rp = "beendete Projekte";
 	$tr_ch_pie_01 = "BOINC Projekt-Verteilung";
-	$tr_ch_pie_zwp = "Zusammenfassung weiterer Projekte";
+	$tr_ch_pie_zwp = "Andere Projekte";
 	$tr_ch_pie_ret = "Beendete Projekte";
 	$tr_ch_go_header = "BOINC Gesamt-Credits";
 	$tr_ch_go_yaxis = "Credits insgesamt";
@@ -112,5 +112,6 @@
 	$tabs_badge = "Badges";
 
 	$text_info_update_inprogress = "<b>Deine Projekte werden derzeit aktualisiert.</b> Dies kann bis zu 2 Minuten dauern (oder mehr). Startzeitpunkt: ";
+	$text_info_project_retired = "<b>Das Projekt ist in der Datenbank als beendet gekennzeichnet</b>";
 	$zero_pendings = "Alle weiteren Projekte haben keine Pendings oder exportieren diesen Wert nicht per Web-RPC";
 ?>
