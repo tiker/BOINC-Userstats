@@ -36,13 +36,13 @@
 		exit();
 	}
 
-	$result = mysqli_query($db_conn, "SELECT * FROM boinc_werte LIMIT 1");
-	$rowCountResult = mysqli_num_rows($result);
-	if ($rowCountResult < 1) {
-		$connErrorTitle = "Datenbankfehler";
-		$connErrorDescription = "Es wurden noch keine Daten abgerufen.</br>
-		Bitte warte bis der erste erfolgreiche Datenabruf durchgeführt wurde.";
-		include "./errordocs/db_initial_err.php";
-		exit();
-	}
+#	$result = mysqli_query($db_conn, "SELECT * FROM boinc_werte LIMIT 1");
+#	$rowCountResult = mysqli_num_rows($result);
+#	if ($rowCountResult < 1) {
+#		$connErrorTitle = "Datenbankfehler";
+#		$connErrorDescription = "Es wurden noch keine Daten abgerufen.</br>
+#		Bitte warte bis der erste erfolgreiche Datenabruf durchgeführt wurde.";
+#		include "./errordocs/db_initial_err.php";
+#		exit();
+#	}
 ?>
