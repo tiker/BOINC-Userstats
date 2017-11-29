@@ -1,3 +1,16 @@
+Version 4.3.1:
+==============
+Bei einer kompletten Neuinstallation wurden keine Daten bei den Projekten abgerufen.
+Die fehlerhafte Prüfung wurde aus dem Errorhandling entfernt.
+
+
+
+Version 4.3.1:
+==============
+Es wurde ein Fehler in der boinc_db.php behoben. Da hatte sich ein Punkt zuviel eingeschlichen.
+
+
+
 Version 4.3:
 ============
 Da das Changelog zu Version 4.2 so überschaulich und nüchtern war, diesmal etwas ausführlicher.

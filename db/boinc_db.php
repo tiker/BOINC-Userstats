@@ -33,9 +33,12 @@
 	$result = mysqli_query($db_conn, "SELECT * FROM boinc_user LIMIT 1");
 	$rowCountResult = mysqli_num_rows($result);
 	if ($rowCountResult < 1) {
-		$connErrorTitle = "Datenbankfehler";
+		$connErrorTitle = "Datenbankfehler / Database error";
 		$connErrorDescription = "Es wurden noch keine Benutzerdaten eingepflegt.</br>
-			Bitte trage die Daten in der Tabelle boinc_user ein.";
+			Bitte trage die Daten in der Tabelle boinc_user ein.</br>
+			</br>
+			There is no data in table boinc_user!</br>
+			Please insert your personal data into this table.";
 		include "./errordocs/db_initial_err.php";
 		exit();
 	}
@@ -44,22 +47,25 @@
 	$result = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte LIMIT 1");
 	$rowCountResult = mysqli_num_rows($result);
 	if ($rowCountResult < 1) {
-		$connErrorTitle = "Datenbankfehler";
+		$connErrorTitle = "Datenbankfehler / Database error";
 		$connErrorDescription = "Du hast noch keine Projekte eingepflegt.</br>
-		Bitte trage deine Projektdaten in die Tabelle boinc_grundwerte ein.";
+		Bitte trage deine Projektdaten in die Tabelle boinc_grundwerte ein.</br>
+		</br>
+		There is no project in the table boinc_grundwerte.</br>
+		Please insert at least one boinc project in the table boinc_grundwerte";
 		include "./errordocs/db_initial_err.php";
 		exit();
 	}
 
 	// Testen, ob bereits Daten von Projekten abgerufen wurden
-	$result = mysqli_query($db_conn, "SELECT * FROM boinc_werte LIMIT 1");
-	$rowCountResult = mysqli_num_rows($result);
-	if ($rowCountResult < 1) {
-		$connErrorTitle = "Datenbankfehler";
-		$connErrorDescription = "Es wurden noch keine Daten abgerufen.</br>
-		Bitte warte bis der erste erfolgreiche Datenabruf durchgeführt wurde.";
-		include "./errordocs/db_initial_err.php";
-		exit();
-	}
+#	$result = mysqli_query($db_conn, "SELECT * FROM boinc_werte LIMIT 1");
+#	$rowCountResult = mysqli_num_rows($result);
+#	if ($rowCountResult < 1) {
+#		$connErrorTitle = "Datenbankfehler";
+#		$connErrorDescription = "Es wurden noch keine Daten abgerufen.</br>
+#		Bitte warte bis der erste erfolgreiche Datenabruf durchgeführt wurde.";
+#		include "./errordocs/db_initial_err.php";
+#		exit();
+#	}
 
 ?>
