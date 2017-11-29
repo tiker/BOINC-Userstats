@@ -408,7 +408,8 @@
 									</tr>";
 							}
 						?>
-					<thead>
+					</tbody>
+					<tfoot>
 						<tr>
 							<td class = "dunkelgrau textgrau"><b><?php echo $tr_th2_rp ?></b></td>
 							<td class="dunkelgrau textgrau align-middle text-center">
@@ -421,15 +422,15 @@
 									<span><b><?php echo number_format($total_credits_retired, 0, $dec_point, $thousands_sep) ?></b></span>
 							</td>
 							<td class = "dunkelgrau textgrau d-none d-sm-table-cell"><?php echo number_format($pie_other_retired, 2, $dec_point, $thousands_sep) ?></td>
-							<td class = "dunkelgrau textgrau d-none d-sm-table-cell"><b><?php echo $tr_tb_01 ?></b></td>
-							<td class = "dunkelgrau textgrau d-none d-lg-table-cell"><b><?php echo $tr_tb_02 ?></b></td>
-							<td class = "dunkelgrau textgrau d-none d-lg-table-cell"><b><?php echo $tr_tb_06 ?></b></td>
-							<td class = "dunkelgrau textgrau d-none d-md-table-cell"><b><?php echo $tr_tb_12 ?></b></td>
-							<td class = "dunkelgruen textgruen"><b><?php echo $tr_tb_to; ?></b></td>
-							<td class = "dunkelblau textblau d-none d-sm-table-cell"><b><?php echo $tr_tb_ye; ?></b></td>
-							<td class = "dunkelrot textrot d-none d-md-table-cell"><b><?php echo $tr_tb_pe; ?></b></td>
+							<td class = "dunkelgrau textgrau d-none d-sm-table-cell"><b><?php #echo $tr_tb_01 ?></b></td>
+							<td class = "dunkelgrau textgrau d-none d-lg-table-cell"><b><?php #echo $tr_tb_02 ?></b></td>
+							<td class = "dunkelgrau textgrau d-none d-lg-table-cell"><b><?php #echo $tr_tb_06 ?></b></td>
+							<td class = "dunkelgrau textgrau d-none d-md-table-cell"><b><?php #echo $tr_tb_12 ?></b></td>
+							<td class = "dunkelgrau textgrau"><b><?php #echo $tr_tb_to; ?></b></td>
+							<td class = "dunkelgrau textgrau d-none d-sm-table-cell"><b><?php #echo $tr_tb_ye; ?></b></td>
+							<td class = "dunkelgrau textgrau d-none d-md-table-cell"><b><?php #echo $tr_tb_pe; ?></b></td>
 						</tr>
-					</thead>			
+
 						<?php
 							foreach ($table_retired as $table_row_retired) {
 								echo "<tr class = 'collapse retiredProjects'>
@@ -447,41 +448,6 @@
 									</tr>";
 							}
 						?>
-					</tbody>
-					<tfoot>
-						<tr>
-							<td class="dunkelblau textblau"><b><?php echo $text_boinc_total ?></b></td>
-							<td class="dunkelblau textblau align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
-							<td class="dunkelblau textblau"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td class="dunkelblau textblau d-none d-sm-table-cell"><b>100%</b></td>
-							<td class="dunkelblau textblau d-none d-sm-table-cell">
-							<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td class="dunkelblau textblau d-none d-lg-table-cell">
-							<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td class="dunkelblau textblau d-none d-lg-table-cell">
-							<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td class="dunkelblau textblau d-none d-md-table-cell">
-							<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td class = "dunkelgruen textgruen">
-							<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td class = "dunkelblau textblau d-none d-sm-table-cell">
-							<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td class = "dunkelrot textrot d-none d-md-table-cell">
-							<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
-						</tr>
-						<tr class = 'collapse retiredProjects'>
-							<th class = "dunkelgrau textgrau"> </th>
-							<th class = "dunkelgrau textgrau align-middle text-center"> </th>
-							<th class = "dunkelgrau textgrau"><?php echo $tr_tb_cr; ?></th>
-							<th class = "dunkelgrau textgrau d-none d-sm-table-cell">%</th>
-							<th class = "dunkelgrau textgrau d-none d-sm-table-cell"><?php echo $tr_tb_01; ?></th>
-							<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_02; ?></th>
-							<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_06; ?></th>
-							<th class = "dunkelgrau textgrau d-none d-md-table-cell"><?php echo $tr_tb_12; ?></th>
-							<th class = "dunkelgruen textgruen"><?php echo $tr_tb_to; ?></th>
-							<th class = "dunkelblau textblau d-none d-sm-table-cell"><?php echo $tr_tb_ye; ?></th>
-							<th class = "dunkelrot textrot d-none d-md-table-cell"><?php echo $tr_tb_pe; ?></th>
-						</tr>
 					</tfoot>
 				</table>
 			</div>
@@ -559,23 +525,25 @@
 		<script>
 			$(document).ready(function() {
 				$('#table_projects').DataTable( {
-					"fixedHeader": true,
-					"bSortCellsTop": false,
-					"language": {
-						"decimal": "<?php echo $dec_point; ?>",
-						"thousands": "<?php echo $thousands_sep; ?>",
-						"search":	"<?php echo $text_search; ?>"
+					fixedHeader: {
+						headerOffset: 57
 					},
-					"columnDefs": [ {
-						"targets"  : 'no-sort',
-						"orderable": false
+					bSortCellsTop: false,
+					language: {
+						decimal: "<?php echo $dec_point; ?>",
+						thousands: "<?php echo $thousands_sep; ?>",
+						search:	"<?php echo $text_search; ?>"
+					},
+					columnDefs: [ {
+						targets: "no-sort",
+						orderable: false
 						},{
 						targets : [0,2,3,4,5,6,7,8,9,10],
 						orderSequence:["desc", "asc"]
 						},
 					],
-					"paging": false,
-					"info": false
+					paging: false,
+					info: false
 				} );
 			} );
 		</script>
