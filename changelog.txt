@@ -64,6 +64,7 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
 ToDo:
 -----
 - errormanagement für clean install neu überdenken
+- Link für pendings stets deaktivieren, falls keine authenticators hinterlegt sind
 - Aktualisierungsintervall in tasks_template per Variable setzen
 - Design error.php verschönern
 - layout Suchfeld von dataTables
