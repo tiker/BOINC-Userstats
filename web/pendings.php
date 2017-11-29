@@ -106,17 +106,20 @@
 	<script>
 		$(document).ready(function() {
 			$('#table_pendings').DataTable( {
-				"language": {
-					"decimal": "<?php echo $dec_point; ?>",
-					"thousands": "<?php echo $thousands_sep; ?>",
-					"search":	"<?php echo $text_search; ?>"
+				fixedHeader: {
+						headerOffset: 56
+					},
+				language: {
+					decimal: "<?php echo $dec_point; ?>",
+					thousands: "<?php echo $thousands_sep; ?>",
+					search:	"<?php echo $text_search; ?>"
 				},
-				"columnDefs": [ {
-					"targets": 'no-sort',
-					"orderable": false,
+				columnDefs: [ {
+					targets: 'no-sort',
+					orderable: false,
 				}],
-				"paging": false,
-				"info": false
+				paging: false,
+				info: false
 			} );
 		} );
 	</script>

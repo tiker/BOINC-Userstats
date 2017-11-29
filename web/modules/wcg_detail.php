@@ -268,18 +268,21 @@
 <script>
 	$(document).ready(function() {
 		$('#table_wcg').DataTable( {
-			"language": {
-				"decimal": "<?php echo $dec_point; ?>",
-				"thousands": "<?php echo $thousands_sep; ?>",
-				"search":	"<?php echo $text_search; ?>"
+			fixedHeader: {
+						headerOffset: 56
+					},
+			language: {
+				decimal: "<?php echo $dec_point; ?>",
+				thousands: "<?php echo $thousands_sep; ?>",
+				search:	"<?php echo $text_search; ?>"
 			},
-			"order": [[ 1, "asc" ],[ 0, "asc" ]],
-			"columnDefs": [ {
-				"targets": 'no-sort',
-				"orderable": false,
+			order: [[ 1, "asc" ],[ 0, "asc" ]],
+			columnDefs: [ {
+				targets: 'no-sort',
+				orderable: false,
 			}],
-			"paging": false,
-			"info": false
+			paging: false,
+			info: false
 		} );
 	} );
 </script>
