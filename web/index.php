@@ -526,7 +526,7 @@
 			$(document).ready(function() {
 				$('#table_projects').DataTable( {
 					fixedHeader: {
-						headerOffset: 57
+						headerOffset: 56
 					},
 					bSortCellsTop: false,
 					language: {
