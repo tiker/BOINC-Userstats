@@ -37,7 +37,7 @@
 	<body>
 		<?php if ( $showNavbar ) include("./nav.php"); ?>
 			<div class = "force_min_height">
-				<div class="jumbotron jumbotron-fluid" style="background-image: url('<?php echo $header_backround_url; ?>'); background-repeat: no-repeat;">
+				<div class="jumbotron jumbotron-fluid" style="background-image: url('<?php echo $header_backround_url; ?>');">
 					<div class="container">
 						<div class="d-inline-flex flex-column" style="background: rgba(255, 255, 255, 0.3); border-radius: 12px; padding: 12px; border: 1px solid #d3d3d3">
 							<?php if ($showProjectHeader) { echo '
