@@ -72,6 +72,11 @@
 	$linkNameBoincstats = "BOINCStats";
 	$linkBoincstats = "https://boincstats.com/de/stats/-5/user/detail/15232873522/projectList"; //Link zu boincstats.com von XSmeagolX
 	
+	// Hier die URL zu SG-Stats von XSmeagolX aktivieren
+	$hasSGStats = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist true
+	$linkNameSGStats = "SG-Stats";
+	$linkSGStats = "https://timo-schneider.de/sgstats/"; //Link zu den SG-Stats von XSmeagolX
+
 	// Hier die URL zu den laufenden WUs, falls Du diese mit Boinctasks veröffentlichst
 	$hasBoinctasks = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
 	$linkNameBoinctasks = "Tasks";

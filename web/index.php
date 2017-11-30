@@ -542,6 +542,7 @@
 						orderSequence:["desc", "asc"]
 						},
 					],
+					order: [ 0, "asc" ],
 					paging: false,
 					info: false
 				} );

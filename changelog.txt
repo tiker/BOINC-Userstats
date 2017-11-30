@@ -41,6 +41,7 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_36: Entfernen error management für clean install (es wurden keine Daten durch den cronjob bei den Projekten abgerufen, wenn die boinc_werte leer ist)
  dev_37: Neugestaltung Tabelle Projektübersicht mittels fixedHeader
  dev_38: Tabellen fixedHeader nun auch für pendings, wcg-Detail und tasks
+ dev_39: Designanpassungen und Verbesserungen
 
  
 - Die Version 5.0.0 wurde mit sehr viel Liebe zum Detail erstellt. Dies wurde im Footer deutlich gemacht. Zudem wurde das Copyright-Symbol entfernt. Der Code steht unter MIT-Lizenz.

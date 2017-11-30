@@ -331,7 +331,7 @@
 
 			<div id="projekte" class="tab-pane fade show active" role="tabpanel" aria-labelledby="projekte-tab">
 				<br>
-				<table id="table_projects" class="table table-sm table-striped table-hover table-responsive-xs table-ellipsis" width="100%">	
+				<table id="table_project" class="table table-sm table-striped table-hover table-responsive-xs table-ellipsis" width="100%">	
 					<thead>
 						<tr>
 							<th class = "dunkelgrau textgrau text-center"><?php echo "$project_project" ?></th>
@@ -425,21 +425,21 @@
 
 		<script>
 			$(document).ready(function() {
-				$('#table_projects').DataTable( {
-					"bSortCellsTop": false,
-					"language": {
-						"decimal": "<?php echo $dec_point; ?>",
-						"thousands": "<?php echo $thousands_sep; ?>",
-						"search":	"<?php echo $text_search; ?>"
+				$('#table_project').DataTable( {
+					bSortCellsTop: false,
+					language: {
+						decimal: "<?php echo $dec_point; ?>",
+						thousands: "<?php echo $thousands_sep; ?>",
+						search:	"<?php echo $text_search; ?>"
 					},
-					"columnDefs": [ {
-						"targets"  : 'no-sort',
-						"orderable": false,
+					columnDefs: [ {
+						targets  : 'no-sort',
+						orderable: false,
 					}],
-					"paging": false,
-					"info": false,
-					"sorting": false,
-					"searching": false
+					paging: false,
+					info: false,
+					sorting: false,
+					searching: false
 				} );
 			} );
 		</script>

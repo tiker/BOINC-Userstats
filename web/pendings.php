@@ -118,6 +118,7 @@
 					targets: 'no-sort',
 					orderable: false,
 				}],
+				order: [ 1, "desc" ],
 				paging: false,
 				info: false
 			} );

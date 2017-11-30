@@ -51,11 +51,11 @@
 						thousands: "<?php echo $thousands_sep; ?>",
 						search:	"<?php echo $text_search; ?>"
 					},
-					order: [[ 6, "asc" ],[ 0, "asc" ]],
 					columnDefs: [ {
 						targets: 'no-sort',
 						orderable: false,
 					}],
+					order: [[ 6, "asc" ],[ 0, "asc" ]],
 					paging: false,
 					info: false
 				} );

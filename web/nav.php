@@ -34,6 +34,12 @@
 					echo "<a class='nav-link' href='" . $linkBoincstats . "' target='_new' class='btn btn-neutral btn-simple'><i class='fa fa-bar-chart'></i> " . $linkNameBoincstats . "</a>";
 					echo "</li>";
 				};
+				// Link zu SG-STats
+				if ( $hasSGStats ) {
+					echo "<li class='nav-item'>";
+					echo "<a class='nav-link' href='" . $linkSGStats . "' target='_new' class='btn btn-neutral btn-simple'><i class='fa fa-bar-chart'></i> " . $linkNameSGStats . "</a>";
+					echo "</li>";
+				};
 				// Link zu WCG
 				if ( $hasWcg ) {
 					echo "<li class='nav-item'>";
