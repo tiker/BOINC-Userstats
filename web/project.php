@@ -2,18 +2,13 @@
 	include "./settings/settings.php";
 	date_default_timezone_set('UTC');
 
-	if (isset($_GET["lang"])) $lang = $_GET["lang"];
-	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
-
-	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
-	else include "./lang/en.txt.php";
-
 	$sum1h_total = 0;
 	$sum2h_total = 0;
 	$sum6h_total = 0;
 	$sum12h_total = 0;
 	$sum_today_total = 0;
 	$sum_yesterday_total = 0;
+	$showPendingsHeader = false;
 	$showProjectHeader = true;
 
 	$goon = false;
@@ -66,6 +61,12 @@
 		$datum = $row["lastupdate"];
 	}
 	
+	if (isset($_GET["lang"])) $lang = $_GET["lang"];
+	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
+
+	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
+	else include "./lang/en.txt.php";
+
 	$lastupdate_start = date("d.m.Y H:i:s",$datum_start);
 	$lastupdate = date("H:i:s",$datum);
 

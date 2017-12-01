@@ -1,14 +1,9 @@
 <?php
 	include "./settings/settings.php";
 	date_default_timezone_set('UTC');
-	
-	if (isset($_GET["lang"])) $lang = $_GET["lang"];
-	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
 
-	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
-	else include "./lang/en.txt.php";
-	
 	$showPendingsHeader = true;
+	$showProjectHeader = false;
 	
 	$result_user = mysqli_query($db_conn, "SELECT * FROM boinc_user");
 	if ( !$result_user || mysqli_num_rows($result_user) === 0 ) { 	
@@ -26,6 +21,13 @@
 		$datum_start = $row["lastupdate_start"];
 		$datum = $row["lastupdate"];
 	}
+	
+	if (isset($_GET["lang"])) $lang = $_GET["lang"];
+	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
+
+	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
+	else include "./lang/en.txt.php";
+	
 	$lastupdate_start = date("d.m.Y H:i:s",$datum_start);
 	$lastupdate = date("H:i:s",$datum);	
 	$pending_credits = "0";
@@ -89,7 +91,7 @@
 					}
 					echo "<tfoot>
 							<tr>
-								<td class='dunkelblau textblau'>GESAMT Pendings</td>";
+								<td class='dunkelblau textblau'>" . $text_total_pendings . "</td>";
 					echo "		<td class='dunkelblau textblau text-left'>" . number_format($pendings_gesamt, 0, $dec_point, $thousands_sep) . "</td>
 							</tr>
 						</tfoot>";

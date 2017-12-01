@@ -8,6 +8,7 @@
 	$text_header_lu = "last update";
 	$text_total = "Total";
 	$text_boinc_total = "BOINC combined";
+	$text_total_pendings = "TOTAL Pendings";
 	$tr_tb_pr = "active Project";
 	$tr_tb_cr = "Credits";
 	$tr_ch_week = "Week from";
