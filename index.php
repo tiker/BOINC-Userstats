@@ -19,6 +19,9 @@
 	$pie_other_retired = 0;
 	$pie_other = 0;
 	$pie_html = "";
+	$table_retired = [];
+	$hasactiveProject = false;
+	$hasretiredProject = false;
 
 	############################################################
 	# Beginn fuer Datenzusammenstellung User
@@ -119,7 +122,7 @@
 	while ($row = mysqli_fetch_assoc($query_getAllProjects)) {
 		
 		if ($row["project_status"] <= 1) {
-			
+			$hasactiveProject = true;
 			############################################################
 			# Daten fuer Tabelle zuammenstellen
 			$shortname = $row["project_shortname"];
@@ -224,6 +227,7 @@
 			
 			############################################################
 			# Daten fuer Tabelle beendete Projekte zuammenstellen
+			$hasretiredProject = true;
 			$shortname = $row["project_shortname"];
 			$table_row["project_name"] = $row["project"];
 			$table_row["total_credits"] = $row["total_credits"];
@@ -482,77 +486,86 @@ else include "./lang/highstock_en.js";
 						<tbody>
 							<!-- Fuer jedes Projekt eine Zeile in die Tabelle hinzufuegen -->						
 							<?php
-								foreach ($table as $table_row) {
-									echo "<tr class='alert-primary'>
-										<td><a href='" . $table_row["project_home_link"] . "'>" . $table_row["project_name"] ."</a></td>
-										<td><a href='" . $table_row["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
-										<td>" . number_format($table_row["total_credits"], 0, $dec_point, $thousands_sep) . "</td>
-										<td class='hidden-xs hidden-sm'>" . number_format($table_row["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>";
-										if ($table_row["sum1h"] != "") {
-											echo "<td class='hidden-xs'>" . number_format($table_row['sum1h'], 0, $dec_point, $thousands_sep) . "</td>";
-										} else
-											echo "<td class='hidden-xs'>-</td>";
-										if ($table_row["sum2h"] != "") {
-											echo "<td class='hidden-xs hidden-sm'>" . number_format($table_row["sum2h"], 0, $dec_point, $thousands_sep) . "</td>";
-										} else
-											echo "<td class='hidden-xs hidden-sm'>-</td>";
-										if ($table_row["sum6h"] != "") {
-											echo "<td class='hidden-xs hidden-sm'>" . number_format($table_row["sum6h"], 0, $dec_point, $thousands_sep) . "</td>";
-										} else
-											echo "  <td class='hidden-xs hidden-sm'>-</td>";
-										if ($table_row["sum12h"] != "") {
-											echo "  <td class='hidden-xs'>" . number_format($table_row["sum12h"], 0, $dec_point, $thousands_sep) . "</td>";
-										} else
-											echo "  <td class='hidden-xs'>-</td>";
-										if ($table_row["sum_today"] != "") {
-											echo "  <td class='success text-success'><b>" . number_format($table_row["sum_today"], 0, $dec_point, $thousands_sep) . "</b></td>";
-										} else
-											echo "  <td class='success text-success'>-</td>";
-										if ($table_row["sum_yesterday"] != "") {
-											echo "  <td class='info text-info hidden-xs'><b>" . number_format($table_row["sum_yesterday"], 0, $dec_point, $thousands_sep) . "</b></td>";
-										} else
-											echo "  <td class='info text-info hidden-xs'>-</td>";
-										if ($table_row["pending_credits"] >> "0") {
-											echo "  <td class='danger hidden-xs text-danger'><b>" . number_format($table_row["pending_credits"], 0, $dec_point, $thousands_sep) . "</b></td>";
-										} else
-											echo "  <td class='danger hidden-xs text-danger'>-</td>
-										</tr>";
-								}
-							?>
-							<thead>
-								<tr class="alert-warning">
-									<td class="alert-warning"><b><?php echo $tr_th2_rp ?></b></td>
-									<td class="alert-warning"><b><?php #echo $tr_tb_det ?></b></td>
-									<td class="alert-warning"><b><?php echo $tr_tb_cr ?></b></td>
-									<td class="alert-warning hidden-xs hidden-sm"></b></td>
-									<td class="alert-warning hidden-xs"><b><?php echo $tr_tb_01 ?></b></td>
-									<td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_02 ?></b></td>
-									<td class="alert-warning hidden-xs hidden-sm"><b><?php echo $tr_tb_06 ?></b></td>
-									<td class="alert-warning hidden-xs"><b><?php echo $tr_tb_12 ?></b></td>
-									<td class="alert-success"><b><?php echo $tr_tb_to ?></b></td>
-									<td class="alert-info hidden-xs"><b><?php echo $tr_tb_ye ?></b></td>
-									<td class="alert-danger hidden-xs"><b><?php echo $tr_tb_pe ?></b></td>
-								</tr>
-							</thead>
-							
-							<?php
-								foreach ($table_retired as $table_row_retired) {
-									echo "<tr class='text-muted'>
-											<td><a href='" . $table_row_retired["project_home_link"] . "'>" . $table_row_retired["project_name"] ."</a></td>
-											<td><a href='" . $table_row_retired["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
-											<td><b>" . number_format($table_row_retired["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
-											<td class='hidden-xs hidden-sm'>" . number_format($table_row_retired["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>
-											<td class='hidden-xs'></td>
-											<td class='hidden-xs hidden-sm'></td>
-											<td class='hidden-xs hidden-sm'></td>
-											<td class='hidden-xs'></td>
-											<td class='success'></td>
-											<td class='info hidden-xs'></td>
-											<td class='danger hidden-xs'></td>
-										</tr>";
-								}
-							?>
+								if ($hasactiveProject) {
+									foreach ($table as $table_row) {
+										echo "<tr class='alert-primary'>
+											<td><a href='" . $table_row["project_home_link"] . "'>" . $table_row["project_name"] ."</a></td>
+											<td><a href='" . $table_row["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
+											<td>" . number_format($table_row["total_credits"], 0, $dec_point, $thousands_sep) . "</td>
+											<td class='hidden-xs hidden-sm'>" . number_format($table_row["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>";
+											if ($table_row["sum1h"] != "") {
+												echo "<td class='hidden-xs'>" . number_format($table_row['sum1h'], 0, $dec_point, $thousands_sep) . "</td>";
+											} else
+												echo "<td class='hidden-xs'>-</td>";
+											if ($table_row["sum2h"] != "") {
+												echo "<td class='hidden-xs hidden-sm'>" . number_format($table_row["sum2h"], 0, $dec_point, $thousands_sep) . "</td>";
+											} else
+												echo "<td class='hidden-xs hidden-sm'>-</td>";
+											if ($table_row["sum6h"] != "") {
+												echo "<td class='hidden-xs hidden-sm'>" . number_format($table_row["sum6h"], 0, $dec_point, $thousands_sep) . "</td>";
+											} else
+												echo "  <td class='hidden-xs hidden-sm'>-</td>";
+											if ($table_row["sum12h"] != "") {
+												echo "  <td class='hidden-xs'>" . number_format($table_row["sum12h"], 0, $dec_point, $thousands_sep) . "</td>";
+											} else
+												echo "  <td class='hidden-xs'>-</td>";
+											if ($table_row["sum_today"] != "") {
+												echo "  <td class='success text-success'><b>" . number_format($table_row["sum_today"], 0, $dec_point, $thousands_sep) . "</b></td>";
+											} else
+												echo "  <td class='success text-success'>-</td>";
+											if ($table_row["sum_yesterday"] != "") {
+												echo "  <td class='info text-info hidden-xs'><b>" . number_format($table_row["sum_yesterday"], 0, $dec_point, $thousands_sep) . "</b></td>";
+											} else
+												echo "  <td class='info text-info hidden-xs'>-</td>";
+											if ($table_row["pending_credits"] >> "0") {
+												echo "  <td class='danger hidden-xs text-danger'><b>" . number_format($table_row["pending_credits"], 0, $dec_point, $thousands_sep) . "</b></td>";
+											} else
+												echo "  <td class='danger hidden-xs text-danger'>-</td>
+											</tr>";
+										}
+									};
+								?>
 
+							<?php
+								if ($hasretiredProject) {
+									echo "
+										<thead>
+											<tr class='alert-warning'>
+												<td class='alert-warning'><b>" . $tr_th2_rp . "</b></td>
+												<td class='alert-warning'><b>" . $tr_tb_det . "</b></td>
+												<td class='alert-warning'><b>" . $tr_tb_cr . "</b></td>
+												<td class='alert-warning hidden-xs hidden-sm'></b></td>
+												<td class='alert-warninghidden-xs'><b>" . $tr_tb_01 . "</b></td>
+												<td class='alert-warning hidden-xs hidden-sm'><b>" . $tr_tb_02 . "</b></td>
+												<td class='alert-warning hidden-xs hidden-sm'><b>" . $tr_tb_06 . "</b></td>
+												<td class='alert-warning hidden-xs'><b>" . $tr_tb_12 . "</b></td>
+												<td class='alert-success'><b>" . $tr_tb_to . "</b></td>
+												<td class='alert-info hidden-xs'><b>" . $tr_tb_ye . "</b></td>
+												<td class='alert-danger hidden-xs'><b>" . $tr_tb_pe . "</b></td>
+											</tr>
+										</thead>
+									";
+
+									foreach ($table_retired as $table_row_retired) {
+										echo "<tr class='text-muted'>
+												<td><a href='" . $table_row_retired["project_home_link"] . "'>" . $table_row_retired["project_name"] ."</a></td>
+												<td><a href='" . $table_row_retired["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
+												<td><b>" . number_format($table_row_retired["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
+												<td class='hidden-xs hidden-sm'>" . number_format($table_row_retired["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>
+												<td class='hidden-xs'></td>
+												<td class='hidden-xs hidden-sm'></td>
+												<td class='hidden-xs hidden-sm'></td>
+												<td class='hidden-xs'></td>
+												<td class='success'></td>
+												<td class='info hidden-xs'></td>
+												<td class='danger hidden-xs'></td>
+											</tr>";
+									}
+							}
+							?>
+							<?php
+								if ($hasretiredProject OR $hasactiveProject) {
+							?>
 							<thead>
 								<tr class="alert-info">
 									<td class="alert-info"><b><?php echo $tr_th_boinc_total ?></b></td>
@@ -581,6 +594,9 @@ else include "./lang/highstock_en.js";
 									<td class="alert-danger hidden-xs"><b><?php echo $tr_tb_pe ?></b></td>
 								</tr>
 							</thead>
+							<?php
+								};
+							?>
 						</tbody>
 					</table>
 				</div>
