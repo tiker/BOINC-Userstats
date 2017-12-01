@@ -1,4 +1,11 @@
-Version 4.3.1:
+
+Version 4.3.3:
+==============
+Behebt ein Problem, falls noch keine beendeten Projekte in der Datenbank vorhanden sind.
+Das Error-Handling für den Abruf von Pending-Credits wurde verbessert.
+
+
+Version 4.3.2:
 ==============
 Bei einer kompletten Neuinstallation wurden keine Daten bei den Projekten abgerufen.
 Die fehlerhafte Prüfung wurde aus dem Errorhandling entfernt.

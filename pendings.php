@@ -161,10 +161,15 @@
 										if ($xml_string_pendings == FALSE) {
 											$projectname = $row['project'];
 											$pending_credits = $row['pending_credits'];
-											} else {
+										} else {
 											$projectname = $row['project'];
 											$xml_pendings = @simplexml_load_string($xml_string_pendings);
-											$pending_credits = intval($xml_pendings->total_claimed_credit);
+				
+											if ( is_object($xml_pendings) && property_exists($xml_pendings, 'total_claimed_credits')) {
+												$pending_credits = intval($xml_pendings->total_claimed_credit);
+											} else {
+												 $pending_credits = $row['pending_credits'];
+											}
 										}
 										$pendings_gesamt = $pendings_gesamt + $pending_credits;
 										$sql_pendings = "UPDATE boinc_grundwerte SET pending_credits='" . $pending_credits . "' WHERE project_shortname='" . $row['project_shortname'] . "'"; //aktuelle Pendings des Projektes in Grundwerttabelle eintragen
