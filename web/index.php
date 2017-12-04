@@ -430,7 +430,7 @@
 													</a>
 												</td>
 												<td class = 'dunkelgrau textgrau'>
-														<span><b><?php echo number_format($total_credits_retired, 0, $dec_point, $thousands_sep) ?></b></span>
+													<b>" . number_format($total_credits_retired, 0, $dec_point, $thousands_sep) . "</b>
 												</td>
 												<td class = 'dunkelgrau textgrau d-none d-sm-table-cell'>" . number_format($pie_other_retired, 2, $dec_point, $thousands_sep) . "</td>
 												<td class = 'dunkelgrau textgrau d-none d-sm-table-cell'><b></b></td>
