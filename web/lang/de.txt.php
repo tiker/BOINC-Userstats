@@ -55,9 +55,9 @@
 	$tr_ch_pw_header = "Projekt Credits - Woche";
 	$tr_ch_pm_header = "Projekt Credits - Monat";
 	$tr_ch_py_header = "Projekt Credits - Jahr";
-	$tr_hp_pendings_01 = "Die Pending-Credits deiner als aktiv definierten Projekte werden aktualisiert....<br>Bitte warten....";
+	$tr_hp_pendings_01 = "Die Pending-Credits deiner als aktiv definierten Projekte werden aktualisiert...";
 	$tr_hp_pendings_02 = "Die Pending-Credits deiner als aktiv markierten Projekte wurden in der Datenbank aktualisiert.";
-	$tr_hp_pendings_03 = "Aktualisierung der Pending Credits";
+	$tr_hp_pendings_03 = "Aktualisierung der Pending Credits. Bitte warten...";
 	$tr2_hp_pp = "# Projekt";
 	$tr2_hp_pt = "# Team";
 	$tr2_hp_ptotal = "# Total";

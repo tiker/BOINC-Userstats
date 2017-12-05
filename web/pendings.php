@@ -45,7 +45,10 @@
 
 	<div class="container">
 		<div class="row justify-content-md-center">
-			<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i> Aktualisiere die Pendings...
+			<?php echo $tr_hp_pendings_03; ?>
+		</div>
+		<div class="row justify-content-md-center">
+			<i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i> 
 		</div>
 	</div>
 

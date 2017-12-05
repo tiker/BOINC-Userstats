@@ -45,6 +45,7 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_40: fehlerhaftes Errorhandling für beendete Projekte korrigiert (Falls keine beendeten vorhanden sind)
  dev_41: Errorhandling für pending Credits integriert
  dev_42: AJAX für Pending Credits integriert
+ dev_43: Designanpassung der pendings.php und internationalisierung
 
  
 - Die Version 5.0.0 wurde mit sehr viel Liebe zum Detail erstellt. Dies wurde im Footer deutlich gemacht. Zudem wurde das Copyright-Symbol entfernt. Der Code steht unter MIT-Lizenz.

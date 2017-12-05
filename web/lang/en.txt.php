@@ -54,9 +54,9 @@
 	$tr_ch_pw_header = "Project Credits per week";
 	$tr_ch_pm_header = "Project Credits per month";
 	$tr_ch_py_header = "Project Credits per year";
-	$tr_hp_pendings_01 = "The Pending-Credits of all your projects marked active will be refreshed....<br>Please wait....";
-	$tr_hp_pendings_02 = "Your Pending-Credits were updated in the database.<br>Click <a href='index.php'>here</a>, to return to your personal stats";
-	$tr_hp_pendings_03 = "Refresh your Pending Credits";
+	$tr_hp_pendings_01 = "The Pending-Credits of all your projects marked active will be refreshed...";
+	$tr_hp_pendings_02 = "Your Pending-Credits were updated in the database.";
+	$tr_hp_pendings_03 = "Refresh your Pending Credits. Please wait...";
 	$tr2_hp_pp = "# Project";
 	$tr2_hp_pt = "# Team";
 	$tr2_hp_ptotal = "# Total";
