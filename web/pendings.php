@@ -35,102 +35,56 @@
 	include("./header.php");
 ?>
 
-	<div class="alert info-lastupdate" role="alert">
+<div id="pendingCredits" class = "flex1">
+	<div class="alert warning-lastupdate" role="alert">
 		<div class="container">
-			<b><?php echo $tr_hp_pendings_02; ?></b>
+			<b><?php echo $tr_hp_pendings_01; ?></b>
 		</div>
 	</div>
 
-	<div class="container text-center flex1">
-		<table id="table_pendings" class="table table-striped table-hover table-sm table-responsive-xs" width="100%">
-			<thead>
-				<th class="dunkelgrau textgrau"><?php echo $tr_tb_pr ?></th>
-				<th class="dunkelgrau textgrau text-left"><?php echo $tr_tb_pe ?></th>
-			</thead>
-			<tbody>									
-				<?php
-					$query = mysqli_query($db_conn, "SELECT * FROM boinc_grundwerte WHERE project_status = 1;");
-					if ( !$query ) { 	
-						$connErrorTitle = "Datenbankfehler";
-						$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
-							Es bestehen wohl Probleme mit der Datenbankanbindung.";
-						include "./errordocs/db_initial_err.php";
-						exit();
-					} elseif ( mysqli_num_rows($query) === 0 ) { 
-						$connErrorTitle = "Datenbankfehler";
-						$connErrorDescription = "Es existiern keine Projekte in deiner Datenbank, welche als aktiv (1) gesetzt sind.";
-						include "./errordocs/db_initial_err.php";
-						exit();
-					}
-					$ctx = stream_context_create(array(
-							'http' => array(
-							'timeout' => 1
-							)
-						)
-					);
-					$xml_string_pendings = "false";
-					$pendings_gesamt = 0;
-					while ($row = mysqli_fetch_assoc($query)) {
-						$xml_string_pendings = @file_get_contents($row['url'] . "pending.php?format=xml&authenticator=" . $row['authenticator'], 0, $ctx);
-						if ($xml_string_pendings == FALSE) {
-							$projectname = $row['project'];
-							$pending_credits = $row['pending_credits'];
-						} else {
-							$projectname = $row['project'];
-							$xml_pendings = @simplexml_load_string($xml_string_pendings);
 
-							if ( is_object($xml_pendings) && property_exists($xml_pendings, 'total_claimed_credits')) {
-								$pending_credits = intval($xml_pendings->total_claimed_credit);
-							} else {
-								 $pending_credits = $row['pending_credits'];
-							}
-						}
-
-						$pendings_gesamt = $pendings_gesamt + $pending_credits;
-						$sql_pendings = "UPDATE boinc_grundwerte SET pending_credits='" . $pending_credits . "' WHERE project_shortname='" . $row['project_shortname'] . "'";
-						mysqli_query($db_conn, $sql_pendings);
-						
-						if ($pending_credits > 0) {
-							echo "<tr><td>" . $projectname . "</td>";
-							echo "<td class='text-left'>" . number_format($pending_credits, 0, $dec_point, $thousands_sep) . "</td></tr>";
-						}
-					}
-					echo "<tfoot>
-							<tr>
-								<td class='dunkelblau textblau'>" . $text_total_pendings . "</td>";
-					echo "		<td class='dunkelblau textblau text-left'>" . number_format($pendings_gesamt, 0, $dec_point, $thousands_sep) . "</td>
-							</tr>
-						</tfoot>";
-				?>
-			</tbody>
-		</table>
-		<div class="alert alert-danger" role="alert">
-			<div class="container">
-				<?php echo $zero_pendings ?>
-			</div>
-		</div>			
+	<div class="container">
+		<div class="row justify-content-md-center">
+			<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i> Aktualisiere die Pendings...
+		</div>
 	</div>
+
+
+
+</div>
 
 	<script>
 		$(document).ready(function() {
-			$('#table_pendings').DataTable( {
-				fixedHeader: {
-						headerOffset: 56
-					},
-				language: {
-					decimal: "<?php echo $dec_point; ?>",
-					thousands: "<?php echo $thousands_sep; ?>",
-					search:	"<?php echo $text_search; ?>"
-				},
-				columnDefs: [ {
-					targets: 'no-sort',
-					orderable: false,
-				}],
-				order: [ 1, "desc" ],
-				paging: false,
-				info: false
-			} );
+
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						document.getElementById("pendingCredits").innerHTML =
+							this.responseText;
+						$('#table_pendings').DataTable( {
+							fixedHeader: {
+									headerOffset: 56
+								},
+							language: {
+								decimal: "<?php echo $dec_point; ?>",
+								thousands: "<?php echo $thousands_sep; ?>",
+								search:	"<?php echo $text_search; ?>"
+							},
+							columnDefs: [ {
+								targets: 'no-sort',
+								orderable: false,
+							}],
+							order: [ 1, "desc" ],
+							paging: false,
+							info: false
+						} );
+					}
+				};
+				xhttp.open("GET", "pending_ajax.php", true);
+				xhttp.send(); 
+
 		} );
 	</script>
+
 		
 <?php include("./footer.php"); ?>
