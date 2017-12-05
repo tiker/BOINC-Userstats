@@ -70,7 +70,7 @@
 							$projectname = $row['project'];
 							$xml_pendings = @simplexml_load_string($xml_string_pendings);
 
-							if ( is_object($xml_pendings) && property_exists($xml_pendings, 'total_claimed_credits')) {
+							if ( is_object($xml_pendings) && property_exists($xml_pendings, 'total_claimed_credit')) {
 								$pending_credits = intval($xml_pendings->total_claimed_credit);
 							} else {
 								 $pending_credits = $row['pending_credits'];
