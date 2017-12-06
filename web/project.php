@@ -466,7 +466,7 @@
 								} );
 						}
 					};
-					xhttp.open("GET", "./wcg_detail.php", true);
+					xhttp.open("GET", "./ajax_wcg_detail.php", true);
 					xhttp.send(); 
 			} );
 		</script>

@@ -79,7 +79,7 @@
 						} );
 					}
 				};
-				xhttp.open("GET", "pending_ajax.php", true);
+				xhttp.open("GET", "ajax_pendings.php", true);
 				xhttp.send(); 
 
 		} );
