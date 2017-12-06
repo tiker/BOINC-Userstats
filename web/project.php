@@ -268,7 +268,7 @@
 
 	if ($status == "2") {
 		echo '
-		<div class="alert warning-lastupdate" role="alert">
+		<div class="alert danger-lastupdate" role="alert">
 			<div class="container">
 				' . $text_info_project_retired .'
 			</div>
@@ -374,9 +374,16 @@
 
 			<?php
 			if ($showWCGDetails) { echo '
-			<div id="wcgdetails" class="tab-pane fade" role="tabpanel" aria-labelledby="wcgdetails-tab">';
-				include ("./modules/wcg_detail.php");
-			echo '</div>'; }
+			<div id="wcgdetails" class="tab-pane fade" role="tabpanel" aria-labelledby="wcgdetails-tab">
+				<div class="container">
+					<div class="row justify-content-md-center">
+						' . $tr_hp_loadProjectDetails . '
+					</div>
+					<div class="row justify-content-md-center">
+						<i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i> 
+					</div>
+				</div>
+			</div>'; }
 			?>
 
 			<div id="gesamt" class="tab-pane fade" role="tabpanel" aria-labelledby="gesamt-tab">
@@ -424,6 +431,37 @@
 			</div>				
 		</div>
 
+		<script>
+			$(document).on('click','#wcgdetails-tab',function(){
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) {
+							document.getElementById("wcgdetails").innerHTML =
+								this.responseText;
+								$('#table_wcgteams, #table_wcg').DataTable( {
+									fixedHeader: {
+												headerOffset: 56
+											},
+									language: {
+										decimal: "<?php echo $dec_point; ?>",
+										thousands: "<?php echo $thousands_sep; ?>",
+										search:	"<?php echo $text_search; ?>"
+									},
+									columnDefs: [ {
+										targets: 'no-sort',
+										orderable: false,
+									}],
+									order: [[ 1, "asc" ],[ 0, "asc" ]],
+									paging: false,
+									info: false,
+									searching: false
+								} );
+						}
+					};
+					xhttp.open("GET", "./wcg_detail.php", true);
+					xhttp.send(); 
+			} );
+		</script>
 		<script>
 			$(document).ready(function() {
 				$('#table_project').DataTable( {

@@ -4,11 +4,13 @@
 	$linkNameOverview = "Project-Overview";
 	$text_hp_title = "Personal Userstats of " .$boinc_username. " from Team " .$boinc_teamname;
 	$text_header_motto = "BOINC-Projects of";
+	$text_header_pendings = "Pending Credits of";
 	$text_header_ot = "of team";
 	$text_header_lu = "last update";
-	$text_total = "Total";
 	$text_boinc_total = "BOINC combined";
+	$text_total = "Total";
 	$text_total_pendings = "TOTAL Pendings";
+	$tr_hp_loadProjectDetails = "Project-Details are loading...";
 	$tr_tb_pr = "active Project";
 	$tr_tb_cr = "Credits";
 	$tr_ch_week = "Week from";

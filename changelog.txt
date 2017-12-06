@@ -46,7 +46,7 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_41: Errorhandling für pending Credits integriert
  dev_42: AJAX für Pending Credits integriert
  dev_43: Designanpassung der pendings.php und Internationalisierung, Fehlerbehebung Property total_claimed_credit
-
+ dev_44: AJAX für WCG-Details integriert
  
 - Die Version 5.0.0 wurde mit sehr viel Liebe zum Detail erstellt. Dies wurde im Footer deutlich gemacht. Zudem wurde das Copyright-Symbol entfernt. Der Code steht unter MIT-Lizenz.
 - Das Design wurde erneuert. Es besteht nun die Möglichkeit, die Farben individuell anzupassen (assets/css/userstats_style.css).

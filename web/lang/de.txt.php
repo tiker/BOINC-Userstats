@@ -10,6 +10,7 @@
 	$text_boinc_total = "BOINC Gesamt";
 	$text_total = "Gesamt";
 	$text_total_pendings = "GESAMT Pendings";
+	$tr_hp_loadProjectDetails = "Projekt-Details werden geladen...";
 	$tr_tb_pr = "aktive Projekte";
 	$tr_tb_cr = "Credits";
 	$tr_ch_week = "Woche ab";

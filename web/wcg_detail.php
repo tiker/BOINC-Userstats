@@ -2,12 +2,6 @@
 	include "./settings/settings.php";
 	date_default_timezone_set('UTC');
 
-	if(isset($_GET["lang"])) $lang=$_GET["lang"];
-	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2));
-	
-	if (file_exists("./lang/" .$lang. ".txt.php")) include "./lang/" .$lang. ".txt.php";
-	else include "./lang/en.txt.php";
-	
 	function zeit($sekunden)
 	{
 		$jahre = (int) ($sekunden / (365 * 86400));
@@ -44,6 +38,12 @@
 		$datum_start = $row["lastupdate_start"];
 		$datum = $row["lastupdate"];
 	}
+
+	if(isset($_GET["lang"])) $lang=$_GET["lang"];
+	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2));
+	
+	if (file_exists("./lang/" .$lang. ".txt.php")) include "./lang/" .$lang. ".txt.php";
+	else include "./lang/en.txt.php";
 
 	$xml_string = FALSE;
 	$status = [];
@@ -135,7 +135,7 @@
 		<b><?php echo $wcg_detail_team_history; ?></b>
 		<table id="table_wcgteams" class="table table-sm table-striped table-hover table-responsive-xs" width="100%">
 			<thead>
-				<tr>
+				<tr class = "fixedHeader">
 					<th class = "dunkelgrau textgrau"><b><?php echo "$wcg_detail_team" ?></b></th>
 					<th class = "dunkelgrau textgrau text-center"><b><?php echo "$wcg_detail_join" ?></b></th>
 					<th class = "dunkelgrau textgrau text-center d-none d-sm-table-cell"><b><?php echo "$wcg_detail_leave" ?></b></th>
@@ -244,26 +244,3 @@
 			</tbody>
 		</table>
 	</div>
-
-<script>
-	$(document).ready(function() {
-		$('#table_wcgteams, #table_wcg').DataTable( {
-			fixedHeader: {
-						headerOffset: 56
-					},
-			language: {
-				decimal: "<?php echo $dec_point; ?>",
-				thousands: "<?php echo $thousands_sep; ?>",
-				search:	"<?php echo $text_search; ?>"
-			},
-			columnDefs: [ {
-				targets: 'no-sort',
-				orderable: false,
-			}],
-			order: [[ 1, "asc" ],[ 0, "asc" ]],
-			paging: false,
-			info: false,
-			searching: false
-		} );
-	} );
-</script>
