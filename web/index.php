@@ -380,8 +380,17 @@
 							if ($hasactiveProject) {
 								foreach ($table as $table_row) {
 									echo "<tr>
-										<td><a href='" . $table_row["project_home_link"] . "'>" . $table_row["project_name"] ."</a></td>
+										<td><a href='" . $table_row["project_home_link"] . "'>" . $table_row["project_name"] ."</a></td>";
+									if ($table_row["user_stats_vorhanden"] === "1") {
+										echo "
+											<td class='align-middle text-center'><a href='" . $table_row["project_link"] . "'><i class='fa fa-bar-chart textgrau'></i></a></td>
+										";
+									} else {
+										echo "
 										<td class='align-middle text-center'><a href='" . $table_row["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
+										";
+									}
+									echo "
 										<td><b>" . number_format($table_row["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
 										<td class='d-none d-sm-table-cell'>" . number_format($table_row["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>";
 										if ($table_row["sum1h"] != "") {

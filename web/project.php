@@ -274,6 +274,14 @@
 			</div>
 		</div>
 		';	
+	} elseif ($status == "0") {
+		echo '
+		<div class="alert warning-lastupdate" role="alert">
+			<div class="container">
+				' . $text_info_noupdate. '
+			</div>
+		</div>
+		';
 	} elseif ($datum < $datum_start) {
 		echo '
 		<div class="alert warning-lastupdate" role="alert">
