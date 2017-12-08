@@ -1,4 +1,16 @@
 
+Version 4.3.4:
+==============
+Behebt ein Problem, wodurch die Werte für den Chart "Tages-Output" falsch berechnet wurden.
+Zudem werden  im Chart "Stunden-Output" nun auch die richtigen Zeitspannen angezeigt (diese waren ihrer Zeit eine Stunde voraus).
+
+geänderte Dateien:
+	- index.php
+	- project.php
+	- version.php
+	- changelog.txt
+
+
 Version 4.3.3:
 ==============
 Behebt ein Problem, falls noch keine beendeten Projekte in der Datenbank vorhanden sind.

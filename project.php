@@ -104,7 +104,7 @@
 		exit();
 	}
 	while($row=mysqli_fetch_assoc($query_getProjectOutputPerHour)){
-		$timestamp = ($row["time_stamp"]) * 1000;
+		$timestamp = ($row["time_stamp"]) * 1000 - 1;
 		$output_project_html.= "[(" .$timestamp. "), " .$row["credits"]. "], ";	
 	}
 	$output_project_html=substr($output_project_html,0,-2);

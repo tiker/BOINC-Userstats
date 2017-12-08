@@ -280,7 +280,7 @@
 	}
 	$output_html = "";
 	while ($row = mysqli_fetch_assoc($query_getTotalOutputPerHour)) {
-		$timestamp = ($row["time_stamp"]) * 1000;
+		$timestamp = ($row["time_stamp"]) * 1000 - 1;
 		$output_html .= "[" . $timestamp . ", " . $row["credits"] . "], ";
 	}
 	$output_html = substr($output_html, 0, -2);
