@@ -33,17 +33,20 @@
 		<link rel="stylesheet" href="./assets/css/userstats_style.css"> 
 
 	</head>
-	
+
 	<body>
 		<?php if ( $showNavbar ) include("./nav.php"); ?>
 			<div class = "force_min_height">
 				<div class="jumbotron jumbotron-fluid" style="background-image: url('<?php echo $header_backround_url; ?>');">
 					<div class="container">
 						<div class="d-inline-flex flex-column" style="background: rgba(255, 255, 255, 0.3); border-radius: 12px; padding: 12px; border: 1px solid #d3d3d3">
-							<?php if ($showProjectHeader) { echo '
+							<?php 
+								if ($showProjectHeader) { echo '
 									<h1 class="title"><font color="white">' . $projectname . '</font></h1>
 							';} else if ($showPendingsHeader) { echo '
 								<h1 class="title"><font color="white">' . $text_header_pendings . '</font></h1>
+							';} else if ($showTasksHeader) { echo '
+								<h1 class="title"><font color="white">' . $text_header_tasks . '</font></h1>
 							';} else { echo '
 								<h1 class="title"><font color="white">' . $text_header_motto .  '</font></h1>
 							';};

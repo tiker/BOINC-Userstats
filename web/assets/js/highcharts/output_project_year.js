@@ -1,9 +1,4 @@
 <script type="text/javascript">
-	Highcharts.setOptions({
-		global: {
-			useUTC: true
-		}
-	});
 	$(function () {
 		var chart = new Highcharts.StockChart({
 			chart: {

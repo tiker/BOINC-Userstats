@@ -1,9 +1,9 @@
 <?php
 	include "./settings/settings.php";
-	date_default_timezone_set('UTC');
 
-	$showPendingsHeader = true;
 	$showProjectHeader = false;
+	$showPendingsHeader = true;
+	$showTasksHeader = false;
 	
 	$result_user = mysqli_query($db_conn, "SELECT * FROM boinc_user");
 	if ( !$result_user || mysqli_num_rows($result_user) === 0 ) { 	
@@ -28,8 +28,8 @@
 	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
 	else include "./lang/en.txt.php";
 	
-	$lastupdate_start = date("d.m.Y H:i:s",$datum_start);
-	$lastupdate = date("H:i:s",$datum);	
+	$lastupdate_start = date("d.m.Y H:i:s", $datum_start + $timezoneoffset*3600);
+	$lastupdate = date("H:i:s", $datum + $timezoneoffset*3600);
 	$pending_credits = "0";
 
 	include("./header.php");

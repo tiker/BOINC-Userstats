@@ -49,6 +49,10 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_44: AJAX für WCG-Details integriert
  dev_45: Info in der project.php für Projekte mit project_status 0 hinzugefügt (keine aktualisierung der Daten)
          sowie der Chart-Link in der index.php für solche Projekte erhellt
+ dev_46: ACHTUNG! Zeitzonenfeature derzeit noch in Bearbeitung und noch nicht abschließend integriert!
+ 		 Zeitzonenunterstützung in cronjob.php integriert. Der Gesamt-Output wird nun um Mitternacht der eingestellten Zeitzone berechnet.
+		 Pending Credits werden automatisiert nur noch um Mitternacht aktualisiert.
+		 Zeitzonenunterstützung für Charts integriert. Die Werte sollten nun in der Zeitzone entsprechend der settings.php angezeigt werden.
  
 - Die Version 5.0.0 wurde mit sehr viel Liebe zum Detail erstellt. Dies wurde im Footer deutlich gemacht. Zudem wurde das Copyright-Symbol entfernt. Der Code steht unter MIT-Lizenz.
 - Das Design wurde erneuert. Es besteht nun die Möglichkeit, die Farben individuell anzupassen (assets/css/userstats_style.css).
@@ -66,7 +70,12 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
 - Die blaue Leiste unter dem Header dient nun als Informations-Leiste und gibt je nach Umstand mehr Infos aus oder wechselt die Farbe.
   Es wurde z.B. eine Prüfung integriert, die beim Aufrufen der Seite eine entsprechende Ausgabe tätigt, falls gerade Daten von den Projekten erhoben werden bzw. ob das Projekt beendet ist.
 - Beendete Projekte in der Projekt-Übersicht werden standardmäßig nicht angezeigt. Ein "Schalter" zum Anzeigen beendeter Projekte wurde hinzugfügt und befindet sich direkt neben dem Text "beendete Projekte"
-   
+- Die Laufzeit der cronjob.php wurde reduziert. Dazu werden die Pending Credits nur noch um Mitternacht automatisch aktualisiert. Ein manuelles Update ist jederzeit über die pendings.php möglich.
+- Die Berechnung für den Gesamt-Chart wurde geändert. Eine Option für die Zeitzone wurde integriert, damit sich die Berechnung nun an der gewünschten Zeitzone orientiert.
+- Integration von Zeitzonen. Die Werte sollten nun insgesamt entsprechend der voreingestellten Zeitzone angezeigt werden.
+  Voraussetzung ist, dass der Client in der gleichen Zeitzone eingestellt ist, wie der Server (evtl.. noch nicht abschließend durchprobiert!)
+- Der Seitenheader ist nun interaktiver und der Inhalt ändert sich, je nachdem welche Seite aufgerufen wurde.
+
 
 ToDo:
 -----

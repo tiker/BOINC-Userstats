@@ -1,6 +1,5 @@
 <?php
 	include "./settings/settings.php";
-	date_default_timezone_set('UTC');
 
 	$result_user = mysqli_query($db_conn, "SELECT * FROM boinc_user");
 	if ( !$result_user || mysqli_num_rows($result_user) === 0 ) { 	

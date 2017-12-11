@@ -1,6 +1,9 @@
 <?php
 	include "./settings/settings.php";
-	date_default_timezone_set('UTC');
+
+	$showProjectHeader = true;
+	$showPendingsHeader = false;
+	$showTasksHeader = false;
 
 	$sum1h_total = 0;
 	$sum2h_total = 0;
@@ -8,8 +11,6 @@
 	$sum12h_total = 0;
 	$sum_today_total = 0;
 	$sum_yesterday_total = 0;
-	$showPendingsHeader = false;
-	$showProjectHeader = true;
 
 	$goon = false;
 	$projectid = addslashes($_GET["projectid"]);
@@ -67,8 +68,8 @@
 	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
 	else include "./lang/en.txt.php";
 
-	$lastupdate_start = date("d.m.Y H:i:s",$datum_start);
-	$lastupdate = date("H:i:s",$datum);
+	$lastupdate_start = date("d.m.Y H:i:s", $datum_start + $timezoneoffset*3600);
+	$lastupdate = date("H:i:s", $datum + $timezoneoffset*3600);
 
 	$query_getTotalCredits = mysqli_query($db_conn, "SELECT SUM(total_credits) AS sum_total from boinc_grundwerte");
 	if ( !$query_getTotalCredits ) { 	
@@ -207,6 +208,7 @@
 		$sum12h_total += $table_row["sum12h"];
 
 		$tagesanfang = mktime(0, 0, 0, date("m"), date ("d"), date("Y"));
+		
 		$query_getProjectOutputToday = mysqli_query($db_conn,"SELECT sum(credits) AS sum_today FROM boinc_werte WHERE project_shortname='" .$shortname. "' and time_stamp>'" .$tagesanfang. "'");
 		if ( !$query_getProjectOutputToday || mysqli_num_rows($query_getProjectOutputToday) === 0 ) { 
 			$connErrorTitle = "Datenbankfehler";
@@ -219,8 +221,9 @@
 		$table_row["sum_today"] = $row2["sum_today"];
 		$sum_today_total += $table_row["sum_today"];
 		
-		$gestern_anfang = mktime(0, 0, 1, date("m"), date ("d")-1, date("Y"));
-		$gestern_ende = mktime(0, 0, 0, date("m"), date ("d"), date("Y"));
+		$gestern_anfang = mktime(1, 0, 0, date("m"), date("d") - 1, date("Y"));
+		$gestern_ende = mktime(0, 0, 0, date("m"), date("d"), date("Y"));
+
 		$query_getProjectOutputYesterday = mysqli_query($db_conn,"SELECT sum(credits) AS sum_yesterday FROM boinc_werte WHERE project_shortname='" .$shortname. "' AND time_stamp BETWEEN '" .$gestern_anfang. "' AND '" .$gestern_ende. "'");
 		if ( !$query_getProjectOutputYesterday || mysqli_num_rows($query_getProjectOutputYesterday) === 0 ) { 
 			$connErrorTitle = "Datenbankfehler";
@@ -255,6 +258,7 @@
 		}
 	} 
 
+	include("./assets/js/highcharts/global_settings.php");
 	include("./assets/js/highcharts/highcharts_color.php");
 	include("./assets/js/highcharts/output_project.js");
 	include("./assets/js/highcharts/output_project_hour.js");
@@ -286,7 +290,7 @@
 		echo '
 		<div class="alert warning-lastupdate" role="alert">
 			<div class="container">
-				' . $text_info_update_inprogress .  $lastupdate_start .'
+				' . $text_info_update_inprogress .  $lastupdate_start .' ' . $timezone_shortname . '
 			</div>
 		</div>
 		';
@@ -294,7 +298,7 @@
 		echo '
 		<div class="alert info-lastupdate" role="alert">
 			<div class="container">
-				<b>' . $text_header_lu . ':</b> ' . $lastupdate_start . ' - ' . $lastupdate . ' (UTC)
+				<b>' . $text_header_lu . ':</b> ' . $lastupdate_start . ' - ' . $lastupdate . ' ' . $timezone_shortname . '
 			</div>
 		</div>
 		';

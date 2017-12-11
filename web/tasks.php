@@ -1,7 +1,10 @@
 <?php
 	include "./settings/settings.php";
-	date_default_timezone_set('UTC');
-	
+
+	$showProjectHeader = false;
+	$showPendingsHeader = false;
+	$showTasksHeader = true;
+
 	if (isset($_GET["lang"])) $lang = $_GET["lang"];
 	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
 
@@ -30,8 +33,8 @@
 		$datum = $row["lastupdate"];
 	}
 	
-	$lastupdate_start = date("d.m.Y H:i:s", $datum_start);
-	$lastupdate = date("H:i:s", $datum);
+	$lastupdate_start = date("d.m.Y H:i:s", $datum_start + $timezoneoffset*3600);
+	$lastupdate = date("H:i:s", $datum + $timezoneoffset*3600);
 ?>
 
 <?php

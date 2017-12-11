@@ -30,8 +30,8 @@ while ($row = mysqli_fetch_assoc($query_getUserData)) {
 	$datum = $row["lastupdate"];
 }
 
-$lastupdate_start = date("d.m.Y H:i:s", $datum_start);
-$lastupdate = date("H:i:s", $datum);
+$lastupdate_start = date("d.m.Y H:i:s", $datum_start + $timezoneoffset*3600);
+$lastupdate = date("H:i:s", $datum + $timezoneoffset*3600);
 
 if (!isset($_GET['error'])) { $errorcode = ""; } else { $errorcode = $_GET['error'];}
 if (!isset($_SERVER['HTTP_REFERER'])) { $HTTP_REFERER = ""; } else { $HTTP_REFERER = $_SERVER['HTTP_REFERER'];}

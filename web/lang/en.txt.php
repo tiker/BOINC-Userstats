@@ -5,6 +5,7 @@
 	$text_hp_title = "Personal Userstats of " .$boinc_username. " from Team " .$boinc_teamname;
 	$text_header_motto = "BOINC-Projects of";
 	$text_header_pendings = "Pending Credits of";
+	$text_header_tasks = "Running Tasks of";
 	$text_header_ot = "of team";
 	$text_header_lu = "last update";
 	$text_boinc_total = "BOINC combined";

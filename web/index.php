@@ -1,6 +1,9 @@
 <?php
-	date_default_timezone_set('UTC');
 	include "./settings/settings.php";
+
+	$showProjectHeader = false;
+	$showPendingsHeader = false;
+	$showTasksHeader = false;
 
 	$sum1h_total = 0;
 	$sum2h_total = 0;
@@ -13,8 +16,7 @@
 	$pie_other = 0;
 	$pie_html = "";
 	$table_retired = [];
-	$showProjectHeader = false;
-	$showPendingsHeader = false;
+
 	$hasactiveProject = false;
 	$hasretiredProject = false;
 
@@ -46,11 +48,8 @@
 	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
 	else include "./lang/en.txt.php";
 
-	$lastupdate_start = date("d.m.Y H:i:s", $datum_start);
-	$lastupdate = date("H:i:s", $datum);
-	
-	$timestamp_hour = date("Y-m-d H:i:s", mktime(date("H"), 0, 0, date("m"), date("d") - 2, date("Y")));
-	$timestamp_day = date("Y-m-d H:i:s", mktime(date("H"), 0, 0, date("m"), date("d") - 31, date("Y")));
+	$lastupdate_start = date("d.m.Y H:i:s", $datum_start + $timezoneoffset*3600);
+	$lastupdate = date("H:i:s", $datum + $timezoneoffset*3600);
 	
 	$query_getTotalCredits = mysqli_query($db_conn, "SELECT SUM(total_credits) AS sum_total from boinc_grundwerte");
 	if ( !$query_getTotalCredits ) { 	
@@ -161,7 +160,8 @@
 			$table_row["sum12h"] = $row2["sum12h"];
 			$sum12h_total += $table_row["sum12h"];
 			
-			$tagesanfang = mktime(0, 0, 1, date("m"), date("d"), date("Y"));
+			$tagesanfang = mktime(0, 0, 0, date("m"), date("d"), date("Y"));
+			
 			$query_getOutputToday = mysqli_query($db_conn,"SELECT sum(credits) AS sum_today FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $tagesanfang . "'");
 			if ( !$query_getOutputToday || mysqli_num_rows($query_getOutputToday) === 0 ) { 	
 				$connErrorTitle = "Datenbankfehler";
@@ -174,7 +174,7 @@
 			$table_row["sum_today"] = $row2["sum_today"];
 			$sum_today_total += $table_row["sum_today"];
 			
-			$gestern_anfang = mktime(0, 0, 1, date("m"), date("d") - 1, date("Y"));
+			$gestern_anfang = mktime(1, 0, 0, date("m"), date("d") - 1, date("Y"));
 			$gestern_ende = mktime(0, 0, 0, date("m"), date("d"), date("Y"));
 			
 			$query_getOutputYesterday = mysqli_query($db_conn,"SELECT sum(credits) AS sum_yesterday FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp BETWEEN '" . $gestern_anfang . "' AND '" . $gestern_ende . "'");
@@ -276,6 +276,7 @@
 	if (file_exists("./lang/" . $lang . ".highstock.js")) include "./lang/" . $lang . ".highstock.js";
 	else include "./lang/en.highstock.js";
 
+	include("./assets/js/highcharts/global_settings.php");
 	include("./assets/js/highcharts/highcharts_color.php");
 	include("./assets/js/highcharts/pie.js");
 	include("./assets/js/highcharts/output_gesamt.js");
@@ -289,7 +290,7 @@
 		echo '
 		<div class="alert warning-lastupdate" role="alert">
 			<div class="container">
-				' . $text_info_update_inprogress .  $lastupdate_start .'
+				' . $text_info_update_inprogress .  $lastupdate_start .' ' . $timezone_shortname . '
 			</div>
 		</div>
 		';
@@ -297,7 +298,7 @@
 		echo '
 		<div class="alert info-lastupdate" role="alert">
 			<div class="container">
-				<b>' . $text_header_lu . ':</b> ' . $lastupdate_start . ' - ' . $lastupdate . ' (UTC)
+				<b>' . $text_header_lu . ':</b> ' . $lastupdate_start . ' - ' . $lastupdate . ' ' . $timezone_shortname . '
 			</div>
 		</div>
 		';

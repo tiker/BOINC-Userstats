@@ -9,6 +9,20 @@
 	// ini_set ('display_errors', 'On'); // für Testumgebung - for test environment
 	ini_set ('display_errors', 'Off');
 
+	// Zeitzonen Einstellungen  // Timezone Settings
+	// Deine Zeitzone  // Enter your timezone
+	date_default_timezone_set('Europe/Berlin');
+
+	// Diese Variable bitte nicht ändern, ansosten werden deine Werte falsch berechnet!
+	// Do not change the this option, otherwise your data will be calculated wrong!
+	$useUTCHighchartsOption = "true"; // default = "true"
+
+	$timezoneoffset = 0; // not sure, if needed... we will see...
+
+	// Deine Zeitzonenbezeichnung in Kurzform. Wird in der Infobar neben den Zeitangabe für das letzte Update angezeigt. Derzeit noch keine Unterstützung für Sommerzeitregelung.	
+	// Your Timezone Shortname. Will be shown in the Infobar next to the last update dates. No support for Daylight Savings at the moment.
+	$timezone_shortname = "(MEZ)"; 
+
 	// Version einbinden   // Include version
 	include "version.php";
 
@@ -93,9 +107,6 @@
 	$hasPendings = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
 	$linkNamePendings = "Pendings";
 	$linkPendings = "./pendings.php"; // Link zu den laufenden WUs von XSmeagolX	
-
-	// Hier die Zeitzoneneinstellung vornehmen (in Stunden)
-	$timezoneoffset = 0;
 	
 	// Auswahl der Projekte fuer Tortendiagramm
 	// Hier den Wert eintragen, ab welchem Prozentanteil die Projekte separat im Kuchen ausgegeben werden sollen (Standard 1 fuer ab 1%, kann aber auch 10, 2, 0.3 eingetragen werden)
