@@ -374,8 +374,8 @@
 										<td class='d-none d-lg-table-cell text-center'>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
 										<td class='d-none d-lg-table-cell text-center'>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
 										<td class='d-none d-md-table-cell text-center'>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
-										<td class='gruen textgruen d-none d-sm-table-cell text-center>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
-										<td class='d-none d-sm-table-cell blau textblau text-center'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
+										<td class='gruen textgruen d-none d-sm-table-cell text-center'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
+										<td class='blau textblau d-none d-sm-table-cell text-center'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
 										<td class='rot textrot d-none d-md-table-cell text-center'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
 									</tr>";
 							}
