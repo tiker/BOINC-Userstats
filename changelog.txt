@@ -53,7 +53,10 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  		 Zeitzonenunterstützung in cronjob.php integriert. Der Gesamt-Output wird nun um Mitternacht der eingestellten Zeitzone berechnet.
 		 Pending Credits werden automatisiert nur noch um Mitternacht aktualisiert.
 		 Zeitzonenunterstützung für Charts integriert. Die Werte sollten nun in der Zeitzone entsprechend der settings.php angezeigt werden.
- 
+ dev_47: Designanpassungen reponsives Verhalten
+
+
+
 - Die Version 5.0.0 wurde mit sehr viel Liebe zum Detail erstellt. Dies wurde im Footer deutlich gemacht. Zudem wurde das Copyright-Symbol entfernt. Der Code steht unter MIT-Lizenz.
 - Das Design wurde erneuert. Es besteht nun die Möglichkeit, die Farben individuell anzupassen (assets/css/userstats_style.css).
   Von der assets/css/userstats_layout.css würde ich die Finger lassen! Diese beinhaltet die wichtigen Einstellungen zum Seiten-Layout.

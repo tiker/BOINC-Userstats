@@ -343,24 +343,24 @@
 				<table id="table_projects" class="table table-sm table-striped table-hover table-responsive-xs table-ellipsis" width="100%">					
 					<thead>
 						<tr>
-							<td class="dunkelblau textblau"><b><?php echo $text_boinc_total ?></b></td>
-							<td class="dunkelblau textblau align-middle text-center"><b><?php #echo $tr_th_detail ?></b></td>
-							<td class="dunkelblau textblau"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td class="dunkelblau textblau d-none d-sm-table-cell"><b>100%</b></td>
-							<td class="dunkelblau textblau d-none d-sm-table-cell">
-							<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td class="dunkelblau textblau d-none d-lg-table-cell">
-							<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td class="dunkelblau textblau d-none d-lg-table-cell">
-							<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td class="dunkelblau textblau d-none d-md-table-cell">
-							<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td class = "dunkelgruen textgruen">
-							<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td class = "dunkelblau textblau d-none d-sm-table-cell">
-							<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></td>
-							<td class = "dunkelrot textrot d-none d-md-table-cell">
-							<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></td>
+							<th class="dunkelblau textblau"><b><?php echo $text_boinc_total ?></b></th>
+							<th class="dunkelblau textblau align-middle text-center"><b><?php #echo $tr_th_detail ?></b></th>
+							<th class="dunkelblau textblau"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></th>
+							<th class="dunkelblau textblau d-none d-sm-table-cell"><b>100%</b></th>
+							<th class="dunkelblau textblau d-none d-sm-table-cell">
+							<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></th>
+							<th class="dunkelblau textblau d-none d-lg-table-cell">
+							<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></th>
+							<th class="dunkelblau textblau d-none d-lg-table-cell">
+							<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></th>
+							<th class="dunkelblau textblau d-none d-md-table-cell">
+							<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></th>
+							<th class = "dunkelgruen textgruen d-none d-sm-table-cell">
+							<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></th>
+							<th class = "dunkelblau textblau d-none d-sm-table-cell">
+							<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></th>
+							<th class = "dunkelrot textrot d-none d-md-table-cell">
+							<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></th>
 						</tr>
 						<tr>
 							<th class = "dunkelgrau textgrau"><?php echo $tr_tb_pr; ?></th>
@@ -371,7 +371,7 @@
 							<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_02; ?></th>
 							<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_06; ?></th>
 							<th class = "dunkelgrau textgrau d-none d-md-table-cell"><?php echo $tr_tb_12; ?></th>
-							<th class = "dunkelgruen textgruen"><?php echo $tr_tb_to; ?></th>
+							<th class = "dunkelgruen textgruen d-none d-sm-table-cell"><?php echo $tr_tb_to; ?></th>
 							<th class = "dunkelblau textblau d-none d-sm-table-cell"><?php echo $tr_tb_ye; ?></th>
 							<th class = "dunkelrot textrot d-none d-md-table-cell"><?php echo $tr_tb_pe; ?></th>
 						</tr>
@@ -411,9 +411,9 @@
 										} else
 											echo "  <td class='d-none d-md-table-cell'>-</td>";
 										if ($table_row["sum_today"] != "") {
-											echo "  <td class = 'gruen textgruen'><b>" . number_format($table_row["sum_today"], 0, $dec_point, $thousands_sep) . "</b></td>";
+											echo "  <td class = 'gruen textgruen d-none d-sm-table-cell'><b>" . number_format($table_row["sum_today"], 0, $dec_point, $thousands_sep) . "</b></td>";
 										} else
-											echo "  <td class = 'gruen text gruen'>-</td>";
+											echo "  <td class = 'gruen text gruen d-none d-sm-table-cell'>-</td>";
 										if ($table_row["sum_yesterday"] != "") {
 											echo "  <td class = 'blau textblau d-none d-sm-table-cell'><b>" . number_format($table_row["sum_yesterday"], 0, $dec_point, $thousands_sep) . "</b></td>";
 										} else
@@ -426,49 +426,48 @@
 								}
 							};
 						?>
-							<?php
-								if ($hasretiredProject) {
-									echo "
-										</tbody>
-										<tfoot>
-											<tr>
-												<td class = 'dunkelgrau textgrau'><b>" . $tr_th2_rp ." </b></td>
-												<td class='dunkelgrau textgrau align-middle text-center'>
-													<a class='toggle-text' data-toggle='collapse' data-target = '.retiredProjects'>
-														<span><i class='textrot fa fa-toggle-on fa-lg fa-rotate-180'></i></span>
-														<span class='hidden'><i class='textgruen fa fa-toggle-on fa-lg'></i></span>
-													</a>
-												</td>
-												<td class = 'dunkelgrau textgrau'>
-													<b>" . number_format($total_credits_retired, 0, $dec_point, $thousands_sep) . "</b>
-												</td>
-												<td class = 'dunkelgrau textgrau d-none d-sm-table-cell'>" . number_format($pie_other_retired, 2, $dec_point, $thousands_sep) . "</td>
-												<td class = 'dunkelgrau textgrau d-none d-sm-table-cell'><b></b></td>
-												<td class = 'dunkelgrau textgrau d-none d-lg-table-cell'><b></b></td>
-												<td class = 'dunkelgrau textgrau d-none d-lg-table-cell'><b></b></td>
-												<td class = 'dunkelgrau textgrau d-none d-md-table-cell'><b></b></td>
-												<td class = 'dunkelgrau textgrau'><b></b></td>
-												<td class = 'dunkelgrau textgrau d-none d-sm-table-cell'><b></b></td>
-												<td class = 'dunkelgrau textgrau d-none d-md-table-cell'><b></b></td>
-											</tr>
-									";
+					</tbody>
+					<tfoot>
+						<?php
+							if ($hasretiredProject) {
+								echo "	<tr>
+											<td class = 'dunkelgrau textgrau'><b>" . $tr_th2_rp ." </b></td>
+											<td class='dunkelgrau textgrau align-middle text-center'>
+												<a class='toggle-text' data-toggle='collapse' data-target = '.retiredProjects'>
+													<span><i class='textrot fa fa-toggle-on fa-lg fa-rotate-180'></i></span>
+													<span class='hidden'><i class='textgruen fa fa-toggle-on fa-lg'></i></span>
+												</a>
+											</td>
+											<td class = 'dunkelgrau textgrau'>
+												<b>" . number_format($total_credits_retired, 0, $dec_point, $thousands_sep) . "</b>
+											</td>
+											<td class = 'dunkelgrau textgrau d-none d-sm-table-cell'>" . number_format($pie_other_retired, 2, $dec_point, $thousands_sep) . "</td>
+											<td class = 'dunkelgrau textgrau d-none d-sm-table-cell'><b></b></td>
+											<td class = 'dunkelgrau textgrau d-none d-lg-table-cell'><b></b></td>
+											<td class = 'dunkelgrau textgrau d-none d-lg-table-cell'><b></b></td>
+											<td class = 'dunkelgrau textgrau d-none d-md-table-cell'><b></b></td>
+											<td class = 'dunkelgrau textgrau d-none d-sm-table-cell'><b></b></td>
+											<td class = 'dunkelgrau textgrau d-none d-sm-table-cell'><b></b></td>
+											<td class = 'dunkelgrau textgrau d-none d-md-table-cell'><b></b></td>
+										</tr>
+								";
 
-									foreach ($table_retired as $table_row_retired) {
-										echo "<tr class = 'collapse retiredProjects'>
-												<td class = 'text-muted text-sm text-truncate' style='max-width: 150px;'>" . $table_row_retired["project_name"] ."</td>
-												<td class = 'align-middle text-center text-muted test-sm'><a href='" . $table_row_retired["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
-												<td class = 'text-muted text-sm'><b>" . number_format($table_row_retired["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
-												<td class = 'text-muted text-sm d-none d-sm-table-cell'>" . number_format($table_row_retired["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>
-												<td class = 'text-muted text-sm d-none d-sm-table-cell'></td>
-												<td class = 'text-muted text-sm d-none d-lg-table-cell'></td>
-												<td class = 'text-muted text-sm d-none d-lg-table-cell'></td>
-												<td class = 'text-muted text-sm d-none d-md-table-cell'></td>
-												<td class = 'text-muted text-sm'></td>
-												<td class = 'text-muted text-sm d-none d-sm-table-cell'></td>
-												<td class = 'text-muted text-sm d-none d-md-table-cell'></td>
-											</tr>";
-									}
+								foreach ($table_retired as $table_row_retired) {
+									echo "<tr class = 'collapse retiredProjects'>
+											<td class = 'text-muted text-sm'>" . $table_row_retired["project_name"] ."</td>
+											<td class = 'align-middle text-center text-muted test-sm'><a href='" . $table_row_retired["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
+											<td class = 'text-muted text-sm'><b>" . number_format($table_row_retired["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
+											<td class = 'text-muted text-sm d-none d-sm-table-cell'>" . number_format($table_row_retired["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>
+											<td class = 'text-muted text-sm d-none d-sm-table-cell'></td>
+											<td class = 'text-muted text-sm d-none d-lg-table-cell'></td>
+											<td class = 'text-muted text-sm d-none d-lg-table-cell'></td>
+											<td class = 'text-muted text-sm d-none d-md-table-cell'></td>
+											<td class = 'text-muted text-sm d-none d-sm-table-cell'></td>
+											<td class = 'text-muted text-sm d-none d-sm-table-cell'></td>
+											<td class = 'text-muted text-sm d-none d-md-table-cell'></td>
+										</tr>";
 								}
+							}
 						?>
 					</tfoot>
 				</table>

@@ -99,8 +99,15 @@ table, th, tr, td {
 	border: none;
 }
 
-.table.table-ellipsis tbody td {
-	max-width: 2rem;
+.table.table-ellipsis thead th:first-child, .table.table-ellipsis tbody td:first-child, .table.table-ellipsis tfoot td:first-child {
+	max-width: 8rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.table.table-ellipsis thead th:not(first-child), .table.table-ellipsis tbody td:not(first-child), .table.table-ellipsis tfoot td:not(first-child) {
+	max-width: 4rem;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;

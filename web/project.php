@@ -354,7 +354,7 @@
 							<th class = "dunkelgrau textgrau d-none d-lg-table-cell text-center"><?php echo "$tr_tb_02" ?></th>
 							<th class = "dunkelgrau textgrau d-none d-lg-table-cell text-center"><?php echo "$tr_tb_06" ?></th>
 							<th class = "dunkelgrau textgrau d-none d-md-table-cell text-center"><?php echo "$tr_tb_12" ?></th>
-							<th class = "dunkelgruen textgruen text-center"><?php echo $tr_tb_to; ?></th>
+							<th class = "dunkelgruen textgruen d-none d-sm-table-cell text-center"><?php echo $tr_tb_to; ?></th>
 							<th class = "dunkelblau text-blau d-none d-sm-table-cell text-center"><?php echo $tr_tb_ye; ?></th>
 							<th class = "dunkelrot textrot d-none d-md-table-cell text-center"><?php echo $tr_tb_pe; ?></th>
 						</tr>
@@ -374,7 +374,7 @@
 										<td class='d-none d-lg-table-cell text-center'>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
 										<td class='d-none d-lg-table-cell text-center'>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
 										<td class='d-none d-md-table-cell text-center'>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
-										<td class='gruen textgruen text-center'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
+										<td class='gruen textgruen d-none d-sm-table-cell text-center>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
 										<td class='d-none d-sm-table-cell blau textblau text-center'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
 										<td class='rot textrot d-none d-md-table-cell text-center'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
 									</tr>";

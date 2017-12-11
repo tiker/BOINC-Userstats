@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top navbar-userstats">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-userstats">
 	<div class="container">
 		<a class="navbar-brand" href="<?php echo $hp_nav_brand_link; ?>">
 			<img src="<?php echo $brand_logo; ?>" width="30" height="30" alt="">
