@@ -1,6 +1,6 @@
 <script type="text/javascript">
 	$(function () {
-		var chart = new Highcharts.StockChart({
+		var chart=new Highcharts.StockChart({
 			chart: {
 				renderTo: 'output_gesamt_month',
 				defaultSeriesType: 'column',

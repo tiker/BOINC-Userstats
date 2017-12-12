@@ -276,9 +276,9 @@ switch ($errorcode) {
 	include("./header.php"); 
 ?>
 
-		<div class="container text-center  flex1">
-					<h1 class="title text-center"><?php echo $error_description; ?></h1>
-					<h5 class="description text-center">
+		<div class = "container text-center  flex1">
+					<h1 class = "title text-center"><?php echo $error_description; ?></h1>
+					<h5 class = "description text-center">
 						<?php
 							if ($lang === "de") echo $err_de;
 							elseif ($lang === "fr") echo $err_fr;

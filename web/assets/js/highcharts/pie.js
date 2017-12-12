@@ -1,6 +1,6 @@
 <script type="text/javascript">
 	$(function () {
-		var chart = new Highcharts.Chart({
+		var chart=new Highcharts.Chart({
 			chart: {
 				renderTo: 'projektverteilung',
 				backgroundColor: '<?php echo $highchartsBGColor; ?>'

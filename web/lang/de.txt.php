@@ -17,10 +17,10 @@
 	$tr_ch_week = "Woche ab";
 	$tr_ch_dateformat = "%A, %e. %B %Y";
 	$tr_ch_week1 = "Credits pro Woche";
-	$dec_point = ',';
-	$thousands_sep = '.' ;
-	$det_wcg_pr = 'Details';
-	$det_wcg_pr_lnk = 'mehr Details';
+	$dec_poin = ",";
+	$thousands_sep = "." ;
+	$det_wcg_pr = "Details";
+	$det_wcg_pr_lnk="mehr Details";
 	$tr_tb_01 = "-1h";
 	$tr_tb_02 = "-2h";
 	$tr_tb_06 = "-6h";
@@ -60,6 +60,8 @@
 	$tr_hp_pendings_01 = "Die Pending-Credits deiner als aktiv definierten Projekte werden aktualisiert...";
 	$tr_hp_pendings_02 = "Die Pending-Credits deiner als aktiv markierten Projekte wurden in der Datenbank aktualisiert.";
 	$tr_hp_pendings_03 = "Aktualisierung der Pending Credits. Bitte warten...";
+	$tr_hp_tasks_01 = "Deine laufenden Berechnungen werden geladen";
+	$tr_hp_tasks_03 = "Laden deiner laufenden Berechnungen";
 	$tr2_hp_pp = "# Projekt";
 	$tr2_hp_pt = "# Team";
 	$tr2_hp_ptotal = "# Total";
@@ -99,7 +101,7 @@
 	$project_of = "von";
 	$project_project = "Projekt";
 	$project_wcg_detail_link = "WCG-Detail-Statistik";
-	$no_badge = "<h5><br>Keine BOINC-Badges eingerichtet</h5><h6><font size ='1'>Damit deine Boinc-Badges angezeigt werden, musst Du diese in den Einstellungen einrichten<br></font></h5>";
+	$no_badge = "<h5><br>Keine BOINC-Badges eingerichtet</h5><h6><font size = '1'>Damit deine Boinc-Badges angezeigt werden, musst Du diese in den Einstellungen einrichten<br></font></h5>";
 
 	$bt_headline = "Laufende WU's";
 
@@ -114,7 +116,7 @@
 	$tabs_year = "Jahr";
 	$tabs_badge = "Badges";
 
-	$text_info_noupdate = "Von diesem aktiven Projekt werden derzeit keine aktuellen Daten abgerufen! (project_status = 0)";
+	$text_info_noupdate = "Von diesem aktiven Projekt werden derzeit keine aktuellen Daten abgerufen! (project_status=0)";
 	$text_info_update_inprogress = "<b>Deine Projekte werden derzeit aktualisiert.</b> Dies kann bis zu 2 Minuten dauern (oder mehr). Startzeitpunkt: ";
 	$text_info_project_retired = "<b>Das Projekt ist in der Datenbank als beendet gekennzeichnet</b>";
 	$zero_pendings = "Alle weiteren Projekte haben keine Pendings oder exportieren diesen Wert nicht per Web-RPC";

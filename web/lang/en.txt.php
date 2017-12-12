@@ -17,10 +17,10 @@
 	$tr_ch_week = "Week from";
 	$tr_ch_dateformat = "%A, %B %e, %Y";
 	$tr_ch_week1 = "Credits per week";
-	$dec_point = '.';
-	$thousands_sep = ',';
-	$det_wcg_pr = 'Details';
-	$det_wcg_pr_lnk = 'more Details';
+	$dec_point = ".";
+	$thousands_sep = ",";
+	$det_wcg_pr = "Details";
+	$det_wcg_pr_lnk = "more Details";
 	$tr_tb_01 = "-1h";
 	$tr_tb_02 = "-2h";
 	$tr_tb_06 = "-6h";
@@ -60,6 +60,8 @@
 	$tr_hp_pendings_01 = "The Pending-Credits of all your projects marked active will be refreshed...";
 	$tr_hp_pendings_02 = "Your Pending-Credits were updated in the database.";
 	$tr_hp_pendings_03 = "Refresh your Pending Credits. Please wait...";
+	$tr_hp_tasks_01 = "Your running tasks are loading...";
+	$tr_hp_tasks_03 = "Loading your running tasks. Please wait...";
 	$tr2_hp_pp = "# Project";
 	$tr2_hp_pt = "# Team";
 	$tr2_hp_ptotal = "# Total";
@@ -99,7 +101,7 @@
 	$project_of = "of";
 	$project_project = "Project";
 	$project_wcg_detail_link = "WCG-Detail-Statistics";
-	$no_badge = "<h5><br>No badge configured</h5><h6><font size ='1'>To show your Boinc-Badges, please configure your Badges in the settings file.</font><br></h5>";
+	$no_badge = "<h5><br>No badge configured</h5><h6><font size = '1'>To show your Boinc-Badges, please configure your Badges in the settings file.</font><br></h5>";
 
 	$bt_headline = "Running WU's";
 
@@ -114,7 +116,7 @@
 	$tabs_year = "Year";
 	$tabs_badge = "Badges";
 
-	$text_info_noupdate = "No data will be fetched for this active project! (project_status = 0)";
+	$text_info_noupdate = "No data will be fetched for this active project! (project_status=0)";
 	$text_info_update_inprogress = "<b>Update in progress.</b> This could take up to 2 minutes (or more). The update started at: ";
 	$text_info_project_retired = "<b>This project is marked as retired in your database</b>";
 	$zero_pendings = "All other projects do not have any pending credits or the project does not export this value using WebRPC";

@@ -47,7 +47,7 @@
 /* Schriftfarben */
 
 .textprimaer {
-	color: rgb(66, 124, 137) !important;
+	color: rgba(68, 68, 68, 0.877) !important;
 }
 
 .textgrau {
@@ -71,23 +71,23 @@
 }
 
 .text-muted {
-	color: rgba(221, 221, 221, 0.692);
+	color: rgba(136, 133, 133, 0.692) !important;
 }
 
 .texthellblau {
-	color: rgb(48, 145, 178) !important;
+	color: rgb(48, 145, 178);
 }
 
 .texthellgruen {
-	color: rgb(66, 160, 132) !important;
+	color: rgb(66, 160, 132);
 }
 
 .texthellgelb {
-	color: rgb(187, 153, 47) !important;
+	color: rgb(187, 153, 47);
 }
 
 .texthellrot {
-	color: rgb(179, 60, 18) !important;
+	color: rgb(179, 60, 18);
 }
 
 /* Farben von Alerts */
@@ -112,8 +112,6 @@
 	color: rgb(121, 105, 19);
 }
 
-
-
 .alert-info {
 	background-color: rgb(134, 206, 224);
 	color: rgb(10, 98, 128);
@@ -137,8 +135,8 @@
 /* Navbar */
 
 .navbar-userstats {
-	background-color: rgb(252, 250, 249) !important;
-	color: rgb(77, 76, 76) !important;
+	background-color: rgb(252, 250, 249);
+	color: rgb(77, 76, 76);
 }
 
 .navbar-userstats .nav-link:hover {
@@ -148,7 +146,7 @@ color: rgb(0, 0, 0);
 /* Nav-Tabs */
 
 .nav-tabs-userstats .nav-item.show .nav-link, .nav-tabs-userstats .nav-link.active {
-	color: rgb(77, 76, 76) !important;
-	background-color: rgb(252, 250, 249) !important;
+	color: rgb(77, 76, 76);
+	background-color: rgb(252, 250, 249);
     border-color: rgb(77, 76, 76) rgb(77, 76, 76)rgb(252, 250, 249) rgb(77, 76, 76);
 }

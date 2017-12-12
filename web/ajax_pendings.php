@@ -25,17 +25,17 @@
 	else include "./lang/en.txt.php";
 ?>
 
-<div class="alert info-lastupdate" role="alert">
-		<div class="container">
+<div class = "alert info-lastupdate" role = "alert">
+		<div class = "container">
 			<b><?php echo $tr_hp_pendings_02; ?></b>
 		</div>
 	</div>
 
-	<div class="container text-center">
-		<table id="table_pendings" class="table table-striped table-hover table-sm table-responsive-xs" width="100%">
+	<div class = "container text-center">
+		<table id = "table_pendings" class = "table table-striped table-hover table-sm table-responsive-xs" width = "100%">
 			<thead>
-				<th class="dunkelgrau textgrau"><?php echo $tr_tb_pr ?></th>
-				<th class="dunkelgrau textgrau text-left"><?php echo $tr_tb_pe ?></th>
+				<th class = "dunkelgrau textgrau"><?php echo $tr_tb_pr ?></th>
+				<th class = "dunkelgrau textgrau text-left"><?php echo $tr_tb_pe ?></th>
 			</thead>
 			<tbody>									
 				<?php
@@ -77,25 +77,25 @@
 						}
 
 						$pendings_gesamt = $pendings_gesamt + $pending_credits;
-						$sql_pendings = "UPDATE boinc_grundwerte SET pending_credits='" . $pending_credits . "' WHERE project_shortname='" . $row['project_shortname'] . "'";
+						$sql_pendings = "UPDATE boinc_grundwerte SET pending_credits = '" . $pending_credits . "' WHERE project_shortname = '" . $row['project_shortname'] . "'";
 						mysqli_query($db_conn, $sql_pendings);
 						
 						if ($pending_credits > 0) {
 							echo "<tr><td>" . $projectname . "</td>";
-							echo "<td class='text-left'>" . number_format($pending_credits, 0, $dec_point, $thousands_sep) . "</td></tr>";
+							echo "<td class = 'text-left'>" . number_format($pending_credits, 0, $dec_point, $thousands_sep) . "</td></tr>";
 						}
 					}
 					echo "<tfoot>
 							<tr>
-								<td class='dunkelblau textblau'>" . $text_total_pendings . "</td>";
-					echo "		<td class='dunkelblau textblau text-left'>" . number_format($pendings_gesamt, 0, $dec_point, $thousands_sep) . "</td>
+								<td class = 'dunkelblau textblau'>" . $text_total_pendings . "</td>";
+					echo "		<td class = 'dunkelblau textblau text-left'>" . number_format($pendings_gesamt, 0, $dec_point, $thousands_sep) . "</td>
 							</tr>
 						</tfoot>";
 				?>
 			</tbody>
 		</table>
-		<div class="alert alert-danger" role="alert">
-			<div class="container">
+		<div class = "alert alert-danger" role = "alert">
+			<div class = "container">
 				<?php echo $zero_pendings ?>
 			</div>
 		</div>			

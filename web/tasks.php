@@ -35,34 +35,58 @@
 	
 	$lastupdate_start = date("d.m.Y H:i:s", $datum_start + $timezoneoffset*3600);
 	$lastupdate = date("H:i:s", $datum + $timezoneoffset*3600);
-?>
 
-<?php
 	include("./header.php"); 
-
-	include ($linkUploadFileBoinctasks);
 ?>
 
-		<script>
-			$(document).ready(function() {
-				$('#table_tasks').DataTable( {
-					fixedHeader: {
-						headerOffset: 56
-					},
-					language: {
-						decimal: "<?php echo $dec_point; ?>",
-						thousands: "<?php echo $thousands_sep; ?>",
-						search:	"<?php echo $text_search; ?>"
-					},
-					columnDefs: [ {
-						targets: 'no-sort',
-						orderable: false,
-					}],
-					order: [[ 6, "asc" ],[ 0, "asc" ]],
-					paging: false,
-					info: false
-				} );
-			} );
-		</script>
+	<div id = "boincTasks" class = "flex1">
+	<div class = "alert warning-lastupdate" role = "alert">
+		<div class = "container">
+			<b><?php echo $tr_hp_tasks_01; ?></b>
+		</div>
+	</div>
+
+	<div class = "container">
+		<div class = "row justify-content-center">
+			<?php echo $tr_hp_tasks_03; ?>
+		</div>
+		<div class = "row justify-content-center">
+			<i class = "fa fa-spinner fa-pulse fa-2x fa-fw"></i> 
+		</div>
+	</div>
+</div>
+
+	<script>
+		$(document).ready(function() {
+
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						document.getElementById("boincTasks").innerHTML =
+							this.responseText;
+						$('#table_tasks').DataTable( {
+							fixedHeader: {
+								headerOffset: 56
+							},
+							language: {
+								decimal: "<?php echo $dec_point; ?>",
+								thousands: "<?php echo $thousands_sep; ?>",
+								search:	"<?php echo $text_search; ?>"
+							},
+							columnDefs: [ {
+								targets: 'no-sort',
+								orderable: false,
+							}],
+							order: [[ 9, "asc" ],[ 0, "asc" ]],
+							paging: false,
+							info: false
+						} );
+					}
+				};
+				xhttp.open("GET", "<?php echo $linkUploadFileBoinctasks; ?>", true);
+				xhttp.send(); 
+
+		} );
+	</script>
 
 <?php include("./footer.php"); ?>

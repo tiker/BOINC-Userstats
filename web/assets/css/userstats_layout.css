@@ -1,16 +1,22 @@
+/* Navigation Bar 
+*****************/
+
 .navbar {
 	border-bottom: 1px solid rgb(167, 167, 167) !important;
 }
 
-body {
-	background-color: rgb(252, 250, 249) !important;
-	color: rgba(77, 76, 76, 0.966);
-	font-size: 14px;
-	font-family: "Montserrat","Helvetica Neue",Arial,sans-serif;
-	line-height: 1.4285;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
+.nav-space {
+	margin-bottom: 15px;
 }
+
+.navbar a {
+	font-size: 10pt;
+	color: rgba(73, 73, 73, 0.815);
+}
+
+
+/* Header 
+*****************/
 
 .jumbotron {
 	margin-top: 57px;
@@ -20,6 +26,30 @@ body {
 /*	-webkit-filter: grayscale(1);
 	filter: grayscale(1);
 */
+}
+
+.force_min_height {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.flex1 {
+	flex: 1;
+}
+
+
+/* Content
+*****************/
+
+body {
+	background-color: rgb(252, 250, 249) !important;
+	color: rgba(77, 76, 76, 0.966);
+	font-size: 14px;
+	font-family: "Montserrat","Helvetica Neue",Arial,sans-serif;
+	line-height: 1.4285;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
 }
 
 .info-lastupdate {
@@ -38,36 +68,25 @@ body {
 	border-radius: 0px;
 }
 
-/*
-#table_projects {
-    width: calc(30px + 100%) !important;
-    margin-left: -15px;
-    margin-right: -15px;
+.text-condensed-large {
+	max-width: 10rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
-#table_wcg {
-	width: calc(30px + 100%) !important;
-	margin-left: -15px;
-}
-*/
-
-#table_tasks {
-	width: calc(30px + 100%) !important;
-	margin-left: -15px;
+.text-condensed-medium {
+	max-width: 6rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
-#table_pendings {
-	width: calc(30px + 100%) !important;
-	margin-left: -15px;
-}
-
-.nav-space {
-	margin-bottom: 15px;
-}
-
-.navbar a {
-	font-size: 10pt;
-	color: rgba(73, 73, 73, 0.815);
+.text-condensed-small {
+	max-width: 2rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 a {
@@ -89,28 +108,41 @@ a:focus {
 	text-decoration: none;
 }
 
+
+/* Tables 
+*****************/
+
+/*
+#table_projects {
+    width: calc(30px + 100%) !important;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+#table_wcg {
+	width: calc(30px + 100%) !important;
+	margin-left: -15px;
+}
+
+.borderless td, .borderless th {
+	border: none;
+}
+*/
+
 table, th, tr, td {  
 	border-spacing: 0px;
 	border-collapse: none !important;
 	text-align: right;
 }
 
-.borderless td, .borderless th {
-	border: none;
+#table_tasks {
+	width: calc(30px + 100%) !important;
+	margin-left: -15px;
 }
 
-.table.table-ellipsis thead th:first-child, .table.table-ellipsis tbody td:first-child, .table.table-ellipsis tfoot td:first-child {
-	max-width: 8rem;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
-.table.table-ellipsis thead th:not(first-child), .table.table-ellipsis tbody td:not(first-child), .table.table-ellipsis tfoot td:not(first-child) {
-	max-width: 4rem;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+#table_pendings {
+	width: calc(30px + 100%) !important;
+	margin-left: -15px;
 }
 
 table.dataTable {
@@ -121,38 +153,8 @@ table.dataTable {
 	border-collapse: separate !important;
 }
 
-.force_min_height {
-	display: flex;
-	min-height: 100vh;
-	flex-direction: column;
-}
-
-.flex1 {
-	flex: 1;
-}
-
-.footer {
-	padding: 20px;
-	font-size: 10pt;
-}
-
-.footer a {
-	font-size: 10pt;
-	color: rgb(170, 166, 166)
-}
-
-.footer a:hover {
-	font-size: 10pt;
-	color: rgb(255, 255, 255)
-}
-
-.modal-dialog {
-	max-width: 80%;
-	margin: 30px auto;
-}
-
-
-/* Progress Bar */
+/* Progress Bar 
+*****************/
 
 .progress-bar-userstats {
 	background-color: rgb(122, 158, 159);
@@ -173,26 +175,30 @@ table.dataTable {
 /*	text-shadow: 0px 0px 2px rgb(0, 0, 0); */
 }
 
-/*
-.progress.progress-userstats .progress-bar[aria-value-now="0"], 
-.progress.progress-userstats .progress-bar[aria-value-now="1"], 
-.progress.progress-userstats .progress-bar[aria-value-now="2"], 
-.progress.progress-userstats .progress-bar[aria-value-now="3"], 
-.progress.progress-userstats .progress-bar[aria-value-now="4"], 
-.progress.progress-userstats .progress-bar[aria-value-now="5"], 
-.progress.progress-userstats .progress-bar[aria-value-now="6"], 
-.progress.progress-userstats .progress-bar[aria-value-now="7"], 
-.progress.progress-userstats .progress-bar[aria-value-now="8"], 
-.progress.progress-userstats .progress-bar[aria-value-now="9"],
-.progress.progress-userstats .progress-bar[aria-value-now="10"], 
-.progress.progress-userstats .progress-bar[aria-value-now="11"], 
-.progress.progress-userstats .progress-bar[aria-value-now="12"], 
-.progress.progress-userstats .progress-bar[aria-value-now="13"], 
-.progress.progress-userstats .progress-bar[aria-value-now="14"], 
-.progress.progress-userstats .progress-bar[aria-value-now="15"], 
-.progress.progress-userstats .progress-bar[aria-value-now="16"], 
-.progress.progress-userstats .progress-bar[aria-value-now="17"], 
-.progress.progress-userstats .progress-bar[aria-value-now="18"], 
-.progress.progress-userstats .progress-bar[aria-value-now="19"],
-.progress.progress-userstats .progress-bar[aria-value-now="20"] { justify-content: left;}
-*/
+
+/* Footer 
+*****************/
+
+.footer {
+	padding: 20px;
+	font-size: 10pt;
+}
+
+.footer a {
+	font-size: 10pt;
+	color: rgb(170, 166, 166);
+}
+
+.footer a:hover {
+	font-size: 10pt;
+	color: rgb(255, 255, 255);
+}
+
+
+/* Modal 
+*****************/
+
+.modal-dialog {
+	max-width: 80%;
+	margin: 30px auto;
+}

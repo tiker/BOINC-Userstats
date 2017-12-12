@@ -35,19 +35,19 @@
 	include("./header.php");
 ?>
 
-<div id="pendingCredits" class = "flex1">
-	<div class="alert warning-lastupdate" role="alert">
-		<div class="container">
+<div id = "pendingCredits" class = "flex1">
+	<div class = "alert warning-lastupdate" role = "alert">
+		<div class = "container">
 			<b><?php echo $tr_hp_pendings_01; ?></b>
 		</div>
 	</div>
 
-	<div class="container">
-		<div class="row justify-content-md-center">
+	<div class = "container">
+		<div class = "row justify-content-center">
 			<?php echo $tr_hp_pendings_03; ?>
 		</div>
-		<div class="row justify-content-md-center">
-			<i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i> 
+		<div class = "row justify-content-center">
+			<i class = "fa fa-spinner fa-pulse fa-2x fa-fw"></i> 
 		</div>
 	</div>
 </div>

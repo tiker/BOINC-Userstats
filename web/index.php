@@ -112,7 +112,7 @@
 			$table_row["project_home_link"] = $row["project_homepage_url"];
 			$table_row["user_stats_vorhanden"] = $row["project_status"];
 			
-			$query_getOutput1h = mysqli_query($db_conn,"SELECT sum(credits) AS sum1h FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $einsh . "'");
+			$query_getOutput1h = mysqli_query($db_conn,"SELECT sum(credits) AS sum1h FROM boinc_werte WHERE project_shortname = '" . $shortname . "' AND time_stamp>'" . $einsh . "'");
 			if ( !$query_getOutput1h || mysqli_num_rows($query_getOutput1h) === 0 ) { 	
 				$connErrorTitle = "Datenbankfehler";
 				$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -124,7 +124,7 @@
 			$table_row["sum1h"] = $row2["sum1h"];
 			$sum1h_total += $table_row["sum1h"];
 			
-			$query_getOutput2h = mysqli_query($db_conn,"SELECT sum(credits) AS sum2h FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $zweih . "'");
+			$query_getOutput2h = mysqli_query($db_conn,"SELECT sum(credits) AS sum2h FROM boinc_werte WHERE project_shortname = '" . $shortname . "' AND time_stamp>'" . $zweih . "'");
 			if ( !$query_getOutput2h || mysqli_num_rows($query_getOutput2h) === 0 ) { 	
 				$connErrorTitle = "Datenbankfehler";
 				$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -136,7 +136,7 @@
 			$table_row["sum2h"] = $row2["sum2h"];
 			$sum2h_total += $table_row["sum2h"];
 			
-			$query_getOutput6h = mysqli_query($db_conn,"SELECT sum(credits) AS sum6h FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $sechsh . "'");
+			$query_getOutput6h = mysqli_query($db_conn,"SELECT sum(credits) AS sum6h FROM boinc_werte WHERE project_shortname = '" . $shortname . "' AND time_stamp>'" . $sechsh . "'");
 			if ( !$query_getOutput6h || mysqli_num_rows($query_getOutput6h) === 0 ) { 	
 				$connErrorTitle = "Datenbankfehler";
 				$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -148,7 +148,7 @@
 			$table_row["sum6h"] = $row2["sum6h"];
 			$sum6h_total += $table_row["sum6h"];
 			
-			$query_getOutput12h = mysqli_query($db_conn,"SELECT sum(credits) AS sum12h FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $zwoelfh . "'");
+			$query_getOutput12h = mysqli_query($db_conn,"SELECT sum(credits) AS sum12h FROM boinc_werte WHERE project_shortname = '" . $shortname . "' AND time_stamp>'" . $zwoelfh . "'");
 			if ( !$query_getOutput12h || mysqli_num_rows($query_getOutput12h) === 0 ) { 	
 				$connErrorTitle = "Datenbankfehler";
 				$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -162,7 +162,7 @@
 			
 			$tagesanfang = mktime(0, 0, 0, date("m"), date("d"), date("Y"));
 			
-			$query_getOutputToday = mysqli_query($db_conn,"SELECT sum(credits) AS sum_today FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp>'" . $tagesanfang . "'");
+			$query_getOutputToday = mysqli_query($db_conn,"SELECT sum(credits) AS sum_today FROM boinc_werte WHERE project_shortname = '" . $shortname . "' AND time_stamp>'" . $tagesanfang . "'");
 			if ( !$query_getOutputToday || mysqli_num_rows($query_getOutputToday) === 0 ) { 	
 				$connErrorTitle = "Datenbankfehler";
 				$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -177,7 +177,7 @@
 			$gestern_anfang = mktime(1, 0, 0, date("m"), date("d") - 1, date("Y"));
 			$gestern_ende = mktime(0, 0, 0, date("m"), date("d"), date("Y"));
 			
-			$query_getOutputYesterday = mysqli_query($db_conn,"SELECT sum(credits) AS sum_yesterday FROM boinc_werte WHERE project_shortname='" . $shortname . "' AND time_stamp BETWEEN '" . $gestern_anfang . "' AND '" . $gestern_ende . "'");
+			$query_getOutputYesterday = mysqli_query($db_conn,"SELECT sum(credits) AS sum_yesterday FROM boinc_werte WHERE project_shortname = '" . $shortname . "' AND time_stamp BETWEEN '" . $gestern_anfang . "' AND '" . $gestern_ende . "'");
 			if ( !$query_getOutputYesterday || mysqli_num_rows($query_getOutputYesterday) === 0 ) { 	
 				$connErrorTitle = "Datenbankfehler";
 				$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -228,7 +228,7 @@
 		$pie_html .= "	['" . $tr_ch_pie_ret . "',	 " . round($pie_other_retired, 2) . "]\n";
 	}
 	
-	$query_getTotalOutputPerHour = mysqli_query($db_conn,"SELECT time_stamp, credits FROM boinc_werte WHERE project_shortname='gesamt'");
+	$query_getTotalOutputPerHour = mysqli_query($db_conn,"SELECT time_stamp, credits FROM boinc_werte WHERE project_shortname = 'gesamt'");
 	if ( !$query_getTotalOutputPerHour ) { 	
 		$connErrorTitle = "Datenbankfehler";
 		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -248,7 +248,7 @@
 	}
 	$output_html = substr($output_html, 0, -2);
 
-	$query_getTotalOutputPerDay = mysqli_query($db_conn,"SELECT time_stamp, total_credits, pending_credits FROM boinc_werte_day WHERE project_shortname='gesamt'");
+	$query_getTotalOutputPerDay = mysqli_query($db_conn,"SELECT time_stamp, total_credits, pending_credits FROM boinc_werte_day WHERE project_shortname = 'gesamt'");
 	if ( !$query_getTotalOutputPerDay ) { 	
 		$connErrorTitle = "Datenbankfehler";
 		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -288,16 +288,16 @@
 
 	if ($datum < $datum_start) {
 		echo '
-		<div class="alert warning-lastupdate" role="alert">
-			<div class="container">
+		<div class = "alert warning-lastupdate" role = "alert">
+			<div class = "container">
 				' . $text_info_update_inprogress .  $lastupdate_start .' ' . $timezone_shortname . '
 			</div>
 		</div>
 		';
 	} else {
 		echo '
-		<div class="alert info-lastupdate" role="alert">
-			<div class="container">
+		<div class = "alert info-lastupdate" role = "alert">
+			<div class = "container">
 				<b>' . $text_header_lu . ':</b> ' . $lastupdate_start . ' - ' . $lastupdate . ' ' . $timezone_shortname . '
 			</div>
 		</div>
@@ -306,74 +306,74 @@
 ?>
 
 		<div class = "container-fluid">
-			<ul class="nav nav-tabs nav-space justify-content-center nav-tabs-userstats" id="myTab" role="tablist">
-				<li class="nav-item">
-					<a class="nav-link active" id="projekte-tab" data-toggle="tab" href="#projekte" role="tab" aria-controls="projekte" aria-selected="true"><i class="fa fa-table"></i> <?php echo "$tabs_projects" ?></a>
+			<ul class = "nav nav-tabs nav-space justify-content-center nav-tabs-userstats" id = "myTab" role = "tablist">
+				<li class = "nav-item">
+					<a class = "nav-link active" id = "projekte-tab" data-toggle = "tab" href = "#projekte" role = "tab" aria-controls = "projekte" aria-selected = "true"><i class = "fa fa-table"></i> <?php echo "$tabs_projects" ?></a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" id="pie-tab" data-toggle="tab" href="#pie" role="tab" aria-controls="pie" aria-selected="false"><i class="fa fa-pie-chart"></i> <?php echo "$tabs_pie" ?></a>
+				<li class = "nav-item">
+					<a class = "nav-link" id = "pie-tab" data-toggle = "tab" href = "#pie" role = "tab" aria-controls = "pie" aria-selected = "false"><i class = "fa fa-pie-chart"></i> <?php echo "$tabs_pie" ?></a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" id="gesamt-tab" data-toggle="tab" href="#gesamt" role="tab" aria-controls="gesamt" aria-selected="false"><i class="fa fa-area-chart"></i> <?php echo "$tabs_total" ?></a>
+				<li class = "nav-item">
+					<a class = "nav-link" id = "gesamt-tab" data-toggle = "tab" href = "#gesamt" role = "tab" aria-controls = "gesamt" aria-selected = "false"><i class = "fa fa-area-chart"></i> <?php echo "$tabs_total" ?></a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" id="stunde-tab" data-toggle="tab" href="#stunde" role="tab" aria-controls="stunde" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_hour" ?></a>
+				<li class = "nav-item">
+					<a class = "nav-link" id = "stunde-tab" data-toggle = "tab" href = "#stunde" role = "tab" aria-controls = "stunde" aria-selected = "false"><i class = "fa fa-bar-chart"></i> <?php echo "$tabs_hour" ?></a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" id="tag-tab" data-toggle="tab" href="#tag" role="tab" aria-controls="tag" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_day" ?></a>
+				<li class = "nav-item">
+					<a class = "nav-link" id = "tag-tab" data-toggle = "tab" href = "#tag" role = "tab" aria-controls = "tag" aria-selected = "false"><i class = "fa fa-bar-chart"></i> <?php echo "$tabs_day" ?></a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" id="woche-tab" data-toggle="tab" href="#woche" role="tab" aria-controls="woche" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_week" ?></a>
+				<li class = "nav-item">
+					<a class = "nav-link" id = "woche-tab" data-toggle = "tab" href = "#woche" role = "tab" aria-controls = "woche" aria-selected = "false"><i class = "fa fa-bar-chart"></i> <?php echo "$tabs_week" ?></a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" id="monat-tab" data-toggle="tab" href="#monat" role="tab" aria-controls="monat" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_month" ?></a>
+				<li class = "nav-item">
+					<a class = "nav-link" id = "monat-tab" data-toggle = "tab" href = "#monat" role = "tab" aria-controls = "monat" aria-selected = "false"><i class = "fa fa-bar-chart"></i> <?php echo "$tabs_month" ?></a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" id="jahr-tab" data-toggle="tab" href="#jahr" role="tab" aria-controls="jahr" aria-selected="false"><i class="fa fa-bar-chart"></i> <?php echo "$tabs_year" ?></a>
+				<li class = "nav-item">
+					<a class = "nav-link" id = "jahr-tab" data-toggle = "tab" href = "#jahr" role = "tab" aria-controls = "jahr" aria-selected = "false"><i class = "fa fa-bar-chart"></i> <?php echo "$tabs_year" ?></a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" id="badges-tab" data-toggle="tab" href="#badges" role="tab" aria-controls="badges" aria-selected="false"><i class="fa fa-certificate"></i> <?php echo "$tabs_badge" ?></a>
+				<li class = "nav-item">
+					<a class = "nav-link" id = "badges-tab" data-toggle = "tab" href = "#badges" role = "tab" aria-controls = "badges" aria-selected = "false"><i class = "fa fa-certificate"></i> <?php echo "$tabs_badge" ?></a>
 				</li>
 			</ul>
 		</div>
 
-		<div class="tab-content flex1" id="myTabContent">
+		<div class = "tab-content flex1" id = "myTabContent">
 
-			<div id="projekte" class="tab-pane fade show active" role="tabpanel" aria-labelledby="projekte-tab">
-				<table id="table_projects" class="table table-sm table-striped table-hover table-responsive-xs table-ellipsis" width="100%">					
+			<div id = "projekte" class = "tab-pane fade show active" role = "tabpanel" aria-labelledby = "projekte-tab">
+				<table id = "table_projects" class = "table table-sm table-striped table-hover table-responsive-xs table-ellipsis" width = "100%">					
 					<thead>
 						<tr>
-							<th class="dunkelblau textblau"><b><?php echo $text_boinc_total ?></b></th>
-							<th class="dunkelblau textblau align-middle text-center"><b><?php #echo $tr_th_detail ?></b></th>
-							<th class="dunkelblau textblau"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></th>
-							<th class="dunkelblau textblau d-none d-sm-table-cell"><b>100%</b></th>
-							<th class="dunkelblau textblau d-none d-sm-table-cell">
-							<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></th>
-							<th class="dunkelblau textblau d-none d-lg-table-cell">
-							<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></th>
-							<th class="dunkelblau textblau d-none d-lg-table-cell">
-							<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></th>
-							<th class="dunkelblau textblau d-none d-md-table-cell">
-							<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></th>
-							<th class = "dunkelgruen textgruen d-none d-sm-table-cell">
-							<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></th>
+							<th class = "dunkelblau textblau text-condensed-large"><b><?php echo $text_boinc_total ?></b></th>
+							<th class = "dunkelblau textblau align-middle text-center text-condensed-small"><b><?php #echo $tr_th_detail ?></b></th>
+							<th class = "dunkelblau textblau text-condensed-medium"><b><?php echo number_format($sum_total, 0, $dec_point, $thousands_sep) ?></b></th>
+							<th class = "dunkelblau textblau d-none d-sm-table-cell text-condensed-small"><b>100%</b></th>
 							<th class = "dunkelblau textblau d-none d-sm-table-cell">
+							<b><?php echo number_format($sum1h_total, 0, $dec_point, $thousands_sep) ?></b></th>
+							<th class = "dunkelblau textblau d-none d-lg-table-cell">
+							<b><?php echo number_format($sum2h_total, 0, $dec_point, $thousands_sep) ?></b></th>
+							<th class = "dunkelblau textblau d-none d-lg-table-cell">
+							<b><?php echo number_format($sum6h_total, 0, $dec_point, $thousands_sep) ?></b></th>
+							<th class = "dunkelblau textblau d-none d-lg-table-cell">
+							<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></th>
+							<th class = "dunkelgruen textgruen d-none d-sm-table-cell text-condensed-large">
+							<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></th>
+							<th class = "dunkelblau textblau d-none d-sm-table-cell text-condensed-large">
 							<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></th>
-							<th class = "dunkelrot textrot d-none d-md-table-cell">
+							<th class = "dunkelrot textrot d-none d-md-table-cell text-condensed-large">
 							<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></th>
 						</tr>
 						<tr>
-							<th class = "dunkelgrau textgrau"><?php echo $tr_tb_pr; ?></th>
-							<th class = "dunkelgrau textgrau no-sort align-middle text-center"> </th>
-							<th class = "dunkelgrau textgrau"><?php echo $tr_tb_cr; ?></th>
-							<th class = "dunkelgrau textgrau d-none d-sm-table-cell">%</th>
+							<th class = "dunkelgrau textgrau text-condensed-large"><?php echo $tr_tb_pr; ?></th>
+							<th class = "dunkelgrau textgrau no-sort align-middle text-center text-condensed-small"> </th>
+							<th class = "dunkelgrau textgrau text-condensed-medium"><?php echo $tr_tb_cr; ?></th>
+							<th class = "dunkelgrau textgrau d-none d-sm-table-cell text-condensed-small">%</th>
 							<th class = "dunkelgrau textgrau d-none d-sm-table-cell"><?php echo $tr_tb_01; ?></th>
 							<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_02; ?></th>
 							<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_06; ?></th>
-							<th class = "dunkelgrau textgrau d-none d-md-table-cell"><?php echo $tr_tb_12; ?></th>
-							<th class = "dunkelgruen textgruen d-none d-sm-table-cell"><?php echo $tr_tb_to; ?></th>
-							<th class = "dunkelblau textblau d-none d-sm-table-cell"><?php echo $tr_tb_ye; ?></th>
-							<th class = "dunkelrot textrot d-none d-md-table-cell"><?php echo $tr_tb_pe; ?></th>
+							<th class = "dunkelgrau textgrau d-none d-lg-table-cell"><?php echo $tr_tb_12; ?></th>
+							<th class = "dunkelgruen textgruen d-none d-sm-table-cell text-condensed-large"><?php echo $tr_tb_to; ?></th>
+							<th class = "dunkelblau textblau d-none d-sm-table-cell text-condensed-large"><?php echo $tr_tb_ye; ?></th>
+							<th class = "dunkelrot textrot d-none d-md-table-cell text-condensed-large"><?php echo $tr_tb_pe; ?></th>
 						</tr>
 					</thead>
 					<tbody>				
@@ -381,47 +381,47 @@
 							if ($hasactiveProject) {
 								foreach ($table as $table_row) {
 									echo "<tr>
-										<td><a href='" . $table_row["project_home_link"] . "'>" . $table_row["project_name"] ."</a></td>";
+										<td class = 'text-condensed-large'><a href = '" . $table_row["project_home_link"] . "'>" . $table_row["project_name"] ."</a></td>";
 									if ($table_row["user_stats_vorhanden"] === "1") {
 										echo "
-											<td class='align-middle text-center'><a href='" . $table_row["project_link"] . "'><i class='fa fa-bar-chart textgrau'></i></a></td>
+											<td class = 'textprimaer align-middle text-center text-condensed-small'><a href = '" . $table_row["project_link"] . "'><i class = 'textprimaer fa fa-bar-chart'></i></a></td>
 										";
 									} else {
 										echo "
-										<td class='align-middle text-center'><a href='" . $table_row["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
+										<td class = 'text-muted align-middle text-center text-condensed-small'><a href = '" . $table_row["project_link"] . "'><i class = 'text-muted fa fa-bar-chart'></i></a></td>
 										";
 									}
 									echo "
-										<td><b>" . number_format($table_row["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
-										<td class='d-none d-sm-table-cell'>" . number_format($table_row["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>";
+										<td class = 'text-condensed-medium'><b>" . number_format($table_row["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
+										<td class = 'd-none d-sm-table-cell text-condensed-small'>" . number_format($table_row["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>";
 										if ($table_row["sum1h"] != "") {
-											echo "<td class='d-none d-sm-table-cell'>" . number_format($table_row['sum1h'], 0, $dec_point, $thousands_sep) . "</td>";
+											echo "<td class = 'd-none d-sm-table-cell'>" . number_format($table_row['sum1h'], 0, $dec_point, $thousands_sep) . "</td>";
 										} else
-											echo "<td class='d-none d-sm-table-cell'>-</td>";
+											echo "<td class = 'd-none d-sm-table-cell'>-</td>";
 										if ($table_row["sum2h"] != "") {
-											echo "<td class='d-none d-lg-table-cell'>" . number_format($table_row["sum2h"], 0, $dec_point, $thousands_sep) . "</td>";
+											echo "<td class = 'd-none d-lg-table-cell'>" . number_format($table_row["sum2h"], 0, $dec_point, $thousands_sep) . "</td>";
 										} else
-											echo "<td class='d-none d-lg-table-cell'>-</td>";
+											echo "<td class = 'd-none d-lg-table-cell'>-</td>";
 										if ($table_row["sum6h"] != "") {
-											echo "<td class='d-none d-lg-table-cell'>" . number_format($table_row["sum6h"], 0, $dec_point, $thousands_sep) . "</td>";
+											echo "<td class = 'd-none d-lg-table-cell'>" . number_format($table_row["sum6h"], 0, $dec_point, $thousands_sep) . "</td>";
 										} else
-											echo "  <td class='d-none d-lg-table-cell'>-</td>";
+											echo "  <td class = 'd-none d-lg-table-cell'>-</td>";
 										if ($table_row["sum12h"] != "") {
-											echo "  <td class='d-none d-md-table-cell'>" . number_format($table_row["sum12h"], 0, $dec_point, $thousands_sep) . "</td>";
+											echo "  <td class = 'd-none d-lg-table-cell'>" . number_format($table_row["sum12h"], 0, $dec_point, $thousands_sep) . "</td>";
 										} else
-											echo "  <td class='d-none d-md-table-cell'>-</td>";
+											echo "  <td class = 'd-none d-lg-table-cell'>-</td>";
 										if ($table_row["sum_today"] != "") {
-											echo "  <td class = 'gruen textgruen d-none d-sm-table-cell'><b>" . number_format($table_row["sum_today"], 0, $dec_point, $thousands_sep) . "</b></td>";
+											echo "  <td class = 'gruen textgruen d-none d-sm-table-cell text-condensed-large'><b>" . number_format($table_row["sum_today"], 0, $dec_point, $thousands_sep) . "</b></td>";
 										} else
-											echo "  <td class = 'gruen text gruen d-none d-sm-table-cell'>-</td>";
+											echo "  <td class = 'gruen textgruen d-none d-sm-table-cell text-condensed-large'>-</td>";
 										if ($table_row["sum_yesterday"] != "") {
-											echo "  <td class = 'blau textblau d-none d-sm-table-cell'><b>" . number_format($table_row["sum_yesterday"], 0, $dec_point, $thousands_sep) . "</b></td>";
+											echo "  <td class = 'blau textblau d-none d-sm-table-cell text-condensed-large'><b>" . number_format($table_row["sum_yesterday"], 0, $dec_point, $thousands_sep) . "</b></td>";
 										} else
-											echo "  <td class = 'blau textblau d-none d-sm-table-cell'>-</td>";
+											echo "  <td class = 'blau textblau d-none d-sm-table-cell text-condensed-large'>-</td>";
 										if ($table_row["pending_credits"] >> "0") {
-											echo "  <td class = 'rot textrot d-none d-md-table-cell'><b>" . number_format($table_row["pending_credits"], 0, $dec_point, $thousands_sep) . "</b></td>";
+											echo "  <td class = 'rot textrot d-none d-md-table-cell text-condensed-large'><b>" . number_format($table_row["pending_credits"], 0, $dec_point, $thousands_sep) . "</b></td>";
 										} else
-											echo "  <td class = 'rot textrot d-none d-md-table-cell'>-</td>
+											echo "  <td class = 'rot textrot d-none d-md-table-cell text-condensed-large'>-</td>
 										</tr>";
 								}
 							};
@@ -431,40 +431,40 @@
 						<?php
 							if ($hasretiredProject) {
 								echo "	<tr>
-											<td class = 'dunkelgrau textgrau'><b>" . $tr_th2_rp ." </b></td>
-											<td class='dunkelgrau textgrau align-middle text-center'>
-												<a class='toggle-text' data-toggle='collapse' data-target = '.retiredProjects'>
-													<span><i class='textrot fa fa-toggle-on fa-lg fa-rotate-180'></i></span>
-													<span class='hidden'><i class='textgruen fa fa-toggle-on fa-lg'></i></span>
+											<td class = 'dunkelgrau textgrau text-condensed-large'><b>" . $tr_th2_rp ." </b></td>
+											<td class = 'dunkelgrau textgrau align-middle text-center text-condensed-small'>
+												<a class = 'toggle-text' data-toggle = 'collapse' data-target = '.retiredProjects'>
+													<span><i class = 'textrot fa fa-toggle-on fa-lg fa-rotate-180'></i></span>
+													<span class = 'hidden'><i class = 'textgruen fa fa-toggle-on fa-lg'></i></span>
 												</a>
 											</td>
-											<td class = 'dunkelgrau textgrau'>
+											<td class = 'dunkelgrau textgrau text-condensed-medium'>
 												<b>" . number_format($total_credits_retired, 0, $dec_point, $thousands_sep) . "</b>
 											</td>
-											<td class = 'dunkelgrau textgrau d-none d-sm-table-cell'>" . number_format($pie_other_retired, 2, $dec_point, $thousands_sep) . "</td>
+											<td class = 'dunkelgrau textgrau d-none d-sm-table-cell text-condensed-small'>" . number_format($pie_other_retired, 2, $dec_point, $thousands_sep) . "</td>
 											<td class = 'dunkelgrau textgrau d-none d-sm-table-cell'><b></b></td>
 											<td class = 'dunkelgrau textgrau d-none d-lg-table-cell'><b></b></td>
 											<td class = 'dunkelgrau textgrau d-none d-lg-table-cell'><b></b></td>
-											<td class = 'dunkelgrau textgrau d-none d-md-table-cell'><b></b></td>
-											<td class = 'dunkelgrau textgrau d-none d-sm-table-cell'><b></b></td>
-											<td class = 'dunkelgrau textgrau d-none d-sm-table-cell'><b></b></td>
-											<td class = 'dunkelgrau textgrau d-none d-md-table-cell'><b></b></td>
+											<td class = 'dunkelgrau textgrau d-none d-lg-table-cell'><b></b></td>
+											<td class = 'dunkelgrau textgrau d-none d-sm-table-cell text-condensed-large'><b></b></td>
+											<td class = 'dunkelgrau textgrau d-none d-sm-table-cell text-condensed-large'><b></b></td>
+											<td class = 'dunkelgrau textgrau d-none d-md-table-cell text-condensed-large'><b></b></td>
 										</tr>
 								";
 
 								foreach ($table_retired as $table_row_retired) {
 									echo "<tr class = 'collapse retiredProjects'>
-											<td class = 'text-muted text-sm'>" . $table_row_retired["project_name"] ."</td>
-											<td class = 'align-middle text-center text-muted test-sm'><a href='" . $table_row_retired["project_link"] . "'><i class='fa fa-bar-chart'></i></a></td>
-											<td class = 'text-muted text-sm'><b>" . number_format($table_row_retired["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
-											<td class = 'text-muted text-sm d-none d-sm-table-cell'>" . number_format($table_row_retired["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>
+											<td class = 'text-muted text-sm text-condensed-large'>" . $table_row_retired["project_name"] ."</td>
+											<td class = 'align-middle text-center text-muted  text-condensed-small'><a href = '" . $table_row_retired["project_link"] . "'><i class = 'fa fa-bar-chart'></i></a></td>
+											<td class = 'text-muted text-sm text-condensed-medium'><b>" . number_format($table_row_retired["total_credits"], 0, $dec_point, $thousands_sep) . "</b></td>
+											<td class = 'text-muted text-sm d-none d-sm-table-cell text-condensed-small'>" . number_format($table_row_retired["proz_anteil"], 2, $dec_point, $thousands_sep) . "</td>
 											<td class = 'text-muted text-sm d-none d-sm-table-cell'></td>
 											<td class = 'text-muted text-sm d-none d-lg-table-cell'></td>
 											<td class = 'text-muted text-sm d-none d-lg-table-cell'></td>
-											<td class = 'text-muted text-sm d-none d-md-table-cell'></td>
-											<td class = 'text-muted text-sm d-none d-sm-table-cell'></td>
-											<td class = 'text-muted text-sm d-none d-sm-table-cell'></td>
-											<td class = 'text-muted text-sm d-none d-md-table-cell'></td>
+											<td class = 'text-muted text-sm d-none d-lg-table-cell'></td>
+											<td class = 'text-muted text-sm d-none d-sm-table-cell text-condensed-large'></td>
+											<td class = 'text-muted text-sm d-none d-sm-table-cell text-condensed-large'></td>
+											<td class = 'text-muted text-sm d-none d-md-table-cell text-condensed-large'></td>
 										</tr>";
 								}
 							}
@@ -473,61 +473,61 @@
 				</table>
 			</div>
 		
-			<div id="pie" class="tab-pane fade" role="tabpanel" aria-labelledby="pie-tab">
+			<div id = "pie" class = "tab-pane fade" role = "tabpanel" aria-labelledby = "pie-tab">
 				<div>
-					<div id="projektverteilung"></div>
+					<div id = "projektverteilung"></div>
 				</div>
 			</div>
 			
-			<div id="gesamt" class="tab-pane fade" role="tabpanel" aria-labelledby="gesamt-tab">
+			<div id = "gesamt" class = "tab-pane fade" role = "tabpanel" aria-labelledby = "gesamt-tab">
 				<div>
-					<div id="output"></div>
+					<div id = "output"></div>
 				</div>
 			</div>
 
-			<div id="stunde" class="tab-pane fade" role="tabpanel" aria-labelledby="stunde-tab">
+			<div id = "stunde" class = "tab-pane fade" role = "tabpanel" aria-labelledby = "stunde-tab">
 				<div>
-					<div id="output_gesamt_hour"></div>
+					<div id = "output_gesamt_hour"></div>
 				</div>
 			</div>
 
-			<div id="tag" class="tab-pane fade" role="tabpanel" aria-labelledby="tag-tab">
+			<div id = "tag" class = "tab-pane fade" role = "tabpanel" aria-labelledby = "tag-tab">
 				<div>
-					<div id="output_gesamt_day"></div>
+					<div id = "output_gesamt_day"></div>
 				</div>
 			</div>
 
-			<div id="woche" class="tab-pane fade" role="tabpanel" aria-labelledby="woche-tab">
+			<div id = "woche" class = "tab-pane fade" role = "tabpanel" aria-labelledby = "woche-tab">
 				<div>
-					<div id="output_gesamt_week"></div>
+					<div id = "output_gesamt_week"></div>
 				</div>
 			</div>
 
-			<div id="monat" class="tab-pane fade" role="tabpanel" aria-labelledby="monat-tab">
+			<div id = "monat" class = "tab-pane fade" role = "tabpanel" aria-labelledby = "monat-tab">
 				<div>
-					<div id="output_gesamt_month"></div>
+					<div id = "output_gesamt_month"></div>
 				</div>
 			</div>
 
-			<div id="jahr" class="tab-pane fade" role="tabpanel" aria-labelledby="jahr-tab">
+			<div id = "jahr" class = "tab-pane fade" role = "tabpanel" aria-labelledby = "jahr-tab">
 				<div>
-					<div id="output_gesamt_year"></div>
+					<div id = "output_gesamt_year"></div>
 				</div>
 			</div>
 
-			<div id="badges" class="tab-pane fade text-center" role="tabpanel" aria-labelledby="badges-tab">
+			<div id = "badges" class = "tab-pane fade text-center" role = "tabpanel" aria-labelledby = "badges-tab">
 				<div>
 					<br>
 					<?php
 						if (!$showUserBadges AND !$showWcgLogo AND !$showSgWcgBadges) echo $no_badge ."<br>";
 						if ($showUserBadges) {
-							echo '<img src="' . $linkUserBadges . '" class="img-fluid center-block"><br>';
+							echo '<img src = "' . $linkUserBadges . '" class = "img-fluid center-block"><br>';
 						};
 						if ($showWcgLogo) {
-							echo '<img src="' . $linkWcgSig . '" class="img-fluid center-block"><br>';
+							echo '<img src = "' . $linkWcgSig . '" class = "img-fluid center-block"><br>';
 						};
 						if ($showSgWcgBadges) {
-							echo '<img src="' . $linkSgWcgBadges . '" class="img-fluid center-block"><br>';
+							echo '<img src = "' . $linkSgWcgBadges . '" class = "img-fluid center-block"><br>';
 						};
 					?>
 					<br>
