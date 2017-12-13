@@ -56,7 +56,7 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_47: Designanpassungen reponsives Verhalten
  dev_48: AJAX und erweiterte Informationen (weitere Spalten) für tasks.php und tasks_template.html
 		 Designanpassungen für reponsives Verhalten (hinzufügen von class text-condensed in large, medium und small)
-
+ dev_49: header.php neu organisiert
 
 - Die Version 5.0.0 wurde mit sehr viel Liebe zum Detail erstellt. Dies wurde im Footer deutlich gemacht. Zudem wurde das Copyright-Symbol entfernt. Der Code steht unter MIT-Lizenz.
 - Das Design wurde erneuert. Es besteht nun die Möglichkeit, die Farben individuell anzupassen (assets/css/userstats_style.css).

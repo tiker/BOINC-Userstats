@@ -62,6 +62,8 @@
 	$tr_hp_pendings_03 = "Refresh your Pending Credits. Please wait...";
 	$tr_hp_tasks_01 = "Your running tasks are loading...";
 	$tr_hp_tasks_03 = "Loading your running tasks. Please wait...";
+	$tr_hp_index_01 = "Your projects are loading.";
+	$tr_hp_index_03 = "Loading projects overview. Please wait...";
 	$tr2_hp_pp = "# Project";
 	$tr2_hp_pt = "# Team";
 	$tr2_hp_ptotal = "# Total";

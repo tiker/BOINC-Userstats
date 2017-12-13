@@ -7,31 +7,32 @@
 		<meta charset = "utf-8">
 		<meta name = "viewport" content = "width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<!-- Layout Standard CSS Bootstrap & DataTables -->
-		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity = "sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin = "anonymous">
-		<link rel = "stylesheet" href = "https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
-		<link rel = "stylesheet" href = "https://cdn.datatables.net/fixedheader/3.1.3/css/fixedHeader.dataTables.min.css">
-
-		<!--  Fonts and icons  -->
-		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-		<link href = "https://cdn.datatables.net/plug-ins/1.10.16/integration/font-awesome/dataTables.fontAwesome.css" rel = "stylesheet">
-		<link href = "https://fonts.googleapis.com/css?family=Montserrat" rel = "stylesheet" type = "text/css">
-		<link href = "https://fonts.googleapis.com/css?family=Open+Sans:400,300" rel = "stylesheet" type = "text/css">
-
-		<!--  JavaScript -->
+		<!-- Bootstrap -->
 		<script src = "https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity = "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin = "anonymous"></script>
 		<script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity = "sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin = "anonymous"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity = "sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin = "anonymous"></script>
-		<script src = "https://code.highcharts.com/stock/highstock.js"></script>
-		<script src = "https://code.highcharts.com/modules/exporting.js"></script>
+		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity = "sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin = "anonymous">
+
+		<!-- DataTables -->
 		<script src = "https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 		<script src = "https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 		<script src = "https://cdn.datatables.net/fixedheader/3.1.3/js/dataTables.fixedHeader.min.js"></script>
+		<link rel = "stylesheet" href = "https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+		<link rel = "stylesheet" href = "https://cdn.datatables.net/fixedheader/3.1.3/css/fixedHeader.bootstrap4.min.css">
+
+		<!--  Fonts and icons  -->
+		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+		<link rel = "stylesheet" href = "https://cdn.datatables.net/plug-ins/1.10.16/integration/font-awesome/dataTables.fontAwesome.css">
+		<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Montserrat">
+		<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Open+Sans:400,300">
+
+		<!--  Highcharts -->
+		<script src = "https://code.highcharts.com/stock/highstock.js"></script>
+		<script src = "https://code.highcharts.com/modules/exporting.js"></script>
 
 		<!-- Layout CSS for Userstats-->
 		<link rel = "stylesheet" href = "./assets/css/userstats_layout.css">
 		<link rel = "stylesheet" href = "./assets/css/userstats_style.css"> 
-
 	</head>
 
 	<body>
