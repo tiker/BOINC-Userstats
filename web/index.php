@@ -340,7 +340,7 @@
 		<div class = "tab-content flex1" id = "myTabContent">
 
 			<div id = "projekte" class = "tab-pane fade show active" role = "tabpanel" aria-labelledby = "projekte-tab">
-				<table id = "table_projects" class = "table table-sm table-striped table-hover table-responsive-xs table-ellipsis" width = "100%">					
+				<table id = "table_projects" class = "table table-sm table-striped table-hover table-responsive-xs" width = "100%">					
 					<thead>
 						<tr>
 							<th class = "dunkelblau textblau text-condensed-large"><b><?php echo $text_boinc_total ?></b></th>

@@ -14,11 +14,8 @@
 		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity = "sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin = "anonymous">
 
 		<!-- DataTables -->
-		<script src = "https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-		<script src = "https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-		<script src = "https://cdn.datatables.net/fixedheader/3.1.3/js/dataTables.fixedHeader.min.js"></script>
-		<link rel = "stylesheet" href = "https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
-		<link rel = "stylesheet" href = "https://cdn.datatables.net/fixedheader/3.1.3/css/fixedHeader.bootstrap4.min.css">
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/fh-3.1.3/datatables.min.css"/>
+		<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/fh-3.1.3/datatables.min.js"></script>
 
 		<!--  Fonts and icons  -->
 		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
