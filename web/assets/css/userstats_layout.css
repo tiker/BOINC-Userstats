@@ -68,27 +68,6 @@ body {
 	border-radius: 0px;
 }
 
-.text-condensed-large {
-	max-width: 10rem;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
-.text-condensed-medium {
-	max-width: 6rem;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
-.text-condensed-small {
-	max-width: 2rem;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
 a {
 	color: rgba(73, 73, 73, 0.7);
 	-webkit-transition: all 150ms linear;
@@ -129,10 +108,22 @@ a:focus {
 }
 */
 
-table, th, tr, td {  
+table, th, tr, td {
 	border-spacing: 0px;
 	border-collapse: none !important;
 	text-align: right;
+}
+
+table.dataTable {
+	clear: both;
+	margin-top: 0px !important;
+	margin-bottom: 6px !important;
+	max-width: none !important;
+	border-collapse: separate !important;
+}
+
+table.dataTable thead .sorting::before, table.dataTable thead .sorting_asc::before, table.dataTable thead .sorting_desc::before, table.dataTable thead .sorting_asc_disabled::before, table.dataTable thead .sorting_desc_disabled::before {
+	content: none;
 }
 
 #table_tasks {
@@ -145,12 +136,12 @@ table, th, tr, td {
 	margin-left: -15px;
 }
 
-table.dataTable {
-	clear: both;
-	margin-top: 0px !important;
-	margin-bottom: 6px !important;
-	max-width: none !important;
-	border-collapse: separate !important;
+.table-ellipsis th :nth-child(0), .table-ellipsis td :nth-child(0) {
+	min-width: 200px;
+	max-width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 /* Progress Bar 
