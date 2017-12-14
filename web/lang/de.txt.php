@@ -17,7 +17,7 @@
 	$tr_ch_week = "Woche ab";
 	$tr_ch_dateformat = "%A, %e. %B %Y";
 	$tr_ch_week1 = "Credits pro Woche";
-	$dec_poin = ",";
+	$dec_point = ",";
 	$thousands_sep = "." ;
 	$det_wcg_pr = "Details";
 	$det_wcg_pr_lnk="mehr Details";
