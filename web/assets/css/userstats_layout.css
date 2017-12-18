@@ -91,23 +91,6 @@ a:focus {
 /* Tables 
 *****************/
 
-/*
-#table_projects {
-    width: calc(30px + 100%) !important;
-    margin-left: -15px;
-    margin-right: -15px;
-}
-
-#table_wcg {
-	width: calc(30px + 100%) !important;
-	margin-left: -15px;
-}
-
-.borderless td, .borderless th {
-	border: none;
-}
-*/
-
 table, th, tr, td {
 	border-spacing: 0px;
 	border-collapse: none !important;
@@ -136,12 +119,9 @@ table.dataTable thead .sorting::before, table.dataTable thead .sorting_asc::befo
 	margin-left: -15px;
 }
 
-.table-ellipsis th :nth-child(0), .table-ellipsis td :nth-child(0) {
+.table-200 th :nth-child(0), .table-200 td :nth-child(0) {
 	min-width: 200px;
 	max-width: 200px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
 }
 
 /* Progress Bar 

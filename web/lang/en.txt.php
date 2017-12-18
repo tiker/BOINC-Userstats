@@ -64,6 +64,8 @@
 	$tr_hp_tasks_03 = "Loading your running tasks. Please wait...";
 	$tr_hp_index_01 = "Your projects are loading.";
 	$tr_hp_index_03 = "Loading projects overview. Please wait...";
+	$tr_hp_project_01 = "Your project data is loading";
+	$tr_hp_project_03 = "Loading project data. Please wait...";
 	$tr2_hp_pp = "# Project";
 	$tr2_hp_pt = "# Team";
 	$tr2_hp_ptotal = "# Total";

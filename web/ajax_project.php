@@ -1,9 +1,6 @@
 <?php
-	include "./settings/settings.php";
 
-	$showProjectHeader = true;
-	$showPendingsHeader = false;
-	$showTasksHeader = false;
+	include "./settings/settings.php";
 
 	$sum1h_total = 0;
 	$sum2h_total = 0;
@@ -34,8 +31,8 @@
 			$goon = true;
 		}
 	};
-	
-	if ( !$goon ) {
+
+	if ( !$goon ) {	
 		$connErrorTitle = "Fehler";
 		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
 								Das Projekt existiert offenbar nicht in der Datenbank.";
@@ -61,7 +58,7 @@
 		$datum_start = $row["lastupdate_start"];
 		$datum = $row["lastupdate"];
 	}
-	
+
 	if (isset($_GET["lang"])) $lang = $_GET["lang"];
 	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
 
@@ -241,10 +238,6 @@
 		
 		$table[] = $table_row;
 	}
-?>
-
-<?php
-	include("./header.php"); 
 
 	if (file_exists("./lang/" . $lang . ".highstock.js")) include "./lang/" . $lang . ".highstock.js";
 	else include "./lang/en.highstock.js";
@@ -266,9 +259,6 @@
 	include("./assets/js/highcharts/output_project_week.js");
 	include("./assets/js/highcharts/output_project_month.js");
 	include("./assets/js/highcharts/output_project_year.js"); 
-?>
-
-<?php 
 
 	if ($status == "2") {
 		echo '
@@ -347,16 +337,16 @@
 				<table id = "table_project" class = "table table-sm table-striped table-hover table-responsive-xs table-200" width = "100%">	
 					<thead>
 						<tr>
-							<th class = "dunkelgrau textgrau text-center align-middle"><?php echo "$project_project" ?></th>
-							<th class = "dunkelgrau textgrau text-center align-middle"><?php echo "$tr_tb_cr" ?></th>
-							<th class = "dunkelgrau textgrau d-none d-sm-table-cell text-center align-middle">%</th>
-							<th class = "dunkelgrau textgrau d-none d-sm-table-cell text-center align-middle"><?php echo "$tr_tb_01" ?></th>
-							<th class = "dunkelgrau textgrau d-none d-lg-table-cell text-center align-middle"><?php echo "$tr_tb_02" ?></th>
-							<th class = "dunkelgrau textgrau d-none d-lg-table-cell text-center align-middle"><?php echo "$tr_tb_06" ?></th>
-							<th class = "dunkelgrau textgrau d-none d-md-table-cell text-center align-middle"><?php echo "$tr_tb_12" ?></th>
-							<th class = "dunkelgruen textgruen d-none d-sm-table-cell text-center align-middle"><?php echo $tr_tb_to; ?></th>
-							<th class = "dunkelblau text-blau d-none d-sm-table-cell text-center align-middle"><?php echo $tr_tb_ye; ?></th>
-							<th class = "dunkelrot textrot d-none d-md-table-cell text-center align-middle"><?php echo $tr_tb_pe; ?></th>
+							<th class = "dunkelgrau textgrau text-center"><?php echo "$project_project" ?></th>
+							<th class = "dunkelgrau textgrau text-center"><?php echo "$tr_tb_cr" ?></th>
+							<th class = "dunkelgrau textgrau d-none d-sm-table-cell text-center">%</th>
+							<th class = "dunkelgrau textgrau d-none d-sm-table-cell text-center"><?php echo "$tr_tb_01" ?></th>
+							<th class = "dunkelgrau textgrau d-none d-lg-table-cell text-center"><?php echo "$tr_tb_02" ?></th>
+							<th class = "dunkelgrau textgrau d-none d-lg-table-cell text-center"><?php echo "$tr_tb_06" ?></th>
+							<th class = "dunkelgrau textgrau d-none d-md-table-cell text-center"><?php echo "$tr_tb_12" ?></th>
+							<th class = "dunkelgruen textgruen d-none d-sm-table-cell text-center"><?php echo $tr_tb_to; ?></th>
+							<th class = "dunkelblau text-blau d-none d-sm-table-cell text-center"><?php echo $tr_tb_ye; ?></th>
+							<th class = "dunkelrot textrot d-none d-md-table-cell text-center"><?php echo $tr_tb_pe; ?></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -364,19 +354,19 @@
 							foreach($table as $table_row){
 								echo "<tr>";
 								if ($table_row["project_status"]=== "1") { echo "
-										<td class = 'text-center align-middle'><a href = '" .$table_row["project_home_link"] . "'>" .$table_row["project_name"] . "</a>";
+										<td class = 'text-center'><a href = '" .$table_row["project_home_link"] . "'>" .$table_row["project_name"] . "</a>";
 								} else { echo "
-										<td class = 'text-center align-middle'>" .$table_row["project_name"] . "</td>";
+										<td class = 'text-center'>" .$table_row["project_name"] . "</td>";
 								};
-								echo "	<td class = 'text-center align-middle'>" .number_format($table_row["total_credits"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'd-none d-sm-table-cell text-center align-middle'>" . $table_row["proz_anteil"] . "</td>
-										<td class = 'd-none d-sm-table-cell text-center align-middle'>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'd-none d-lg-table-cell text-center align-middle'>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'd-none d-lg-table-cell text-center align-middle'>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'd-none d-md-table-cell text-center align-middle'>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'gruen textgruen d-none d-sm-table-cell text-center align-middle'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'blau textblau d-none d-sm-table-cell text-center align-middle'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'rot textrot d-none d-md-table-cell text-center align-middle'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
+								echo "	<td class = 'text-center'>" .number_format($table_row["total_credits"],0,$dec_point,$thousands_sep). "</td>
+										<td class = 'd-none d-sm-table-cell text-center'>" . $table_row["proz_anteil"] . "</td>
+										<td class = 'd-none d-sm-table-cell text-center'>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>
+										<td class = 'd-none d-lg-table-cell text-center'>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
+										<td class = 'd-none d-lg-table-cell text-center'>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
+										<td class = 'd-none d-md-table-cell text-center'>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
+										<td class = 'gruen textgruen d-none d-sm-table-cell text-center'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
+										<td class = 'blau textblau d-none d-sm-table-cell text-center'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
+										<td class = 'rot textrot d-none d-md-table-cell text-center'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
 									</tr>";
 							}
 						?>
@@ -474,25 +464,3 @@
 					xhttp.send(); 
 			} );
 		</script>
-		<script>
-			$(document).ready(function() {
-				$('#table_project').DataTable( {
-					bSortCellsTop: false,
-					language: {
-						decimal: "<?php echo $dec_point; ?>",
-						thousands: "<?php echo $thousands_sep; ?>",
-						search:	"<?php echo $text_search; ?>"
-					},
-					columnDefs: [ {
-						targets  : 'no-sort',
-						orderable: false,
-					}],
-					paging: false,
-					info: false,
-					sorting: false,
-					searching: false
-				} );
-			} );
-		</script>
-
-<?php include("./footer.php"); ?>

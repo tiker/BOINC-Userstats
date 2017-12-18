@@ -135,12 +135,12 @@
 		<table id = "table_wcgteams" class = "table table-sm table-striped table-hover table-responsive-xs" width = "100%">
 			<thead>
 				<tr class = "fixedHeader">
-					<th class = "dunkelgrau textgrau"><b><?php echo "$wcg_detail_team" ?></b></th>
-					<th class = "dunkelgrau textgrau text-center"><b><?php echo "$wcg_detail_join" ?></b></th>
-					<th class = "dunkelgrau textgrau text-center d-none d-sm-table-cell"><b><?php echo "$wcg_detail_leave" ?></b></th>
-					<th class = "dunkelgrau textgrau"><b><?php echo "$wcg_detail_runtime" ?></b></th>
-					<th class = "dunkelgrau textgrau d-none d-sm-table-cell"><b><?php echo "$wcg_detail_points" ?></b></th>
-					<th class = "dunkelgrau textgrau d-none d-md-table-cell"><b><?php echo "$wcg_detail_results" ?></b></th>
+					<th class = "dunkelgrau textgrau align-middle"><b><?php echo "$wcg_detail_team" ?></b></th>
+					<th class = "dunkelgrau textgrau text-center align-middle"><b><?php echo "$wcg_detail_join" ?></b></th>
+					<th class = "dunkelgrau textgrau text-center d-none d-sm-table-cell align-middle"><b><?php echo "$wcg_detail_leave" ?></b></th>
+					<th class = "dunkelgrau textgrau align-middle"><b><?php echo "$wcg_detail_runtime" ?></b></th>
+					<th class = "dunkelgrau textgrau d-none d-sm-table-cell align-middle"><b><?php echo "$wcg_detail_points" ?></b></th>
+					<th class = "dunkelgrau textgrau d-none d-md-table-cell align-middle"><b><?php echo "$wcg_detail_results" ?></b></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -185,15 +185,15 @@
 	<div class = "container">
 		<b><?php echo $wcg_detail_stats_per_project ?></b>
 
-		<table id = "table_wcg" class = "table table-sm table-striped table-hover table-responsive-xs" width = "100%">
+		<table id = "table_wcg" class = "table table-sm table-striped table-hover table-responsive-xs table-200" width = "100%">
 			<thead>
 				<tr>
-					<th class = "dunkelgrau textgrau"><b><?php echo $wcg_detail_project; ?></b></th>
-					<th class = "dunkelgrau textgrau text-center d-none d-sm-table-cell"><b><?php echo $wcg_detail_status; ?></b></th>
-					<th class = "dunkelgrau textgrau d-none d-sm-table-cell"><b><?php echo $wcg_detail_points; ?></b></th>
-					<th class = "dunkelgrau textgrau d-none d-md-table-cell"><b><?php echo $wcg_detail_results; ?></b></th>
-					<th class = "dunkelgrau textgrau"><b><?php echo $wcg_detail_runtimedetail; ?></b></th>
-					<th class = "dunkelgrau textgrau text-center no-sort"><b><?php echo $wcg_detail_badge; ?></b></th>
+					<th class = "dunkelgrau textgrau align-middle"><b><?php echo $wcg_detail_project; ?></b></th>
+					<th class = "dunkelgrau textgrau text-center d-none d-sm-table-cell align-middle"><b><?php echo $wcg_detail_status; ?></b></th>
+					<th class = "dunkelgrau textgrau d-none d-sm-table-cell align-middle"><b><?php echo $wcg_detail_points; ?></b></th>
+					<th class = "dunkelgrau textgrau d-none d-md-table-cell align-middle"><b><?php echo $wcg_detail_results; ?></b></th>
+					<th class = "dunkelgrau textgrau align-middle"><b><?php echo $wcg_detail_runtimedetail; ?></b></th>
+					<th class = "dunkelgrau textgrau text-center no-sort align-middle"><b><?php echo $wcg_detail_badge; ?></b></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -202,39 +202,39 @@
 						if ( isset($table_row["project_points"]) && $table_row["project_points"] > 0) {
 							if ($table_row["status"] === "Active") {
 									echo "<tr>";
-									echo "<td class = 'texthellgruen'>" .$table_row["project_longname"]. "</td>";
-									echo "<td class = 'texthellgruen text-center d-none d-sm-table-cell' data-order = '1'><i class = 'fa fa-square' aria-hidden = 'true'></i></td>";	
-									echo "<td class = 'texthellgruen d-none d-sm-table-cell'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
-									echo "<td class = 'texthellgruen d-none d-md-table-cell'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
-									echo "<td class = 'texthellgruen' data-order = '" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
-									echo "<td class = 'texthellgruen text-center'><img title = '" .$table_row["description"]. "' src = '" .$table_row["badge"]. "' alt = '" .$table_row["description"]. "'></td>";						
+									echo "<td class = 'texthellgruen align-middle'>" .$table_row["project_longname"]. "</td>";
+									echo "<td class = 'texthellgruen text-center d-none d-sm-table-cell align-middle' data-order = '1'><i class = 'fa fa-square' aria-hidden = 'true'></i></td>";	
+									echo "<td class = 'texthellgruen d-none d-sm-table-cell align-middle'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
+									echo "<td class = 'texthellgruen d-none d-md-table-cell align-middle'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
+									echo "<td class = 'texthellgruen align-middle' data-order = '" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
+									echo "<td class = 'texthellgruen text-center align-middle'><img title = '" .$table_row["description"]. "' src = '" .$table_row["badge"]. "' alt = '" .$table_row["description"]. "'></td>";						
 									echo "</tr>";
 							} elseif ($table_row["status"] === "Intermittent") {
 									echo "<tr>";
-									echo "<td class = 'texthellgelb'>" .$table_row["project_longname"]. "</td>";
-									echo "<td class = 'texthellgelb text-center d-none d-sm-table-cell' data-order = '2'><i class = 'fa fa-square' aria-hidden = 'true'></i></td>";
-									echo "<td class = 'texthellgelb d-none d-sm-table-cell'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
-									echo "<td class = 'texthellgelb d-none d-md-table-cell'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
-									echo "<td class = 'texthellgelb' data-order = '" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
-									echo "<td class = 'texthellgelb text-center'><img title = '" .$table_row["description"]. "' src = '" .$table_row["badge"]. "' alt = '" .$table_row["description"]. "'></td>";
+									echo "<td class = 'texthellgelb align-middle'>" .$table_row["project_longname"]. "</td>";
+									echo "<td class = 'texthellgelb text-center d-none d-sm-table-cell align-middle' data-order = '2'><i class = 'fa fa-square' aria-hidden = 'true'></i></td>";
+									echo "<td class = 'texthellgelb d-none d-sm-table-cell align-middle'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
+									echo "<td class = 'texthellgelb d-none d-md-table-cell align-middle'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
+									echo "<td class = 'texthellgelb align-middle' data-order = '" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
+									echo "<td class = 'texthellgelb text-center align-middle'><img title = '" .$table_row["description"]. "' src = '" .$table_row["badge"]. "' alt = '" .$table_row["description"]. "'></td>";
 									echo "</tr>";
 							} elseif ($table_row["status"] === "Completed") {
 									echo "<tr>";
-									echo "<td class = 'texthellrot'>" .$table_row["project_longname"]. "</td>";
-									echo "<td class = 'texthellrot text-center d-none d-sm-table-cell' data-order = '3'><i class = 'fa fa-square' aria-hidden = 'true'></i></td>";
-									echo "<td class = 'texthellrot d-none d-sm-table-cell'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
-									echo "<td class = 'texthellrot d-none d-md-table-cell'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
-									echo "<td class = 'texthellrot' data-order = '" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
-									echo "<td class = 'texthellrot text-center'><img title = '" .$table_row["description"]. "' src = '" .$table_row["badge"]. "' alt = '" .$table_row["description"]. "'></td>";
+									echo "<td class = 'texthellrot align-middle'>" .$table_row["project_longname"]. "</td>";
+									echo "<td class = 'texthellrot text-center d-none d-sm-table-cell align-middle' data-order = '3'><i class = 'fa fa-square' aria-hidden = 'true'></i></td>";
+									echo "<td class = 'texthellrot d-none d-sm-table-cell align-middle'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
+									echo "<td class = 'texthellrot d-none d-md-table-cell align-middle'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
+									echo "<td class = 'texthellrot align-middle' data-order = '" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
+									echo "<td class = 'texthellrot text-center align-middle'><img title = '" .$table_row["description"]. "' src = '" .$table_row["badge"]. "' alt = '" .$table_row["description"]. "'></td>";
 									echo "</tr>";
 							} else {
 									echo "<tr>";
-									echo "<td>" .$table_row["project_longname"]. "</td>";
-									echo "<td class = 'text-center d-none d-sm-table-cell' data-order = '3'> - </td>";
-									echo "<td class = 'd-none d-sm-table-cell'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
-									echo "<td class = 'd-none d-md-table-cell'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
-									echo "<td data-order = '" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
-									echo "<td class = 'text-center'><img title = '" .$table_row["description"]. "' src = '" .$table_row["badge"]. "' alt = '" .$table_row["description"]. "'></td>";
+									echo "<td class = 'align-middle'>" .$table_row["project_longname"]. "</td>";
+									echo "<td class = 'text-center d-none d-sm-table-cell align-middle' data-order = '3'> - </td>";
+									echo "<td class = 'd-none d-sm-table-cell align-middle'>" .number_format($table_row["project_points"],0,$dec_point,$thousands_sep). "</td>";
+									echo "<td class = 'd-none d-md-table-cell align-middle'>" .number_format($table_row["project_results"],0,$dec_point,$thousands_sep). "</td>";	
+									echo "<td class = 'align-middle' data-order = '" . $table_row["project_runtime_unix"] . "'>" .$table_row["project_runtime"]. "</td>";
+									echo "<td class = 'text-center align-middle'><img title = '" .$table_row["description"]. "' src = '" .$table_row["badge"]. "' alt = '" .$table_row["description"]. "'></td>";
 									echo "</tr>";
 							}		
 						}

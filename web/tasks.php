@@ -74,9 +74,15 @@
 								search:	"<?php echo $text_search; ?>"
 							},
 							columnDefs: [ {
-								targets: 'no-sort',
-								orderable: false,
-							}],
+								targets: [3,4,7],
+								render: $.fn.dataTable.render.ellipsis(11, true, false)
+							},{
+								targets: [0,1],
+								render: $.fn.dataTable.render.ellipsis(20, true)
+							},{
+								targets: [2],
+								render: $.fn.dataTable.render.ellipsis(15, true)
+							} ],
 							order: [[ 9, "asc" ],[ 0, "asc" ]],
 							paging: false,
 							info: false

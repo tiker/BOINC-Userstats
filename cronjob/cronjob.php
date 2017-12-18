@@ -1,5 +1,5 @@
 <?php 
-	include "/path/to/boinc_db_connect.php";
+	#include "/path/to/boinc_db_connect.php";
 
 	if( !ini_get('safe_mode') ){ 
 		set_time_limit(120); 
@@ -10,11 +10,11 @@
 	$total_credits_hour = "0";
 
 	// Set your midnight here. 
-	// This is used for counting daylie total output at midnight for your timezone
+	// This is used for setting daylie total and pending credits to the values of midnight for your timezone for the total charts
 	// ----------------------------------------------
 	// Setze hier den Zeitpunkt von Mitternacht. 
-	// Dies wird für die Berechnung des Gesamt-Outputs eines Tages in deiner Zeitzone benötigt
-	date_default_timezone_set('UTC'); 
+	// Dies wird für die Berechnung der Werte für die Gesamt- und Pending Credits eines Tages in deiner Zeitzone benötigt, welche in den Gesamt-Charts dargestellt wird
+	date_default_timezone_set('Europe/Berlin'); 
 	$isMidnight = false;
 	$timestamp_timezone = date('Y-m-d H').':00:00';
 	if ($timestamp_timezone == date('Y-m-d'). ' 00:00:00') {

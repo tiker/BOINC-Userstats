@@ -32,7 +32,7 @@
 	</div>
 
 	<div class = "container text-center">
-		<table id = "table_pendings" class = "table table-striped table-hover table-sm table-responsive-xs" width = "100%">
+		<table id = "table_pendings" class = "table table-striped table-hover table-sm table-responsive-xs table-200" width = "100%">
 			<thead>
 				<th class = "dunkelgrau textgrau"><?php echo $tr_tb_pr ?></th>
 				<th class = "dunkelgrau textgrau text-left"><?php echo $tr_tb_pe ?></th>

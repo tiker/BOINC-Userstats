@@ -64,6 +64,8 @@
 	$tr_hp_tasks_03 = "Laden deiner laufenden Berechnungen";
 	$tr_hp_index_01 = "Deine Projektübersicht wird geladen";
 	$tr_hp_index_03 = "Laden deiner Projekt-Übersicht";
+	$tr_hp_project_01 = "Deine Projektdaten werden geladen";
+	$tr_hp_project_03 = "Laden deiner Projekt-Daten";
 	$tr2_hp_pp = "# Projekt";
 	$tr2_hp_pt = "# Team";
 	$tr2_hp_ptotal = "# Total";
