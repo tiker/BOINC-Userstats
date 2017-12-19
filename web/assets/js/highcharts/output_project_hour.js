@@ -49,7 +49,7 @@
 				column: {
 					dataGrouping: {
 						dateTimeLabelFormats: {
-							hour: ['<?php echo $tr_ch_dateformat; ?>, @ %H:00']
+							hour: ['<?php echo $tr_ch_dateformat; ?>, @ %H:00 - %H:59']
 						}
 					}
 				}

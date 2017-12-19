@@ -17,7 +17,11 @@
 	// Do not change the this option, otherwise your data will be calculated wrong!
 	$useUTCHighchartsOption = "true"; // default = "true"
 
-	$timezoneoffset = 0; // not sure, if needed... we will see...
+	// Wenn dein Webserver die Zeit in der deiner Zeitzone anzeigt, so lasse hier die "0" stehen
+	// ansonsten musst Du hier die Differenz deiner Zeitzone zur Zeitzone des Webservers eintragen
+	// If timezone of your webserver is equal to your timezone, keep the value "0"
+	// otherwise set this value to the difference of your webserver timezone to your timezone
+	$timezoneoffset = 0; // in Minuten //in minutes
 
 	// Deine Zeitzonenbezeichnung in Kurzform. Wird in der Infobar neben den Zeitangabe für das letzte Update angezeigt. Derzeit noch keine Unterstützung für Sommerzeitregelung.	
 	// Your Timezone Shortname. Will be shown in the Infobar next to the last update dates. No support for Daylight Savings at the moment.
