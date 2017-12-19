@@ -59,7 +59,7 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_49: header.php neu organisiert
  dev_50: Ellipsis wegen fehlerhafter Darstellungen entfernt. Muss neu überdacht werden. Schriftfarbe im Footer geändert.
  dev_51: Ellipsis für Tasks hinzugefügt. optische Anspassungen der Tabellen (align-middle)
-
+ dev_52: Hinzufügen von Browser-Icons
 
 - Die Version 5.0.0 wurde mit sehr viel Liebe zum Detail erstellt. Dies wurde im Footer deutlich gemacht. Zudem wurde das Copyright-Symbol entfernt. Der Code steht unter MIT-Lizenz.
 - Das Design wurde erneuert. Es besteht nun die Möglichkeit, die Farben individuell anzupassen (assets/css/userstats_style.css).
