@@ -26,8 +26,8 @@
 	// Version einbinden   // Include version
 	include "version.php";
 
-	// Pfad zur Datenbank-Verbindung     // Path to database connecg
-	include "../database/boinc_db_connect.php";
+	// Pfad zur Datenbank-Verbindung     // Path to database connect
+	include "/absolute/path/to/boinc_db_connect.php";
 	
 	// Daten für Impressum //
 	$hp_username = "Dein Name";

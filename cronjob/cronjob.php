@@ -1,5 +1,12 @@
-<?php 
-	#include "/path/to/boinc_db_connect.php";
+<?php
+	// Set your midnight here. 
+	// This is used for setting daylie total and pending credits to the values of midnight for your timezone for the total charts
+	// ----------------------------------------------
+	// Setze hier den Zeitpunkt von Mitternacht. 
+	// Dies wird für die Berechnung der Werte für die Gesamt- und Pending Credits eines Tages in deiner Zeitzone benötigt, welche in den Gesamt-Charts dargestellt wird
+	date_default_timezone_set('Europe/Berlin');
+
+	include "/absolute/path/to/boinc_db_connect.php";
 
 	if( !ini_get('safe_mode') ){ 
 		set_time_limit(120); 
@@ -9,15 +16,14 @@
 	$pending_credits = "0";
 	$total_credits_hour = "0";
 
-	// Set your midnight here. 
-	// This is used for setting daylie total and pending credits to the values of midnight for your timezone for the total charts
-	// ----------------------------------------------
-	// Setze hier den Zeitpunkt von Mitternacht. 
-	// Dies wird für die Berechnung der Werte für die Gesamt- und Pending Credits eines Tages in deiner Zeitzone benötigt, welche in den Gesamt-Charts dargestellt wird
-	date_default_timezone_set('Europe/Berlin'); 
+	$unixtime = time();
+	$timestamp_hour = ceil($unixtime/3600) * 3600;
+
 	$isMidnight = false;
-	$timestamp_timezone = date('Y-m-d H').':00:00';
-	if ($timestamp_timezone == date('Y-m-d'). ' 00:00:00') {
+	$timestamp_timezone = date(('Y-m-d H').':00:00', $unixtime);
+	$timestamp_timezone_midnight = date(('Y-m-d ').'00:00:00', $unixtime);
+
+	if ($timestamp_timezone == $timestamp_timezone_midnight) {
 		$isMidnight = true;
 	}
 
@@ -31,9 +37,24 @@
 	//do NOT change this timezone setting
 	//Diese Zeitzoneneinstellung NICHT verändern
 	date_default_timezone_set('UTC'); 
-
 	$unixtime = time();
 	$timestamp_hour = ceil($unixtime/3600) * 3600;
+	$timestamp_timezone = date(('Y-m-d H').':00:00', $unixtime);
+
+	$query_getUserData = mysqli_query($db_conn, "SELECT * from boinc_user");
+	while ($row = mysqli_fetch_assoc($query_getUserData)) {
+		$datum_start = $row["lastupdate_start"];
+	}
+	$datum_check = ceil($datum_start/3600) * 3600;
+
+	if ($datum_check === $timestamp_hour) {
+		echo '
+		<div class = "container text-center  flex1">
+			<h1 class = "title">ACHTUNG -- ATTENTION</h1>
+			<h3 class = "description text-center">Daten dürfen nur 1x pro Stunde abgerufen werden!!<br>Data could be fetched only once per hour!</h3>
+		</div>';
+		exit;
+	}
 
 	$sqlupdatestarttime = "UPDATE boinc_user SET lastupdate_start='" .$unixtime. "'";
 	mysqli_query($db_conn,$sqlupdatestarttime);
