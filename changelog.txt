@@ -62,6 +62,7 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_52: Hinzufügen von Browser-Icons
  dev_53: Anpassungen cronjob.php für Zeitzonenunterstützung, Abfragemöglichkeit auf 1x pro Stunde reduziert (entsprechendes Handling integriert)
  dev_54: Zeitzonenanpassungen und Berechnungskorrekturen für Tabellen
+ dev_55: Der Gesamtchart zeigt nun richtig das Datum des Vortages an und der Stunden-Output zeigt nun wieder die Zeitspanne an
 
 - Die Version 5.0.0 wurde mit sehr viel Liebe zum Detail erstellt. Dies wurde im Footer deutlich gemacht. Zudem wurde das Copyright-Symbol entfernt. Der Code steht unter MIT-Lizenz.
 - Das Design wurde erneuert. Es besteht nun die Möglichkeit, die Farben individuell anzupassen (assets/css/userstats_style.css).

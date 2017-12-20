@@ -264,7 +264,7 @@
 	$output_gesamt_html = "";
 	$output_gesamt_pendings_html = "";
 	while ($row2 = mysqli_fetch_assoc($query_getTotalOutputPerDay)) {
-		$timestamp2 = ($row2["time_stamp"]) * 1000;
+		$timestamp2 = ($row2["time_stamp"] - 1) * 1000;
 		$output_gesamt_html .= "[" . $timestamp2 . ", " . $row2["total_credits"] . "], ";
 		$output_gesamt_pendings_html .= "[" . $timestamp2 . ", " . $row2["pending_credits"] . "], ";
 	}

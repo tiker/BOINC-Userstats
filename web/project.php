@@ -128,7 +128,7 @@
 		exit();
 	}
 	while($row = mysqli_fetch_assoc($query_getProjectOutputPerDay)){
-		$timestamp1 = ($row["time_stamp"]) * 1000;
+		$timestamp1 = ($row["time_stamp"] - 1) * 1000;
 		$output_project_gesamt_html.= "[(" .$timestamp1. "), " .$row["total_credits"]. "], ";	
 		$output_project_gesamt_pendings_html.= "[(" .$timestamp1. "), " .$row["pending_credits"]. "], ";
 	}
