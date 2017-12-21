@@ -1,5 +1,6 @@
 <?php
 	// Deutsche Version //
+	$wrong_project = "falscher Projektname";
 	$text_search= "Filter/Suche";
 	$linkNameOverview = "Projekt-Übersicht";
 	$text_hp_title = "Persönliche Userstatistiken von " .$boinc_username. " aus dem Team " .$boinc_teamname;

@@ -12,37 +12,6 @@
 	$sum_today_total = 0;
 	$sum_yesterday_total = 0;
 
-	$goon = false;
-	$projectid = addslashes($_GET["projectid"]);
-	$query_check = mysqli_query($db_conn,"SELECT project_shortname FROM boinc_grundwerte" );
-	if ( !$query_check ) { 
-		$connErrorTitle = "Datenbankfehler";
-		$connErrorDescription = "Es konnte keine Verbindung zur Datenbank aufgebaut werden.";
-		include "./errordocs/db_initial_err.php";
-		exit();
-	} elseif ( mysqli_num_rows($query_check) === 0 ) { 
-		$connErrorTitle = "Fehler";
-		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
-								Offenbar existieren keine Werte in deiner Datenbank";
-		include "./errordocs/db_initial_err.php";
-		exit();	
-	}
-
-	while ( $row = mysqli_fetch_assoc($query_check) ) {
-		$project_check = $row["project_shortname"];
-		if ( $project_check === $projectid ) { 
-			$goon = true;
-		}
-	};
-	
-	if ( !$goon ) {
-		$connErrorTitle = "Fehler";
-		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
-								Das Projekt existiert offenbar nicht in der Datenbank.";
-		include "./errordocs/db_initial_err.php";
-		exit();
-	} 
-
 	$query_getUserData = mysqli_query($db_conn,"SELECT * from boinc_user");
 	if ( !$query_getUserData || mysqli_num_rows($query_getUserData) === 0 ) { 
 		$connErrorTitle = "Datenbankfehler";
@@ -67,6 +36,38 @@
 
 	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
 	else include "./lang/en.txt.php";
+
+	$goon = 0;
+	$projectid = addslashes($_GET["projectid"]);
+	$query_check = mysqli_query($db_conn,"SELECT project_shortname FROM boinc_grundwerte" );
+	if ( !$query_check ) { 
+		$connErrorTitle = "Datenbankfehler";
+		$connErrorDescription = "Es konnte keine Verbindung zur Datenbank aufgebaut werden.";
+		include "./errordocs/db_initial_err.php";
+		exit();
+	} elseif ( mysqli_num_rows($query_check) === 0 ) { 
+		$connErrorTitle = "Fehler";
+		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+								Offenbar existieren keine Werte in deiner Datenbank";
+		include "./errordocs/db_initial_err.php";
+		exit();	
+	}
+
+	while ( $row = mysqli_fetch_assoc($query_check) ) {
+		$project_check = $row["project_shortname"];
+		if ( $project_check === $projectid ) { 
+			$goon = 1;
+		}
+	};
+	
+	if ( $goon != 1 ) {
+		$projectname = $wrong_project;
+		$connErrorTitle = "Fehler";
+		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+								Das Projekt existiert offenbar nicht in der Datenbank.";
+		include "./error.php";
+		exit();
+	} 
 
 	$lastupdate_start = date("d.m.Y H:i:s", $datum_start + $timezoneoffset*3600);
 	$lastupdate = date("H:i:s", $datum + $timezoneoffset*3600);

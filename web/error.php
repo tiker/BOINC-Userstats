@@ -271,6 +271,9 @@ switch ($errorcode) {
 		break;
 	default: 
 		$error_description = "not supported";
+		$err_de = "Irgendwas ist schief gelaufen!";
+		$err_en = "Something went wrong!";
+		$err_fr = "Quelque chose s'est mal passé";
 	}
 
 	include("./header.php"); 

@@ -1,12 +1,6 @@
 <?php
 	include "./settings/settings.php";
 
-	if (isset($_GET["lang"])) $lang = $_GET["lang"];
-	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
-
-	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
-	else include "./lang/en.txt.php";
-	
 	$query_getUserData = mysqli_query($db_conn, "SELECT * from boinc_user");
 	if ( !$query_getUserData ) { 	
 		$connErrorTitle = "Datenbankfehler";
@@ -29,13 +23,19 @@
 		$datum = $row["lastupdate"];
 	}
 
+	if (isset($_GET["lang"])) $lang = $_GET["lang"];
+	else $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
+
+	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
+	else include "./lang/en.txt.php";
+
 	$lastupdate_start = date("d.m.Y H:i:s", $datum_start + $timezoneoffset*3600);
 	$lastupdate = date("H:i:s", $datum + $timezoneoffset*3600);
 
 	include("./header.php"); 
 ?>
 
-	<div class = "container text-center  flex1">
+	<div class = "container text-center flex1">
 		<h1 class = "title"><?php echo $connErrorTitle; ?></h1>
 		<h5 class = "description text-center"><?php echo $connErrorDescription; ?></h5>					
 	</div>

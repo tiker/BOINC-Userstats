@@ -64,7 +64,10 @@ Diese Version ist noch in Entwicklung und arbeitet nicht produktiv!!!!
  dev_54: Zeitzonenanpassungen und Berechnungskorrekturen für Tabellen
  dev_55: Der Gesamtchart zeigt nun richtig das Datum des Vortages an und der Stunden-Output zeigt nun wieder die Zeitspanne an
  dev_56: php error-Ausgaben für tasks.php und error.php behoben
+ 
+ beta01: errorhandling für falsche Projekt-IDs verändert, Footer aktualisiert auf neue HP
 
+ 
 - Die Version 5.0.0 wurde mit sehr viel Liebe zum Detail erstellt. Dies wurde im Footer deutlich gemacht. Zudem wurde das Copyright-Symbol entfernt. Der Code steht unter MIT-Lizenz.
 - Das Design wurde erneuert. Es besteht nun die Möglichkeit, die Farben individuell anzupassen (assets/css/userstats_style.css).
   Von der assets/css/userstats_layout.css würde ich die Finger lassen! Diese beinhaltet die wichtigen Einstellungen zum Seiten-Layout.
