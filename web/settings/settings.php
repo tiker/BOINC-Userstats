@@ -13,6 +13,10 @@
 	// Deine Zeitzone  // Enter your timezone
 	date_default_timezone_set('Europe/Berlin');
 
+	// Deine Zeitzonenbezeichnung in Kurzform. Wird in der Infobar neben den Zeitangabe für das letzte Update angezeigt. Derzeit noch keine Unterstützung für Sommerzeitregelung.	
+	// Your Timezone Shortname. Will be shown in the Infobar next to the last update dates. No support for Daylight Savings at the moment.
+	$timezone_shortname = "(MEZ)"; 
+
 	// Diese Variable bitte nicht ändern, ansosten werden deine Werte falsch berechnet!
 	// Do not change the this option, otherwise your data will be calculated wrong!
 	$useUTCHighchartsOption = "true"; // default = "true"
@@ -22,10 +26,6 @@
 	// If timezone of your webserver is equal to your timezone, keep the value "0"
 	// otherwise set this value to the difference of your webserver timezone to your timezone
 	$timezoneoffset = 0; // in Minuten //in minutes
-
-	// Deine Zeitzonenbezeichnung in Kurzform. Wird in der Infobar neben den Zeitangabe für das letzte Update angezeigt. Derzeit noch keine Unterstützung für Sommerzeitregelung.	
-	// Your Timezone Shortname. Will be shown in the Infobar next to the last update dates. No support for Daylight Savings at the moment.
-	$timezone_shortname = "(MEZ)"; 
 
 	// Version einbinden   // Include version
 	include "version.php";

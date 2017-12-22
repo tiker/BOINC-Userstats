@@ -103,9 +103,8 @@
 	#$start_time = $row['start_time'];
 	$status = $row['project_status'];
 	$minimum = $row['begin_credits'];
+
 	$output_project_html = "";
-	$output_project_gesamt_pendings_html = "";
-	$output_project_gesamt_html = "";
 	$query_getProjectOutputPerHour = mysqli_query($db_conn,"SELECT time_stamp, credits from boinc_werte where project_shortname = '" .$projectid. "'");
 	if ( !$query_getProjectOutputPerHour || mysqli_num_rows($query_getProjectOutputPerHour) === 0 ) { 
 		$connErrorTitle = "Datenbankfehler";
@@ -120,6 +119,8 @@
 	}
 	$output_project_html = substr($output_project_html,0,-2);
 	
+	$output_project_gesamt_pendings_html = "";
+	$output_project_gesamt_html = "";
 	$query_getProjectOutputPerDay = mysqli_query($db_conn,"SELECT time_stamp, total_credits, pending_credits from boinc_werte_day where project_shortname = '" .$projectid. "'");
 	if ( !$query_getProjectOutputPerDay || mysqli_num_rows($query_getProjectOutputPerDay) === 0 ) { 
 		$connErrorTitle = "Datenbankfehler";
@@ -136,10 +137,10 @@
 	$output_project_gesamt_html = substr($output_project_gesamt_html,0,-2);
 	$output_project_gesamt_pendings_html = substr($output_project_gesamt_pendings_html,0,-2);
 	
-	$einsh = mktime(date("H"), 0, 0, date("m") + $timezoneoffset, date ("d"), date("Y"));
-	$zweih = mktime(date("H")-1, 0, 0, date("m") + $timezoneoffset, date ("d"), date("Y"));
-	$sechsh = mktime(date("H")-5, 0, 0, date("m") + $timezoneoffset, date ("d"), date("Y"));
-	$zwoelfh = mktime(date("H")-11, 0, 0, date("m") + $timezoneoffset, date ("d"), date("Y"));
+	$einsh = mktime(date("H"), 0 + $timezoneoffset, 0, date("m"), date ("d"), date("Y"));
+	$zweih = mktime(date("H")-1, 0 + $timezoneoffset, 0, date("m"), date ("d"), date("Y"));
+	$sechsh = mktime(date("H")-5, 0 + $timezoneoffset, 0, date("m"), date ("d"), date("Y"));
+	$zwoelfh = mktime(date("H")-11, 0 + $timezoneoffset, 0, date("m"), date ("d"), date("Y"));
 	
 	$query_getProjetData = mysqli_query($db_conn,"SELECT * from boinc_grundwerte where project_shortname = '$projectid'"); //alle Projektgrunddaten einlesen
 	if ( !$query_getProjetData || mysqli_num_rows($query_getProjetData) === 0 ) { 
@@ -208,7 +209,7 @@
 		$table_row["sum12h"] = $row2["sum12h"];
 		$sum12h_total += $table_row["sum12h"];
 
-		$tagesanfang = mktime(1, 0, 0, date("m") + $timezoneoffset, date ("d"), date("Y"));
+		$tagesanfang = mktime(1, 0 + $timezoneoffset, 0, date("m"), date ("d"), date("Y"));
 		
 		$query_getProjectOutputToday = mysqli_query($db_conn,"SELECT sum(credits) AS sum_today FROM boinc_werte WHERE project_shortname = '" .$shortname. "' and time_stamp > '" .$tagesanfang. "'");
 		if ( !$query_getProjectOutputToday || mysqli_num_rows($query_getProjectOutputToday) === 0 ) { 
@@ -222,8 +223,8 @@
 		$table_row["sum_today"] = $row2["sum_today"];
 		$sum_today_total += $table_row["sum_today"];
 		
-		$gestern_anfang = mktime(1, 0, 0, date("m") + $timezoneoffset, date("d") - 1, date("Y"));
-		$gestern_ende = mktime(2, 0, 0, date("m") + $timezoneoffset, date("d"), date("Y"));
+		$gestern_anfang = mktime(1, 0 + $timezoneoffset, 0, date("m"), date("d") - 1, date("Y"));
+		$gestern_ende = mktime(2, 0 + $timezoneoffset, 0, date("m"), date("d"), date("Y"));
 
 		$query_getProjectOutputYesterday = mysqli_query($db_conn,"SELECT sum(credits) AS sum_yesterday FROM boinc_werte WHERE project_shortname = '" .$shortname. "' AND time_stamp > '" .$gestern_anfang. "' AND time_stamp < '" .$gestern_ende. "'");
 		if ( !$query_getProjectOutputYesterday || mysqli_num_rows($query_getProjectOutputYesterday) === 0 ) { 
