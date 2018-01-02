@@ -10,7 +10,7 @@ Deine eigenen Statistiken sind unabhängig von den täglichen Exporten der BOINC
 
 Die grafische Aufbereitung erfolgt über Highcharts; ein aktuelles und vom Design her modernes Chart-System.
 
-Mehr Infos auf: https://userstats.timo-schneider.de
+Mehr Infos auf: https://boinc-userstats.de
 
 
 
