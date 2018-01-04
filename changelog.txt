@@ -68,7 +68,7 @@ Solche Versionen sollten ausschließelich in Test-Umgebungen eingesetzt werden!
  dev_56: php error-Ausgaben für tasks.php und error.php behoben
  
  beta01: errorhandling für falsche Projekt-IDs verändert, Footer aktualisiert auf neue HP
-
+ beta02: Option zum Einbinden der Computer in die tasks.php integriert ($showHostsBoinctasks). Diese müssen (derzeit noch) in der tasks.php manuell konfiguriert werden.
  
 - Die Version 5.0.0 wurde mit sehr viel Liebe zum Detail erstellt. Dies wurde im Footer deutlich gemacht. Zudem wurde das Copyright-Symbol entfernt. Der Code steht unter MIT-Lizenz.
 - Das Design wurde erneuert. Es besteht nun die Möglichkeit, die Farben individuell anzupassen (assets/css/userstats_style.css).

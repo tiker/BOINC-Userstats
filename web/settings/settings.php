@@ -111,6 +111,14 @@
 	$linkBoinctasks = "./tasks.php"; // Link zu den laufenden WUs von XSmeagolX
 	$linkUploadFileBoinctasks = "./tasks/tasks.html"; // Link zum Upload-File von Boinctasks
 
+	// Hier besteht die Option, deine Computer der Seite mit den laufenden Berechnungen hinzuzufügen
+	// Diese müssen (derzeit noch) in der Datei tasks.php ab Zeile 73 manuell konfiguriert werden
+	// Dort sind beispielhaft drei Computer aufgeführt
+	// Option to show/hide your computers at the end of the task list
+	// You need to configure the table in the file tasks.php starting at line 73, if this option is set to true
+	// Three computers were preconfigured as an example
+	$showHostsEndofTasks = false; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
+
 	// Hier die URL zum WCG, wird im Seitenkopf angezeigt
 	// Falls die "show more"-Links nicht angezeigt werden sollen, so kann hier individuell der Link zum WCG aktiviert werden
 	$hasWcg = false; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false

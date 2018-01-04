@@ -6,7 +6,7 @@
 	$text_hp_title = "Persönliche Userstatistiken von " .$boinc_username. " aus dem Team " .$boinc_teamname;
 	$text_header_motto = "BOINC-Projekte von";
 	$text_header_pendings = "Pending Credits von";
-	$text_header_tasks = "Laufende WUs von";
+	$text_header_tasks = "aktive Berechnungen von";
 	$text_header_ot = "aus dem Team";
 	$text_header_lu = "letzte Aktualisierung";
 	$text_boinc_total = "BOINC Gesamt";
