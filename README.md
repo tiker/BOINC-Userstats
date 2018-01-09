@@ -13,10 +13,12 @@ Highsoft software Produkte sind nicht frei für kommerzielle und staatliche Nutz
 
 Mehr Infos auf: https://boinc-userstats.de
 
-Danke:
-======
+### Danke:
+
 Mein Dank gilt den Nutzern meiner Stats.
 Ebenso danke ich allen, die mich mit Rat und Tat unterstützt haben.
+
+
 
 
 # English Version
@@ -30,7 +32,7 @@ Highsoft software products are not free for commercial and Governmental use.
 
 More Infos at: https://boinc-userstats.de
 
-Thanks:
-======
+### Thanks:
+
 Many thanks to the users of this stats.
 And thanks to everyone, who helped me with this stats.
