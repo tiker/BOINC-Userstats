@@ -1,5 +1,5 @@
-# Pers-nliche-BOINC-Userstats
-Persönliche BOINC Userstats
+# BOINC-Userstats
+BOINC Userstats
 
 Losgelöst von den renommierten BOINC-Statistiken kann man mit den persönlichen BOINC Userstats seine eigene Statistik-Webseite erstellen.
 Sie umfassen anders als die täglichen Exporte stündlich aktuelle Statistiken über deine BOINC Projekte, an denen Du dich beteiligst.
@@ -9,6 +9,8 @@ Du bist also immer up-to-date, egal zu welcher Tages- oder Nachtzeit.
 Deine eigenen Statistiken sind unabhängig von den täglichen Exporten der BOINC-Projekte.
 
 Die grafische Aufbereitung erfolgt über Highcharts; ein aktuelles und vom Design her modernes Chart-System.
+Beachte, dass eine kostenfreie Nutzung von highcharts nur für Non-commercial erlaubt ist!
+Highsoft software Produkte sind nicht frei für kommerzielle und staatliche Nutzung.
 
 Mehr Infos auf: https://boinc-userstats.de
 

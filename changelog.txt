@@ -1,5 +1,28 @@
 Version 5.0.0:
 ==============
+- Die Version 5.0.0 wurde mit sehr viel Liebe zum Detail erstellt. Dies wurde im Footer deutlich gemacht. Zudem wurde das Copyright-Symbol entfernt. Der Code steht unter MIT-Lizenz.
+- Das Design wurde erneuert. Es besteht nun die Möglichkeit, die Farben individuell anzupassen (assets/css/userstats_style.css).
+  Von der assets/css/userstats_layout.css würde ich die Finger lassen! Diese beinhaltet die wichtigen Einstellungen zum Seiten-Layout.
+- Die Navbar ist nun als fester Bestandteil integriert worden. Sie beinhaltet nun die wichtigsten Links.
+  Sie kann aber dennoch komplett deaktiviert werden (führt evtl. zu Navigationsproblemen) bzw. deren Inhalt kann frei konfiguriert werden.
+  Insgesamt wird durch die permanente Integration nun auch der Seitenheader etwas kleiner.
+- Das reponsive Verhalten der Seite wurde insgesamt deutlich verbessert und gibt je nach Device-Größe nun nur noch die wichtigsten Inhalte aus
+- seperate Module für weitere Projekt-Details (Verzeichnis modules/project_details), in Vorbereitung für weitere Projekt-Details (derzeit nur WCG)
+- weitere Projekt-Detail-Stats haben nun einen eigenen Tab beim Aufrufen der Projekt-Stats (derzeit nur WCG)
+- Pending Credits: Es werden nur noch Projekte ausgegeben, die den Export der Pendings unterstützen bzw. deren Wert größer 0 ist
+  Zudem wurde das Design ein wenig angepasst
+- Die Links zu den Projektseiten von beendeten Projekten wurde entfernt.
+  Oft existiert die Webpräsenz nicht mehr und wurde von Domaingrabbern mit Werbeinhalten versehen. Solche Seiten möchte ich nicht länger verlinkt haben.
+- Die blaue Leiste unter dem Header dient nun als Informations-Leiste und gibt je nach Umstand mehr Infos aus oder wechselt die Farbe.
+  Es wurde z.B. eine Prüfung integriert, die beim Aufrufen der Seite eine entsprechende Ausgabe tätigt, falls gerade Daten von den Projekten erhoben werden bzw. ob das Projekt beendet ist.
+- Beendete Projekte in der Projekt-Übersicht werden standardmäßig nicht angezeigt. Ein "Schalter" zum Anzeigen beendeter Projekte wurde hinzugfügt und befindet sich direkt neben dem Text "beendete Projekte"
+- Die Laufzeit der cronjob.php wurde reduziert. Dazu werden die Pending Credits nur noch um Mitternacht automatisch aktualisiert. Ein manuelles Update ist jederzeit über die pendings.php möglich.
+- Die Berechnung für den Gesamt-Chart wurde geändert. Eine Option für die Zeitzone wurde integriert, damit sich die Berechnung nun an der gewünschten Zeitzone orientiert.
+- Integration von Zeitzonen. Die Werte sollten nun insgesamt entsprechend der voreingestellten Zeitzone angezeigt werden, egal in welcher Zeitzone der Client steht.
+- Der Seitenheader ist nun interaktiver und der Inhalt ändert sich, je nachdem welche Seite aufgerufen wurde.
+
+Historie zu Version 5:
+======================
 
 build-Versionen mit der Bezeichnung dev_ oder beta sind noch in Entwicklung und es kann zu unvorhersehbaren Fehlern kommen!
 Solche Versionen sollten ausschließelich in Test-Umgebungen eingesetzt werden!
@@ -70,27 +93,6 @@ Solche Versionen sollten ausschließelich in Test-Umgebungen eingesetzt werden!
  beta01: errorhandling für falsche Projekt-IDs verändert, Footer aktualisiert auf neue HP
  beta02: Option zum Einbinden der Computer in die tasks.php integriert ($showHostsBoinctasks). Diese müssen (derzeit noch) in der tasks.php manuell konfiguriert werden.
  
-- Die Version 5.0.0 wurde mit sehr viel Liebe zum Detail erstellt. Dies wurde im Footer deutlich gemacht. Zudem wurde das Copyright-Symbol entfernt. Der Code steht unter MIT-Lizenz.
-- Das Design wurde erneuert. Es besteht nun die Möglichkeit, die Farben individuell anzupassen (assets/css/userstats_style.css).
-  Von der assets/css/userstats_layout.css würde ich die Finger lassen! Diese beinhaltet die wichtigen Einstellungen zum Seiten-Layout.
-- Die Navbar ist nun als fester Bestandteil integriert worden. Sie beinhaltet nun die wichtigsten Links.
-  Sie kann aber dennoch komplett deaktiviert werden (führt evtl. zu Navigationsproblemen) bzw. deren Inhalt kann frei konfiguriert werden.
-  Insgesamt wird durch die permanente Integration nun auch der Seitenheader etwas kleiner.
-- Das reponsive Verhalten der Seite wurde insgesamt deutlich verbessert und gibt je nach Device-Größe nun nur noch die wichtigsten Inhalte aus
-- seperate Module für weitere Projekt-Details (Verzeichnis modules/project_details), in Vorbereitung für weitere Projekt-Details (derzeit nur WCG)
-- weitere Projekt-Detail-Stats haben nun einen eigenen Tab beim Aufrufen der Projekt-Stats (derzeit nur WCG)
-- Pending Credits: Es werden nur noch Projekte ausgegeben, die den Export der Pendings unterstützen bzw. deren Wert größer 0 ist
-  Zudem wurde das Design ein wenig angepasst
-- Die Links zu den Projektseiten von beendeten Projekten wurde entfernt.
-  Oft existiert die Webpräsenz nicht mehr und wurde von Domaingrabbern mit Werbeinhalten versehen. Solche Seiten möchte ich nicht länger verlinkt haben.
-- Die blaue Leiste unter dem Header dient nun als Informations-Leiste und gibt je nach Umstand mehr Infos aus oder wechselt die Farbe.
-  Es wurde z.B. eine Prüfung integriert, die beim Aufrufen der Seite eine entsprechende Ausgabe tätigt, falls gerade Daten von den Projekten erhoben werden bzw. ob das Projekt beendet ist.
-- Beendete Projekte in der Projekt-Übersicht werden standardmäßig nicht angezeigt. Ein "Schalter" zum Anzeigen beendeter Projekte wurde hinzugfügt und befindet sich direkt neben dem Text "beendete Projekte"
-- Die Laufzeit der cronjob.php wurde reduziert. Dazu werden die Pending Credits nur noch um Mitternacht automatisch aktualisiert. Ein manuelles Update ist jederzeit über die pendings.php möglich.
-- Die Berechnung für den Gesamt-Chart wurde geändert. Eine Option für die Zeitzone wurde integriert, damit sich die Berechnung nun an der gewünschten Zeitzone orientiert.
-- Integration von Zeitzonen. Die Werte sollten nun insgesamt entsprechend der voreingestellten Zeitzone angezeigt werden, egal in welcher Zeitzone der Client steht.
-- Der Seitenheader ist nun interaktiver und der Inhalt ändert sich, je nachdem welche Seite aufgerufen wurde.
-
 
 ToDo:
 -----
