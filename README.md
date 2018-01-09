@@ -1,5 +1,4 @@
 # BOINC-Userstats
-BOINC Userstats
 
 Losgelöst von den renommierten BOINC-Statistiken kann man mit den persönlichen BOINC Userstats seine eigene Statistik-Webseite erstellen.
 Sie umfassen anders als die täglichen Exporte stündlich aktuelle Statistiken über deine BOINC Projekte, an denen Du dich beteiligst.
@@ -14,9 +13,24 @@ Highsoft software Produkte sind nicht frei für kommerzielle und staatliche Nutz
 
 Mehr Infos auf: https://boinc-userstats.de
 
-
-
 Danke:
 ======
 Mein Dank gilt den Nutzern meiner Stats.
 Ebenso danke ich allen, die mich mit Rat und Tat unterstützt haben.
+
+
+# English Version
+In difference to other known BOINC statistics, you can create your own statistics website using the personal BOINC userstats. Unlike daily exports, they include up-to-date hourly updated statistics on your BOINC projects you are participating in
+
+With these stats you can check your credits every hour on the BOINC projects that support WebRPC. So you are always up-to-date, no matter what time of day or night. 
+Your own statistics are independent of the daily exports of BOINC projects.
+
+The graphic processing is done via highcharts; a current and modern design chart system.
+Highsoft software products are not free for commercial and Governmental use.
+
+More Infos at: https://boinc-userstats.de
+
+Thanks:
+======
+Many thanks to the users of this stats.
+And thanks to everyone, who helped me with this stats.
