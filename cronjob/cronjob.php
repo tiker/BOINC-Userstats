@@ -86,10 +86,6 @@
 		mysqli_query($db_conn,$sql);
 		
 		if ($isMidnight) {
-			$sql= "INSERT INTO boinc_werte_day (project_shortname, time_stamp, total_credits, pending_credits) 
-			VALUES ('" .$row['project_shortname']. "', '" .$timestamp_hour. "', ".$total_credits.", ".$pending_credits.")";
-			mysqli_query($db_conn,$sql);
-
 			// automatic update of pending credits only on midnight. manual update can be done by using pendings.php
 			// Die Pending Credits werden automatisiert nur einmal um Mitternacht aktualisiert. Ein manuelles Update kann jederzeit über die pendings.php erfolgen
 			$xml_string_pendings = FALSE;
@@ -101,6 +97,10 @@
 				$xml_pendings = @simplexml_load_string($xml_string_pendings);
 				$pending_credits = intval($xml_pendings->total_claimed_credit);
 			}
+
+			$sql_insertProjectPendings= "INSERT INTO boinc_werte_day (project_shortname, time_stamp, total_credits, pending_credits) 
+			VALUES ('" .$row['project_shortname']. "', '" .$timestamp_hour. "', ".$total_credits.", ".$pending_credits.")";
+			mysqli_query($db_conn,$sql_insertProjectPendings);
 
 			$sql_pendings = "UPDATE boinc_grundwerte SET pending_credits='" .$pending_credits. "' WHERE project_shortname='" .$row['project_shortname']. "'";
 			mysqli_query($db_conn,$sql_pendings); 
