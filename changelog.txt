@@ -1,3 +1,8 @@
+Version 5.0.1:
+==============
+- Behebt einen Fehler in der Speicherung der Pending Credits in der cronjob.php um Mitternacht
+
+
 Version 5.0.0:
 ==============
 - Die Version 5.0.0 wurde mit sehr viel Liebe zum Detail erstellt. Dies wurde im Footer deutlich gemacht. Zudem wurde das Copyright-Symbol entfernt. Der Code steht unter MIT-Lizenz.
