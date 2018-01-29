@@ -1,3 +1,18 @@
+Version 5.0.2: (derzeit noch in dev - KEIN RELEASE)
+==============
+- Integration einer Update-Prüfung
+
+geänderte Dateien:
+    - check_update.php (neu)
+    - footer.php
+    - header.php
+    - nav.php
+    - version.php
+    - de.txt.php
+    - en.txt.php
+    - settings.php
+    - changelog.txt
+
 Version 5.0.1:
 ==============
 - Behebt einen Fehler in der Speicherung der Pending Credits in der cronjob.php um Mitternacht

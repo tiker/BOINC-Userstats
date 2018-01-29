@@ -1,3 +1,3 @@
 <?php
-	$userstats_version = "V 5.0.1";	
+	$userstats_version = "5.0.2 dev";	
 ?>

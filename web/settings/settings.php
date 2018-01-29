@@ -128,7 +128,12 @@
 	// Option zum Anzeigen eines Links zum Aktualisieren der Pending Credits
 	$hasPendings = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
 	$linkNamePendings = "Pendings";
-	$linkPendings = "./pendings.php"; // Link zu den laufenden WUs von XSmeagolX	
+	$linkPendings = "./pendings.php"; // Link zu den laufenden WUs von XSmeagolX
+	
+	// Update-Check
+	// Option zur automatischen Prüfung, ob ein Update verfügbar ist und dies in der Navbar angezeigt wird.
+	// Option to automatically check for updates and show in Navbar if update is available
+	$setUpdatecheck = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist true
 	
 	// Auswahl der Projekte fuer Tortendiagramm
 	// Hier den Wert eintragen, ab welchem Prozentanteil die Projekte separat im Kuchen ausgegeben werden sollen (Standard 1 fuer ab 1%, kann aber auch 10, 2, 0.3 eingetragen werden)

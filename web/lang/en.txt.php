@@ -7,6 +7,13 @@
 	$text_header_motto = "BOINC-Projects of";
 	$text_header_pendings = "Pending Credits of";
 	$text_header_tasks = "Running Tasks of";
+	$text_header_update = "Update-Check";
+	$text_update_nocheck = "The update check is not available at the moment.";
+	$text_update_false = "Your version is up to date.";
+	$text_update_true = "You find the latest release on:";
+	$text_update_info_false = "Thank you for being up-to-date!";
+	$text_update_info_true = "Attention! An update is available.";
+	$linkNameUpdate = "Update available";
 	$text_header_ot = "of team";
 	$text_header_lu = "last update";
 	$text_boinc_total = "BOINC combined";

@@ -7,6 +7,13 @@
 	$text_header_motto = "BOINC-Projekte von";
 	$text_header_pendings = "Pending Credits von";
 	$text_header_tasks = "aktive Berechnungen von";
+	$text_header_update = "Update-Prüfung";
+	$text_update_nocheck = "Es konnte keine Prüfung durchgeführt werden.";
+	$text_update_false = "Du benutzt die aktuellste Version.";
+	$text_update_true = "Die jeweils aktuellste Version findest Du unter:";
+	$text_update_info_false = "Vielen Dank!";
+	$text_update_info_true = "Achtung! Es ist eine aktuellere Version verfügbar.";
+	$linkNameUpdate = "Update verfügbar";
 	$text_header_ot = "aus dem Team";
 	$text_header_lu = "letzte Aktualisierung";
 	$text_boinc_total = "BOINC Gesamt";

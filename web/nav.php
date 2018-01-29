@@ -1,3 +1,21 @@
+<?php
+	if ($setUpdatecheck) {
+		$xml_string = FALSE;
+		$xml_string = @file_get_contents ("https://boinc-userstats.de/latest_release.xml", 0, $ctx);
+		$xml = @simplexml_load_string($xml_string);
+		$update_available = false;
+		if($xml_string == FALSE) {
+			$update_available = false;
+		}
+		elseif($xml == $userstats_version) {
+			$update_available = false;
+		}
+		else {
+			$update_available = true;
+		}
+	};
+?>
+
 <nav class = "navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-userstats">
 	<div class = "container">
 		<a class = "navbar-brand" href = "<?php echo $hp_nav_brand_link; ?>">
@@ -73,6 +91,13 @@
 						</div>
 					</li>
 				';
+				};
+				if ($setUpdatecheck) {
+					if ( $update_available ) {
+						echo "<li class = 'nav-item'>";
+						echo "<a class = 'nav-link' href = 'check_update.php' class = 'btn btn-neutral btn-simple'><i class = 'text-md fa fa-exclamation-circle'></i> " . $linkNameUpdate . "</a>";
+						echo "</li>";
+					}
 				};
 				?>
 			</ul>

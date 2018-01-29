@@ -9,7 +9,7 @@
 								<a href = "https://github.com/XSmeagolX/Pers-nliche-BOINC-Userstats/blob/Version-5/LICENSE" target = "_new">License</a> 
 							</div>
 							<div class = "col-12 col-md-6 mx-auto texthellgrau text-center align-self-center order-first">
-								<a href = "https://boinc-userstats.de" target = "_blank">BOINC Userstats</a> 
+								<a href = "https://boinc-userstats.de" target = "_blank">BOINC Userstats</a> - Version 
 								<?php echo $userstats_version; ?><br>made with <font color = "#f57c7c"><i class = "fa fa-heart"></i></font> by <a href = "https://timo-schneider.de" target = "_blank">Timo Schneider</a><br><font size = "1">XSmeagolX - Team <a href = "https://seti-germany.de"><img src = "./assets/images/sg_logo_klein.png"></a></font>
 							</div>
 						</div>

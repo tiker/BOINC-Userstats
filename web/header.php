@@ -81,12 +81,14 @@
 								<h1 class = "title"><font color = "white">' . $text_header_pendings . '</font></h1>
 							';} else if ($showTasksHeader) { echo '
 								<h1 class = "title"><font color = "white">' . $text_header_tasks . '</font></h1>
+							';} else if ($showUpdateHeader) { echo '
+								<h1 class = "title"><font color = "white">' . $text_header_update . '</font></h1>
 							';} else { echo '
 								<h1 class = "title"><font color = "white">' . $text_header_motto .  '</font></h1>
 							';};
 							?>
 							<h3><font color = "white"><?php echo "$boinc_username" . " <font size = '3'> " . $text_header_ot . "</font> " . $boinc_teamname ?></font></h3>
-							
+
 							<?php 
 								//sind laufende WUs im Internet ersichtlich
 #								if ( $hasBoinctasks ) {
