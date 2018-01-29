@@ -8,6 +8,8 @@ geänderte Dateien:
     - footer.php
     - header.php
     - nav.php
+    - index.php
+    - project.php
     - version.php
     - de.txt.php
     - en.txt.php
