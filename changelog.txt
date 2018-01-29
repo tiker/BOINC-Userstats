@@ -1,6 +1,7 @@
 Version 5.0.2: (derzeit noch in dev - KEIN RELEASE)
 ==============
 - Integration einer Update-Prüfung
+- Einbindung von Bootstrap 4 Release
 
 geänderte Dateien:
     - check_update.php (neu)

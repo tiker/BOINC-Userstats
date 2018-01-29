@@ -304,38 +304,19 @@
 		';
 	}
 ?>
-
-		<div class = "container-fluid">
-			<ul class = "nav nav-tabs nav-space justify-content-center nav-tabs-userstats" id = "myTab" role = "tablist">
-				<li class = "nav-item">
-					<a class = "nav-link active" id = "projekte-tab" data-toggle = "tab" href = "#projekte" role = "tab" aria-controls = "projekte" aria-selected = "true"><i class = "fa fa-table"></i> <?php echo "$tabs_projects" ?></a>
-				</li>
-				<li class = "nav-item">
-					<a class = "nav-link" id = "pie-tab" data-toggle = "tab" href = "#pie" role = "tab" aria-controls = "pie" aria-selected = "false"><i class = "fa fa-pie-chart"></i> <?php echo "$tabs_pie" ?></a>
-				</li>
-				<li class = "nav-item">
-					<a class = "nav-link" id = "gesamt-tab" data-toggle = "tab" href = "#gesamt" role = "tab" aria-controls = "gesamt" aria-selected = "false"><i class = "fa fa-area-chart"></i> <?php echo "$tabs_total" ?></a>
-				</li>
-				<li class = "nav-item">
-					<a class = "nav-link" id = "stunde-tab" data-toggle = "tab" href = "#stunde" role = "tab" aria-controls = "stunde" aria-selected = "false"><i class = "fa fa-bar-chart"></i> <?php echo "$tabs_hour" ?></a>
-				</li>
-				<li class = "nav-item">
-					<a class = "nav-link" id = "tag-tab" data-toggle = "tab" href = "#tag" role = "tab" aria-controls = "tag" aria-selected = "false"><i class = "fa fa-bar-chart"></i> <?php echo "$tabs_day" ?></a>
-				</li>
-				<li class = "nav-item">
-					<a class = "nav-link" id = "woche-tab" data-toggle = "tab" href = "#woche" role = "tab" aria-controls = "woche" aria-selected = "false"><i class = "fa fa-bar-chart"></i> <?php echo "$tabs_week" ?></a>
-				</li>
-				<li class = "nav-item">
-					<a class = "nav-link" id = "monat-tab" data-toggle = "tab" href = "#monat" role = "tab" aria-controls = "monat" aria-selected = "false"><i class = "fa fa-bar-chart"></i> <?php echo "$tabs_month" ?></a>
-				</li>
-				<li class = "nav-item">
-					<a class = "nav-link" id = "jahr-tab" data-toggle = "tab" href = "#jahr" role = "tab" aria-controls = "jahr" aria-selected = "false"><i class = "fa fa-bar-chart"></i> <?php echo "$tabs_year" ?></a>
-				</li>
-				<li class = "nav-item">
-					<a class = "nav-link" id = "badges-tab" data-toggle = "tab" href = "#badges" role = "tab" aria-controls = "badges" aria-selected = "false"><i class = "fa fa-certificate"></i> <?php echo "$tabs_badge" ?></a>
-				</li>
-			</ul>
-		</div>
+		<nav>
+			<div class = "nav nav-tabs nav-space justify-content-center nav-tabs-userstats">
+				<a class = "nav-item nav-link active" id = "projekte-tab" data-toggle = "tab" href = "#projekte" role = "tab" aria-controls = "projekte" aria-selected = "true"><i class = "fa fa-table"></i> <?php echo "$tabs_projects" ?></a>
+				<a class = "nav-item nav-link" id = "pie-tab" data-toggle = "tab" href = "#pie" role = "tab" aria-controls = "pie" aria-selected = "false"><i class = "fa fa-pie-chart"></i> <?php echo "$tabs_pie" ?></a>
+				<a class = "nav-item nav-link" id = "gesamt-tab" data-toggle = "tab" href = "#gesamt" role = "tab" aria-controls = "gesamt" aria-selected = "false"><i class = "fa fa-area-chart"></i> <?php echo "$tabs_total" ?></a>
+				<a class = "nav-item nav-link" id = "stunde-tab" data-toggle = "tab" href = "#stunde" role = "tab" aria-controls = "stunde" aria-selected = "false"><i class = "fa fa-bar-chart"></i> <?php echo "$tabs_hour" ?></a>
+				<a class = "nav-item nav-link" id = "tag-tab" data-toggle = "tab" href = "#tag" role = "tab" aria-controls = "tag" aria-selected = "false"><i class = "fa fa-bar-chart"></i> <?php echo "$tabs_day" ?></a>
+				<a class = "nav-item nav-link" id = "woche-tab" data-toggle = "tab" href = "#woche" role = "tab" aria-controls = "woche" aria-selected = "false"><i class = "fa fa-bar-chart"></i> <?php echo "$tabs_week" ?></a>
+				<a class = "nav-item nav-link" id = "monat-tab" data-toggle = "tab" href = "#monat" role = "tab" aria-controls = "monat" aria-selected = "false"><i class = "fa fa-bar-chart"></i> <?php echo "$tabs_month" ?></a>
+				<a class = "nav-item nav-link" id = "jahr-tab" data-toggle = "tab" href = "#jahr" role = "tab" aria-controls = "jahr" aria-selected = "false"><i class = "fa fa-bar-chart"></i> <?php echo "$tabs_year" ?></a>
+				<a class = "nav-item nav-link" id = "badges-tab" data-toggle = "tab" href = "#badges" role = "tab" aria-controls = "badges" aria-selected = "false"><i class = "fa fa-certificate"></i> <?php echo "$tabs_badge" ?></a>
+			</div>
+		</nav>
 
 		<div class = "tab-content flex1" id = "myTabContent">
 
@@ -541,7 +522,7 @@
 			$('.toggle-text').click(function() {
 				$(this).find('span').each(function() { $(this).toggle(); });
 			});
-		</script>.
+		</script>
 		
 		<script>
 			$(document).ready(function() {
