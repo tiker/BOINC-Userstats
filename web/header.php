@@ -42,7 +42,12 @@
 		<meta charset = "utf-8">
 		<meta name = "viewport" content = "width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<!-- Bootstrap -->
+		<!-- Bootstrap 4 release -->
+		<!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script-->
+		<!-- Bootstrap 4 - beta2 -->
 		<script src = "https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity = "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin = "anonymous"></script>
 		<script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity = "sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin = "anonymous"></script>
 		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity = "sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin = "anonymous"></script>
@@ -88,29 +93,6 @@
 							';};
 							?>
 							<h3><font color = "white"><?php echo "$boinc_username" . " <font size = '3'> " . $text_header_ot . "</font> " . $boinc_teamname ?></font></h3>
-
-							<?php 
-								//sind laufende WUs im Internet ersichtlich
-#								if ( $hasBoinctasks ) {
-#									echo '<a href = "' . $linkBoinctasks . '" class = "btn btn-neutral btn-simple"><i class = "fa fa-tasks"></i> ' . $linkNameBoinctasks . '</a>';
-#								};
-								//Link zu Boinctasks
-#								if ( $hasBoincstats ) {
-#									echo '<a href = "' . $linkBoincstats . '" target = "_new" class = "btn btn-neutral btn-simple"><i class = "fa fa-bar-chart"></i> ' . $linkNameBoincstats . '</a>';
-#								};
-								//Link zu Team
-#								if ( $hasTeamHp ) {
-#									echo '<a href = "' . $teamHpURL . '" target = "_new" class = "btn btn-neutral btn-simple"><i class = "fa fa-link"></i> ' . $teamHpName . '</a>';
-#								};
-								//Link zu WCG
-#								if ( $hasWcg ) {
-#									echo '<a href = "' . $linkWcg . '" target = "_new" class = "btn btn-neutral btn-simple"><i class = "fa fa-globe"></i> ' . $linkNameWcg . '</a>';
-#								};
-								//Pendings
-#								if ( $hasPendings ) {
-#									echo '<a href = "' . $linkPendings . '" class = "btn btn-neutral btn-simple"><i class = "fa fa-refresh"></i> ' . $linkNamePendings . '</a>';
-#								};
-							?>
 						</div>
 					</div>
 				</div>
