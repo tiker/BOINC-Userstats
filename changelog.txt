@@ -2,18 +2,24 @@ Version 5.0.2: (derzeit noch in dev - KEIN RELEASE)
 ==============
 - Integration einer Update-Prüfung
 - Einbindung von Bootstrap 4 Release
+- Codeanpassungen
 
 geänderte Dateien:
     - check_update.php (neu)
-    - footer.php
-    - header.php
-    - nav.php
-    - index.php
-    - project.php
-    - version.php
+    - ajax_project.php
+    - ajax_wcg_detail.php
     - de.txt.php
     - en.txt.php
+    - error.php
+    - footer.php
+    - header.php
+    - index.php
+    - nav.php
+    - pendings.php
+    - project.php
     - settings.php
+    - tasks.php
+    - version.php
     - changelog.txt
 
 Version 5.0.1:

@@ -2,7 +2,7 @@
 
 include "./settings/settings.php";
 
-$query_getUserData = mysqli_query($db_conn, "SELECT * from boinc_user");
+$query_getUserData = mysqli_query($db_conn, "SELECT * FROM boinc_user");
 if ( !$query_getUserData ) { 	
 	$connErrorTitle = "Datenbankfehler";
 	$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>

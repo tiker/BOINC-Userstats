@@ -6,7 +6,7 @@
     $showTasksHeader = false;
     $showUpdateHeader = true;
     
-	$query_getUserData = mysqli_query($db_conn, "SELECT * from boinc_user");
+	$query_getUserData = mysqli_query($db_conn, "SELECT * FROM boinc_user");
 	if ( !$query_getUserData ) { 	
 		$connErrorTitle = "Datenbankfehler";
 		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -46,11 +46,11 @@
 		)
 	);
 
-	$xml_string = FALSE;
+	$xml_string = false;
 	$xml_string = @file_get_contents ("https://boinc-userstats.de/latest_release.xml", 0, $ctx);
 	$xml = @simplexml_load_string($xml_string);
 	$update_available = false;
-	if($xml_string == FALSE) {
+	if($xml_string == false) {
 		$update_available = false;
 		$output = $text_update_nocheck;
 	}

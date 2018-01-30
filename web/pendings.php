@@ -4,6 +4,7 @@
 	$showProjectHeader = false;
 	$showPendingsHeader = true;
 	$showTasksHeader = false;
+	$showUpdateHeader = false;
 	
 	$result_user = mysqli_query($db_conn, "SELECT * FROM boinc_user");
 	if ( !$result_user || mysqli_num_rows($result_user) === 0 ) { 	

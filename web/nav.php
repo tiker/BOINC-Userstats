@@ -1,10 +1,10 @@
 <?php
 	if ($setUpdatecheck) {
-		$xml_string = FALSE;
+		$xml_string = false;
 		$xml_string = @file_get_contents ("https://boinc-userstats.de/latest_release.xml", 0, $ctx);
 		$xml = @simplexml_load_string($xml_string);
 		$update_available = false;
-		if($xml_string == FALSE) {
+		if($xml_string == false) {
 			$update_available = false;
 		}
 		elseif($xml == $userstats_version) {

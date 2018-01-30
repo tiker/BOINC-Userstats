@@ -4,6 +4,7 @@
 	$showProjectHeader = false;
 	$showPendingsHeader = false;
 	$showTasksHeader = false;
+	$showUpdateHeader = false;
 
 	$sum1h_total = 0;
 	$sum2h_total = 0;
@@ -20,7 +21,7 @@
 	$hasactiveProject = false;
 	$hasretiredProject = false;
 
-	$query_getUserData = mysqli_query($db_conn, "SELECT * from boinc_user");
+	$query_getUserData = mysqli_query($db_conn, "SELECT * FROM boinc_user");
 	if ( !$query_getUserData ) { 	
 		$connErrorTitle = "Datenbankfehler";
 		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -51,7 +52,7 @@
 	$lastupdate_start = date("d.m.Y H:i:s", $datum_start + $timezoneoffset*3600);
 	$lastupdate = date("H:i:s", $datum + $timezoneoffset*3600);
 	
-	$query_getTotalCredits = mysqli_query($db_conn, "SELECT SUM(total_credits) AS sum_total from boinc_grundwerte");
+	$query_getTotalCredits = mysqli_query($db_conn, "SELECT SUM(total_credits) AS sum_total FROM boinc_grundwerte");
 	if ( !$query_getTotalCredits ) { 	
 		$connErrorTitle = "Datenbankfehler";
 		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
@@ -67,7 +68,7 @@
 	$row2 = mysqli_fetch_assoc($query_getTotalCredits);
 	$sum_total = $row2["sum_total"];
 	
-	$query_getTotalPendingCredits = mysqli_query($db_conn, "SELECT SUM(pending_credits) AS sum_total from boinc_grundwerte");
+	$query_getTotalPendingCredits = mysqli_query($db_conn, "SELECT SUM(pending_credits) AS sum_total FROM boinc_grundwerte");
 	if ( !$query_getTotalPendingCredits ) { 	
 		$connErrorTitle = "Datenbankfehler";
 		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>

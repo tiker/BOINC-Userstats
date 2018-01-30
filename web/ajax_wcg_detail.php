@@ -44,11 +44,11 @@
 	if (file_exists("./lang/" .$lang. ".txt.php")) include "./lang/" .$lang. ".txt.php";
 	else include "./lang/en.txt.php";
 
-	$xml_string = FALSE;
+	$xml_string = false;
 	$status = [];
 	$xml_string = @file_get_contents ("https://www.worldcommunitygrid.org/stat/viewProjects.do?xml=true");
 	$xml = @simplexml_load_string($xml_string);
-	if ( $xml !== FALSE) {
+	if ( $xml !== false) {
 		if ( $xml->getName() == 'unavailable') {
 			echo "<div class = 'alert alert-danger text-center'><strong>" . $wcg_detail_fehler . "</strong> " . $wcg_detail_fehler_text01 . "</div>"; 
 		}
@@ -62,10 +62,10 @@
 			$status[strval($project_status->Name)] = strval($project_status->Status);
 		}
 	
-	$xml_string = FALSE;
+	$xml_string = false;
 	$xml_string = @file_get_contents ("http://www.worldcommunitygrid.org/verifyMember.do?name=" . $boinc_wcgname . "&code=" . $wcg_verification . "");
 	$xml = @simplexml_load_string($xml_string);
-	if($xml_string == FALSE) echo "<div class = 'alert alert-danger'><strong>FEHLER!</strong> Die Liste der Projekte ist derzeit nicht verfügbar!</div>";
+	if($xml_string == false) echo "<div class = 'alert alert-danger'><strong>FEHLER!</strong> Die Liste der Projekte ist derzeit nicht verfügbar!</div>";
 	$last_result = strval($xml->MemberStats->MemberStat->LastResult);
 	
 	$total_time_stamp = date('Y-m-d H'). ':00:00';
