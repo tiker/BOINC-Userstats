@@ -62,11 +62,11 @@
 	$query=mysqli_query($db_conn,"SELECT * FROM boinc_grundwerte WHERE project_status = 1;") or die (mysqli_error());	
 	while($row=mysqli_fetch_assoc($query))
 	{
-		$xml_string = FALSE;
+		$xml_string = false;
 		$xml_string = @file_get_contents ($row['url'] . "show_user.php?userid=" . $row['project_userid'] . "&format=xml", 0, $ctx);
 		$xml = @simplexml_load_string($xml_string);
 		
-		if($xml_string == FALSE || intval($xml->total_credit)==0) {
+		if($xml_string == false || intval($xml->total_credit)==0) {
 			$total_credits = $row['total_credits'];
 			$diff1h = 0;
 		}
@@ -88,9 +88,9 @@
 		if ($isMidnight) {
 			// automatic update of pending credits only on midnight. manual update can be done by using pendings.php
 			// Die Pending Credits werden automatisiert nur einmal um Mitternacht aktualisiert. Ein manuelles Update kann jederzeit über die pendings.php erfolgen
-			$xml_string_pendings = FALSE;
+			$xml_string_pendings = false;
 			$xml_string_pendings = @file_get_contents ($row['url'] . "pending.php?format=xml&authenticator=" . $row['authenticator'], 0, $ctx);
-			if ($xml_string_pendings == FALSE) {
+			if ($xml_string_pendings == false) {
 				$pending_credits = $row['pending_credits'];
 			} 
 			else {

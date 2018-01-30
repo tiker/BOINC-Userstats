@@ -62,7 +62,7 @@
 					$pendings_gesamt = 0;
 					while ($row = mysqli_fetch_assoc($query)) {
 						$xml_string_pendings = @file_get_contents($row['url'] . "pending.php?format=xml&authenticator=" . $row['authenticator'], 0, $ctx);
-						if ($xml_string_pendings == FALSE) {
+						if ($xml_string_pendings == false) {
 							$projectname = $row['project'];
 							$pending_credits = $row['pending_credits'];
 						} else {
