@@ -20,10 +20,10 @@
 				<div class = "modal-dialog">
 					<div class = "modal-content ">
 						<div class = "modal-header">
+							<h4 class = "modal-title" id = "modelTitleId">Impressum</h4>
 							<button type = "button" class = "close" data-dismiss = "modal" aria-label = "Close">
 								<span aria-hidden = "true">&times;</span>
 							</button>
-							<h4 class = "modal-title" id = "modelTitleId">Impressum</h4>
 						</div>
 						<div class = "modal-body">
 							Angaben gemäß § 5 TMG:<br>
@@ -43,10 +43,10 @@
 				<div class = "modal-dialog">
 					<div class = "modal-content">
 						<div class = "modal-header">
+							<h4 class = "modal-title" id = "modelTitleId">Haftungsausschluss (Disclaimer)</h4>
 							<button type = "button" class = "close" data-dismiss = "modal" aria-label = "Close">
 								<span aria-hidden = "true">&times;</span>
 							</button>
-							<h4 class = "modal-title" id = "modelTitleId">Haftungsausschluss (Disclaimer)</h4>
 						</div>
 						<div class = "modal-body ">
 							<strong>Haftung für Inhalte</strong>
@@ -74,10 +74,10 @@
 				<div class = "modal-dialog">
 					<div class = "modal-content">
 						<div class = "modal-header">
+						<h4 class = "modal-title" id = "modelTitleId">Datenschutz</h4>
 							<button type = "button" class = "close" data-dismiss = "modal" aria-label = "Close">
 								<span aria-hidden = "true">&times;</span>
 							</button>
-							<h4 class = "modal-title" id = "modelTitleId">Datenschutz</h4>
 						</div>
 						<div class = "modal-body">
 							<strong>Auskunft, Löschung, Sperrung</strong>

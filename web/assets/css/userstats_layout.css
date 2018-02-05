@@ -170,6 +170,10 @@ table.dataTable thead .sorting::before, table.dataTable thead .sorting_asc::befo
 *****************/
 
 .modal-dialog {
-	max-width: 80%;
+	max-width: 60%;
 	margin: 30px auto;
+}
+
+.modal-body {
+	font-size: 10pt;
 }
