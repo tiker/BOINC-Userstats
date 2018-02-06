@@ -95,7 +95,7 @@
 				if ($setUpdatecheck) {
 					if ( $update_available ) {
 						echo "<li class = 'nav-item'>";
-						echo "<a class = 'nav-link' href = 'check_update.php' class = 'btn btn-neutral btn-simple'><i class = 'text-md fa fa-exclamation-circle'></i> " . $linkNameUpdate . "</a>";
+						echo "<a class = 'nav-link' href = 'check_update.php' class = 'btn btn-neutral btn-simple textgelb'><i class = 'text-md fa fa-exclamation-circle textgelb'></i><font class = 'textgelb'> " . $linkNameUpdate . "</font></a>";
 						echo "</li>";
 					}
 				};

@@ -60,7 +60,7 @@
 	}
 	else {
 		$update_available = true;
-		$output = $text_update_true;
+		$output = $text_update_print_version_local . $userstats_version . "<br>" .$text_update_print_version_remote . $xml . "<br><br>" .$text_update_true;
 	}
 
 	include("./header.php");

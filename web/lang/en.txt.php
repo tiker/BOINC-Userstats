@@ -10,6 +10,8 @@
 	$text_header_update = "Update-Check";
 	$text_update_nocheck = "The update check is not available at the moment.";
 	$text_update_false = "Your version is up to date.";
+	$text_update_print_version_local = "You are using version ";
+	$text_update_print_version_remote = "You can update to version: ";
 	$text_update_true = "You find the latest release on:";
 	$text_update_info_false = "Thank you for being up-to-date!";
 	$text_update_info_true = "Attention! An update is available.";

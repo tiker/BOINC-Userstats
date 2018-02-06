@@ -10,8 +10,8 @@ geänderte Dateien:
     - check_update.php (neu)
     - ajax_project.php
     - ajax_wcg_detail.php
-    - de.txt.php
-    - en.txt.php
+    - ./lang/de.txt.php
+    - ./lang/en.txt.php
     - error.php
     - footer.php
     - header.php
@@ -19,7 +19,7 @@ geänderte Dateien:
     - nav.php
     - pendings.php
     - project.php
-    - settings.php
+    - ./settings/settings.php
     - tasks.php
     - version.php
     - ../changelog.txt

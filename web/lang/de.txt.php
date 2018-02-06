@@ -10,6 +10,8 @@
 	$text_header_update = "Update-Prüfung";
 	$text_update_nocheck = "Es konnte keine Prüfung durchgeführt werden.";
 	$text_update_false = "Du benutzt die aktuellste Version.";
+	$text_update_print_version_local = "Du benutzt derzeit die Version ";
+	$text_update_print_version_remote = "Du kannst auf folgende Version updaten: ";
 	$text_update_true = "Die jeweils aktuellste Version findest Du unter:";
 	$text_update_info_false = "Vielen Dank!";
 	$text_update_info_true = "Achtung! Es ist eine aktuellere Version verfügbar.";
