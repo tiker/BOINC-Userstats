@@ -1,4 +1,5 @@
 <?php
+
 	if ($setUpdatecheck) {
 		$xml_string = false;
 		$xml_string = @file_get_contents ("https://boinc-userstats.de/latest_release.xml", 0, $ctx);
@@ -10,8 +11,12 @@
 		elseif($xml == $userstats_version) {
 			$update_available = false;
 		}
+		elseif ($xml > $userstats_version) {
+			$update_available = true;
+		}
 		else {
 			$update_available = true;
+			$didVersionEdit = true;
 		}
 	};
 ?>
@@ -92,11 +97,13 @@
 					</li>
 				';
 				};
-				if ($setUpdatecheck) {
-					if ( $update_available ) {
-						echo "<li class = 'nav-item'>";
-						echo "<a class = 'nav-link' href = 'check_update.php' class = 'btn btn-neutral btn-simple textgelb'><i class = 'text-md fa fa-exclamation-circle textgelb'></i><font class = 'textgelb'> " . $linkNameUpdate . "</font></a>";
-						echo "</li>";
+				if (!$didVersionEdit){
+					if ($setUpdatecheck) {
+						if ( $update_available ) {
+							echo "<li class = 'nav-item'>";
+							echo "<a class = 'nav-link' href = 'check_update.php' class = 'btn btn-neutral btn-simple textgelb'><i class = 'text-md fa fa-exclamation-circle textgelb'></i><font class = 'textgelb'> " . $linkNameUpdate . "</font></a>";
+							echo "</li>";
+						}
 					}
 				};
 				?>

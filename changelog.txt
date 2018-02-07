@@ -1,8 +1,12 @@
 Version 5.0.2: (derzeit noch in dev - KEIN RELEASE)
 ==============
 - Integration einer Update-Prüfung
+  Diese ist standardmäßig deaktiviert. Zum Aktivieren dieses Features muss in der ./settings/settings.php die Variable $setUpdatecheck auf true gesetzt werden.
+  Auch bei deaktivierter Option kann jederzeit über den Aufruf der check_update.php im Browser eine Prüfung erfolgen.
+  Bei aktiviertem Update-Check wird eine entsprechende Info (ganz rechts) in der Navbar angezeigt. Diese ist mit einem Link für weitere Infos (check_update.php) versehen.
 - Einbindung von Bootstrap 4 Release
-- Überschriften der Modals (Impressum etc.) werden nun an ihrer richtigen Position angezeigt. Zudem wurde das "Popup" etwas kleiner gestaltet und die Schrift entsprechend dem "Kleingedruckten" verkleinert.
+- Überschriften der Modals (Impressum etc.) werden nun an ihrer richtigen Position angezeigt.
+  Zudem wurde das "Popup" etwas kleiner gestaltet und die Schrift entsprechend dem "Kleingedruckten" verkleinert.
 - Codeanpassungen
 
 geänderte Dateien:
@@ -139,6 +143,7 @@ ToDo:
 - evtl. weitere Detail-Projekt-Module (PG?)
 - Navigation einfügen bei deaktivierter Navbar
 - Erstellung weiterer Templates für Code-Vereinfachung?
+- Integration von fontawesome Version 5
 - SASS
 
 

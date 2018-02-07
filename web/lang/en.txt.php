@@ -11,11 +11,12 @@
 	$text_update_nocheck = "The update check is not available at the moment.";
 	$text_update_false = "Your version is up to date.";
 	$text_update_print_version_local = "You are using version ";
-	$text_update_print_version_remote = "You can update to version: ";
+	$text_update_print_version_remote = "The version of the latest release is: ";
 	$text_update_true = "You find the latest release on:";
 	$text_update_info_false = "Thank you for being up-to-date!";
-	$text_update_info_true = "Attention! An update is available.";
+	$text_update_info_true = "Attention!";
 	$linkNameUpdate = "Update available";
+	$text_edit_version = "You manually edit the file version.php. An update check is not possible!";
 	$text_header_ot = "of team";
 	$text_header_lu = "last update";
 	$text_boinc_total = "BOINC combined";

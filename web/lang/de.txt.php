@@ -11,11 +11,12 @@
 	$text_update_nocheck = "Es konnte keine Prüfung durchgeführt werden.";
 	$text_update_false = "Du benutzt die aktuellste Version.";
 	$text_update_print_version_local = "Du benutzt derzeit die Version ";
-	$text_update_print_version_remote = "Du kannst auf folgende Version updaten: ";
+	$text_update_print_version_remote = "Das aktuellste Realease hat die Version: ";
 	$text_update_true = "Die jeweils aktuellste Version findest Du unter:";
 	$text_update_info_false = "Vielen Dank!";
-	$text_update_info_true = "Achtung! Es ist eine aktuellere Version verfügbar.";
+	$text_update_info_true = "Achtung!";
 	$linkNameUpdate = "Update verfügbar";
+	$text_edit_version = "Du hast die Datei version.php manuell verändert. Eine Updateprüfung ist somit nicht möglich!";
 	$text_header_ot = "aus dem Team";
 	$text_header_lu = "letzte Aktualisierung";
 	$text_boinc_total = "BOINC Gesamt";
