@@ -103,7 +103,7 @@
 	// Hier die URL zu SG-Stats von XSmeagolX aktivieren
 	$hasSGStats = true; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist true
 	$linkNameSGStats = "SG-Stats";
-	$linkSGStats = "https://timo-schneider.de/sgstats/"; //Link zu den SG-Stats von XSmeagolX
+	$linkSGStats = "https://sg.boinc-userstats.de/teamstats/status_index.php"; //Link zu den SG-Stats von XSmeagolX
 
 	// Hier die URL zu den laufenden WUs, falls Du diese mit Boinctasks veröffentlichst
 	$hasBoinctasks = false; // true - wenn angezeigt werden soll, ansonten auf false setzen. Standard ist false
