@@ -8,6 +8,7 @@ Version 5.0.2: (derzeit noch in dev - KEIN RELEASE)
 - Überschriften der Modals (Impressum etc.) werden nun an ihrer richtigen Position angezeigt.
   Zudem wurde das "Popup" etwas kleiner gestaltet und die Schrift entsprechend dem "Kleingedruckten" verkleinert.
 - Codeanpassungen
+- Es wurde ein Problem behoben, dass wenn ein Projekt neu hinzugefügt wurde, die Projekt-Details erst am Tag danach angezeigt wurden.
 
 geänderte Dateien:
     - ./assets/css/userstats_layout.css
