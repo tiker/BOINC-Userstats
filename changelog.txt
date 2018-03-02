@@ -1,4 +1,4 @@
-Version 5.0.2: (derzeit noch in dev - KEIN RELEASE)
+Version 5.0.2: 
 ==============
 - Integration einer Update-Prüfung
   Diese ist standardmäßig deaktiviert. Zum Aktivieren dieses Features muss in der ./settings/settings.php die Variable $setUpdatecheck auf true gesetzt werden.
