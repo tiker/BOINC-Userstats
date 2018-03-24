@@ -9,6 +9,7 @@ Version 5.0.2:
   Zudem wurde das "Popup" etwas kleiner gestaltet und die Schrift entsprechend dem "Kleingedruckten" verkleinert.
 - Codeanpassungen
 - Es wurde ein Problem behoben, dass wenn ein Projekt neu hinzugefügt wurde, die Projekt-Details erst am Tag danach angezeigt wurden.
+- Pending Credits sind nicht mehr Bestanteil des BOINC-Server Projektes (depreciated) und werden in zukünftigen Versionen entfernt.
 
 geänderte Dateien:
     - ./assets/css/userstats_layout.css
@@ -27,6 +28,7 @@ geänderte Dateien:
     - ./settings/settings.php
     - tasks.php
     - version.php
+    - ../cronjob/cronjob.php
     - ../changelog.txt
 
 

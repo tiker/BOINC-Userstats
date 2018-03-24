@@ -86,7 +86,9 @@
 		mysqli_query($db_conn,$sql);
 		
 		if ($isMidnight) {
+			// Pending Credits are depreciated and will be removed in future Releases
 			// automatic update of pending credits only on midnight. manual update can be done by using pendings.php
+			// Pending Credits sind nicht mehr Bestandteil des BOINC-Servers und wird mit zukünftigen Releases entfernt
 			// Die Pending Credits werden automatisiert nur einmal um Mitternacht aktualisiert. Ein manuelles Update kann jederzeit über die pendings.php erfolgen
 			$xml_string_pendings = false;
 			$xml_string_pendings = @file_get_contents ($row['url'] . "pending.php?format=xml&authenticator=" . $row['authenticator'], 0, $ctx);
