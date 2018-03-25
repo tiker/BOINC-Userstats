@@ -134,5 +134,6 @@
 	$text_info_noupdate = "Von diesem aktiven Projekt werden derzeit keine aktuellen Daten abgerufen! (project_status=0)";
 	$text_info_update_inprogress = "<b>Deine Projekte werden derzeit aktualisiert.</b> Dies kann bis zu 2 Minuten dauern (oder mehr). Startzeitpunkt: ";
 	$text_info_project_retired = "<b>Das Projekt ist in der Datenbank als beendet gekennzeichnet</b>";
+	$text_info_project_novalues = "<b>Von diesem Projekt stehen noch keine Daten in der Datenbank</b>. Bitte warte auf die Validierung deines ersten Arbeitspakets.";
 	$zero_pendings = "Alle weiteren Projekte haben keine Pendings oder exportieren diesen Wert nicht per Web-RPC";
 ?>

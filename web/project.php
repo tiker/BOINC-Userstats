@@ -104,6 +104,9 @@
 	#$start_time = $row['start_time'];
 	$status = $row['project_status'];
 	$minimum = $row['begin_credits'];
+	$project_total_credits = $row["total_credits"];
+
+	if ($project_total_credits > 0) {
 
 	$output_project_html = "";
 	$query_getProjectOutputPerHour = mysqli_query($db_conn,"SELECT time_stamp, credits FROM boinc_werte WHERE project_shortname = '" .$projectid. "'");
@@ -142,7 +145,8 @@
 	$zweih = mktime(date("H")-1, 0 + $timezoneoffset, 0, date("m"), date ("d"), date("Y"));
 	$sechsh = mktime(date("H")-5, 0 + $timezoneoffset, 0, date("m"), date ("d"), date("Y"));
 	$zwoelfh = mktime(date("H")-11, 0 + $timezoneoffset, 0, date("m"), date ("d"), date("Y"));
-	
+	}
+
 	$query_getProjetData = mysqli_query($db_conn,"SELECT * FROM boinc_grundwerte WHERE project_shortname = '$projectid'");
 	if ( !$query_getProjetData || mysqli_num_rows($query_getProjetData) === 0 ) { 
 		$connErrorTitle = "Datenbankfehler";
@@ -151,6 +155,7 @@
 		include "./errordocs/db_initial_err.php";
 		exit();
 	}
+	
 	while($row = mysqli_fetch_assoc($query_getProjetData)){
 
 		$shortname = $row["project_shortname"];
@@ -161,6 +166,9 @@
 		$table_row["pending_credits"] = $row["pending_credits"];
 		$table_row["project_home_link"] = $row["project_homepage_url"];
 		$table_row["user_stats_vorhanden"] = $row["project_status"];
+		$project_total_credits = $row["total_credits"];
+
+		if ($project_total_credits > 0) {
 		
 		$query_getProjectOutput1h = mysqli_query($db_conn,"SELECT sum(credits) AS sum1h FROM boinc_werte WHERE project_shortname = '" .$shortname. "' and time_stamp>'" .$einsh. "'");
 		if ( !$query_getProjectOutput1h || mysqli_num_rows($query_getProjectOutput1h) === 0 ) {
@@ -243,7 +251,10 @@
 		$table_row["proz_anteil"] = sprintf("%01.2f", $row["total_credits"] * 100 / $sum_total);
 		
 		$table[] = $table_row;
-	}
+	} else {
+		$novalues = true;
+	} 
+}
 ?>
 
 <?php
@@ -272,8 +283,16 @@
 ?>
 
 <?php 
-
-	if ($status == "2") {
+	if ($novalues) {
+		echo '
+		<div class = "alert danger-lastupdate" role = "alert">
+			<div class = "container">
+				' . $text_info_project_novalues .'
+			</div>
+		</div>
+		';		
+	}
+	elseif ($status == "2") {
 		echo '
 		<div class = "alert danger-lastupdate" role = "alert">
 			<div class = "container">

@@ -134,5 +134,6 @@
 	$text_info_noupdate = "No data will be fetched for this active project! (project_status=0)";
 	$text_info_update_inprogress = "<b>Update in progress.</b> This could take up to 2 minutes (or more). The update started at: ";
 	$text_info_project_retired = "<b>This project is marked as retired in your database</b>";
+	$text_info_project_novalues = "<b>This project do not have any data in the database. Please wait for validation of your first workunit.</b>";
 	$zero_pendings = "All other projects do not have any pending credits or the project does not export this value using WebRPC";
 ?>
