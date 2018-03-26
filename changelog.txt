@@ -7,9 +7,10 @@ Version 5.0.2:
 - Einbindung von Bootstrap 4 Release
 - Überschriften der Modals (Impressum etc.) werden nun an ihrer richtigen Position angezeigt.
   Zudem wurde das "Popup" etwas kleiner gestaltet und die Schrift entsprechend dem "Kleingedruckten" verkleinert.
-- Codeanpassungen
-- Es wurde ein Problem behoben, dass wenn ein Projekt neu hinzugefügt wurde, die Projekt-Details erst am Tag danach angezeigt wurden. Zudem erscheint bei neu hinzugefügten Projekten eine Info, falls noch keine validen Arbeitspakete abgeliefert wurden.
+- Es wurde ein Problem behoben, dass wenn ein Projekt neu hinzugefügt wurde, die Projekt-Details erst am Tag danach angezeigt wurden. 
+  Zudem erscheint bei neu hinzugefügten Projekten eine Info, falls noch keine validen Arbeitspakete abgeliefert wurden.
 - Pending Credits sind nicht mehr Bestanteil des BOINC-Server Projektes (depreciated) und werden in zukünftigen Versionen entfernt.
+- Codeanpassungen
 
 geänderte Dateien:
     - ./assets/css/userstats_layout.css
