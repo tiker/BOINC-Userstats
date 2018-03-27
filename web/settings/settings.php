@@ -17,7 +17,8 @@
 	// Derzeit noch keine Unterstützung für Sommerzeitregelung.	
 	// Your Timezone Shortname. Will be shown in the Infobar next to the last update dates.
 	// No support for Daylight Savings at the moment.
-	$timezone_shortname = "(MEZ)"; 
+	$timezone_shortname = "(Europe/Berlin)"; 
+	//$timezone_shortname = "(MEZ)"; 
 	//$timezone_shortname = "(MESZ)"; 
 
 	// Diese Variable bitte NICHT ändern, ansosten werden deine Werte falsch berechnet!
