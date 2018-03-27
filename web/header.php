@@ -63,6 +63,10 @@
 		<script src = "https://code.highcharts.com/stock/highstock.js"></script>
 		<script src = "https://code.highcharts.com/modules/exporting.js"></script>
 
+		<!--  Moment.js local -->
+		<script src = "./assets/js/moment/moment-with-locales.min.js"></script>
+		<script src = "./assets/js/moment/moment-timezone-with-data-2012-2022.js"></script>
+
 		<!-- Layout CSS for Userstats-->
 		<link rel = "stylesheet" href = "./assets/css/userstats_layout.css">
 		<link rel = "stylesheet" href = "./assets/css/userstats_style.css"> 

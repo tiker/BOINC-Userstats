@@ -244,8 +244,8 @@
 		exit();
 	}
 	while ($row = mysqli_fetch_assoc($query_getTotalOutputPerHour)) {
-		$timestamp = ($row["time_stamp"] + ($timezoneoffset*60)) * 1000;
-		$output_html .= "[" . $timestamp . ", " . $row["credits"] . "], ";
+			$timestamp = ($row["time_stamp"] - 3601) * 1000;
+			$output_html .= "[" . $timestamp . ", " . $row["credits"] . "], ";
 	}
 	$output_html = substr($output_html, 0, -2);
 
@@ -265,9 +265,9 @@
 		exit();
 	}
 	while ($row2 = mysqli_fetch_assoc($query_getTotalOutputPerDay)) {
-		$timestamp2 = ($row2["time_stamp"] - 1 + ($timezoneoffset*60)) * 1000;
-		$output_gesamt_html .= "[" . $timestamp2 . ", " . $row2["total_credits"] . "], ";
-		$output_gesamt_pendings_html .= "[" . $timestamp2 . ", " . $row2["pending_credits"] . "], ";
+			$timestamp2 = ($row2["time_stamp"] - 3601) * 1000;
+			$output_gesamt_html .= "[" . $timestamp2 . ", " . $row2["total_credits"] . "], ";
+			$output_gesamt_pendings_html .= "[" . $timestamp2 . ", " . $row2["pending_credits"] . "], ";
 	}
 	$output_gesamt_html = substr($output_gesamt_html, 0, -2);
 	$output_gesamt_pendings_html = substr($output_gesamt_pendings_html, 0, -2);
@@ -291,7 +291,7 @@
 		echo '
 		<div class = "alert warning-lastupdate" role = "alert">
 			<div class = "container">
-				' . $text_info_update_inprogress .  $lastupdate_start .' ' . $timezone_shortname . '
+				' . $text_info_update_inprogress .  $lastupdate_start .' (' . $timezone_name . ')
 			</div>
 		</div>
 		';
@@ -299,7 +299,7 @@
 		echo '
 		<div class = "alert info-lastupdate" role = "alert">
 			<div class = "container">
-				<b>' . $text_header_lu . ':</b> ' . $lastupdate_start . ' - ' . $lastupdate . ' ' . $timezone_shortname . '
+				<b>' . $text_header_lu . ':</b> ' . $lastupdate_start . ' - ' . $lastupdate . ' (' . $timezone_name . ')
 			</div>
 		</div>
 		';
