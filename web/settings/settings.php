@@ -13,10 +13,14 @@
 	// Deine Zeitzone  // Enter your timezone
 	date_default_timezone_set('Europe/Berlin');
 
-	// Deine Zeitzonenbezeichnung in Kurzform. Wird in der Infobar neben den Zeitangabe für das letzte Update angezeigt. 
-	// Derzeit noch keine Unterstützung für Sommerzeitregelung.	
-	// Your Timezone Shortname. Will be shown in the Infobar next to the last update dates.
-	// No support for Daylight Savings at the moment.
+	// Deine Zeitzonenbezeichnung. Wird in der Infobar neben den Zeitangabe für das letzte Update angezeigt. 
+	// Hiermit wird auch automatisch auf Sommer-/Winterzeit umgesetzt und die Zeitleiste in den Charts berechnet.
+	// Der Wert für timezone_name muss mit php interpretierbar sein.
+	// http://php.net/manual/timezones.php
+	// Your Timezone name. Will be shown in the Infobar next to the last update dates.
+	// This will automatically support Daylight Savings on the timeline of your Charts.
+	// This timezone_name has to be supported by php!
+	// http://php.net/manual/timezones.php
 	$timezone_name = "Europe/Berlin"; 
 
 	// Diese Variable bitte NICHT ändern, ansosten werden deine Werte falsch berechnet!
