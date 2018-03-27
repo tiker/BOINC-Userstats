@@ -107,6 +107,15 @@
 	?>
 
 	<script>
+			(function($) {
+				$(function() {
+				$(document).tooltip({ selector: '.ellipsis' });
+				$(document).popover({ selector: '.ellipsis' });
+				});
+			})(jQuery);
+		</script>
+
+	<script>
 		$('#table_computer').DataTable( {
 			fixedHeader: {
 				headerOffset: 56

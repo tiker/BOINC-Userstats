@@ -14,6 +14,7 @@ Version 5.0.2:
   Durch die Integration von moment.js erfolgt die Anzeige entsprechend der Voreingestellten Zeitzone (bislang bis zum Jahr 2022) incl. evtl. Zeitumstellungen nun automatisch.
   Ein manuelles Anpassen ist somit nicht erforderlich. Dazu muss die Zeitzone in der settings.php ($timezone_name) entsprechend der Zeitzone für "date_default_timezone_set" im Format Kontinent/Stadt gesetzt werden.
   Eine Liste möglicher Eintragungen ist hier zu finden: http://php.net/manual/timezones.php
+- Die Tooltips bei verkürzten Texten in der tasks.php wurden neu formatiert und die Verzögerung bis zur Darstellung minimiert.
 - Codeanpassungen
 
 geänderte Dateien:

@@ -177,3 +177,22 @@ table.dataTable thead .sorting::before, table.dataTable thead .sorting_asc::befo
 .modal-body {
 	font-size: 10pt;
 }
+
+
+/* Tooltip
+*****************/
+
+.tooltip-inner {
+	white-space: pre;
+	max-width: none;
+	background-color: #fff;
+	color: #000;
+	border: 1px solid rgba(14, 62, 124, 0.863);
+	border-left: 11px solid transparent;
+	border-right: 11px solid transparent;
+  }
+
+
+.tooltip-top > .tooltip-arrow {
+	color: 5px solid rgba(14, 62, 124, 0.863);
+}
