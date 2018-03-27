@@ -49,8 +49,8 @@
 	if (file_exists("./lang/" . $lang . ".txt.php")) include "./lang/" . $lang . ".txt.php";
 	else include "./lang/en.txt.php";
 
-	$lastupdate_start = date("d.m.Y H:i:s", $datum_start + $timezoneoffset*3600);
-	$lastupdate = date("H:i:s", $datum + $timezoneoffset*3600);
+	$lastupdate_start = date("d.m.Y H:i:s", $datum_start + $timezoneoffset*60);
+	$lastupdate = date("H:i:s", $datum + $timezoneoffset*60);
 	
 	$query_getTotalCredits = mysqli_query($db_conn, "SELECT SUM(total_credits) AS sum_total FROM boinc_grundwerte");
 	if ( !$query_getTotalCredits ) { 	
@@ -244,7 +244,7 @@
 		exit();
 	}
 	while ($row = mysqli_fetch_assoc($query_getTotalOutputPerHour)) {
-		$timestamp = ($row["time_stamp"] - 1 + $timezoneoffset) * 1000;
+		$timestamp = ($row["time_stamp"] + ($timezoneoffset*60)) * 1000;
 		$output_html .= "[" . $timestamp . ", " . $row["credits"] . "], ";
 	}
 	$output_html = substr($output_html, 0, -2);
@@ -265,7 +265,7 @@
 		exit();
 	}
 	while ($row2 = mysqli_fetch_assoc($query_getTotalOutputPerDay)) {
-		$timestamp2 = ($row2["time_stamp"] - 1 + $timezoneoffset) * 1000;
+		$timestamp2 = ($row2["time_stamp"] - 1 + ($timezoneoffset*60)) * 1000;
 		$output_gesamt_html .= "[" . $timestamp2 . ", " . $row2["total_credits"] . "], ";
 		$output_gesamt_pendings_html .= "[" . $timestamp2 . ", " . $row2["pending_credits"] . "], ";
 	}

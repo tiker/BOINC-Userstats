@@ -70,8 +70,8 @@
 		exit();
 	} 
 
-	$lastupdate_start = date("d.m.Y H:i:s", $datum_start + $timezoneoffset*3600);
-	$lastupdate = date("H:i:s", $datum + $timezoneoffset*3600);
+	$lastupdate_start = date("d.m.Y H:i:s", $datum_start + $timezoneoffset*60);
+	$lastupdate = date("H:i:s", $datum + $timezoneoffset*60);
 
 	$query_getTotalCredits = mysqli_query($db_conn, "SELECT SUM(total_credits) AS sum_total FROM boinc_grundwerte");
 	if ( !$query_getTotalCredits ) { 	
@@ -118,7 +118,7 @@
 		exit();
 	}
 	while($row = mysqli_fetch_assoc($query_getProjectOutputPerHour)){
-		$timestamp = ($row["time_stamp"] - 1) * 1000;
+		$timestamp = ($row["time_stamp"] + ($timezoneoffset*60)) * 1000;
 		$output_project_html.= "[(" .$timestamp. "), " .$row["credits"]. "], ";	
 	}
 	$output_project_html = substr($output_project_html,0,-2);
@@ -134,7 +134,7 @@
 		exit();
 	} */
 	while($row = mysqli_fetch_assoc($query_getProjectOutputPerDay)){
-		$timestamp1 = ($row["time_stamp"] - 1) * 1000;
+		$timestamp1 = ($row["time_stamp"] - 1 + ($timezoneoffset*60)) * 1000;
 		$output_project_gesamt_html.= "[(" .$timestamp1. "), " .$row["total_credits"]. "], ";	
 		$output_project_gesamt_pendings_html.= "[(" .$timestamp1. "), " .$row["pending_credits"]. "], ";
 	}
