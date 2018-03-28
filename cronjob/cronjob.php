@@ -1,4 +1,7 @@
 <?php
+	// Hier den absoluten Pfad zur DB-Verbindungsdatei boinc_db_connect.php eintragen
+	// Set the absolute path to your boinc_db_connect.php file
+	include "/absolute/path/to/boinc_db_connect.php";
 
 	// Setze hier den Zeitpunkt von Mitternacht. 
 	// Dies wird für die Berechnung der Werte für die Gesamt- und Pending Credits eines Tages in deiner Zeitzone benötigt, welche in den Gesamt-Charts dargestellt wird
@@ -14,12 +17,13 @@
 	// http://php.net/manual/timezones.php
 	$my_timezone = "Europe/Berlin"; 
 
+
+	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	//====================================================================================================================================
 	// Ab HIER NICHTS MEHR ÄNDERN !!!!
 	// Do NOT CHANGE ANYTHING AFTER !!!!
 	date_default_timezone_set($my_timezone);
 
-
-	include "/absolute/path/to/boinc_db_connect.php";
 
 	if( !ini_get('safe_mode') ){ 
 		set_time_limit(120); 
@@ -47,8 +51,8 @@
 		)
 	);
 
-	//Diese Zeitzoneneinstellung NICHT verändern
-	//do NOT change this timezone setting
+	//Diese Zeitzoneneinstellung NICHT verändern, auch wenn deine Stats in einer anderen Zeitzone angezeigt werden sollen!!
+	//DO NOT change this timezone setting, even if your stats should be displayed in a different timezone !! 
 	date_default_timezone_set('UTC'); 
 	$unixtime = time();
 	$timestamp_hour = ceil($unixtime/3600) * 3600;
