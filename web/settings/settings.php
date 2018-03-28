@@ -9,10 +9,6 @@
 	error_reporting(E_ALL);
 	ini_set ('display_errors', 'Off'); // für Testumgebung auf 'On' setzen - set to 'On' for test environment
 
-	// Zeitzonen Einstellungen  // Timezone Settings
-	// Deine Zeitzone  // Enter your timezone
-	date_default_timezone_set('Europe/Berlin');
-
 	// Deine Zeitzonenbezeichnung. Wird in der Infobar neben den Zeitangabe für das letzte Update angezeigt. 
 	// Hiermit wird auch automatisch auf Sommer-/Winterzeit umgesetzt und die Zeitleiste in den Charts berechnet.
 	// Der Wert für timezone_name muss mit php interpretierbar sein.
@@ -21,8 +17,12 @@
 	// This will automatically support Daylight Savings on the timeline of your Charts.
 	// This timezone_name has to be supported by php!
 	// http://php.net/manual/timezones.php
-	$timezone_name = "Europe/Berlin"; 
+	$my_timezone = "Europe/Berlin"; // Format "Kontinent/Stadt"
 
+	// Zeitzonen Einstellungen  // Timezone Settings
+	// Deine Zeitzone  // Enter your timezone
+	date_default_timezone_set($my_timezone);
+	
 	// Diese Variable bitte NICHT ändern, ansosten werden deine Werte falsch berechnet!
 	// Do NOT change the this option, otherwise your data will be calculated wrong!
 	$useUTCHighchartsOption = "true"; // default = "true"
@@ -159,5 +159,9 @@
 	// 1 für Projekte ab 1% Gesamtanteil
 	// 0 für alle Projekte
 	$separat = 0.9;
+
+	// Nur für Testzwecke in der Entwicklung erfoderlich
+	// Only for testing in development
+	$timezoneoffset = 0; // DO NOT CHANGE!!!
 
 ?>

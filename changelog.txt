@@ -12,15 +12,17 @@ Version 5.0.2:
 - Pending Credits sind nicht mehr Bestanteil des BOINC-Server Projektes (depreciated) und werden in zukünftigen Versionen entfernt.
 - es wurde ein Problem mit der Umstellung Sommer-/Winterzeit behoben (Daylight Savings).
   Durch die Integration von moment.js erfolgt die Anzeige entsprechend der Voreingestellten Zeitzone (bislang bis zum Jahr 2022) incl. evtl. Zeitumstellungen nun automatisch.
-  Ein manuelles Anpassen ist somit nicht erforderlich. Dazu muss die Zeitzone in der settings.php ($timezone_name) entsprechend der Zeitzone für "date_default_timezone_set" im Format Kontinent/Stadt gesetzt werden.
+  Ein manuelles Anpassen ist somit nicht erforderlich. Dazu muss die Zeitzone in der settings.php ($my_timezone) im Format Kontinent/Stadt (z.B. Europe/Berlin) gesetzt werden.
   Eine Liste möglicher Eintragungen ist hier zu finden: http://php.net/manual/timezones.php
 - Die Tooltips bei verkürzten Texten in der tasks.php wurden neu formatiert und die Verzögerung bis zur Darstellung minimiert.
 - Codeanpassungen
 
-geänderte Dateien:
+geänderte bzw. neu hinzugefügte Dateien:
     - ../changelog.txt
     - ../cronjob/cronjob.php
     - ./assets/css/userstats_layout.css
+    - ./assets/css/userstats_style.css
+    - ./assets/js/highcharts/global_settings.php
     - ./assets/js/moment/moment-timezone-with-data-2012-2022.js (neu)
     - ./assets/js/moment/moment-with-locales.min.js (neu)
     - ./lang/de.txt.php

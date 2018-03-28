@@ -312,7 +312,7 @@
 		echo '
 		<div class = "alert warning-lastupdate" role = "alert">
 			<div class = "container">
-				' . $text_info_update_inprogress .  $lastupdate_start .' (' . $timezone_name . ')
+				' . $text_info_update_inprogress .  $lastupdate_start .' (' . $my_timezone . ')
 			</div>
 		</div>
 		';
@@ -320,7 +320,7 @@
 		echo '
 		<div class = "alert info-lastupdate" role = "alert">
 			<div class = "container">
-				<b>' . $text_header_lu . ':</b> ' . $lastupdate_start . ' - ' . $lastupdate . ' (' . $timezone_name . ')
+				<b>' . $text_header_lu . ':</b> ' . $lastupdate_start . ' - ' . $lastupdate . ' (' . $my_timezone . ')
 			</div>
 		</div>
 		';

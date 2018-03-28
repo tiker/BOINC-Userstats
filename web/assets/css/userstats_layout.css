@@ -124,6 +124,7 @@ table.dataTable thead .sorting::before, table.dataTable thead .sorting_asc::befo
 	max-width: 200px;
 }
 
+
 /* Progress Bar 
 *****************/
 
@@ -191,7 +192,6 @@ table.dataTable thead .sorting::before, table.dataTable thead .sorting_asc::befo
 	border-left: 11px solid transparent;
 	border-right: 11px solid transparent;
   }
-
 
 .tooltip-top > .tooltip-arrow {
 	color: 5px solid rgba(14, 62, 124, 0.863);

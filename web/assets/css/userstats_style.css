@@ -94,6 +94,7 @@
 	color: rgb(179, 60, 18);
 }
 
+
 /* Farben von Alerts */
 
 .info-lastupdate {
@@ -136,6 +137,7 @@
 	color: rgb(107, 16, 16);
 }
 
+
 /* Navbar */
 
 .navbar-userstats {
@@ -146,6 +148,7 @@
 .navbar-userstats .nav-link:hover {
 color: rgb(0, 0, 0);
 }
+
 
 /* Nav-Tabs */
 

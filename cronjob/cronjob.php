@@ -1,10 +1,23 @@
 <?php
-	// Set your midnight here. 
-	// This is used for setting daylie total and pending credits to the values of midnight for your timezone for the total charts
-	// ----------------------------------------------
+
 	// Setze hier den Zeitpunkt von Mitternacht. 
 	// Dies wird für die Berechnung der Werte für die Gesamt- und Pending Credits eines Tages in deiner Zeitzone benötigt, welche in den Gesamt-Charts dargestellt wird
-	date_default_timezone_set('Europe/Berlin');
+	// Deine Zeitzonenbezeichnung. Wird in der Infobar neben den Zeitangabe für das letzte Update angezeigt. 
+	// Hiermit wird auch automatisch auf Sommer-/Winterzeit umgesetzt und die Zeitleiste in den Charts berechnet.
+	// Der Wert für timezone_name muss mit php interpretierbar sein.
+	// http://php.net/manual/timezones.php
+	// Set your midnight here. 
+	// This is used for setting daylie total and pending credits to the values of midnight for your timezone for the total charts
+	// Your Timezone name. Will be shown in the Infobar next to the last update dates.
+	// This will automatically support Daylight Savings on the timeline of your Charts.
+	// This timezone_name has to be supported by php!
+	// http://php.net/manual/timezones.php
+	$my_timezone = "Europe/Berlin"; 
+
+	// Ab HIER NICHTS MEHR ÄNDERN !!!!
+	// Do NOT CHANGE ANYTHING AFTER !!!!
+	date_default_timezone_set($my_timezone);
+
 
 	include "/absolute/path/to/boinc_db_connect.php";
 
@@ -34,8 +47,8 @@
 		)
 	);
 
-	//do NOT change this timezone setting
 	//Diese Zeitzoneneinstellung NICHT verändern
+	//do NOT change this timezone setting
 	date_default_timezone_set('UTC'); 
 	$unixtime = time();
 	$timestamp_hour = ceil($unixtime/3600) * 3600;
@@ -86,10 +99,10 @@
 		mysqli_query($db_conn,$sql);
 		
 		if ($isMidnight) {
-			// Pending Credits are depreciated and will be removed in future Releases
-			// automatic update of pending credits only on midnight. manual update can be done by using pendings.php
 			// Pending Credits sind nicht mehr Bestandteil des BOINC-Servers und wird mit zukünftigen Releases entfernt
 			// Die Pending Credits werden automatisiert nur einmal um Mitternacht aktualisiert. Ein manuelles Update kann jederzeit über die pendings.php erfolgen
+			// Pending Credits are depreciated and will be removed in future Releases
+			// automatic update of pending credits only on midnight. manual update can be done by using pendings.php
 			$xml_string_pendings = false;
 			$xml_string_pendings = @file_get_contents ($row['url'] . "pending.php?format=xml&authenticator=" . $row['authenticator'], 0, $ctx);
 			if ($xml_string_pendings == false) {
