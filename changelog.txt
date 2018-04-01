@@ -15,6 +15,7 @@ Version 5.0.2:
   Ein manuelles Anpassen ist somit nicht erforderlich. Dazu muss die Zeitzone in der settings.php ($my_timezone) im Format Kontinent/Stadt (z.B. Europe/Berlin) gesetzt werden.
   Eine Liste möglicher Eintragungen ist hier zu finden: http://php.net/manual/timezones.php
 - Die Tooltips bei verkürzten Texten in der tasks.php wurden neu formatiert und die Verzögerung bis zur Darstellung minimiert.
+- Die Farbe für die Punkte vom Vortag wurde von blau auf gelb geändert
 - Codeanpassungen
 
 geänderte bzw. neu hinzugefügte Dateien:

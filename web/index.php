@@ -339,7 +339,7 @@
 							<b><?php echo number_format($sum12h_total, 0, $dec_point, $thousands_sep) ?></b></th>
 							<th class = "dunkelgruen textgruen d-none d-sm-table-cell align-middle">
 							<b><?php echo number_format($sum_today_total, 0, $dec_point, $thousands_sep) ?></b></th>
-							<th class = "dunkelblau textblau d-none d-sm-table-cell align-middle">
+							<th class = "dunkelgelb textgelb d-none d-sm-table-cell align-middle">
 							<b><?php echo number_format($sum_yesterday_total, 0, $dec_point, $thousands_sep) ?></b></th>
 							<th class = "dunkelrot textrot d-none d-md-table-cell align-middle">
 							<b><?php echo number_format($sum_pendings, 0, $dec_point, $thousands_sep) ?></b></th>
@@ -354,7 +354,7 @@
 							<th class = "dunkelgrau textgrau d-none d-lg-table-cell align-middle"><?php echo $tr_tb_06; ?></th>
 							<th class = "dunkelgrau textgrau d-none d-lg-table-cell align-middle"><?php echo $tr_tb_12; ?></th>
 							<th class = "dunkelgruen textgruen d-none d-sm-table-cell align-middle"><?php echo $tr_tb_to; ?></th>
-							<th class = "dunkelblau textblau d-none d-sm-table-cell align-middle"><?php echo $tr_tb_ye; ?></th>
+							<th class = "dunkelgelb textgelb d-none d-sm-table-cell align-middle"><?php echo $tr_tb_ye; ?></th>
 							<th class = "dunkelrot textrot d-none d-md-table-cell align-middle"><?php echo $tr_tb_pe; ?></th>
 						</tr>
 					</thead>
@@ -397,9 +397,9 @@
 										} else
 											echo "  <td class = 'gruen textgruen d-none d-sm-table-cell align-middle'>-</td>";
 										if ($table_row["sum_yesterday"] != "") {
-											echo "  <td class = 'blau textblau d-none d-sm-table-cell align-middle'><b>" . number_format($table_row["sum_yesterday"], 0, $dec_point, $thousands_sep) . "</b></td>";
+											echo "  <td class = 'gelb textgelb d-none d-sm-table-cell align-middle'><b>" . number_format($table_row["sum_yesterday"], 0, $dec_point, $thousands_sep) . "</b></td>";
 										} else
-											echo "  <td class = 'blau textblau d-none d-sm-table-cell align-middle'>-</td>";
+											echo "  <td class = 'gelb textgelb d-none d-sm-table-cell align-middle'>-</td>";
 										if ($table_row["pending_credits"] >> "0") {
 											echo "  <td class = 'rot textrot d-none d-md-table-cell align-middle'><b>" . number_format($table_row["pending_credits"], 0, $dec_point, $thousands_sep) . "</b></td>";
 										} else
