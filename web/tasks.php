@@ -112,13 +112,13 @@
 	?>
 
 	<script>
-			(function($) {
-				$(function() {
-				$(document).tooltip({ selector: '.ellipsis' });
-				$(document).popover({ selector: '.ellipsis' });
-				});
-			})(jQuery);
-		</script>
+		(function($) {
+			$(function() {
+			$(document).tooltip({ selector: '.ellipsis' });
+			$(document).popover({ selector: '.ellipsis' });
+			});
+		})(jQuery);
+	</script>
 
 	<script>
 		$('#table_computer').DataTable( {
@@ -140,40 +140,38 @@
 
 	<script>
 		$(document).ready(function() {
-
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
-					if (this.readyState == 4 && this.status == 200) {
-						document.getElementById("boincTasks").innerHTML =
-							this.responseText;
-						$('#table_tasks').DataTable( {
-							fixedHeader: {
-								headerOffset: 56
-							},
-							language: {
-								decimal: "<?php echo $dec_point; ?>",
-								thousands: "<?php echo $thousands_sep; ?>",
-								search:	"<?php echo $text_search; ?>"
-							},
-							columnDefs: [ {
-								targets: [3,4,7],
-								render: $.fn.dataTable.render.ellipsis(11, true, false)
-							},{
-								targets: [0,1],
-								render: $.fn.dataTable.render.ellipsis(20, true)
-							},{
-								targets: [2],
-								render: $.fn.dataTable.render.ellipsis(15, true)
-							} ],
-							order: [[ 9, "asc" ],[ 0, "asc" ]],
-							paging: false,
-							info: false
-						} );
-					}
-				};
-				xhttp.open("GET", "<?php echo $linkUploadFileBoinctasks; ?>", true);
-				xhttp.send(); 
-
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("boincTasks").innerHTML =
+						this.responseText;
+					$('#table_tasks').DataTable( {
+						fixedHeader: {
+							headerOffset: 56
+						},
+						language: {
+							decimal: "<?php echo $dec_point; ?>",
+							thousands: "<?php echo $thousands_sep; ?>",
+							search:	"<?php echo $text_search; ?>"
+						},
+						columnDefs: [ {
+							targets: [3,4,7],
+							render: $.fn.dataTable.render.ellipsis(11, true, false)
+						},{
+							targets: [0,1],
+							render: $.fn.dataTable.render.ellipsis(20, true)
+						},{
+							targets: [2],
+							render: $.fn.dataTable.render.ellipsis(15, true)
+						} ],
+						order: [[ 9, "asc" ],[ 0, "asc" ]],
+						paging: false,
+						info: false
+					} );
+				}
+			};
+			xhttp.open("GET", "<?php echo $linkUploadFileBoinctasks; ?>", true);
+			xhttp.send(); 
 		} );
 	</script>
 

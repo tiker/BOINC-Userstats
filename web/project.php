@@ -453,33 +453,34 @@
 			$(document).on('click','#wcgdetails-tab',function(){
 				var xhttp = new XMLHttpRequest();
 				xhttp.onreadystatechange = function() {
-						if (this.readyState == 4 && this.status == 200) {
-							document.getElementById("wcgdetails").innerHTML =
-								this.responseText;
-								$('#table_wcgteams, #table_wcg').DataTable( {
-									fixedHeader: {
-												headerOffset: 56
-											},
-									language: {
-										decimal: "<?php echo $dec_point; ?>",
-										thousands: "<?php echo $thousands_sep; ?>",
-										search:	"<?php echo $text_search; ?>"
-									},
-									columnDefs: [ {
-										targets: 'no-sort',
-										orderable: false,
-									}],
-									order: [[ 1, "asc" ],[ 0, "asc" ]],
-									paging: false,
-									info: false,
-									searching: false
-								} );
-						}
-					};
-					xhttp.open("GET", "./ajax_wcg_detail.php", true);
-					xhttp.send(); 
+					if (this.readyState == 4 && this.status == 200) {
+						document.getElementById("wcgdetails").innerHTML =
+							this.responseText;
+							$('#table_wcgteams, #table_wcg').DataTable( {
+								fixedHeader: {
+											headerOffset: 56
+										},
+								language: {
+									decimal: "<?php echo $dec_point; ?>",
+									thousands: "<?php echo $thousands_sep; ?>",
+									search:	"<?php echo $text_search; ?>"
+								},
+								columnDefs: [ {
+									targets: 'no-sort',
+									orderable: false,
+								}],
+								order: [[ 1, "asc" ],[ 0, "asc" ]],
+								paging: false,
+								info: false,
+								searching: false
+							} );
+					}
+				};
+				xhttp.open("GET", "./ajax_wcg_detail.php", true);
+				xhttp.send(); 
 			} );
 		</script>
+		
 		<script>
 			$(document).ready(function() {
 				$('#table_project').DataTable( {

@@ -29,6 +29,7 @@ geänderte bzw. neu hinzugefügte Dateien:
     - ./lang/de.txt.php
     - ./lang/en.txt.php
     - ./settings/settings.php
+    - ajax_pendings.php
     - ajax_wcg_detail.php
     - check_update.php (neu)
     - error.php

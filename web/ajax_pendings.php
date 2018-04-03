@@ -25,7 +25,7 @@
 	else include "./lang/en.txt.php";
 ?>
 
-<div class = "alert info-lastupdate" role = "alert">
+	<div class = "alert info-lastupdate" role = "alert">
 		<div class = "container">
 			<b><?php echo $tr_hp_pendings_02; ?></b>
 		</div>
@@ -100,4 +100,3 @@
 			</div>
 		</div>			
 	</div>
-

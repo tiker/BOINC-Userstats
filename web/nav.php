@@ -19,6 +19,7 @@
 			$didVersionEdit = true;
 		}
 	};
+	
 ?>
 
 <nav class = "navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-userstats">

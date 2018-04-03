@@ -163,5 +163,4 @@
 	// Nur für Testzwecke in der Entwicklung erfoderlich
 	// Only for testing in development
 	$timezoneoffset = 0; // DO NOT CHANGE!!!
-
 ?>
