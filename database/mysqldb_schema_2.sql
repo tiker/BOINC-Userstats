@@ -2,8 +2,8 @@
 -- Create databases for local badge support
 
 -- List of known badges issued by projects:
--- "BadgeGUID" = GUID value (unique identifier) for the badge and image file .png
--- "InternalProjectID" = internal short name for the project badge is associated with
+-- "badgeid" = GUID value (unique identifier) for the badge and image file .png
+-- "internal_projectid" = internal short name for the project badge is associated with
 -- "own" = True / False value indicating if we've received this badge or not
 CREATE TABLE IF NOT EXISTS `project_badges` (
 	`badgeid` varchar(36) NOT NULL,
