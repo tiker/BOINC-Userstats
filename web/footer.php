@@ -1,5 +1,5 @@
 			<footer class = "footer bg-dark">
-				<div class = text-light">
+				<div class = "text-light">
 						<div class = "row">
 							<div class = "col-12 col-md-6 mx-auto texthellgrau text-center align-self-center">
 							Diese Seite verwendet <a href = "https://www.highcharts.com"><i class = "fa fa-copyright"></i> Highcharts</a><br>
@@ -29,8 +29,8 @@
 							Angaben gemäß § 5 TMG:<br>
 							<br>
 							<u>Kontakt:</u><br>
-							<?php echo $hp_username; ?><br>
-							<strong>E-Mail: </strong><?php echo $hp_email; ?>
+							<?=$hp_username; ?><br>
+							<strong>E-Mail: </strong><?=$hp_email; ?>
 						</div>
 						<div class = "modal-footer">
 							<button type = "button" class = "btn btn-default btn-simple" data-dismiss = "modal">OK</button>

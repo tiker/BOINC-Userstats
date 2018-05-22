@@ -12,6 +12,7 @@
 	$sum12h_total = 0;
 	$sum_today_total = 0;
 	$sum_yesterday_total = 0;
+	$novalues = false;
 
 	$query_getUserData = mysqli_query($db_conn,"SELECT * FROM boinc_user");
 	if ( !$query_getUserData || mysqli_num_rows($query_getUserData) === 0 ) { 
@@ -110,7 +111,8 @@
 
 	$output_project_html = "";
 	$query_getProjectOutputPerHour = mysqli_query($db_conn,"SELECT time_stamp, credits FROM boinc_werte WHERE project_shortname = '" .$projectid. "'");
-	if ( !$query_getProjectOutputPerHour || mysqli_num_rows($query_getProjectOutputPerHour) === 0 ) { 
+	if ( !$query_getProjectOutputPerHour ) { 
+#	if ( !$query_getProjectOutputPerHour || mysqli_num_rows($query_getProjectOutputPerHour) === 0 ) { 
 		$connErrorTitle = "Datenbankfehler";
 		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
 								Es bestehen wohl Probleme mit der Datenbankanbindung.";
@@ -126,13 +128,14 @@
 	$output_project_gesamt_pendings_html = "";
 	$output_project_gesamt_html = "";
 	$query_getProjectOutputPerDay = mysqli_query($db_conn,"SELECT time_stamp, total_credits, pending_credits FROM boinc_werte_day WHERE project_shortname = '" .$projectid. "'");
-/*	if ( !$query_getProjectOutputPerDay || mysqli_num_rows($query_getProjectOutputPerDay) === 0 ) { 
-		$connErrorTitle = "Datenbankfehler";
-		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
-								Es bestehen wohl Probleme mit der Datenbankanbindung.";
-		include "./errordocs/db_initial_err.php";
-		exit();
-	} */
+#	if ( !$query_getProjectOutputPerDay) { 
+#	if ( !$query_getProjectOutputPerDay || mysqli_num_rows($query_getProjectOutputPerDay) === 0 ) { 
+#		$connErrorTitle = "Datenbankfehler";
+#		$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
+#								Es bestehen wohl Probleme mit der Datenbankanbindung.";
+#		include "./errordocs/db_initial_err.php";
+#		exit();
+#	} 
 	while($row = mysqli_fetch_assoc($query_getProjectOutputPerDay)){
 		$timestamp1 = ($row["time_stamp"] - 3601) * 1000;
 		$output_project_gesamt_html.= "[(" .$timestamp1. "), " .$row["total_credits"]. "], ";	
@@ -171,7 +174,8 @@
 		if ($project_total_credits > 0) {
 		
 		$query_getProjectOutput1h = mysqli_query($db_conn,"SELECT sum(credits) AS sum1h FROM boinc_werte WHERE project_shortname = '" .$shortname. "' and time_stamp>'" .$einsh. "'");
-		if ( !$query_getProjectOutput1h || mysqli_num_rows($query_getProjectOutput1h) === 0 ) {
+		if ( !$query_getProjectOutput1h ) {
+#		if ( !$query_getProjectOutput1h || mysqli_num_rows($query_getProjectOutput1h) === 0 ) {
 			$connErrorTitle = "Datenbankfehler";
 			$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
 									Es bestehen wohl Probleme mit der Datenbankanbindung.";
@@ -183,7 +187,8 @@
 		$sum1h_total += $table_row["sum1h"];
 		
 		$query_getProjectOutput2h = mysqli_query($db_conn,"SELECT sum(credits) AS sum2h FROM boinc_werte WHERE project_shortname = '" .$shortname. "' and time_stamp>'" .$zweih. "'");
-		if ( !$query_getProjectOutput2h || mysqli_num_rows($query_getProjectOutput2h) === 0 ) { 
+		if ( !$query_getProjectOutput2h ) { 
+#		if ( !$query_getProjectOutput2h || mysqli_num_rows($query_getProjectOutput2h) === 0 ) { 
 			$connErrorTitle = "Datenbankfehler";
 			$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
 									Es bestehen wohl Probleme mit der Datenbankanbindung.";
@@ -195,7 +200,8 @@
 		$sum2h_total += $table_row["sum2h"];
 		
 		$query_getProjectOutput6h = mysqli_query($db_conn,"SELECT sum(credits) AS sum6h FROM boinc_werte WHERE project_shortname = '" .$shortname. "' and time_stamp>'" .$sechsh. "'");
-		if ( !$query_getProjectOutput6h || mysqli_num_rows($query_getProjectOutput6h) === 0 ) { 
+		if ( !$query_getProjectOutput6h ) { 
+#		if ( !$query_getProjectOutput6h || mysqli_num_rows($query_getProjectOutput6h) === 0 ) { 
 			$connErrorTitle = "Datenbankfehler";
 			$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
 									Es bestehen wohl Probleme mit der Datenbankanbindung.";
@@ -207,7 +213,8 @@
 		$sum6h_total += $table_row["sum6h"];
 		
 		$query_getProjectOutput12h = mysqli_query($db_conn,"SELECT sum(credits) AS sum12h FROM boinc_werte WHERE project_shortname = '" .$shortname. "' and time_stamp>'" .$zwoelfh. "'");
-		if ( !$query_getProjectOutput12h || mysqli_num_rows($query_getProjectOutput12h) === 0 ) { 
+		if ( !$query_getProjectOutput12h ) { 
+#		if ( !$query_getProjectOutput12h || mysqli_num_rows($query_getProjectOutput12h) === 0 ) { 
 			$connErrorTitle = "Datenbankfehler";
 			$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
 									Es bestehen wohl Probleme mit der Datenbankanbindung.";
@@ -221,7 +228,8 @@
 		$tagesanfang = mktime(1, 0 + $timezoneoffset, 0, date("m"), date ("d"), date("Y"));
 		
 		$query_getProjectOutputToday = mysqli_query($db_conn,"SELECT sum(credits) AS sum_today FROM boinc_werte WHERE project_shortname = '" .$shortname. "' and time_stamp > '" .$tagesanfang. "'");
-		if ( !$query_getProjectOutputToday || mysqli_num_rows($query_getProjectOutputToday) === 0 ) { 
+		if ( !$query_getProjectOutputToday ) { 
+#		if ( !$query_getProjectOutputToday || mysqli_num_rows($query_getProjectOutputToday) === 0 ) { 
 			$connErrorTitle = "Datenbankfehler";
 			$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
 									Es bestehen wohl Probleme mit der Datenbankanbindung.";
@@ -236,7 +244,8 @@
 		$gestern_ende = mktime(2, 0 + $timezoneoffset, 0, date("m"), date("d"), date("Y"));
 
 		$query_getProjectOutputYesterday = mysqli_query($db_conn,"SELECT sum(credits) AS sum_yesterday FROM boinc_werte WHERE project_shortname = '" .$shortname. "' AND time_stamp > '" .$gestern_anfang. "' AND time_stamp < '" .$gestern_ende. "'");
-		if ( !$query_getProjectOutputYesterday || mysqli_num_rows($query_getProjectOutputYesterday) === 0 ) { 
+		if ( !$query_getProjectOutputYesterday ) { 
+#		if ( !$query_getProjectOutputYesterday || mysqli_num_rows($query_getProjectOutputYesterday) === 0 ) { 
 			$connErrorTitle = "Datenbankfehler";
 			$connErrorDescription = "Es wurden keine Werte zurückgegeben.</br>
 									Es bestehen wohl Probleme mit der Datenbankanbindung.";
@@ -277,65 +286,51 @@
 	include("./assets/js/highcharts/output_project.js");
 	include("./assets/js/highcharts/output_project_hour.js");
 	include("./assets/js/highcharts/output_project_day.js");
+	include("./assets/js/highcharts/output_project_day_inline.js");
 	include("./assets/js/highcharts/output_project_week.js");
 	include("./assets/js/highcharts/output_project_month.js");
 	include("./assets/js/highcharts/output_project_year.js"); 
 ?>
 
-<?php 
-	if ($novalues) {
-		echo '
+<?php if ($novalues): ?>
 		<div class = "alert danger-lastupdate" role = "alert">
 			<div class = "container">
-				' . $text_info_project_novalues .'
+				<?=$text_info_project_novalues?>
 			</div>
 		</div>
-		';		
-	}
-	elseif ($status == "2") {
-		echo '
+
+<?php elseif ($status == "2"): ?>
 		<div class = "alert danger-lastupdate" role = "alert">
 			<div class = "container">
-				' . $text_info_project_retired .'
+				<?=$text_info_project_retired?>
 			</div>
 		</div>
-		';	
-	} elseif ($status == "0") {
-		echo '
+<?php elseif ($status == "0"): ?>
 		<div class = "alert warning-lastupdate" role = "alert">
 			<div class = "container">
-				' . $text_info_noupdate. '
+				<?=$text_info_noupdate?>
 			</div>
 		</div>
-		';
-	} elseif ($datum < $datum_start) {
-		echo '
+<?php elseif ($datum < $datum_start): ?>
 		<div class = "alert warning-lastupdate" role = "alert">
 			<div class = "container">
-				' . $text_info_update_inprogress .  $lastupdate_start .' (' . $my_timezone . ')
+				<?=$text_info_update_inprogress?><?=$lastupdate_start?><font size="1">(<?=$my_timezone?>)</font>
 			</div>
 		</div>
-		';
-	} else {
-		echo '
+<?php else: ?>
 		<div class = "alert info-lastupdate" role = "alert">
 			<div class = "container">
-				<b>' . $text_header_lu . ':</b> ' . $lastupdate_start . ' - ' . $lastupdate . ' (' . $my_timezone . ')
+				<b><?=$text_header_lu?></b>: <?=$lastupdate_start?> - <?=$lastupdate?> <font size="1">(<?=$my_timezone?>)</font>
 			</div>
 		</div>
-		';
-	}
-?>
+<?php endif; ?>
 
 		<nav>
 			<div class = "nav nav-tabs nav-space justify-content-center nav-tabs-userstats">
 				<a class = "nav-item nav-link active" id = "projekte-tab" data-toggle = "tab" href = "#projekte" role = "tab" aria-controls = "projekte" aria-selected = "true"><i class = "fa fa-table"></i> <?php echo "$tabs_project" ?></a>
-				<?php
-					if ($showWCGDetails) { echo '
-							<a class = "nav-item nav-link" id = "wcgdetails-tab" data-toggle = "tab" href = "#wcgdetails" role = "tab" aria-controls = "wcgdetails" aria-selected = "false"><i class = "fa fa-table"></i> Details</a>
-					';
-					}
-				?>
+			<?php if ($showWCGDetails): ?>
+				<a class = "nav-item nav-link" id = "wcgdetails-tab" data-toggle = "tab" href = "#wcgdetails" role = "tab" aria-controls = "wcgdetails" aria-selected = "false"><i class = "fa fa-table"></i> Details</a>
+			<?php endif; ?>
 				<a class = "nav-item nav-link" id = "gesamt-tab" data-toggle = "tab" href = "#gesamt" role = "tab" aria-controls = "gesamt" aria-selected = "false"><i class = "fa fa-area-chart"></i> <?php echo "$tabs_total" ?></a>
 				<a class = "nav-item nav-link" id = "stunde-tab" data-toggle = "tab" href = "#stunde" role = "tab" aria-controls = "stunde" aria-selected = "false"><i class = "fa fa-bar-chart"></i> <?php echo "$tabs_hour" ?></a>
 				<a class = "nav-item nav-link" id = "tag-tab" data-toggle = "tab" href = "#tag" role = "tab" aria-controls = "tag" aria-selected = "false"><i class = "fa fa-bar-chart"></i> <?php echo "$tabs_day" ?></a>
@@ -350,59 +345,50 @@
 
 			<div id = "projekte" class = "tab-pane fade show active" role = "tabpanel" aria-labelledby = "projekte-tab">
 				<br>
-				<table id = "table_project" class = "table table-sm table-striped table-hover table-responsive-xs table-200" width = "100%">	
-					<thead>
-						<tr>
-							<th class = "dunkelgrau textgrau text-center align-middle"><?php echo "$project_project" ?></th>
-							<th class = "dunkelgrau textgrau text-center align-middle"><?php echo "$tr_tb_cr" ?></th>
-							<th class = "dunkelgrau textgrau d-none d-sm-table-cell text-center align-middle">%</th>
-							<th class = "dunkelgrau textgrau d-none d-sm-table-cell text-center align-middle"><?php echo "$tr_tb_01" ?></th>
-							<th class = "dunkelgrau textgrau d-none d-lg-table-cell text-center align-middle"><?php echo "$tr_tb_02" ?></th>
-							<th class = "dunkelgrau textgrau d-none d-lg-table-cell text-center align-middle"><?php echo "$tr_tb_06" ?></th>
-							<th class = "dunkelgrau textgrau d-none d-md-table-cell text-center align-middle"><?php echo "$tr_tb_12" ?></th>
-							<th class = "dunkelgruen textgruen d-none d-sm-table-cell text-center align-middle"><?php echo $tr_tb_to; ?></th>
-							<th class = "dunkelgelb textgelb d-none d-sm-table-cell text-center align-middle"><?php echo $tr_tb_ye; ?></th>
-							<th class = "dunkelrot textrot d-none d-md-table-cell text-center align-middle"><?php echo $tr_tb_pe; ?></th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php
-							foreach($table as $table_row){
-								echo "<tr>";
-								if ($table_row["project_status"]=== "1") { echo "
-										<td class = 'text-center align-middle'><a href = '" .$table_row["project_home_link"] . "'>" .$table_row["project_name"] . "</a>";
-								} else { echo "
-										<td class = 'text-center align-middle'>" .$table_row["project_name"] . "</td>";
-								};
-								echo "	<td class = 'text-center align-middle'>" .number_format($table_row["total_credits"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'd-none d-sm-table-cell text-center align-middle'>" . $table_row["proz_anteil"] . "</td>
-										<td class = 'd-none d-sm-table-cell text-center align-middle'>" .number_format($table_row["sum1h"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'd-none d-lg-table-cell text-center align-middle'>" .number_format($table_row["sum2h"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'd-none d-lg-table-cell text-center align-middle'>" .number_format($table_row["sum6h"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'd-none d-md-table-cell text-center align-middle'>" .number_format($table_row["sum12h"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'gruen textgruen d-none d-sm-table-cell text-center align-middle'>" .number_format($table_row["sum_today"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'gelb textgelb d-none d-sm-table-cell text-center align-middle'>" .number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep). "</td>
-										<td class = 'rot textrot d-none d-md-table-cell text-center align-middle'>" .number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep). "</td>
-									</tr>";
-							}
-						?>
-					</tbody>
-				</table>
-			</div>
+				<div class="container flex-column align-items-start">
+					<div class="d-flex w-100 mb-3">
 
-			<?php
-			if ($showWCGDetails) { echo '
+					<?php foreach($table as $table_row): ?>
+					<div class = "row w-100">
+						<div class="col-sm-12 col-lg-8 mb-1 text-left">
+								<?php if ($table_row["project_status"]=== "1"): ?>
+										<h1><a href = '<?=$table_row["project_home_link"] ?>'><?=$table_row["project_name"] ?></a></h1>
+								<?php else: ?>
+										<?=$table_row["project_name"] ?>
+								<?php endif; ?>
+								<div class = "d-none d-lg-flex" id = "output_project_day_inline" style = "height:200px;">
+								</div>
+						</div>
+						<div class="col-sm-12 col-lg-4 mb-1 text-right">
+										<h1><?=number_format($table_row["total_credits"],0,$dec_point,$thousands_sep) ?></h1>
+										<div class = "text-sm"><?=$table_row["proz_anteil"] ?><?=$text_proz_anteil?></div>
+										<div class = "h3 textgruen"><font size = "1">heute:</font> <?=number_format($table_row["sum_today"],0,$dec_point,$thousands_sep) ?></div>
+										<div class = "text-sm text-muted"><font size = "1">-1h:</font> <?=number_format($table_row["sum1h"],0,$dec_point,$thousands_sep) ?></div>
+										<div class = "text-sm text-muted"><font size = "1">-2h:</font> <?=number_format($table_row["sum2h"],0,$dec_point,$thousands_sep) ?></div>
+										<div class = "text-sm text-muted"><font size = "1">-6h:</font> <?=number_format($table_row["sum6h"],0,$dec_point,$thousands_sep) ?></div>
+										<div class = "text-sm text-muted"><font size = "1">-12h:</font> <?=number_format($table_row["sum12h"],0,$dec_point,$thousands_sep) ?></div>
+										<div class = "h4 textgelb"><font size = "1">gestern:</font> <?=number_format($table_row["sum_yesterday"],0,$dec_point,$thousands_sep) ?></div>
+										<div class = "text-sm textrot"><font size = "1">Pendings:</font> <?=number_format($table_row["pending_credits"],0,$dec_point,$thousands_sep) ?></div>
+						</div>
+					</div>
+					<?php endforeach; ?>				
+				</div>
+			</div>
+		</div>
+
+		<?php
+		if ($showWCGDetails): ?>
 			<div id = "wcgdetails" class = "tab-pane fade" role = "tabpanel" aria-labelledby = "wcgdetails-tab">
 				<div class = "container">
 					<div class = "row justify-content-md-center">
-						' . $tr_hp_loadProjectDetails . '
+						<?=$tr_hp_loadProjectDetails ?>
 					</div>
 					<div class = "row justify-content-md-center">
 						<i class = "fa fa-spinner fa-pulse fa-2x fa-fw"></i> 
 					</div>
 				</div>
-			</div>'; }
-			?>
+			</div>
+		<?php endif; ?>
 
 			<div id = "gesamt" class = "tab-pane fade" role = "tabpanel" aria-labelledby = "gesamt-tab">
 				<div id = "output_project"></div>
@@ -428,25 +414,25 @@
 				<div id = "output_project_year"></div>
 			</div>
 
-
 			<div id = "badges" class = "tab-pane fade text-center" role = "tabpanel" aria-labelledby = "badges-tab">
 				<div>
 					<br>
-					<?php
-						if (!$showUserBadges AND !$showWcgLogo AND !$showSgWcgBadges) echo $no_badge ."<br>";
-						if ($showUserBadges) {
-							echo '<img src = "' . $linkUserBadges . '" class = "img-fluid center-block"><br>';
-						};
-						if ($showWcgLogo) {
-							echo '<img src = "' . $linkWcgSig . '" class = "img-fluid center-block"><br>';
-						};
-						if ($showSgWcgBadges) {
-							echo '<img src = "' . $linkSgWcgBadges . '" class = "img-fluid center-block"><br>';
-						};
-					?>
+					<?php if (!$showUserBadges AND !$showWcgLogo AND !$showSgWcgBadges): ?>
+						<?=$no_badge ?><br>
+					<?php endif; ?>
+					<?php if ($showUserBadges): ?>
+						<img src = "<?=$linkUserBadges ?>" class = "img-fluid center-block"><br>
+					<?php endif; ?>
+					<?php if ($showWcgLogo): ?>
+						<img src = "<?=$linkWcgSig ?>" class = "img-fluid center-block"><br>
+					<?php endif; ?>
+					<?php if ($showSgWcgBadges): ?>
+						<img src = "<?=$linkSgWcgBadges ?>" class = "img-fluid center-block"><br>
+					<?php endif; ?>
 					<br>
 				</div>
 			</div>				
+
 		</div>
 
 		<script>
