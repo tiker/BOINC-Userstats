@@ -1,5 +1,8 @@
-Version 5.0.2: 
+Version 5.1.0: 
 ==============
+- Das Error-Management für neue Nutzer der BOINC-Userstats wurde verbessert (Issue #21)
+  Sofern noch keine Änderungen an den Credits bei den Projekten vorhanden waren, wurde lediglich der Header und Footer angezeigt.
+  Nun sollte die Tabelle angezeigt werden und ein Hinweis in den Charts erfolgen, wenn noch keine Daten zum Anzeigen vorhanden sind.
 - Integration einer Update-Prüfung
   Diese ist standardmäßig deaktiviert. Zum Aktivieren dieses Features muss in der ./settings/settings.php die Variable $setUpdatecheck auf true gesetzt werden.
   Auch bei deaktivierter Option kann jederzeit über den Aufruf der check_update.php im Browser eine Prüfung erfolgen.
@@ -9,14 +12,19 @@ Version 5.0.2:
   Zudem wurde das "Popup" etwas kleiner gestaltet und die Schrift entsprechend dem "Kleingedruckten" verkleinert.
 - Es wurde ein Problem behoben, dass wenn ein Projekt neu hinzugefügt wurde, die Projekt-Details erst am Tag danach angezeigt wurden. 
   Zudem erscheint bei neu hinzugefügten Projekten eine Info, falls noch keine validen Arbeitspakete abgeliefert wurden.
-- Pending Credits sind nicht mehr Bestanteil des BOINC-Server Projektes (depreciated) und werden in zukünftigen Versionen entfernt.
 - es wurde ein Problem mit der Umstellung Sommer-/Winterzeit behoben (Daylight Savings).
   Durch die Integration von moment.js erfolgt die Anzeige entsprechend der Voreingestellten Zeitzone (bislang bis zum Jahr 2022) incl. evtl. Zeitumstellungen nun automatisch.
   Ein manuelles Anpassen ist somit nicht erforderlich. Dazu muss die Zeitzone in der settings.php ($my_timezone) im Format Kontinent/Stadt (z.B. Europe/Berlin) gesetzt werden.
   Eine Liste möglicher Eintragungen ist hier zu finden: http://php.net/manual/timezones.php
 - Die Tooltips bei verkürzten Texten in der tasks.php wurden neu formatiert und die Verzögerung bis zur Darstellung minimiert.
 - Die Farbe für die Punkte vom Vortag wurde von blau auf gelb geändert
+- Die Verlinkung zu den Detail-Statistiken und zur Projekt-Homepage wurden ausgetauscht.
+  Der Link über dem Projektnamen führt nun zu den Detail-Statistiken. Für die Projekt-Homepage wurde ein Haus gebaut.
+- Die Projekt-Detail-Ansicht fühlte sich altmodisch und hat einen neuen Haarschnitt erhalten. Sie fühlt sich in ihrem neuen Look nun wesentlich wohler.
 - Codeanpassungen
+
+Hinweis: 
+- Pending Credits sind nicht mehr Bestanteil des BOINC-Server Projektes (depreciated) und werden in zukünftigen Versionen entfernt.
 
 geänderte bzw. neu hinzugefügte Dateien:
     - ../changelog.txt
@@ -24,6 +32,7 @@ geänderte bzw. neu hinzugefügte Dateien:
     - ./assets/css/userstats_layout.css
     - ./assets/css/userstats_style.css
     - ./assets/js/highcharts/global_settings.php
+    - ./assets/js/highcharts/output_project_day_inline.js (neu)
     - ./assets/js/moment/moment-timezone-with-data-2012-2022.js (neu)
     - ./assets/js/moment/moment-with-locales.min.js (neu)
     - ./lang/de.txt.php
