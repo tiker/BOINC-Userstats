@@ -184,10 +184,11 @@
 		// Clean up time
 
 		$sQuery = "INSERT INTO project_data (badge_lastupdate, uuid) ";
-		$sQuery = $sQuery . "VALUES (" . $iCurrentTime . ", unhex(replace('" . $sProjectID . "','-','')), true) ";
+		$sQuery = $sQuery . "VALUES (" . $iCurrentTime . ", unhex(replace('" . $sProjectID . "','-',''))) ";
 		$sQuery = $sQuery . "ON DUPLICATE KEY UPDATE badge_lastupdate=" . $iCurrentTime . ";";
 		mysqli_query($db_conn,$sQuery);
 		
 		return true;
 	}
+
 ?>
